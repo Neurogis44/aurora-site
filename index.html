@@ -223,12 +223,12 @@
       <span class="en">Aurora watches your computer live: <b>temperatures, fans, drives, network and in-game FPS</b>, in a window that looks like what it measures. Free, no account, and it sends nothing anywhere.</span>
     </p>
     <div class="cta">
-      <a class="button" href="mailto:contact@auroraapp.ca?subject=Aurora">
-        <span class="fr">Me prévenir de la sortie</span><span class="en">Tell me when it's out</span>
+      <a class="button" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/latest">
+        <span class="fr">Télécharger pour Windows</span><span class="en">Download for Windows</span>
       </a>
       <span class="meta">
-        <span class="fr">Version <b>0.15.0</b> · bientôt · Windows 10 et 11, 64 bits</span>
-        <span class="en">Version <b>0.15.0</b> · coming soon · Windows 10 and 11, 64-bit</span>
+        <span class="fr">Version <b>0.15.0</b> · 8,6 Mo · signée · Windows 10 et 11, 64 bits</span>
+        <span class="en">Version <b>0.15.0</b> · 8.6 MB · signed · Windows 10 and 11, 64-bit</span>
       </span>
     </div>
     <div class="facts">
@@ -421,35 +421,45 @@
 
   <section>
     <div class="panel">
-      <div class="tag"><span class="fr">BIENTÔT</span><span class="en">COMING SOON</span></div>
-      <h2><span class="fr">Pourquoi elle n'est pas encore téléchargeable</span><span class="en">Why you can't download it yet</span></h2>
+      <div class="tag"><span class="fr">INSTALLATION</span><span class="en">INSTALLATION</span></div>
+      <h2><span class="fr">Ce qui va se passer, sans surprise</span><span class="en">What will happen, no surprises</span></h2>
       <p class="soon">
-        <span class="fr"><strong>Aurora est terminée et tourne tous les jours.</strong> Ce qu'elle attend, c'est sa <strong>signature électronique</strong> : le sceau qui dit à Windows d'où vient un programme et qu'il n'a pas été trafiqué en chemin.</span>
-        <span class="en"><strong>Aurora is finished and runs every day.</strong> What it is waiting for is its <strong>digital signature</strong>: the seal that tells Windows where a program comes from and that it was not tampered with along the way.</span>
+        <span class="fr"><strong>Aurora est signée électroniquement.</strong> Windows sait d'où vient le fichier et te préviendra si quelqu'un le modifie en chemin. Tu verras le nom de l'auteur, <strong>Denis Desbiens</strong>, avant même d'installer.</span>
+        <span class="en"><strong>Aurora is digitally signed.</strong> Windows knows where the file comes from and will warn you if anyone alters it along the way. You will see the author's name, <strong>Denis Desbiens</strong>, before you even install.</span>
       </p>
-      <p>
-        <span class="fr">Sans elle, Windows affiche « Windows a protégé votre ordinateur » à l'installation. Et sur un Windows 11 installé neuf, « Contrôle d'application intelligent » refuse carrément d'ouvrir le fichier, sans proposer de contourner — la seule échappatoire étant de couper une protection que Microsoft ne permet pas de rallumer ensuite.</span>
-        <span class="en">Without it, Windows shows “Windows protected your PC” during installation. And on a clean Windows 11 install, Smart App Control flatly refuses to open the file, with no way around it — the only escape being to turn off a protection that Microsoft does not let you turn back on.</span>
-      </p>
-      <p>
-        <span class="fr">Demander ça à quelqu'un pour essayer un moniteur de température, c'est trop. La sortie attend donc la signature, qui est en cours. Rien d'autre ne manque.</span>
-        <span class="en">Asking that of someone just to try a temperature monitor is too much. So the release waits for the signature, which is under way. Nothing else is missing.</span>
-      </p>
+      <ol class="steps">
+        <li><p>
+          <span class="fr">Télécharge le fichier et ouvre-le. Ton navigateur ne devrait pas rechigner.</span>
+          <span class="en">Download the file and open it. Your browser should not object.</span>
+        </p></li>
+        <li><p>
+          <span class="fr">Windows demande les droits administrateur — Aurora en a besoin pour lire les capteurs de température, il n'y a pas d'autre façon. La fenêtre affiche « Éditeur vérifié : Denis Desbiens ».</span>
+          <span class="en">Windows asks for administrator rights — Aurora needs them to read the temperature sensors, there is no other way. The window shows “Verified publisher: Denis Desbiens”.</span>
+        </p></li>
+        <li><p>
+          <span class="fr">L'installation ajoute Microsoft .NET 10 et le pilote PawnIO s'ils manquent. Ça peut prendre quelques minutes, barre de progression figée : c'est normal.</span>
+          <span class="en">The installation adds Microsoft .NET 10 and the PawnIO driver if they are missing. That can take a few minutes with the progress bar frozen: this is normal.</span>
+        </p></li>
+      </ol>
       <div class="note">
-        <h3><span class="fr">Ce qui changera</span><span class="en">What will change</span></h3>
+        <h3><span class="fr">Si Windows t'avertit quand même</span><span class="en">If Windows warns you anyway</span></h3>
         <p>
-          <span class="fr">Le fichier s'ouvrira normalement, sans avertissement. Tu verras le nom de l'auteur avant d'installer, et Windows te préviendra si quelqu'un modifie le fichier après coup. L'installation demandera les droits administrateur et ajoutera Microsoft .NET 10 et le pilote PawnIO s'ils manquent : c'est tout.</span>
-          <span class="en">The file will open normally, with no warning. You will see the author's name before installing, and Windows will warn you if anyone alters the file afterwards. The installation will ask for administrator rights and add Microsoft .NET 10 and the PawnIO driver if they are missing: that is all.</span>
+          <span class="fr">Windows regarde aussi la <em>réputation</em> d'un fichier : combien de gens l'ont déjà installé sans ennui. Aurora vient de sortir, alors les premiers à l'essayer verront peut-être encore un avertissement. Clique « Informations complémentaires » : le nom de l'auteur y est. Cette réputation s'accumule toute seule.</span>
+          <span class="en">Windows also looks at a file's <em>reputation</em>: how many people have installed it without trouble. Aurora has just come out, so the first people to try it may still see a warning. Click “More info”: the author's name is right there. That reputation builds up on its own.</span>
         </p>
       </div>
+      <p>
+        <span class="fr">Tu peux vérifier le fichier toi-même : clic droit → Propriétés → onglet « Signatures numériques ». Ou compare son empreinte, dans PowerShell : <code>Get-FileHash .\Aurora-Setup-0.15.0.exe -Algorithm SHA256</code></span>
+        <span class="en">You can check the file yourself: right-click → Properties → “Digital Signatures” tab. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-0.15.0.exe -Algorithm SHA256</code></span>
+      </p>
+      <code class="hash">7905D0773146BE983AC74231E164698515E4982FE6D8F4A2E854F891C43F9B17</code>
       <div class="cta">
-        <a class="button" href="mailto:contact@auroraapp.ca?subject=Aurora">
-          <span class="fr">Me prévenir de la sortie</span><span class="en">Tell me when it's out</span>
+        <a class="button" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/latest">
+          <span class="fr">Télécharger Aurora 0.15.0</span><span class="en">Download Aurora 0.15.0</span>
         </a>
-        <span class="meta">
-          <span class="fr">Un courriel, une seule fois, quand ce sera prêt.</span>
-          <span class="en">One email, once, when it is ready.</span>
-        </span>
+        <a class="button quiet" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">
+          <span class="fr">Toutes les versions</span><span class="en">All versions</span>
+        </a>
       </div>
     </div>
   </section>
@@ -496,8 +506,8 @@
       <span class="en">Aurora is a personal project, offered as is, with no warranty and no support. It was put together on a handful of PCs only: on very different hardware, it may show fewer things.</span>
     </p>
     <p>
-      <span class="fr">Version 0.15.0 · disponible dès qu'elle sera signée</span>
-      <span class="en">Version 0.15.0 · available as soon as it is signed</span>
+      <span class="fr">Version 0.15.0 · <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Téléchargements et notes de version</a></span>
+      <span class="en">Version 0.15.0 · <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a></span>
     </p>
     <p>
       <span class="fr">Un bogue, une carte mère qu'Aurora lit mal, une idée ? Écris à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Dis ce que tu vois et sur quel matériel ; s'il y a eu un plantage, le fichier <code>%APPDATA%\Aurora\crash.log</code> aide beaucoup.</span>
