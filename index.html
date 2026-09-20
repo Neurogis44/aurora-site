@@ -404,6 +404,10 @@
         <span class="fr">Elle demande deux choses à Internet, et seulement deux : une fois par jour, le numéro de la dernière version ; et le test de vitesse, quand tu cliques dessus. Les deux se coupent.</span>
         <span class="en">It asks the Internet two things, and only two: once a day, the latest version number; and the speed test, when you click it. Both can be turned off.</span>
       </p>
+      <p>
+        <span class="fr">Cette page-ci, par contre, compte ses visiteurs — combien de personnes viennent et depuis quel site. C'est fait par Cloudflare, sans cookie et sans rien qui identifie personne, et ça sert uniquement à savoir si quelqu'un entend parler d'Aurora. L'application, elle, ne sait rien de tout ça.</span>
+        <span class="en">This page, on the other hand, counts its visitors — how many people come and from which site. Cloudflare does it, with no cookies and nothing that identifies anyone, and it only serves to tell whether anyone is hearing about Aurora. The app itself knows nothing about any of it.</span>
+      </p>
     </div>
     <div class="panel">
       <div class="tag"><span class="fr">CONFIGURATION</span><span class="en">REQUIREMENTS</span></div>
@@ -546,6 +550,13 @@
     boutons.en.addEventListener('click', function () { appliquer('en'); });
   })();
 </script>
+
+<!-- Compteur de visites de Cloudflare : pas de cookie, pas de profil, rien qui identifie personne.
+     Il n'est pas injecté automatiquement (les enregistrements DNS sont en « DNS only », obligatoire
+     pour le certificat de GitHub Pages), d'où ce script posé à la main.
+     À reporter si la page est regénérée depuis l'artefact Claude, qui ne le contient pas. -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "2b2e9afa214040b4842912487d06564f"}'></script>
 
 </body>
 </html>
