@@ -148,6 +148,42 @@
   .meta { color: var(--dim); font-size: 15px; }
   .meta b { font-family: Teko, sans-serif; font-size: 20px; font-weight: 600; color: var(--ink); letter-spacing: .5px; }
 
+  /* Ko-fi dans la barre : présent sans crier, le cœur suffit à le faire remarquer. */
+  .kofi {
+    display: inline-flex; align-items: center; gap: 7px; text-decoration: none; white-space: nowrap;
+    font: 600 13px/1 Rajdhani, sans-serif; letter-spacing: .6px; color: var(--ink);
+    padding: 7px 13px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--panel-edge);
+  }
+  .kofi:hover { box-shadow: inset 0 0 0 1px var(--accent); }
+  .kofi svg { width: 14px; height: 14px; fill: var(--accent); flex: none; }
+  /* Sur un téléphone, la barre doit loger le logo, le cœur et les deux langues : on resserre tout. */
+  @media (max-width: 560px) {
+    .kofi span { display: none; }
+    .kofi { padding: 7px 9px; }
+    .bar { gap: 9px; padding-inline: 12px; }
+    .switch button { padding: 7px 9px; }
+  }
+
+  /* Les captures s'agrandissent au clic : elles sont pleines de petits chiffres qu'on veut lire. */
+  figure img, .shot img { cursor: zoom-in; }
+  figure img:focus-visible, .shot img:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .loupe {
+    position: fixed; inset: 0; z-index: 50; display: none; place-items: center;
+    padding: clamp(12px, 3vw, 40px); background: rgba(0, 0, 0, .93); cursor: zoom-out;
+  }
+  .loupe[open] { display: grid; }
+  .loupe img { max-width: 100%; max-height: 100%; width: auto; height: auto; border: 1px solid var(--panel-edge); }
+  .loupe .fermer {
+    position: absolute; top: 14px; right: 16px; width: 40px; height: 40px; cursor: pointer;
+    background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .35); border-radius: 50%;
+    font: 600 20px/1 "Chakra Petch", sans-serif;
+  }
+  .loupe .fermer:hover { border-color: var(--accent); color: var(--accent); }
+  .loupe .legende {
+    position: absolute; bottom: 16px; left: 0; right: 0; text-align: center;
+    color: #b9c0c9; font-size: 14px; padding-inline: 20px;
+  }
+
   .facts { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--dim); font-size: 15px; letter-spacing: .3px; }
   .facts span::before { content: "◆"; color: var(--accent); margin-right: 7px; font-size: 10px; vertical-align: 2px; }
 
@@ -208,6 +244,10 @@
   </div>
   <div class="name">AURORA</div>
   <div class="sp"></div>
+  <a class="kofi" href="https://ko-fi.com/auroraapp" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9A5.4 5.4 0 0 1 12 6.3 5.4 5.4 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9z"/></svg>
+    <span class="fr">Offrir un café</span><span class="en">Buy a coffee</span>
+  </a>
   <div class="switch" role="group" aria-label="Langue / Language">
     <button id="btn-fr" type="button" aria-pressed="true">FRANÇAIS</button>
     <button id="btn-en" type="button" aria-pressed="false">ENGLISH</button>
@@ -265,13 +305,13 @@
       <div><dt><span class="fr">Disques</span><span class="en">Drives</span></dt>
         <dd><span class="fr">santé SMART, vitesses, température, espace, To écrits</span><span class="en">SMART health, speeds, temperature, space, TB written</span></dd></div>
       <div><dt><span class="fr">Mémoire</span><span class="en">Memory</span></dt>
-        <dd><span class="fr">utilisation, et les barrettes que le BIOS décrit</span><span class="en">usage, and the sticks your BIOS describes</span></dd></div>
+        <dd><span class="fr">utilisation, courbe des dernières minutes, et les barrettes que le BIOS décrit</span><span class="en">usage, a graph of the last few minutes, and the sticks your BIOS describes</span></dd></div>
       <div><dt><span class="fr">Réseau</span><span class="en">Network</span></dt>
         <dd><span class="fr">débits en direct, et un test de vitesse à la demande</span><span class="en">live throughput, and a speed test on demand</span></dd></div>
       <div><dt><span class="fr">Jeux</span><span class="en">Games</span></dt>
         <dd><span class="fr">FPS, 1 % bas, temps d'image, résumé de la partie</span><span class="en">FPS, 1 % low, frame time, session summary</span></dd></div>
       <div><dt><span class="fr">Alimentation</span><span class="en">Power</span></dt>
-        <dd><span class="fr">le mode de Windows, changé tout seul si tu veux</span><span class="en">the Windows plan, switched for you if you like</span></dd></div>
+        <dd><span class="fr">la consommation du PC en watts, et le mode de Windows, changé tout seul si tu veux</span><span class="en">the PC's draw in watts, and the Windows plan, switched for you if you like</span></dd></div>
     </dl>
   </section>
 
@@ -358,6 +398,28 @@
         <span class="en">Sharing is <strong>off by default</strong>. Once on, it is read-only: the only remote command possible is the music, and that can be unticked.</span>
       </p>
       <figure><img src="img/mespc.webp" width="1200" height="576" alt="L'onglet Mes PC : le partage de ce PC, la liste des PC trouvés sur le réseau et le panneau du code QR pour le téléphone."></figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <div class="tag"><span class="fr">APPAREILS DU RÉSEAU</span><span class="en">NETWORK DEVICES</span></div>
+      <h2><span class="fr">Sais-tu ce qui est branché chez toi ?</span><span class="en">Do you know what is plugged in at your place?</span></h2>
+      <p>
+        <span class="fr">Un bouton dans la carte Réseau ouvre la liste de ce qui vit sur ton réseau : adresse, nom, et le fabricant deviné d'après l'adresse matérielle. C'est souvent là qu'on découvre que sa télé, son écran ou son thermostat sont connectés depuis des mois.</span>
+        <span class="en">A button on the Network card opens the list of what lives on your network: address, name, and the maker guessed from the hardware address. This is often where you find out your TV, your monitor or your thermostat have been connected for months.</span>
+      </p>
+      <p>
+        <span class="fr">Aurora <strong>n'envoie rien sur ton réseau</strong> : elle lit ce que Windows connaît déjà. Et les 13 042 préfixes de fabricants voyagent dans l'application, pour n'avoir rien à demander à Internet.</span>
+        <span class="en">Aurora <strong>sends nothing over your network</strong>: it reads what Windows already knows. And the 13,042 manufacturer prefixes travel inside the application, so there is nothing to ask the Internet.</span>
+      </p>
+      <figure class="shot">
+        <img src="img/appareils.webp" width="736" height="612" alt="La fenêtre Appareils du réseau : adresse, nom, fabricant et adresse matérielle de chaque appareil, avec son état en ligne.">
+        <figcaption>
+          <span class="fr">Un appareil sans nom qui s'invente une adresse, c'est un téléphone récent : il fait exprès, pour ne pas être suivi d'un réseau à l'autre.</span>
+          <span class="en">A nameless device with a made-up address is a recent phone: it does that on purpose, so it cannot be followed from one network to the next.</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -561,6 +623,52 @@
      À reporter si la page est regénérée depuis l'artefact Claude, qui ne le contient pas. -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token": "2b2e9afa214040b4842912487d06564f"}'></script>
+
+<div class="loupe" id="loupe" role="dialog" aria-modal="true" aria-label="Image agrandie / Enlarged image">
+  <button class="fermer" type="button" id="loupe-fermer" aria-label="Fermer / Close">&times;</button>
+  <img id="loupe-image" alt="">
+  <div class="legende" id="loupe-legende"></div>
+</div>
+
+<script>
+  // Cliquer une capture l'agrandit : elles sont pleines de petits chiffres qu'on veut pouvoir lire.
+  (function () {
+    var loupe = document.getElementById('loupe');
+    var image = document.getElementById('loupe-image');
+    var legende = document.getElementById('loupe-legende');
+    var revenir = null;
+
+    function ouvrir(source) {
+      image.src = source.currentSrc || source.src;
+      image.alt = source.alt || '';
+      legende.textContent = source.alt || '';
+      loupe.setAttribute('open', '');
+      document.body.style.overflow = 'hidden';
+      revenir = source;
+      document.getElementById('loupe-fermer').focus();
+    }
+
+    function fermer() {
+      loupe.removeAttribute('open');
+      document.body.style.overflow = '';
+      // L'image reste chargée : la vider ferait clignoter à la réouverture.
+      if (revenir) { revenir.focus(); revenir = null; }
+    }
+
+    document.querySelectorAll('figure img, .shot img').forEach(function (img) {
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+      img.addEventListener('click', function () { ouvrir(img); });
+      img.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); ouvrir(img); }
+      });
+    });
+    loupe.addEventListener('click', fermer);
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && loupe.hasAttribute('open')) { fermer(); }
+    });
+  })();
+</script>
 
 </body>
 </html>
