@@ -18,6 +18,7 @@
   [hidden] { display: none !important; }
 </style>
 <title>Aurora Moniteur Matériel</title>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 1.5 32.29 9.75 32.29 26.25 18 34.5 3.71 26.25 3.71 9.75Z" fill="%23131417" stroke="%23ff2340" stroke-width="2"/><path d="M7.9 18L9.2 15.7 10.4 13.7 11.7 12.3 13 11.9 14.2 12.3 15.5 13.7 16.7 15.7 18 18 19.3 20.3 20.5 22.3 21.8 23.7 23 24.1 24.3 23.7 25.6 22.3 26.8 20.3 28.1 18" stroke="%23e6e9ee" stroke-width="3.5"/><path d="M7.9 18L9.2 15.7 10.4 13.7 11.7 12.3 13 11.9 14.2 12.3 15.5 13.7 16.7 15.7 18 18" stroke="%23ff2340" stroke-width="3.5"/></svg>'>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600&family=Teko:wght@500;600&display=swap">
 <style>
   /* Palette sombre : le thème « Carbone » d'Aurora. Palette claire : son thème « Clair ». */
@@ -99,8 +100,8 @@
   }
   .bar .name { font-family: "Chakra Petch", sans-serif; font-weight: 700; letter-spacing: 1.4px; font-size: 18px; }
   .bar .sp { flex: 1; }
-  .glyph { width: 30px; height: 30px; display: grid; place-items: center; border: 2px solid var(--accent); border-radius: 7px; flex: none; }
-  .glyph svg { width: 19px; height: 19px; }
+  .glyph { width: 32px; height: 32px; flex: none; }
+  .glyph svg { width: 32px; height: 32px; }
 
   .switch { display: flex; border: 1px solid var(--panel-edge); border-radius: 999px; overflow: hidden; }
   .switch button {
@@ -238,8 +239,10 @@
 <body>
 <div class="bar">
   <div class="glyph">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="color: var(--accent)" aria-hidden="true">
-      <path d="M2 13c2.5 0 3-6 5.5-6S10 17 12.5 17 15 7 17.5 7 20 13 22 13"/>
+    <svg viewBox="0 0 36 36" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 1.5 32.29 9.75 32.29 26.25 18 34.5 3.71 26.25 3.71 9.75Z" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
+      <path d="M7.9 18L9.2 15.7 10.4 13.7 11.7 12.3 13 11.9 14.2 12.3 15.5 13.7 16.7 15.7 18 18 19.3 20.3 20.5 22.3 21.8 23.7 23 24.1 24.3 23.7 25.6 22.3 26.8 20.3 28.1 18" stroke="var(--ink)" stroke-width="3.5"/>
+      <path d="M7.9 18L9.2 15.7 10.4 13.7 11.7 12.3 13 11.9 14.2 12.3 15.5 13.7 16.7 15.7 18 18" stroke="var(--accent)" stroke-width="3.5"/>
     </svg>
   </div>
   <div class="name">AURORA</div>
