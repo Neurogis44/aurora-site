@@ -3,676 +3,1080 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Aurora surveille ton PC en direct : températures, ventilateurs, disques, réseau et FPS en jeu. Gratuite, sans compte, pour Windows 10 et 11.">
-<meta name="theme-color" content="#0a0a0b">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aurora — moniteur matériel pour Windows">
-<meta property="og:description" content="Températures, ventilateurs, disques, réseau et FPS en jeu, en direct. Gratuite, sans compte, sans publicité.">
-<meta property="og:image" content="img/carbone.webp">
-<meta name="twitter:card" content="summary_large_image">
-<style>
-  :root { color-scheme: light dark; }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; }
-  img { max-width: 100%; }
-  [hidden] { display: none !important; }
-</style>
 <title>Aurora Moniteur Matériel</title>
+<meta name="description" content="Aurora surveille ton PC en direct et te dit en mots simples s'il va bien : températures, ventilateurs, disques, réseau, FPS en jeu, bilan de santé et machine à remonter le temps. Gratuite, sans compte, pour Windows 10 et 11.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aurora 1.0 — moniteur matériel pour Windows">
+<meta property="og:description" content="Températures, ventilateurs, disques, FPS en jeu, bilan de santé et machine à remonter le temps, en direct. Gratuite, sans compte, sans publicité.">
+<meta property="og:image" content="https://auroraapp.ca/img/v1/partage.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="any">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600&family=Teko:wght@500;600&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600&display=swap">
+<script>document.documentElement.classList.add('js');</script>
 <style>
-  /* Palette sombre : le thème « Carbone » d'Aurora. Palette claire : son thème « Clair ». */
+  /* Carbone, le thème d'origine d'Aurora : fibre de carbone, rouge vif, coins coupés. */
   :root {
-    --ground: #fbfdff;
-    --panel: #ffffff;
-    --panel-edge: #d5e2ee;
-    --rail: #e8eff6;
-    --accent: #1b6feb;
-    --accent-soft: rgba(27, 111, 235, .12);
-    --on-accent: #ffffff;
-    --ink: #12202c;
-    --dim: #5b6f80;
-    --ember: #b8690a;
-    --green: #17794a;
-    --shadow: drop-shadow(0 10px 22px rgba(18, 32, 44, .10));
-    --grain: rgba(27, 111, 235, .05);
-    color-scheme: light dark;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ground: #0a0a0b;
-      --panel: #16181c;
-      --panel-edge: #2c2f35;
-      --rail: #212429;
-      --accent: #ff2340;
-      --accent-soft: rgba(255, 35, 64, .14);
-      --on-accent: #ffffff;
-      --ink: #e6e9ee;
-      --dim: #8b929c;
-      --ember: #ffb020;
-      --green: #3ddc84;
-      --shadow: drop-shadow(0 14px 32px rgba(0, 0, 0, .55));
-      --grain: rgba(230, 233, 238, .035);
-    }
-  }
-  :root[data-theme="dark"] {
-    --ground: #0a0a0b;
-    --panel: #16181c;
-    --panel-edge: #2c2f35;
-    --rail: #212429;
+    --ground: #09090b;
+    --panel: #141619;
+    --panel-2: #1a1d22;
+    --edge: #272a31;
+    --edge-2: #383d46;
     --accent: #ff2340;
-    --accent-soft: rgba(255, 35, 64, .14);
-    --on-accent: #ffffff;
-    --ink: #e6e9ee;
-    --dim: #8b929c;
-    --ember: #ffb020;
+    --accent-hi: #ff5468;
+    --accent-soft: rgba(255, 35, 64, .13);
+    --ink: #f2f4f7;
+    --text: #c3c8d0;
+    --dim: #868d97;
+    --warm: #ffb020;
     --green: #3ddc84;
-    --shadow: drop-shadow(0 14px 32px rgba(0, 0, 0, .55));
-    --grain: rgba(230, 233, 238, .035);
+    --theme: #ff2340;
+    color-scheme: dark;
   }
-
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  html, body { margin: 0; }
   body {
-    margin: 0;
     background:
-      linear-gradient(var(--grain) 1px, transparent 1px) 0 0 / 34px 34px,
-      linear-gradient(90deg, var(--grain) 1px, transparent 1px) 0 0 / 34px 34px,
+      radial-gradient(1300px 620px at 50% -240px, rgba(255, 35, 64, .22), transparent 70%),
+      radial-gradient(900px 520px at 105% 32%, rgba(255, 35, 64, .07), transparent 70%),
+      radial-gradient(900px 520px at -5% 62%, rgba(255, 35, 64, .05), transparent 70%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, .021) 0 3px, transparent 3px 6px),
+      repeating-linear-gradient(-45deg, rgba(0, 0, 0, .32) 0 3px, transparent 3px 6px),
       var(--ground);
-    color: var(--ink);
-    font: 500 17px/1.62 Rajdhani, "Segoe UI", system-ui, sans-serif;
+    color: var(--text);
+    font: 500 18px/1.6 Rajdhani, "Segoe UI", system-ui, sans-serif;
+    overflow-x: hidden;
   }
-  .wrap { max-width: 980px; margin: 0 auto; padding-inline: 20px; padding-block: 0 72px; }
+  img, video { display: block; max-width: 100%; height: auto; }
+  a { color: var(--accent-hi); }
+  strong, b { color: var(--ink); font-weight: 600; }
+  h1, h2, h3 { font-family: "Chakra Petch", "Segoe UI", sans-serif; color: var(--ink); margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(44px, 8.4vw, 92px); line-height: .98; letter-spacing: .5px; font-weight: 700; }
+  h2 { font-size: clamp(28px, 4.6vw, 46px); line-height: 1.08; font-weight: 700; }
+  h3 { font-size: clamp(23px, 3vw, 30px); line-height: 1.12; font-weight: 700; }
+  p { margin: 0; }
+  .wrap { width: min(1200px, 100% - 32px); margin-inline: auto; }
+  .centre { text-align: center; margin-inline: auto; }
+  .intro { max-width: 760px; display: grid; gap: 14px; }
+  .intro p { color: var(--dim); font-size: clamp(18px, 2.2vw, 21px); }
 
-  h1, h2, h3 { font-family: "Chakra Petch", "Segoe UI", sans-serif; text-wrap: balance; margin: 0; }
-  h1 { font-size: clamp(38px, 8vw, 68px); font-weight: 700; letter-spacing: .5px; line-height: 1.02; }
-  h2 { font-size: clamp(23px, 4.2vw, 30px); font-weight: 700; line-height: 1.18; }
-  h3 { font-size: 19px; font-weight: 600; letter-spacing: .2px; }
-  p { margin: 0; max-width: 64ch; }
-  a { color: var(--accent); }
-  img { display: block; max-width: 100%; height: auto; }
-  strong { font-weight: 600; color: var(--ink); }
+  /* Langue : un seul des deux jeux de textes est visible. */
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root[data-lang="en"] .fr { display: none !important; }
 
-  /* En-tête collant : marque, bascule de langue. */
-  .bar {
-    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
-    display: flex; align-items: center; gap: 14px;
-    padding: 12px 20px; background: color-mix(in srgb, var(--ground) 88%, transparent);
-    backdrop-filter: blur(10px); border-bottom: 1px solid var(--panel-edge);
+  /* Barre du haut, collante et translucide. */
+  .barre {
+    position: sticky; top: 0; z-index: 30;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--ground) 78%, transparent);
+    border-bottom: 1px solid transparent; transition: border-color .3s, background .3s;
   }
-  .bar .name { font-family: "Chakra Petch", sans-serif; font-weight: 700; letter-spacing: 1.4px; font-size: 18px; }
-  .bar .sp { flex: 1; }
-  .glyph { width: 32px; height: 32px; flex: none; }
-  .glyph svg { width: 32px; height: 32px; }
-
-  .switch { display: flex; border: 1px solid var(--panel-edge); border-radius: 999px; overflow: hidden; }
-  .switch button {
-    font: 600 13px/1 Rajdhani, sans-serif; letter-spacing: .6px;
-    padding: 7px 13px; border: 0; background: transparent; color: var(--dim); cursor: pointer;
+  .barre.defile { border-bottom-color: var(--edge); background: color-mix(in srgb, var(--ground) 90%, transparent); }
+  .barre .wrap { display: flex; align-items: center; gap: 18px; height: 64px; }
+  .marque { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+  .marque svg { width: 34px; height: 34px; }
+  .marque span { font: 700 19px/1 "Chakra Petch", sans-serif; letter-spacing: 1.8px; }
+  .liens { display: flex; gap: 4px; margin-left: 12px; }
+  .liens a {
+    color: var(--dim); text-decoration: none; font: 600 15px/1 Rajdhani, sans-serif; letter-spacing: .5px;
+    padding: 8px 12px; transition: color .2s;
   }
-  .switch button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
-  .switch button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-
-  /* Panneau à coin coupé, comme dans Aurora. Le liseré et l'ombre passent par `filter` : un `clip-path`
-     rogne aussi un `box-shadow`, et il crée un contexte d'empilement qui enfermerait un pseudo-élément. */
-  .panel {
-    position: relative; background: var(--panel);
-    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
-    padding: 26px 24px;
-    filter: drop-shadow(0 0 1px var(--panel-edge)) var(--shadow);
-  }
-  .panel > * + * { margin-top: 14px; }
-
-  /* Étiquette de section : le rectangle rouge en biais d'Aurora. */
-  .tag {
-    display: inline-block; transform: skewX(-12deg); background: var(--accent);
-    padding: 3px 14px; margin-bottom: 4px;
-  }
-  .tag span {
-    display: block; transform: skewX(12deg); color: var(--on-accent);
-    font: 700 12px/1.5 "Chakra Petch", sans-serif; letter-spacing: 1.6px;
-  }
-
-  .hero { padding-block: 44px 34px; display: grid; gap: 20px; }
-  .hero p.lead { font-size: clamp(18px, 2.6vw, 21px); color: var(--dim); max-width: 56ch; }
-  .hero p.lead b { color: var(--ink); font-weight: 600; }
-
-  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-  .button {
-    display: inline-flex; align-items: center; gap: 9px; text-decoration: none;
-    background: var(--accent); color: var(--on-accent);
-    font: 600 17px/1 "Chakra Petch", sans-serif; letter-spacing: .4px;
-    padding: 15px 26px;
-    clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 11px 100%, 0 calc(100% - 11px));
-  }
-  .button:hover { filter: brightness(1.1); }
-  .button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
-  .button.quiet { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--panel-edge); }
-  .meta { color: var(--dim); font-size: 15px; }
-  .meta b { font-family: Teko, sans-serif; font-size: 20px; font-weight: 600; color: var(--ink); letter-spacing: .5px; }
-
-  /* Ko-fi dans la barre : présent sans crier, le cœur suffit à le faire remarquer. */
+  .liens a:hover { color: var(--ink); }
+  .barre .vide { flex: 1; }
   .kofi {
     display: inline-flex; align-items: center; gap: 7px; text-decoration: none; white-space: nowrap;
-    font: 600 13px/1 Rajdhani, sans-serif; letter-spacing: .6px; color: var(--ink);
-    padding: 7px 13px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--panel-edge);
+    font: 600 14px/1 Rajdhani, sans-serif; letter-spacing: .5px; color: var(--ink);
+    padding: 8px 13px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--edge-2); transition: box-shadow .2s;
   }
   .kofi:hover { box-shadow: inset 0 0 0 1px var(--accent); }
   .kofi svg { width: 14px; height: 14px; fill: var(--accent); flex: none; }
-  /* Sur un téléphone, la barre doit loger le logo, le cœur et les deux langues : on resserre tout. */
-  @media (max-width: 560px) {
+  .langues { display: flex; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--edge-2); overflow: hidden; }
+  .langues button {
+    font: 600 13px/1 Rajdhani, sans-serif; letter-spacing: .8px; padding: 9px 13px; border: 0;
+    background: transparent; color: var(--dim); cursor: pointer;
+  }
+  .langues button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .langues button:focus-visible, .kofi:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (max-width: 860px) { .liens { display: none; } }
+  @media (max-width: 520px) {
     .kofi span { display: none; }
-    .kofi { padding: 7px 9px; }
-    .bar { gap: 9px; padding-inline: 12px; }
-    .switch button { padding: 7px 9px; }
+    .kofi { padding: 8px 10px; }
+    .barre .wrap { gap: 10px; }
+    .langues button { padding: 9px 10px; }
   }
 
-  /* Les captures s'agrandissent au clic : elles sont pleines de petits chiffres qu'on veut lire. */
-  figure img, .shot img { cursor: zoom-in; }
-  figure img:focus-visible, .shot img:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-  .loupe {
-    position: fixed; inset: 0; z-index: 50; display: none; place-items: center;
-    padding: clamp(12px, 3vw, 40px); background: rgba(0, 0, 0, .93); cursor: zoom-out;
+  /* Étiquette de section : le rectangle rouge en biais d'Aurora. */
+  .tag { display: inline-block; width: fit-content; transform: skewX(-12deg); background: var(--accent); padding: 4px 14px; }
+  .tag span { display: block; transform: skewX(12deg); color: #fff; font: 700 12.5px/1.5 "Chakra Petch", sans-serif; letter-spacing: 1.8px; }
+
+  /* Boutons aux coins coupés. */
+  .bouton {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; cursor: pointer;
+    background: var(--accent); color: #fff; border: 0;
+    font: 600 18px/1 "Chakra Petch", sans-serif; letter-spacing: .4px; padding: 17px 28px;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: filter .2s, transform .2s;
   }
+  .bouton:hover { filter: brightness(1.12); transform: translateY(-1px); }
+  .bouton:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .bouton svg { width: 20px; height: 20px; flex: none; }
+  .bouton.discret { background: rgba(255, 255, 255, .04); color: var(--ink); box-shadow: inset 0 0 0 1px var(--edge-2); }
+  .bouton.discret:hover { background: rgba(255, 255, 255, .08); }
+
+  /* ——— Haut de page ——— */
+  .hero { padding-block: clamp(46px, 8vw, 96px) 0; text-align: center; }
+  .hero .intro { max-width: 880px; gap: 22px; }
+  .nouveau {
+    display: inline-flex; align-items: center; gap: 10px; margin-inline: auto;
+    padding: 7px 16px 7px 12px; border-radius: 999px; background: rgba(255, 35, 64, .1);
+    box-shadow: inset 0 0 0 1px rgba(255, 35, 64, .35); color: var(--ink);
+    font: 600 14px/1 "Chakra Petch", sans-serif; letter-spacing: 1.4px; text-decoration: none;
+  }
+  .point { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(255, 35, 64, .7); animation: pouls 2s infinite; }
+  @keyframes pouls {
+    0% { box-shadow: 0 0 0 0 rgba(255, 35, 64, .65); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 35, 64, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 35, 64, 0); }
+  }
+  .hero h1 .rouge { color: var(--accent); text-shadow: 0 0 40px rgba(255, 35, 64, .45); }
+  .hero p.lead { font-size: clamp(19px, 2.4vw, 23px); color: var(--text); max-width: 720px; margin-inline: auto; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+  .meta { color: var(--dim); font-size: 15.5px; letter-spacing: .2px; }
+  .meta b { font: 600 21px/1 Teko, sans-serif; color: var(--ink); letter-spacing: .6px; }
+  .faits { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center; color: var(--dim); font-size: 16px; }
+  .faits span::before { content: "◆"; color: var(--accent); margin-right: 8px; font-size: 10px; vertical-align: 2px; }
+
+  /* L'écran : la vraie Aurora, filmée en démonstration. */
+  .ecran { position: relative; margin: clamp(40px, 6vw, 70px) auto 0; perspective: 1900px; }
+  .ecran .cadre {
+    /* Pas de « preserve-3d » : il ferait passer le liseré (z-index négatif) devant la vidéo. */
+    position: relative; border-radius: 12px; background: #000;
+    transform: rotateX(var(--montee, 0deg)) rotateX(var(--tx, 0deg)) rotateY(var(--ty, 0deg));
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .07), 0 50px 140px -30px rgba(255, 35, 64, .45), 0 36px 90px rgba(0, 0, 0, .7);
+    transition: transform .25s ease-out;
+  }
+  .ecran .vitre { position: relative; border-radius: 12px; overflow: hidden; }
+  .ecran .cadre video, .ecran .cadre img { width: 100%; border-radius: 12px; }
+  /* Liseré lumineux qui tourne autour de l'écran. */
+  @property --angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+  .ecran .cadre::before {
+    content: ""; position: absolute; inset: -1.5px; border-radius: 13px; z-index: -1;
+    background: conic-gradient(from var(--angle), transparent 0 58%, rgba(255, 35, 64, .9) 72%, transparent 86%);
+    animation: tourne 7s linear infinite;
+  }
+  @keyframes tourne { to { --angle: 360deg; } }
+  /* Balayage discret, comme un écran de contrôle (enfermé dans la vitre : il ne déborde pas du cadre). */
+  .ecran .vitre::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 140px; border-radius: 12px; pointer-events: none;
+    background: linear-gradient(180deg, transparent, rgba(255, 35, 64, .07) 70%, rgba(255, 35, 64, .22) 99%, transparent);
+    animation: balaye 6.5s ease-in-out infinite; opacity: .7;
+  }
+  @keyframes balaye { 0% { transform: translateY(-140px); } 60%, 100% { transform: translateY(calc(var(--hauteur, 700px) + 10px)); } }
+  .direct {
+    position: absolute; top: 14px; right: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 999px; background: rgba(9, 9, 11, .78); backdrop-filter: blur(6px);
+    color: var(--ink); font: 600 12.5px/1 "Chakra Petch", sans-serif; letter-spacing: 1.3px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1);
+  }
+  @media (max-width: 600px) {
+    .direct { top: 8px; right: 8px; padding: 4px 8px; font-size: 9.5px; letter-spacing: .8px; gap: 6px; }
+    .direct .point { width: 6px; height: 6px; }
+  }
+  .legende { color: var(--dim); font-size: 15px; margin-top: 16px; text-align: center; }
+
+  /* Bande de chiffres. */
+  .chiffres {
+    margin-top: clamp(56px, 8vw, 96px); display: grid; grid-template-columns: repeat(4, 1fr);
+    border-block: 1px solid var(--edge); background: linear-gradient(90deg, transparent, rgba(255, 35, 64, .05), transparent);
+  }
+  .chiffres div { padding: 26px 12px; text-align: center; }
+  .chiffres div + div { border-left: 1px solid var(--edge); }
+  .chiffres .nombre { display: block; font: 600 clamp(46px, 6vw, 66px)/.9 Teko, sans-serif; color: var(--ink); letter-spacing: 1px; }
+  .chiffres .nombre small { font-size: .5em; color: var(--accent); margin-left: 4px; }
+  .chiffres .quoi { color: var(--dim); font-size: 16px; letter-spacing: .3px; }
+  @media (max-width: 720px) {
+    .chiffres { grid-template-columns: repeat(2, 1fr); }
+    .chiffres div:nth-child(3) { border-left: 0; }
+    .chiffres div:nth-child(n + 3) { border-top: 1px solid var(--edge); }
+  }
+
+  section { padding-top: clamp(80px, 11vw, 136px); }
+  .entete { display: grid; gap: 16px; justify-items: center; text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
+  .entete p { color: var(--dim); font-size: clamp(18px, 2.2vw, 21px); max-width: 700px; }
+
+  /* ——— Nouveautés de la 1.0 : une rangée par onglet, image d'un côté, texte de l'autre ——— */
+  .rangee { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 4.5vw, 56px); align-items: center; }
+  .rangee + .rangee { margin-top: clamp(64px, 9vw, 110px); }
+  .rangee.inverse { grid-template-columns: 1fr 1.4fr; }
+  .rangee.inverse .visuel { order: 2; }
+  .rangee .texte { display: grid; gap: 18px; align-content: start; }
+  .rangee .texte > p { font-size: 19px; }
+  @media (max-width: 900px) {
+    .rangee, .rangee.inverse { grid-template-columns: 1fr; }
+    .rangee.inverse .visuel { order: 0; }
+  }
+  .visuel { perspective: 1600px; }
+  .visuel .capture {
+    position: relative; border-radius: 10px; overflow: hidden; cursor: zoom-in;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .07), 0 30px 80px -20px rgba(255, 35, 64, .28), 0 24px 60px rgba(0, 0, 0, .6);
+    transform: rotateY(var(--pivot, -5deg)) rotateX(1.5deg); transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+  }
+  .rangee.inverse .visuel .capture { --pivot: 5deg; }
+  .visuel .capture:hover, .visuel .capture:focus-visible { transform: none; }
+  .visuel .capture:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+  .puces { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+  .puces li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
+  .puces li::before {
+    content: ""; width: 10px; height: 10px; margin-top: 9px; background: var(--accent); transform: rotate(45deg);
+    box-shadow: 0 0 12px rgba(255, 35, 64, .6);
+  }
+  .temoin {
+    border-left: 3px solid var(--accent); padding: 12px 18px; background: linear-gradient(90deg, rgba(255, 35, 64, .1), transparent);
+    color: var(--ink); font-size: 18px; font-style: italic;
+  }
+  .temoin cite { display: block; margin-top: 6px; font-style: normal; color: var(--dim); font-size: 15px; }
+
+  /* ——— Visite guidée : les onglets comme dans l'application ——— */
+  .onglets { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 26px; }
+  .onglets button {
+    position: relative; cursor: pointer; border: 0; background: transparent; color: var(--text);
+    font: 600 17px/1 Rajdhani, sans-serif; letter-spacing: .3px; padding: 11px 20px;
+  }
+  .onglets button::before {
+    content: ""; position: absolute; inset: 0; transform: skewX(-12deg); z-index: -1;
+    background: rgba(255, 255, 255, .03); box-shadow: inset 0 0 0 1px var(--edge-2); transition: background .25s;
+  }
+  .onglets button:hover::before { background: rgba(255, 255, 255, .07); }
+  .onglets button[aria-selected="true"] { color: #fff; }
+  .onglets button[aria-selected="true"]::before { background: var(--accent); box-shadow: 0 0 24px rgba(255, 35, 64, .45); }
+  .onglets button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .pile { position: relative; border-radius: 12px; overflow: hidden; background: #000;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .07), 0 40px 110px -30px rgba(255, 35, 64, .35), 0 30px 70px rgba(0, 0, 0, .6); }
+  .pile img { width: 100%; aspect-ratio: 1500 / 845; object-fit: cover; }
+  .pile img + img { position: absolute; inset: 0; }
+  .pile img { opacity: 0; transition: opacity .6s ease; cursor: zoom-in; }
+  .pile img.actif { opacity: 1; position: relative; }
+  .pile img.actif ~ img:not(.actif), .pile img:not(.actif) { position: absolute; inset: 0; }
+  .progression { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--accent); box-shadow: 0 0 12px var(--accent); z-index: 2; }
+  .visite-texte { max-width: 780px; margin: 22px auto 0; text-align: center; min-height: 3.4em; font-size: 19px; }
+
+  /* ——— Radiographie ——— */
+  .radio { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 60px); align-items: center; }
+  @media (max-width: 900px) { .radio { grid-template-columns: 1fr; } }
+  .radio .film { border-radius: 12px; overflow: hidden; background: #0c0d10;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .07), 0 30px 90px -20px rgba(255, 35, 64, .3); }
+  .radio .film video { width: 100%; }
+  .radio .texte { display: grid; gap: 18px; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 520px) { .duo { grid-template-columns: 1fr; } }
+
+  /* Panneaux aux coins coupés, lueur qui suit la souris. */
+  .carte {
+    position: relative; padding: 22px 22px 24px; background: var(--panel);
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+    display: grid; gap: 10px; align-content: start;
+  }
+  .carte::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 35, 64, .16), transparent 60%);
+  }
+  .carte:hover::before { opacity: 1; }
+  .carte::after { content: ""; position: absolute; left: 0; top: 0; width: 46px; height: 2px; background: var(--accent); }
+  .carte h4 { margin: 0; color: var(--ink); font: 700 19px/1.2 "Chakra Petch", sans-serif; }
+  .carte p { color: var(--dim); font-size: 16.5px; line-height: 1.5; }
+  .carte .icone { width: 38px; height: 38px; color: var(--accent); }
+  .carte .icone svg { width: 38px; height: 38px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .grille { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+  /* ——— Thèmes ——— */
+  .themes { display: grid; gap: 22px; }
+  .pastilles { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .pastilles button {
+    display: inline-flex; align-items: center; gap: 10px; cursor: pointer; border: 0; border-radius: 999px;
+    padding: 9px 16px 9px 10px; background: rgba(255, 255, 255, .04); box-shadow: inset 0 0 0 1px var(--edge-2);
+    color: var(--text); font: 600 16px/1 Rajdhani, sans-serif; transition: box-shadow .25s, background .25s;
+  }
+  .pastilles button i { width: 22px; height: 22px; border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .15); }
+  .pastilles button[aria-pressed="true"] { color: var(--ink); background: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 2px var(--theme); }
+  .pastilles button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .themes .pile { box-shadow: 0 0 0 1px rgba(255, 255, 255, .07), 0 40px 110px -30px color-mix(in srgb, var(--theme) 55%, transparent), 0 30px 70px rgba(0, 0, 0, .6); transition: box-shadow .6s; }
+  .themes .pile img { aspect-ratio: 1200 / 676; }
+  .theme-texte { text-align: center; color: var(--dim); min-height: 1.6em; }
+
+  /* ——— Le mot de Denis ——— */
+  .mot {
+    position: relative; max-width: 900px; margin-inline: auto; padding: clamp(28px, 5vw, 52px);
+    background: linear-gradient(140deg, rgba(255, 35, 64, .12), transparent 55%), var(--panel);
+    clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 26px 100%, 0 calc(100% - 26px));
+    display: grid; gap: 18px;
+  }
+  .mot::before {
+    content: "“"; position: absolute; top: -18px; right: 34px; font: 700 190px/1 "Chakra Petch", sans-serif;
+    color: rgba(255, 35, 64, .16); pointer-events: none;
+  }
+  .mot p { font-size: clamp(18.5px, 2.2vw, 21px); color: var(--text); }
+  .signature { display: flex; align-items: center; gap: 14px; margin-top: 6px; }
+  .signature .initiale {
+    width: 46px; height: 46px; display: grid; place-items: center; background: var(--accent); color: #fff;
+    font: 700 22px/1 "Chakra Petch", sans-serif; clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+  }
+  .signature b { display: block; font: 700 18px/1.2 "Chakra Petch", sans-serif; }
+  .signature span { color: var(--dim); font-size: 15px; }
+
+  /* ——— Confiance et installation ——— */
+  .trois { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+  .installer { display: grid; gap: 26px; }
+  .etapes { counter-reset: etape; list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .etapes li { counter-increment: etape; position: relative; padding: 22px 20px 20px 72px; background: var(--panel); min-height: 110px;
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px)); }
+  .etapes li::before {
+    content: counter(etape); position: absolute; left: 20px; top: 20px; width: 38px; height: 38px; display: grid; place-items: center;
+    font: 600 26px/1 Teko, sans-serif; color: #fff; background: var(--accent);
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+  .etapes p { font-size: 17px; }
+  .avertissement { border-left: 3px solid var(--warm); padding: 14px 18px; background: linear-gradient(90deg, rgba(255, 176, 32, .09), transparent); display: grid; gap: 6px; }
+  .avertissement h4 { margin: 0; color: var(--warm); font: 700 18px/1.2 "Chakra Petch", sans-serif; }
+  .empreinte { display: grid; gap: 10px; }
+  .empreinte .ligne { display: flex; gap: 10px; align-items: stretch; flex-wrap: wrap; }
+  code {
+    font: 500 14px/1.5 ui-monospace, "Cascadia Code", Consolas, monospace; color: var(--ink);
+    background: rgba(255, 255, 255, .05); padding: 2px 7px; overflow-wrap: anywhere;
+  }
+  .empreinte code#empreinte { flex: 1 1 520px; padding: 12px 14px; box-shadow: inset 0 0 0 1px var(--edge); word-break: break-all; }
+  .copier {
+    cursor: pointer; border: 0; padding: 0 18px; min-height: 46px; background: rgba(255, 255, 255, .05); color: var(--ink);
+    font: 600 15px/1 Rajdhani, sans-serif; letter-spacing: .5px; box-shadow: inset 0 0 0 1px var(--edge-2);
+  }
+  .copier:hover { box-shadow: inset 0 0 0 1px var(--accent); }
+  .copier.fait { color: var(--green); box-shadow: inset 0 0 0 1px var(--green); }
+
+  .don {
+    display: grid; gap: 16px; justify-items: center; text-align: center; padding: clamp(32px, 5vw, 56px) 24px;
+    background: radial-gradient(600px 240px at 50% 0, rgba(255, 35, 64, .16), transparent 70%), var(--panel);
+    clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 26px 100%, 0 calc(100% - 26px));
+  }
+  .don p { max-width: 640px; color: var(--text); }
+
+  footer { margin-top: clamp(70px, 10vw, 110px); border-top: 1px solid var(--edge); padding-block: 34px 60px; color: var(--dim); font-size: 15.5px; }
+  footer .wrap { display: grid; gap: 10px; }
+  footer p { max-width: 900px; }
+
+  /* Apparition au défilement (seulement si le script tourne : sans lui, tout reste visible). */
+  .js .revele { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1); }
+  .js .revele.vu { opacity: 1; transform: none; }
+  .js .revele.d1 { transition-delay: .08s; } .js .revele.d2 { transition-delay: .16s; } .js .revele.d3 { transition-delay: .24s; }
+
+  /* Loupe : un clic sur une capture l'agrandit. */
+  .loupe { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; padding: clamp(12px, 3vw, 40px); background: rgba(0, 0, 0, .93); cursor: zoom-out; }
   .loupe[open] { display: grid; }
-  .loupe img { max-width: 100%; max-height: 100%; width: auto; height: auto; border: 1px solid var(--panel-edge); }
+  .loupe img { max-width: 100%; max-height: 100%; width: auto; height: auto; box-shadow: 0 0 0 1px var(--edge-2); }
   .loupe .fermer {
-    position: absolute; top: 14px; right: 16px; width: 40px; height: 40px; cursor: pointer;
-    background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .35); border-radius: 50%;
-    font: 600 20px/1 "Chakra Petch", sans-serif;
+    position: absolute; top: 14px; right: 16px; width: 42px; height: 42px; cursor: pointer; border-radius: 50%;
+    background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .35); font: 600 22px/1 "Chakra Petch", sans-serif;
   }
   .loupe .fermer:hover { border-color: var(--accent); color: var(--accent); }
-  .loupe .legende {
-    position: absolute; bottom: 16px; left: 0; right: 0; text-align: center;
-    color: #b9c0c9; font-size: 14px; padding-inline: 20px;
+  .loupe .texte-loupe { position: absolute; bottom: 16px; left: 0; right: 0; text-align: center; color: #b9c0c9; font-size: 14px; padding-inline: 20px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js .revele { opacity: 1; transform: none; }
+    .visuel .capture { transform: none; }
   }
-
-  .facts { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--dim); font-size: 15px; letter-spacing: .3px; }
-  .facts span::before { content: "◆"; color: var(--accent); margin-right: 7px; font-size: 10px; vertical-align: 2px; }
-
-  figure { margin: 0; }
-  figure img { border: 1px solid var(--panel-edge); }
-  figcaption { color: var(--dim); font-size: 14.5px; margin-top: 9px; }
-
-  section { margin-top: 34px; display: grid; gap: 16px; }
-  .grid2 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
-  .grid3 { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
-
-  /* Liste de mesures : deux colonnes serrées, pas des cartes. */
-  .watch { display: grid; gap: 0 28px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-  .watch div { display: flex; gap: 12px; padding: 9px 0; border-top: 1px solid var(--rail); }
-  .watch dt { font-weight: 600; min-width: 108px; font-size: 16px; }
-  .watch dd { margin: 0; color: var(--dim); font-size: 15.5px; }
-
-  .themes figcaption { text-align: center; }
-  .themes img { border-radius: 2px; }
-
-  .note { border-left: 3px solid var(--ember); padding-left: 16px; }
-  .note h3 { color: var(--ember); }
-
-  /* Ce qui s'en vient : une ligne mise en avant, sans en faire une annonce criarde. */
-  .soon { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 12px 16px; max-width: none; }
-  .tip { background: linear-gradient(140deg, var(--accent-soft), transparent 62%), var(--panel); }
-
-  .steps { counter-reset: step; display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
-  .steps li { counter-increment: step; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
-  .steps li::before {
-    content: counter(step); font: 600 20px/34px Teko, sans-serif; color: var(--accent);
-    text-align: center; background: var(--accent-soft); height: 34px;
-  }
-  .steps p { max-width: none; }
-
-  code {
-    font: 500 13.5px/1.5 ui-monospace, "Cascadia Code", Consolas, monospace;
-    background: var(--rail); padding: 2px 6px; word-break: break-all;
-  }
-  .hash { display: block; margin-top: 8px; padding: 10px 12px; }
-
-  footer { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--panel-edge); color: var(--dim); font-size: 15px; display: grid; gap: 8px; }
-
-  /* Bascule de langue : un seul des deux jeux de textes est visible. */
-  :root:not([data-lang="en"]) .en { display: none; }
-  :root[data-lang="en"] .fr { display: none; }
-
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
-
 </head>
 <body>
-<div class="bar">
-  <div class="glyph">
-    <svg viewBox="0 0 36 36" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M18 1.5 32.29 9.75 32.29 26.25 18 34.5 3.71 26.25 3.71 9.75Z" fill="var(--panel)" stroke="var(--accent)" stroke-width="2"/>
-      <path d="M7.9 18L9.2 15.7 10.4 13.7 11.7 12.3 13 11.9 14.2 12.3 15.5 13.7 16.7 15.7 18 18 19.3 20.3 20.5 22.3 21.8 23.7 23 24.1 24.3 23.7 25.6 22.3 26.8 20.3 28.1 18" stroke="var(--ink)" stroke-width="3.5"/>
-      <path d="M7.9 18L9.2 15.7 10.4 13.7 11.7 12.3 13 11.9 14.2 12.3 15.5 13.7 16.7 15.7 18 18" stroke="var(--accent)" stroke-width="3.5"/>
-    </svg>
+
+<header class="barre" id="barre">
+  <div class="wrap">
+    <a class="marque" href="#haut" aria-label="Aurora">
+      <svg viewBox="0 0 36 36" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 1.5 32.29 9.75 32.29 26.25 18 34.5 3.71 26.25 3.71 9.75Z" fill="#141619" stroke="#ff2340" stroke-width="2"/>
+        <path d="M7.9 18L9.2 15.7 10.4 13.7 11.7 12.3 13 11.9 14.2 12.3 15.5 13.7 16.7 15.7 18 18 19.3 20.3 20.5 22.3 21.8 23.7 23 24.1 24.3 23.7 25.6 22.3 26.8 20.3 28.1 18" stroke="#f2f4f7" stroke-width="3.5"/>
+        <path d="M7.9 18L9.2 15.7 10.4 13.7 11.7 12.3 13 11.9 14.2 12.3 15.5 13.7 16.7 15.7 18 18" stroke="#ff2340" stroke-width="3.5"/>
+      </svg>
+      <span>AURORA</span>
+    </a>
+    <nav class="liens" aria-label="Sections">
+      <a href="#nouveautes"><span class="fr">Nouveautés 1.0</span><span class="en">What's new</span></a>
+      <a href="#visite"><span class="fr">Visite guidée</span><span class="en">Tour</span></a>
+      <a href="#pourquoi"><span class="fr">Pourquoi Aurora</span><span class="en">Why Aurora</span></a>
+      <a href="#installer"><span class="fr">Installer</span><span class="en">Install</span></a>
+    </nav>
+    <div class="vide"></div>
+    <a class="kofi" href="https://ko-fi.com/auroraapp" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9A5.4 5.4 0 0 1 12 6.3 5.4 5.4 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9z"/></svg>
+      <span class="fr">Offrir un café</span><span class="en">Buy a coffee</span>
+    </a>
+    <div class="langues" role="group" aria-label="Langue / Language">
+      <button id="btn-fr" type="button" aria-pressed="true">FR</button>
+      <button id="btn-en" type="button" aria-pressed="false">EN</button>
+    </div>
   </div>
-  <div class="name">AURORA</div>
-  <div class="sp"></div>
-  <a class="kofi" href="https://ko-fi.com/auroraapp" rel="noopener">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9A5.4 5.4 0 0 1 12 6.3 5.4 5.4 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9z"/></svg>
-    <span class="fr">Offrir un café</span><span class="en">Buy a coffee</span>
-  </a>
-  <div class="switch" role="group" aria-label="Langue / Language">
-    <button id="btn-fr" type="button" aria-pressed="true">FRANÇAIS</button>
-    <button id="btn-en" type="button" aria-pressed="false">ENGLISH</button>
-  </div>
-</div>
+</header>
 
-<div class="wrap">
+<main id="haut">
+  <div class="hero">
+    <div class="wrap">
+      <div class="intro centre">
+        <a class="nouveau revele" href="#nouveautes"><i class="point"></i><span class="fr">NOUVEAU · VERSION 1.0</span><span class="en">NEW · VERSION 1.0</span></a>
+        <h1 class="revele d1"><span class="fr">Ton PC, <span class="rouge">en clair.</span></span><span class="en">Your PC, <span class="rouge">in&nbsp;plain&nbsp;sight.</span></span></h1>
+        <p class="lead revele d2">
+          <span class="fr">Aurora surveille ton ordinateur en direct — températures, ventilateurs, disques, réseau, FPS en jeu — et te dit <b>en mots simples s'il va bien</b>. Gratuite, sans compte, et elle n'envoie rien nulle part.</span>
+          <span class="en">Aurora watches your computer live — temperatures, fans, drives, network, in-game FPS — and tells you <b>in plain words whether it is doing well</b>. Free, no account, and it sends nothing anywhere.</span>
+        </p>
+        <div class="actions revele d3">
+          <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/latest">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+            <span class="fr">Télécharger pour Windows</span><span class="en">Download for Windows</span>
+          </a>
+          <a class="bouton discret" href="#visite"><span class="fr">Voir ce qu'elle fait</span><span class="en">See what it does</span></a>
+        </div>
+        <p class="meta revele d3">
+          <span class="fr">Version <b>1.0.0</b> · 8,9 Mo · signée · Windows 10 et 11, 64 bits</span>
+          <span class="en">Version <b>1.0.0</b> · 8.9 MB · signed · Windows 10 and 11, 64-bit</span>
+        </p>
+        <div class="faits revele d3">
+          <span class="fr">Gratuite</span><span class="en">Free</span>
+          <span class="fr">Aucun compte</span><span class="en">No account</span>
+          <span class="fr">Aucune mesure envoyée</span><span class="en">No data sent</span>
+          <span class="fr">Français et anglais</span><span class="en">French and English</span>
+        </div>
+      </div>
 
-  <header class="hero">
-    <h1><span class="fr">Ton PC, en clair.</span><span class="en">Your PC, in plain sight.</span></h1>
-    <p class="lead">
-      <span class="fr">Aurora surveille ton ordinateur en direct : <b>températures, ventilateurs, disques, réseau et FPS en jeu</b>, dans une fenêtre qui ressemble à ce qu'elle mesure. Gratuite, sans compte, et elle n'envoie rien nulle part.</span>
-      <span class="en">Aurora watches your computer live: <b>temperatures, fans, drives, network and in-game FPS</b>, in a window that looks like what it measures. Free, no account, and it sends nothing anywhere.</span>
-    </p>
-    <div class="cta">
-      <a class="button" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/latest">
-        <span class="fr">Télécharger pour Windows</span><span class="en">Download for Windows</span>
-      </a>
-      <span class="meta">
-        <span class="fr">Version <b>0.16.0</b> · 8,7 Mo · signée · Windows 10 et 11, 64 bits</span>
-        <span class="en">Version <b>0.16.0</b> · 8.7 MB · signed · Windows 10 and 11, 64-bit</span>
-      </span>
-    </div>
-    <div class="facts">
-      <span class="fr">Gratuite</span><span class="en">Free</span>
-      <span class="fr">Aucun compte</span><span class="en">No account</span>
-      <span class="fr">Aucune mesure envoyée</span><span class="en">No data sent</span>
-      <span class="fr">Français et anglais</span><span class="en">French and English</span>
-    </div>
-    <figure>
-      <img src="img/carbone.webp" width="1500" height="844" alt="Le tableau de bord d'Aurora : FPS du jeu en cours, multimédia, mode d'alimentation, processeur, carte graphique, ventilateurs, mémoire, réseau, disques et écrans.">
-      <figcaption>
-        <span class="fr">La vue d'ensemble, thème Carbone. Tout ce qui suit est une vraie capture d'Aurora.</span>
-        <span class="en">The overview, Carbone theme. Everything below is a real screenshot of Aurora.</span>
-      </figcaption>
-    </figure>
-  </header>
-
-  <section>
-    <div>
-      <div class="tag"><span class="fr">CE QU'ELLE SURVEILLE</span><span class="en">WHAT IT WATCHES</span></div>
-      <h2><span class="fr">Les mesures que ta carte mère connaît déjà</span><span class="en">The readings your motherboard already knows</span></h2>
-    </div>
-    <p>
-      <span class="fr">Aurora lit les capteurs de ton PC une fois par seconde et les met dans un tableau de bord lisible. Rien n'est inventé : ce sont les mêmes valeurs que ton BIOS.</span>
-      <span class="en">Aurora reads your PC's sensors once a second and lays them out in a dashboard you can actually read. Nothing is made up: these are the same values your BIOS reports.</span>
-    </p>
-    <dl class="watch">
-      <div><dt><span class="fr">Processeur</span><span class="en">Processor</span></dt>
-        <dd><span class="fr">charge, Tctl, cœur le plus chaud, fréquence, watts</span><span class="en">load, Tctl, hottest core, clock, watts</span></dd></div>
-      <div><dt><span class="fr">Carte graphique</span><span class="en">Graphics card</span></dt>
-        <dd><span class="fr">charge, température, fréquence, watts, mémoire vidéo</span><span class="en">load, temperature, clock, watts, video memory</span></dd></div>
-      <div><dt><span class="fr">Ventilateurs</span><span class="en">Fans</span></dt>
-        <dd><span class="fr">chaque prise de la carte mère, en tours/minute</span><span class="en">every motherboard header, in rpm</span></dd></div>
-      <div><dt><span class="fr">Disques</span><span class="en">Drives</span></dt>
-        <dd><span class="fr">santé SMART, vitesses, température, espace, To écrits</span><span class="en">SMART health, speeds, temperature, space, TB written</span></dd></div>
-      <div><dt><span class="fr">Mémoire</span><span class="en">Memory</span></dt>
-        <dd><span class="fr">utilisation, courbe des dernières minutes, et les barrettes que le BIOS décrit</span><span class="en">usage, a graph of the last few minutes, and the sticks your BIOS describes</span></dd></div>
-      <div><dt><span class="fr">Réseau</span><span class="en">Network</span></dt>
-        <dd><span class="fr">débits en direct, et un test de vitesse à la demande</span><span class="en">live throughput, and a speed test on demand</span></dd></div>
-      <div><dt><span class="fr">Jeux</span><span class="en">Games</span></dt>
-        <dd><span class="fr">FPS, 1 % bas, temps d'image, résumé de la partie</span><span class="en">FPS, 1 % low, frame time, session summary</span></dd></div>
-      <div><dt><span class="fr">Alimentation</span><span class="en">Power</span></dt>
-        <dd><span class="fr">la consommation du PC en watts, et le mode de Windows, changé tout seul si tu veux</span><span class="en">the PC's draw in watts, and the Windows plan, switched for you if you like</span></dd></div>
-    </dl>
-  </section>
-
-  <section>
-    <div class="panel">
-      <div class="tag"><span class="fr">RADIOGRAPHIE</span><span class="en">X-RAY</span></div>
-      <h2><span class="fr">Ta tour vue par la vitre</span><span class="en">Your rig, seen through the window</span></h2>
-      <p>
-        <span class="fr">Dis une fois à Aurora combien de ventilateurs il y a à chaque endroit de ton boîtier. Elle dessine ta tour : chaque pièce s'allume selon sa température, les ventilateurs tournent à leur vraie vitesse, et l'air se réchauffe en traversant la machine. Elle calcule aussi la pression dans le boîtier — positive, l'air passe par les filtres et la poussière reste dehors.</span>
-        <span class="en">Tell Aurora once how many fans sit at each spot in your case. It draws your rig: each part lights up according to its temperature, the fans spin at their real speed, and the air heats up as it crosses the machine. It also works out the case pressure — positive means air comes in through the filters and dust stays outside.</span>
-      </p>
-      <figure>
-        <img src="img/radiographie.webp" width="1100" height="571" alt="La radiographie animée : les ventilateurs tournent et les points d'air traversent la tour, avec les températures de chaque pièce.">
-        <figcaption>
-          <span class="fr">L'air et les ventilateurs bougent pour de vrai — c'est une animation, pas un montage.</span>
-          <span class="en">The air and the fans really move — this is a live animation, not a montage.</span>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="grid2">
-    <div class="panel">
-      <div class="tag"><span class="fr">VENTILATEURS</span><span class="en">FANS</span></div>
-      <h3><span class="fr">Et tu peux les commander</span><span class="en">And you can drive them</span></h3>
-      <p>
-        <span class="fr">Cinq modes : la courbe de ton BIOS, Silencieux, Équilibré, Performance, ou <strong>Automatique</strong>, qui choisit selon ce que tu fais — Performance dès qu'un jeu démarre, Silencieux quand de la musique joue.</span>
-        <span class="en">Five modes: your BIOS curve, Quiet, Balanced, Performance, or <strong>Automatic</strong>, which picks according to what you are doing — Performance as soon as a game starts, Quiet when music is playing.</span>
-      </p>
-      <p>
-        <span class="fr">Sécurités : tout passe à 100 % au-dessus de 85 °C, jamais sous 20 %, et ta carte mère reprend la main dès qu'Aurora se ferme.</span>
-        <span class="en">Safeguards: everything goes to 100 % above 85 °C, never below 20 %, and your motherboard takes over the moment Aurora closes.</span>
-      </p>
-      <figure><img src="img/ventilateurs.webp" width="680" height="424" alt="Le panneau Ventilateurs : six tuiles avec une hélice qui tourne et la vitesse en tours par minute."></figure>
-    </div>
-    <div class="panel">
-      <div class="tag"><span class="fr">TEST DE REFROIDISSEMENT</span><span class="en">COOLING TEST</span></div>
-      <h3><span class="fr">Trois minutes, une note sur 100</span><span class="en">Three minutes, a score out of 100</span></h3>
-      <p>
-        <span class="fr">Le processeur travaille à fond deux minutes, puis se repose une minute. Aurora mesure jusqu'où il chauffe, en combien de temps il se stabilise, comment tes ventilateurs réagissent et à quelle vitesse il redescend.</span>
-        <span class="en">The processor runs flat out for two minutes, then rests for one. Aurora measures how hot it gets, how long it takes to settle, how your fans react and how fast it comes back down.</span>
-      </p>
-      <p>
-        <span class="fr"><strong>Le détecteur de poussière</strong> compare tes tests dans le temps. Si la montée de température grimpe de mois en mois, c'est que le refroidissement faiblit — filtres encrassés, pâte thermique qui sèche.</span>
-        <span class="en"><strong>The dust detector</strong> compares your tests over time. If the temperature rise creeps up month after month, your cooling is losing ground — clogged filters, thermal paste drying out.</span>
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <div class="panel">
-      <div class="tag"><span class="fr">EN JEU</span><span class="en">WHILE GAMING</span></div>
-      <h2><span class="fr">Un panneau par-dessus tes parties</span><span class="en">A panel on top of your games</span></h2>
-      <p>
-        <span class="fr">Aurora reconnaît tes jeux (Steam, Epic, GOG, Xbox, EA, Ubisoft) et mesure leurs FPS sans rien modifier dans le jeu. L'overlay s'ouvre tout seul quand une partie démarre, dans sa propre petite fenêtre : ton tableau de bord reste ouvert en grand sur un autre écran. Trois dispositions, taille et opacité au choix, raccourci clavier même en plein jeu.</span>
-        <span class="en">Aurora recognises your games (Steam, Epic, GOG, Xbox, EA, Ubisoft) and measures their FPS without changing anything in the game. The overlay opens by itself when a session starts, in its own small window: your dashboard stays open, full size, on another display. Three layouts, your choice of size and opacity, and a keyboard shortcut that works mid-game.</span>
-      </p>
-      <figure>
-        <img src="img/overlay.webp" width="900" height="132" alt="L'overlay de jeu en barre : jauges du processeur et de la carte graphique, températures, consommation, mémoire et mode d'alimentation.">
-        <figcaption><span class="fr">L'overlay en disposition « HUD à jauges ».</span><span class="en">The overlay in its gauge HUD layout.</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="grid2">
-    <div class="panel">
-      <div class="tag"><span class="fr">APPLICATIONS</span><span class="en">APPLICATIONS</span></div>
-      <h3><span class="fr">Qui mange ton PC, là, maintenant</span><span class="en">What is eating your PC right now</span></h3>
-      <p>
-        <span class="fr">Un bouton dans la carte Processeur ou Mémoire ouvre la liste des vingt applications les plus gourmandes — et te laisse en arrêter une, après confirmation. Ce qui fait tourner Windows n'a pas de bouton : l'arrêter planterait ta session.</span>
-        <span class="en">A button on the Processor or Memory card opens the list of the twenty hungriest applications — and lets you stop one, after a confirmation. What keeps Windows running has no button: stopping it would crash your session.</span>
-      </p>
-      <figure><img src="img/applications.webp" width="776" height="599" alt="La fenêtre Applications : nom, nombre de processus, part du processeur, mémoire et un bouton Arrêter par ligne."></figure>
-    </div>
-    <div class="panel">
-      <div class="tag"><span class="fr">MES PC</span><span class="en">MY PCS</span></div>
-      <h3><span class="fr">Toute la maison, et ton téléphone</span><span class="en">The whole house, and your phone</span></h3>
-      <p>
-        <span class="fr">Les Aurora de la maison se trouvent toutes seules sur le réseau local et s'affichent en tuiles. Un code QR ouvre la même vue dans le navigateur de ton téléphone, sans rien installer.</span>
-        <span class="en">The Auroras at home find each other on the local network and show up as tiles. A QR code opens the same view in your phone's browser, with nothing to install.</span>
-      </p>
-      <p>
-        <span class="fr">Le partage est <strong>coupé par défaut</strong>. Une fois activé, il est en lecture seule : la seule commande à distance possible est la musique, et elle se décoche.</span>
-        <span class="en">Sharing is <strong>off by default</strong>. Once on, it is read-only: the only remote command possible is the music, and that can be unticked.</span>
-      </p>
-      <figure><img src="img/mespc.webp" width="1200" height="576" alt="L'onglet Mes PC : le partage de ce PC, la liste des PC trouvés sur le réseau et le panneau du code QR pour le téléphone."></figure>
-    </div>
-  </section>
-
-  <section>
-    <div class="panel">
-      <div class="tag"><span class="fr">APPAREILS DU RÉSEAU</span><span class="en">NETWORK DEVICES</span></div>
-      <h2><span class="fr">Sais-tu ce qui est branché chez toi ?</span><span class="en">Do you know what is plugged in at your place?</span></h2>
-      <p>
-        <span class="fr">Un bouton dans la carte Réseau ouvre la liste de ce qui vit sur ton réseau : adresse, nom, et le fabricant deviné d'après l'adresse matérielle. C'est souvent là qu'on découvre que sa télé, son écran ou son thermostat sont connectés depuis des mois.</span>
-        <span class="en">A button on the Network card opens the list of what lives on your network: address, name, and the maker guessed from the hardware address. This is often where you find out your TV, your monitor or your thermostat have been connected for months.</span>
-      </p>
-      <p>
-        <span class="fr">Aurora <strong>n'envoie rien sur ton réseau</strong> : elle lit ce que Windows connaît déjà. Et les 13 042 préfixes de fabricants voyagent dans l'application, pour n'avoir rien à demander à Internet.</span>
-        <span class="en">Aurora <strong>sends nothing over your network</strong>: it reads what Windows already knows. And the 13,042 manufacturer prefixes travel inside the application, so there is nothing to ask the Internet.</span>
-      </p>
-      <figure class="shot">
-        <img src="img/appareils.webp" width="736" height="612" alt="La fenêtre Appareils du réseau : adresse, nom, fabricant et adresse matérielle de chaque appareil, avec son état en ligne.">
-        <figcaption>
-          <span class="fr">Un appareil sans nom qui s'invente une adresse, c'est un téléphone récent : il fait exprès, pour ne pas être suivi d'un réseau à l'autre.</span>
-          <span class="en">A nameless device with a made-up address is a recent phone: it does that on purpose, so it cannot be followed from one network to the next.</span>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section>
-    <div>
-      <div class="tag"><span class="fr">CINQ THÈMES</span><span class="en">FIVE THEMES</span></div>
-      <h2><span class="fr">Le même tableau de bord, cinq habillages</span><span class="en">The same dashboard, five skins</span></h2>
-      <p>
-        <span class="fr">Carbone (fibre de carbone et rouge vif) est celui d'origine. Néon joue la science-fiction bleu et orange ; Glace le verre givré ; Clair est le seul sur fond blanc, pour une pièce ensoleillée ; Forge, c'est l'atelier du forgeron — acier brossé, rivets et braise sous les panneaux.</span>
-        <span class="en">Carbone (carbon fibre and vivid red) is the original one. Néon goes for blue-and-orange science fiction; Glace for frosted glass; Clair is the only one on white, for a sunlit room; Forge is the blacksmith's workshop — brushed steel, rivets and embers under the panels.</span>
-      </p>
-    </div>
-    <div class="grid3 themes">
-      <figure><img src="img/forge.webp" width="900" height="506" alt="Le tableau de bord en thème Forge : acier brossé et braise orange."><figcaption>Forge</figcaption></figure>
-      <figure><img src="img/clair.webp" width="900" height="506" alt="Le tableau de bord en thème Clair : fond blanc, encre ardoise et bleu franc."><figcaption>Clair</figcaption></figure>
-      <figure><img src="img/glace.webp" width="900" height="506" alt="Le tableau de bord en thème Glace : verre givré, bleu glacier et blanc."><figcaption>Glace</figcaption></figure>
-    </div>
-  </section>
-
-  <section>
-    <div class="panel">
-      <div class="tag"><span class="fr">DEUX LANGUES</span><span class="en">TWO LANGUAGES</span></div>
-      <h2><span class="fr">Français et anglais, d'un bouton</span><span class="en">French and English, one button away</span></h2>
-      <p>
-        <span class="fr">Toute l'application parle les deux langues : le tableau de bord, les bulles d'aide, les réglages, les notifications, l'installeur, et jusqu'aux unités. La langue suit celle de Windows, et se force dans les réglages. La page téléphone, elle, suit la langue du téléphone — un ami anglophone qui ouvre la page de ton PC français la lit en anglais.</span>
-        <span class="en">The whole application speaks both: the dashboard, the help bubbles, the settings, the notifications, the installer, right down to the units. The language follows Windows, and can be forced in the settings. The phone page follows the phone instead — an English-speaking friend opening the page of your French PC reads it in English.</span>
-      </p>
-      <figure>
-        <img src="img/anglais.webp" width="1200" height="675" alt="The same dashboard in English: Processor, Graphics card, Fans, Memory, Network, Drives and Displays.">
-        <figcaption><span class="fr">Le même tableau de bord, en anglais.</span><span class="en">The same dashboard, in English.</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="grid2">
-    <div class="panel">
-      <div class="tag"><span class="fr">VIE PRIVÉE</span><span class="en">PRIVACY</span></div>
-      <h3><span class="fr">Ce qu'Aurora ne fait pas</span><span class="en">What Aurora does not do</span></h3>
-      <p>
-        <span class="fr">Pas de compte, pas de publicité, aucune mesure envoyée, personne suivi. Tes données restent sur ton PC — et sur ton réseau local si tu actives le partage toi-même.</span>
-        <span class="en">No account, no ads, no readings sent, nobody tracked. Your data stays on your PC — and on your local network if you turn sharing on yourself.</span>
-      </p>
-      <p>
-        <span class="fr">Elle demande deux choses à Internet, et seulement deux : une fois par jour, le numéro de la dernière version ; et le test de vitesse, quand tu cliques dessus. Les deux se coupent.</span>
-        <span class="en">It asks the Internet two things, and only two: once a day, the latest version number; and the speed test, when you click it. Both can be turned off.</span>
-      </p>
-      <p>
-        <span class="fr">Cette page-ci, par contre, compte ses visiteurs — combien de personnes viennent et depuis quel site. C'est fait par Cloudflare, sans cookie et sans rien qui identifie personne, et ça sert uniquement à savoir si quelqu'un entend parler d'Aurora. L'application, elle, ne sait rien de tout ça.</span>
-        <span class="en">This page, on the other hand, counts its visitors — how many people come and from which site. Cloudflare does it, with no cookies and nothing that identifies anyone, and it only serves to tell whether anyone is hearing about Aurora. The app itself knows nothing about any of it.</span>
-      </p>
-    </div>
-    <div class="panel">
-      <div class="tag"><span class="fr">CONFIGURATION</span><span class="en">REQUIREMENTS</span></div>
-      <h3><span class="fr">Ce qu'il faut</span><span class="en">What you need</span></h3>
-      <p>
-        <span class="fr">Windows 10 (version 1809 ou plus récente) ou Windows 11, en 64 bits. Les <strong>droits administrateur</strong> sont demandés à chaque démarrage : c'est la seule façon de lire les capteurs de température.</span>
-        <span class="en">Windows 10 (version 1809 or newer) or Windows 11, 64-bit. <strong>Administrator rights</strong> are requested at every start: that is the only way to read the temperature sensors.</span>
-      </p>
-      <p>
-        <span class="fr">L'installeur ajoute au besoin Microsoft .NET 10 et le pilote PawnIO, pris chez leurs auteurs et vérifiés avant d'être lancés.</span>
-        <span class="en">The installer adds Microsoft .NET 10 and the PawnIO driver if needed, taken from their authors and verified before being run.</span>
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <div class="panel">
-      <div class="tag"><span class="fr">INSTALLATION</span><span class="en">INSTALLATION</span></div>
-      <h2><span class="fr">Ce qui va se passer, sans surprise</span><span class="en">What will happen, no surprises</span></h2>
-      <p class="soon">
-        <span class="fr"><strong>Aurora est signée électroniquement.</strong> Windows sait d'où vient le fichier et te préviendra si quelqu'un le modifie en chemin. Tu verras le nom de l'auteur, <strong>Denis Desbiens</strong>, avant même d'installer.</span>
-        <span class="en"><strong>Aurora is digitally signed.</strong> Windows knows where the file comes from and will warn you if anyone alters it along the way. You will see the author's name, <strong>Denis Desbiens</strong>, before you even install.</span>
-      </p>
-      <ol class="steps">
-        <li><p>
-          <span class="fr">Télécharge le fichier et ouvre-le. Ton navigateur ne devrait pas rechigner.</span>
-          <span class="en">Download the file and open it. Your browser should not object.</span>
-        </p></li>
-        <li><p>
-          <span class="fr">Windows demande les droits administrateur — Aurora en a besoin pour lire les capteurs de température, il n'y a pas d'autre façon. La fenêtre affiche « Éditeur vérifié : Denis Desbiens ».</span>
-          <span class="en">Windows asks for administrator rights — Aurora needs them to read the temperature sensors, there is no other way. The window shows “Verified publisher: Denis Desbiens”.</span>
-        </p></li>
-        <li><p>
-          <span class="fr">L'installation ajoute Microsoft .NET 10 et le pilote PawnIO s'ils manquent. Ça peut prendre quelques minutes, barre de progression figée : c'est normal.</span>
-          <span class="en">The installation adds Microsoft .NET 10 and the PawnIO driver if they are missing. That can take a few minutes with the progress bar frozen: this is normal.</span>
-        </p></li>
-      </ol>
-      <div class="note">
-        <h3><span class="fr">Si Windows t'avertit quand même</span><span class="en">If Windows warns you anyway</span></h3>
-        <p>
-          <span class="fr">Windows regarde aussi la <em>réputation</em> d'un fichier : combien de gens l'ont déjà installé sans ennui. Aurora vient de sortir, alors les premiers à l'essayer verront peut-être encore un avertissement. Clique « Informations complémentaires » : le nom de l'auteur y est. Cette réputation s'accumule toute seule.</span>
-          <span class="en">Windows also looks at a file's <em>reputation</em>: how many people have installed it without trouble. Aurora has just come out, so the first people to try it may still see a warning. Click “More info”: the author's name is right there. That reputation builds up on its own.</span>
+      <div class="ecran revele" id="ecran">
+        <div class="cadre" id="cadre"><div class="vitre">
+          <span class="direct"><i class="point"></i><span class="fr">EN DIRECT · DÉMONSTRATION</span><span class="en">LIVE · DEMO MODE</span></span>
+          <video id="film-vue" autoplay muted loop playsinline preload="metadata" width="1500" height="844"
+                 src="img/v1/vue-fr.mp4" poster="img/v1/vue-fr-debut.webp"
+                 data-src-fr="img/v1/vue-fr.mp4" data-src-en="img/v1/vue-en.mp4"
+                 data-poster-fr="img/v1/vue-fr-debut.webp" data-poster-en="img/v1/vue-en-debut.webp"
+                 aria-label="Le tableau de bord d'Aurora en mouvement"
+                 data-alt-fr="Le tableau de bord d'Aurora en mouvement : jeu en cours, multimédia, processeur, carte graphique, ventilateurs, mémoire, réseau, disques et écrans."
+                 data-alt-en="Aurora's dashboard in motion: game in progress, media, processor, graphics card, fans, memory, network, drives and displays."></video>
+        </div></div>
+        <p class="legende">
+          <span class="fr">La vraie Aurora, filmée en démonstration : rien n'est monté, rien n'est dessiné pour l'occasion.</span>
+          <span class="en">The real Aurora, filmed in demo mode: nothing staged, nothing drawn for the occasion.</span>
         </p>
       </div>
-      <p>
-        <span class="fr">Tu peux vérifier le fichier toi-même : clic droit → Propriétés → onglet « Signatures numériques ». Ou compare son empreinte, dans PowerShell : <code>Get-FileHash .\Aurora-Setup-0.16.0.exe -Algorithm SHA256</code></span>
-        <span class="en">You can check the file yourself: right-click → Properties → “Digital Signatures” tab. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-0.16.0.exe -Algorithm SHA256</code></span>
-      </p>
-      <code class="hash">55CCD1DFB72345FF8BAF77E5AC12248FEAD505CE30644C7925E2A41405549F71</code>
-      <div class="cta">
-        <a class="button" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/latest">
-          <span class="fr">Télécharger Aurora 0.16.0</span><span class="en">Download Aurora 0.16.0</span>
-        </a>
-        <a class="button quiet" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">
-          <span class="fr">Toutes les versions</span><span class="en">All versions</span>
-        </a>
+    </div>
+
+    <div class="wrap">
+      <div class="chiffres revele">
+        <div><span class="nombre"><span class="compteur" data-cible="1">1</span><small>/s</small></span>
+          <span class="quoi"><span class="fr">lecture de tes capteurs</span><span class="en">sensor reading</span></span></div>
+        <div><span class="nombre"><span class="compteur" data-cible="400">400</span></span>
+          <span class="quoi"><span class="fr">jours de mémoire</span><span class="en">days of memory</span></span></div>
+        <div><span class="nombre"><span class="compteur" data-cible="5">5</span></span>
+          <span class="quoi"><span class="fr">thèmes au choix</span><span class="en">themes to pick from</span></span></div>
+        <div><span class="nombre"><span class="compteur" data-cible="0" data-depart="100">0</span></span>
+          <span class="quoi"><span class="fr">donnée envoyée</span><span class="en">data sent</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ——— Nouveautés de la 1.0 ——— -->
+  <section id="nouveautes">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">NOUVEAU DANS LA 1.0</span><span class="en">NEW IN 1.0</span></div>
+        <h2><span class="fr">Elle ne fait plus que mesurer : elle comprend.</span><span class="en">It no longer just measures: it understands.</span></h2>
+        <p>
+          <span class="fr">Trois onglets transforment les chiffres en réponses : est-ce que mon PC va bien, qu'est-ce qui a changé, et pourquoi mon jeu rame.</span>
+          <span class="en">Three tabs turn numbers into answers: is my PC doing well, what changed, and why is my game struggling.</span>
+        </p>
+      </div>
+
+      <div class="rangee">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/sante-fr.webp" data-src-fr="img/v1/sante-fr.webp" data-src-en="img/v1/sante-en.webp"
+               data-alt-fr="L'onglet Santé : « Rien d'inquiétant », puis cinq remarques du plus grave au moins grave."
+               data-alt-en="The Health tab: “Nothing worrying”, then five remarks, most serious first."
+               alt="L'onglet Santé : « Rien d'inquiétant », puis cinq remarques du plus grave au moins grave.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">SANTÉ</span><span class="en">HEALTH</span></div>
+          <h3><span class="fr">Ton PC va bien ? Aurora te le dit.</span><span class="en">Is your PC OK? Aurora tells you.</span></h3>
+          <p>
+            <span class="fr">Un bilan refait chaque seconde, qui ne parle que de ce qui cloche, du plus grave au moins grave — et qui te dit aussi quand tout va bien.</span>
+            <span class="en">A check-up redone every second that only talks about what is wrong, most serious first — and also tells you when all is well.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Disques : usure SMART, place qui manque, chaleur.</span><span class="en">Drives: SMART wear, running out of space, heat.</span></span></li>
+            <li><span><span class="fr">Un ventilateur ou la pompe qui lâche, la pile du BIOS qui faiblit.</span><span class="en">A fan or the pump giving up, a BIOS battery getting weak.</span></span></li>
+            <li><span><span class="fr">Ce que Windows note sans rien dire : erreurs matérielles, écrans bleus, arrêts brutaux.</span><span class="en">What Windows logs without a word: hardware errors, blue screens, sudden shutdowns.</span></span></li>
+            <li><span><span class="fr">La chaleur qui monte au fil des mois : la poussière se voit avant de coûter cher.</span><span class="en">Heat creeping up over the months: dust shows before it costs you.</span></span></li>
+            <li><span><span class="fr">Une notification — et une alarme si tu veux — quand c'est urgent.</span><span class="en">A notification — and an alarm if you want — when it is urgent.</span></span></li>
+          </ul>
+          <p class="temoin">
+            <span class="fr">« Elle m'a appris que ma carte graphique tire 50 W à ne rien faire : mes trois écrans l'empêchent de ralentir. »</span>
+            <span class="en">“It taught me that my graphics card draws 50 W while doing nothing: my three displays keep it from slowing down.”</span>
+            <cite>— Denis</cite>
+          </p>
+        </div>
+      </div>
+
+      <div class="rangee inverse">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/changements-fr.webp" data-src-fr="img/v1/changements-fr.webp" data-src-en="img/v1/changements-en.webp"
+               data-alt-fr="L'onglet Changements : le démarrage de Windows chronométré, puis ce qui a changé sur le PC, jour après jour."
+               data-alt-en="The Changes tab: Windows startup timed, then what changed on the PC, day after day."
+               alt="L'onglet Changements : le démarrage de Windows chronométré, puis ce qui a changé sur le PC, jour après jour.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">CHANGEMENTS</span><span class="en">CHANGES</span></div>
+          <h3><span class="fr">La machine à remonter le temps</span><span class="en">The time machine</span></h3>
+          <p>
+            <span class="fr">Ton PC est lent depuis mardi ? Aurora le photographie toutes les dix minutes et note ce qui change : logiciels, pilotes, services, programmes au démarrage, mises à jour de Windows, BIOS.</span>
+            <span class="en">Your PC has been slow since Tuesday? Aurora takes a snapshot of it every ten minutes and notes what changes: software, drivers, services, startup programs, Windows updates, BIOS.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Dans l'onglet Santé, un problème vient avec ce qui a changé juste avant.</span><span class="en">In the Health tab, a problem comes with what changed just before it.</span></span></li>
+            <li><span><span class="fr">Le démarrage de Windows chronométré — jusqu'au bureau, prêt, arrêt — et qui le ralentit.</span><span class="en">Windows startup timed — to the desktop, ready, shutdown — and who slows it down.</span></span></li>
+            <li><span><span class="fr">Le bruit filtré : les pilotes qui vont et viennent, les mises à jour de Defender.</span><span class="en">The noise filtered out: drivers that come and go, Defender updates.</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rangee">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/jeux-fr.webp" data-src-fr="img/v1/jeux-fr.webp" data-src-en="img/v1/jeux-en.webp"
+               data-alt-fr="L'onglet Jeux : la partie en cours avec ses FPS, puis tous les jeux avec leur tendance et leurs plantages."
+               data-alt-en="The Games tab: the session in progress with its FPS, then every game with its trend and crashes."
+               alt="L'onglet Jeux : la partie en cours avec ses FPS, puis tous les jeux avec leur tendance et leurs plantages.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">JEUX</span><span class="en">GAMES</span></div>
+          <h3><span class="fr">Tes jeux, au fil du temps</span><span class="en">Your games, over time</span></h3>
+          <p>
+            <span class="fr">Chaque partie est gardée : FPS moyens, 1 % bas, durée. Aurora voit quand un jeu tourne moins vite qu'à ses débuts.</span>
+            <span class="en">Every session is kept: average FPS, 1 % low, duration. Aurora notices when a game runs slower than it used to.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Un jeu qui gèle ou plante : l'état du PC juste avant — chaleur, mémoire vidéo, pilote graphique.</span><span class="en">A game that freezes or crashes: the state of the PC just before — heat, video memory, graphics driver.</span></span></li>
+            <li><span><span class="fr">Ce qui limite tes FPS : la carte graphique, ou le processeur qui la freine.</span><span class="en">What limits your FPS: the graphics card, or the processor holding it back.</span></span></li>
+            <li><span><span class="fr">Un overlay par-dessus tes parties, dans sa propre petite fenêtre, sans rien toucher au jeu.</span><span class="en">An overlay on top of your games, in its own small window, without touching the game.</span></span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div>
-      <div class="tag"><span class="fr">RÉGLAGES</span><span class="en">SETTINGS</span></div>
-      <h2><span class="fr">Tout se change, rien ne se devine</span><span class="en">Everything adjustable, nothing guessed</span></h2>
-      <p>
-        <span class="fr">Langue, thème, démarrage avec Windows, partage réseau, et les seuils de température degré par degré — un portable chauffe plus qu'une grosse tour, alors les alertes s'ajustent. Chaque carte a une bulle « ? » qui explique en mots simples ce qu'elle montre.</span>
-        <span class="en">Language, theme, start with Windows, network sharing, and the temperature limits degree by degree — a laptop runs hotter than a big tower, so the alerts adjust. Every card has a “?” bubble explaining in plain words what it shows.</span>
-      </p>
+  <!-- ——— Visite guidée ——— -->
+  <section id="visite">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">VISITE GUIDÉE</span><span class="en">GUIDED TOUR</span></div>
+        <h2><span class="fr">Sept onglets, un seul programme</span><span class="en">Seven tabs, one program</span></h2>
+        <p><span class="fr">Clique un onglet, comme dans Aurora.</span><span class="en">Click a tab, just like in Aurora.</span></p>
+      </div>
+      <div class="revele">
+        <div class="onglets" role="tablist" id="onglets" aria-label="Onglets d'Aurora">
+          <button role="tab" type="button" aria-selected="true" data-onglet="vue"><span class="fr">Vue d'ensemble</span><span class="en">Overview</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="radiographie"><span class="fr">Radiographie</span><span class="en">X-ray</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="jeux"><span class="fr">Jeux</span><span class="en">Games</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="sante"><span class="fr">Santé</span><span class="en">Health</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="changements"><span class="fr">Changements</span><span class="en">Changes</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="mespc"><span class="fr">Mes PC</span><span class="en">My PCs</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="reglages"><span class="fr">Réglages</span><span class="en">Settings</span></button>
+        </div>
+        <div class="pile" id="pile-visite" role="tabpanel">
+          <img class="actif" data-onglet="vue" loading="lazy" width="1500" height="845" src="img/v1/vue-fr.webp" data-src-fr="img/v1/vue-fr.webp" data-src-en="img/v1/vue-en.webp" alt="" data-alt-fr="La vue d'ensemble d'Aurora." data-alt-en="Aurora's overview.">
+          <img data-onglet="radiographie" loading="lazy" width="1500" height="845" src="img/v1/radiographie-fr.webp" data-src-fr="img/v1/radiographie-fr.webp" data-src-en="img/v1/radiographie-en.webp" alt="" data-alt-fr="L'onglet Radiographie." data-alt-en="The X-ray tab.">
+          <img data-onglet="jeux" loading="lazy" width="1500" height="845" src="img/v1/jeux-fr.webp" data-src-fr="img/v1/jeux-fr.webp" data-src-en="img/v1/jeux-en.webp" alt="" data-alt-fr="L'onglet Jeux." data-alt-en="The Games tab.">
+          <img data-onglet="sante" loading="lazy" width="1500" height="845" src="img/v1/sante-fr.webp" data-src-fr="img/v1/sante-fr.webp" data-src-en="img/v1/sante-en.webp" alt="" data-alt-fr="L'onglet Santé." data-alt-en="The Health tab.">
+          <img data-onglet="changements" loading="lazy" width="1500" height="845" src="img/v1/changements-fr.webp" data-src-fr="img/v1/changements-fr.webp" data-src-en="img/v1/changements-en.webp" alt="" data-alt-fr="L'onglet Changements." data-alt-en="The Changes tab.">
+          <img data-onglet="mespc" loading="lazy" width="1500" height="845" src="img/v1/mespc-fr.webp" data-src-fr="img/v1/mespc-fr.webp" data-src-en="img/v1/mespc-en.webp" alt="" data-alt-fr="L'onglet Mes PC." data-alt-en="The My PCs tab.">
+          <img data-onglet="reglages" loading="lazy" width="1500" height="845" src="img/v1/reglages-fr.webp" data-src-fr="img/v1/reglages-fr.webp" data-src-en="img/v1/reglages-en.webp" alt="" data-alt-fr="L'onglet Réglages." data-alt-en="The Settings tab.">
+          <span class="progression" id="progression"></span>
+        </div>
+        <p class="visite-texte" id="visite-texte" aria-live="polite">
+          <span data-onglet="vue"><span class="fr">Tout ton PC sur un écran : processeur, carte graphique, mémoire, ventilateurs, disques, réseau, écrans, musique et jeu en cours.</span><span class="en">Your whole PC on one screen: processor, graphics card, memory, fans, drives, network, displays, music and the game in progress.</span></span>
+          <span data-onglet="radiographie" hidden><span class="fr">Ta tour dessinée d'après la vraie : les pièces s'allument selon leur chaleur, l'air circule, les ventilateurs tournent à leur vraie vitesse.</span><span class="en">Your rig drawn from the real one: parts light up with their heat, the air flows, the fans spin at their real speed.</span></span>
+          <span data-onglet="jeux" hidden><span class="fr">La partie en cours avec ses FPS, et tous tes jeux avec leur tendance, leurs gels et leurs plantages.</span><span class="en">The session in progress with its FPS, and all your games with their trend, freezes and crashes.</span></span>
+          <span data-onglet="sante" hidden><span class="fr">Le bilan, en mots simples, du plus grave au moins grave — et ce qui a changé juste avant.</span><span class="en">The check-up, in plain words, most serious first — and what changed just before.</span></span>
+          <span data-onglet="changements" hidden><span class="fr">Ce qui a changé sur ton PC, jour après jour, et le démarrage de Windows chronométré.</span><span class="en">What changed on your PC, day after day, and Windows startup timed.</span></span>
+          <span data-onglet="mespc" hidden><span class="fr">Les autres PC de la maison en tuiles, et la même vue sur ton téléphone grâce à un code QR.</span><span class="en">The other PCs at home as tiles, and the same view on your phone through a QR code.</span></span>
+          <span data-onglet="reglages" hidden><span class="fr">Langue, thème, démarrage avec Windows, partage et seuils d'alerte, degré par degré.</span><span class="en">Language, theme, start with Windows, sharing and alert limits, degree by degree.</span></span>
+        </p>
+      </div>
     </div>
-    <figure><img src="img/reglages.webp" width="1200" height="784" alt="L'onglet Réglages : langue, choix du thème, démarrage et mises à jour, partage sur le réseau et seuils d'alerte de température."></figure>
   </section>
 
+  <!-- ——— Radiographie et ventilateurs ——— -->
+  <section id="radiographie">
+    <div class="wrap radio">
+      <div class="film revele">
+        <video id="film-radio" autoplay muted loop playsinline preload="metadata" width="896" height="730"
+               src="img/v1/radio-fr.mp4" poster="img/v1/radio-fr-debut.webp"
+               data-src-fr="img/v1/radio-fr.mp4" data-src-en="img/v1/radio-en.mp4"
+               data-poster-fr="img/v1/radio-fr-debut.webp" data-poster-en="img/v1/radio-en-debut.webp"
+               aria-label="La radiographie animée"
+               data-alt-fr="La radiographie animée : les ventilateurs tournent, l'air traverse la tour et se réchauffe sur les pièces chaudes."
+               data-alt-en="The animated X-ray: fans spin, air crosses the rig and warms up over the hot parts."></video>
+      </div>
+      <div class="texte revele d1">
+        <div class="tag"><span class="fr">RADIOGRAPHIE</span><span class="en">X-RAY</span></div>
+        <h2><span class="fr">Ta tour, vue par la vitre</span><span class="en">Your rig, seen through the window</span></h2>
+        <p>
+          <span class="fr">Dis une fois à Aurora combien de ventilateurs il y a à chaque endroit de ton boîtier. Elle dessine ta tour, et calcule la pression dedans : positive, l'air passe par les filtres et la poussière reste dehors.</span>
+          <span class="en">Tell Aurora once how many fans sit at each spot in your case. It draws your rig, and works out the pressure inside: positive means air comes in through the filters and dust stays out.</span>
+        </p>
+        <div class="duo">
+          <div class="carte">
+            <h4><span class="fr">Ventilateurs commandés</span><span class="en">Fans under control</span></h4>
+            <p><span class="fr">Silencieux, Équilibré, Performance, ou Automatique : Performance en jeu, Silencieux pendant la musique. À 100 % au-dessus de 85 °C, rendus à ta carte mère dès qu'Aurora se ferme.</span><span class="en">Quiet, Balanced, Performance, or Automatic: Performance while gaming, Quiet during music. 100 % above 85 °C, handed back to your motherboard the moment Aurora closes.</span></p>
+          </div>
+          <div class="carte">
+            <h4><span class="fr">Test de refroidissement</span><span class="en">Cooling test</span></h4>
+            <p><span class="fr">Trois minutes, une note sur 100. Répété au fil des mois, il devient un détecteur de poussière.</span><span class="en">Three minutes, a score out of 100. Repeated over the months, it becomes a dust detector.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Et aussi ——— -->
   <section>
-    <div class="panel tip">
-      <div class="tag"><span class="fr">UN COUP DE MAIN</span><span class="en">A HAND</span></div>
-      <h2><span class="fr">Aurora est gratuite, et le restera</span><span class="en">Aurora is free, and will stay free</span></h2>
-      <p>
-        <span class="fr">Pas de version payante, pas de publicité, rien à débloquer, aucune fonction gardée en otage. Si elle t'est utile et que tu veux encourager la suite, il y a un pot.</span>
-        <span class="en">No paid version, no ads, nothing to unlock, no feature held hostage. If it is useful to you and you would like to help what comes next, there is a tip jar.</span>
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">ET AUSSI</span><span class="en">AND ALSO</span></div>
+        <h2><span class="fr">Tout ce qu'un PC a à dire</span><span class="en">Everything a PC has to say</span></h2>
+      </div>
+      <div class="grille">
+        <div class="carte revele">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="3"/><path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="11.5" r="1"/><circle cx="18" cy="13.8" r="1"/></svg></span>
+          <h4><span class="fr">Overlay en jeu</span><span class="en">In-game overlay</span></h4>
+          <p><span class="fr">FPS, températures et charge par-dessus tes parties, en trois dispositions, avec un raccourci même en plein jeu.</span><span class="en">FPS, temperatures and load on top of your games, in three layouts, with a shortcut that works mid-game.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.2"/></svg></span>
+          <h4><span class="fr">Applications</span><span class="en">Applications</span></h4>
+          <p><span class="fr">Les vingt plus gourmandes, en direct, et un bouton pour en arrêter une. Ce qui fait tourner Windows n'en a pas.</span><span class="en">The twenty hungriest, live, and a button to stop one. What keeps Windows running has none.</span></p>
+        </div>
+        <div class="carte revele d2">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><rect x="10" y="13" width="4" height="7" rx="1"/></svg></span>
+          <h4><span class="fr">Mes PC et ton téléphone</span><span class="en">My PCs and your phone</span></h4>
+          <p><span class="fr">Les Aurora de la maison se trouvent toutes seules. Un code QR ouvre la même vue sur ton téléphone, sans rien installer.</span><span class="en">The Auroras at home find each other. A QR code opens the same view on your phone, with nothing to install.</span></p>
+        </div>
+        <div class="carte revele d3">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v4M12 11l-6 5M12 11l6 5"/></svg></span>
+          <h4><span class="fr">Appareils du réseau</span><span class="en">Network devices</span></h4>
+          <p><span class="fr">Ce qui est branché chez toi, avec le fabricant deviné — sans envoyer quoi que ce soit sur ton réseau.</span><span class="en">What is plugged in at your place, with the maker guessed — without sending anything over your network.</span></p>
+        </div>
+        <div class="carte revele">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+          <h4><span class="fr">Alimentation automatique</span><span class="en">Automatic power</span></h4>
+          <p><span class="fr">Performances en jeu, économie au repos : le mode d'alimentation de Windows change tout seul, et revient à ton habitude en quittant.</span><span class="en">Performance while gaming, savings at rest: the Windows power plan switches by itself, and returns to your usual one when you quit.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4.5-6"/></svg></span>
+          <h4><span class="fr">Test de vitesse</span><span class="en">Speed test</span></h4>
+          <p><span class="fr">Latence, descente et montée, gardées dans un carnet pour voir si ta connexion faiblit.</span><span class="en">Latency, download and upload, kept in a log to see whether your connection is getting weaker.</span></p>
+        </div>
+        <div class="carte revele d2">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+          <h4><span class="fr">Mises à jour vérifiées</span><span class="en">Verified updates</span></h4>
+          <p><span class="fr">Les PC de la maison se passent la nouvelle version, et chacun vérifie sa signature avant de l'installer.</span><span class="en">The PCs at home hand each other the new version, and each one checks its signature before installing it.</span></p>
+        </div>
+        <div class="carte revele d3">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h9M8.5 3v2M6 5c.5 3 2.5 5.5 5 7M11 5c-.8 3.5-3.2 6.5-6 8"/><path d="m13 21 4-9 4 9M14.3 18h5.4"/></svg></span>
+          <h4><span class="fr">Français et anglais</span><span class="en">French and English</span></h4>
+          <p><span class="fr">Toute l'application, jusqu'aux unités et aux notifications. La langue suit Windows, ou se choisit.</span><span class="en">The whole app, right down to units and notifications. The language follows Windows, or you pick it.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Thèmes ——— -->
+  <section id="themes">
+    <div class="wrap themes">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">CINQ THÈMES</span><span class="en">FIVE THEMES</span></div>
+        <h2><span class="fr">Le même tableau de bord, cinq habillages</span><span class="en">The same dashboard, five skins</span></h2>
+      </div>
+      <div class="pastilles revele" id="pastilles" role="group" aria-label="Thèmes">
+        <button type="button" aria-pressed="true" data-theme="carbone" data-couleur="#ff2340"><i style="background: linear-gradient(135deg, #0a0a0b 50%, #ff2340 50%)"></i><span class="fr">Carbone</span><span class="en">Carbon</span></button>
+        <button type="button" aria-pressed="false" data-theme="neon" data-couleur="#22d3ee"><i style="background: linear-gradient(135deg, #04070d 50%, #22d3ee 50%)"></i><span class="fr">Néon</span><span class="en">Neon</span></button>
+        <button type="button" aria-pressed="false" data-theme="glace" data-couleur="#6fd3ff"><i style="background: linear-gradient(135deg, #050b14 50%, #6fd3ff 50%)"></i><span class="fr">Glace</span><span class="en">Ice</span></button>
+        <button type="button" aria-pressed="false" data-theme="clair" data-couleur="#0f6fd1"><i style="background: linear-gradient(135deg, #ffffff 50%, #0f6fd1 50%)"></i><span class="fr">Clair</span><span class="en">Light</span></button>
+        <button type="button" aria-pressed="false" data-theme="forge" data-couleur="#ff6a1f"><i style="background: linear-gradient(135deg, #16120f 50%, #ff6a1f 50%)"></i>Forge</button>
+      </div>
+      <div class="pile revele" id="pile-themes">
+        <img class="actif" data-theme="carbone" loading="lazy" width="1500" height="845" src="img/v1/vue-fr.webp" data-src-fr="img/v1/vue-fr.webp" data-src-en="img/v1/vue-en.webp" alt="" data-alt-fr="Le thème Carbone." data-alt-en="The Carbon theme.">
+        <img data-theme="neon" loading="lazy" width="1200" height="676" src="img/v1/theme-neon-fr.webp" data-src-fr="img/v1/theme-neon-fr.webp" data-src-en="img/v1/theme-neon-en.webp" alt="" data-alt-fr="Le thème Néon." data-alt-en="The Neon theme.">
+        <img data-theme="glace" loading="lazy" width="1200" height="676" src="img/v1/theme-glace-fr.webp" data-src-fr="img/v1/theme-glace-fr.webp" data-src-en="img/v1/theme-glace-en.webp" alt="" data-alt-fr="Le thème Glace." data-alt-en="The Ice theme.">
+        <img data-theme="clair" loading="lazy" width="1200" height="676" src="img/v1/theme-clair-fr.webp" data-src-fr="img/v1/theme-clair-fr.webp" data-src-en="img/v1/theme-clair-en.webp" alt="" data-alt-fr="Le thème Clair." data-alt-en="The Light theme.">
+        <img data-theme="forge" loading="lazy" width="1200" height="676" src="img/v1/theme-forge-fr.webp" data-src-fr="img/v1/theme-forge-fr.webp" data-src-en="img/v1/theme-forge-en.webp" alt="" data-alt-fr="Le thème Forge." data-alt-en="The Forge theme.">
+      </div>
+      <p class="theme-texte" id="theme-texte">
+        <span data-theme="carbone"><span class="fr">Carbone, celui d'origine : fibre de carbone et rouge vif.</span><span class="en">Carbon, the original: carbon fibre and vivid red.</span></span>
+        <span data-theme="neon" hidden><span class="fr">Néon : science-fiction bleu et orange.</span><span class="en">Neon: blue-and-orange science fiction.</span></span>
+        <span data-theme="glace" hidden><span class="fr">Glace : nuit polaire et verre givré.</span><span class="en">Ice: polar night and frosted glass.</span></span>
+        <span data-theme="clair" hidden><span class="fr">Clair : le seul sur fond blanc, pour une pièce ensoleillée.</span><span class="en">Light: the only one on white, for a sunlit room.</span></span>
+        <span data-theme="forge" hidden><span class="fr">Forge : acier brossé, rivets et braise sous les panneaux.</span><span class="en">Forge: brushed steel, rivets and embers under the panels.</span></span>
       </p>
-      <p>
-        <span class="fr">Un don ne donne droit à rien de plus : ni support, ni priorité, ni version spéciale. C'est un merci, pas un achat.</span>
-        <span class="en">A donation buys nothing extra: no support, no priority, no special build. It is a thank you, not a purchase.</span>
-      </p>
-      <div class="cta">
-        <a class="button" href="https://ko-fi.com/auroraapp" rel="noopener">
+    </div>
+  </section>
+
+  <!-- ——— Le mot de Denis ——— -->
+  <section id="pourquoi">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">POURQUOI AURORA</span><span class="en">WHY AURORA</span></div>
+        <h2><span class="fr">Le mot de Denis</span><span class="en">A word from Denis</span></h2>
+      </div>
+      <div class="mot revele">
+        <p>
+          <span class="fr">J'ai longtemps monté mes propres PC, et j'ai toujours voulu savoir ce qui se passe dedans — pas avec des colonnes de chiffres, mais en mots simples. Aurora, c'est l'outil que je voulais pour moi.</span>
+          <span class="en">I built my own PCs for years, and I always wanted to know what goes on inside — not with columns of numbers, but in plain words. Aurora is the tool I wanted for myself.</span>
+        </p>
+        <p>
+          <span class="fr">Elle m'a déjà surpris plus d'une fois : un écran Samsung connecté à mon réseau depuis des mois sans que je le sache, et ma carte graphique qui tire 50 W à ne rien faire. Quand Wolfenstein a gelé deux fois dans la même soirée, j'ai voulu savoir pourquoi : c'est devenu l'onglet Jeux.</span>
+          <span class="en">It has surprised me more than once: a Samsung monitor connected to my network for months without my knowing, and my graphics card drawing 50 W while doing nothing. When Wolfenstein froze twice in one evening, I wanted to know why: that became the Games tab.</span>
+        </p>
+        <p>
+          <span class="fr">Aurora est gratuite, et elle le restera. Si elle t'apprend quelque chose sur ton PC, écris-moi : ça me fait toujours plaisir.</span>
+          <span class="en">Aurora is free, and it will stay that way. If it teaches you something about your PC, write to me: I always enjoy hearing it.</span>
+        </p>
+        <div class="signature">
+          <span class="initiale">D</span>
+          <div><b>Denis Desbiens</b><span class="fr">Créateur d'Aurora</span><span class="en">Aurora's creator</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Confiance ——— -->
+  <section>
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">SANS SURPRISE</span><span class="en">NO SURPRISES</span></div>
+        <h2><span class="fr">Ce qu'Aurora ne fait pas</span><span class="en">What Aurora does not do</span></h2>
+      </div>
+      <div class="trois">
+        <div class="carte revele">
+          <h4><span class="fr">Vie privée</span><span class="en">Privacy</span></h4>
+          <p><span class="fr">Pas de compte, pas de publicité, aucune mesure envoyée, personne suivi. Elle demande deux choses à Internet, et seulement deux : une fois par jour, le numéro de la dernière version ; et le test de vitesse, quand tu cliques dessus. Les deux se coupent.</span><span class="en">No account, no ads, no readings sent, nobody tracked. It asks the Internet two things, and only two: once a day, the latest version number; and the speed test, when you click it. Both can be turned off.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <h4><span class="fr">Signée</span><span class="en">Signed</span></h4>
+          <p><span class="fr">Aurora et son installeur sont signés électroniquement au nom de <strong>Denis Desbiens</strong> : Windows sait d'où vient le fichier, et t'avertirait si quelqu'un le modifiait en chemin.</span><span class="en">Aurora and its installer are digitally signed in the name of <strong>Denis Desbiens</strong>: Windows knows where the file comes from, and would warn you if anyone altered it along the way.</span></p>
+        </div>
+        <div class="carte revele d2">
+          <h4><span class="fr">Ce qu'il faut</span><span class="en">What you need</span></h4>
+          <p><span class="fr">Windows 10 (1809 ou plus récent) ou 11, en 64 bits. Les droits administrateur, demandés au démarrage : c'est la seule façon de lire les capteurs de température. L'installeur ajoute au besoin .NET 10 et le pilote PawnIO.</span><span class="en">Windows 10 (1809 or newer) or 11, 64-bit. Administrator rights, asked for at startup: that is the only way to read temperature sensors. The installer adds .NET 10 and the PawnIO driver if needed.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Installer ——— -->
+  <section id="installer">
+    <div class="wrap installer">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">INSTALLATION</span><span class="en">INSTALLATION</span></div>
+        <h2><span class="fr">Trois étapes, sans surprise</span><span class="en">Three steps, no surprises</span></h2>
+      </div>
+      <ol class="etapes">
+        <li class="revele"><p><span class="fr">Télécharge le fichier et ouvre-le. Ton navigateur ne devrait pas rechigner.</span><span class="en">Download the file and open it. Your browser should not object.</span></p></li>
+        <li class="revele d1"><p><span class="fr">Windows demande les droits administrateur. La fenêtre affiche « Éditeur vérifié : Denis Desbiens ».</span><span class="en">Windows asks for administrator rights. The window shows “Verified publisher: Denis Desbiens”.</span></p></li>
+        <li class="revele d2"><p><span class="fr">L'installation ajoute .NET 10 et PawnIO s'ils manquent : ça peut prendre quelques minutes, barre figée. C'est normal.</span><span class="en">The installation adds .NET 10 and PawnIO if they are missing: that can take a few minutes, bar frozen. This is normal.</span></p></li>
+      </ol>
+      <div class="avertissement revele">
+        <h4><span class="fr">Si Windows t'avertit quand même</span><span class="en">If Windows warns you anyway</span></h4>
+        <p><span class="fr">Windows regarde aussi la réputation d'un fichier : combien de gens l'ont installé sans ennui. Une nouvelle version peut encore afficher un avertissement les premiers jours. Clique « Informations complémentaires » : le nom de l'auteur y est.</span><span class="en">Windows also looks at a file's reputation: how many people have installed it without trouble. A new version may still show a warning for the first few days. Click “More info”: the author's name is right there.</span></p>
+      </div>
+      <div class="empreinte revele">
+        <p><span class="fr">Pour vérifier le fichier toi-même : clic droit → Propriétés → « Signatures numériques ». Ou compare son empreinte, dans PowerShell : <code>Get-FileHash .\Aurora-Setup-1.0.0.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.0.exe -Algorithm SHA256</code></span></p>
+        <div class="ligne">
+          <code id="empreinte">7F4CF097342350D41833B5C9EC2EE698791E205168EEC2C40A0865B21C5E42A0</code>
+          <button class="copier" type="button" id="copier"><span class="fr">Copier</span><span class="en">Copy</span></button>
+        </div>
+      </div>
+      <div class="actions revele">
+        <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/latest">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+          <span class="fr">Télécharger Aurora 1.0.0</span><span class="en">Download Aurora 1.0.0</span>
+        </a>
+        <a class="bouton discret" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases"><span class="fr">Toutes les versions</span><span class="en">All versions</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Don ——— -->
+  <section>
+    <div class="wrap">
+      <div class="don revele">
+        <div class="tag"><span class="fr">UN COUP DE MAIN</span><span class="en">A HAND</span></div>
+        <h2><span class="fr">Aurora est gratuite, et le restera</span><span class="en">Aurora is free, and will stay free</span></h2>
+        <p><span class="fr">Pas de version payante, pas de publicité, rien à débloquer. Si elle t'est utile et que tu veux encourager la suite, il y a un pot. Un don ne donne droit à rien de plus : c'est un merci, pas un achat.</span><span class="en">No paid version, no ads, nothing to unlock. If it is useful to you and you would like to help what comes next, there is a tip jar. A donation buys nothing extra: it is a thank you, not a purchase.</span></p>
+        <a class="bouton" href="https://ko-fi.com/auroraapp" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9A5.4 5.4 0 0 1 12 6.3 5.4 5.4 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9z"/></svg>
           <span class="fr">Offrir un café</span><span class="en">Buy a coffee</span>
         </a>
-        <span class="meta">
-          <span class="fr">Sur Ko-fi · paiement unique, pas d'abonnement</span>
-          <span class="en">On Ko-fi · one-off, no subscription</span>
-        </span>
+        <span class="meta"><span class="fr">Sur Ko-fi · paiement unique, pas d'abonnement</span><span class="en">On Ko-fi · one-off, no subscription</span></span>
       </div>
     </div>
   </section>
+</main>
 
-  <footer>
-    <p>
-      <span class="fr">Aurora est un projet personnel, offert tel quel, sans garantie et sans support. Il a été mis au point sur quelques PC seulement : sur du matériel très différent, il peut afficher moins de choses.</span>
-      <span class="en">Aurora is a personal project, offered as is, with no warranty and no support. It was put together on a handful of PCs only: on very different hardware, it may show fewer things.</span>
-    </p>
-    <p>
-      <span class="fr">Version 0.16.0 · <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Téléchargements et notes de version</a></span>
-      <span class="en">Version 0.16.0 · <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a></span>
-    </p>
-    <p>
-      <span class="fr">Un bogue, une carte mère qu'Aurora lit mal, une idée ? Écris à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Dis ce que tu vois et sur quel matériel ; s'il y a eu un plantage, le fichier <code>%APPDATA%\Aurora\crash.log</code> aide beaucoup.</span>
-      <span class="en">A bug, a motherboard Aurora reads badly, an idea? Write to <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Say what you see and on what hardware; if there was a crash, the file <code>%APPDATA%\Aurora\crash.log</code> helps a lot.</span>
-    </p>
-    <p>
-      <span class="fr">Aurora a aussi une <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">page Facebook</a> : nouveautés, captures, et un endroit de plus pour poser une question.</span>
-      <span class="en">Aurora also has a <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">Facebook page</a>: news, screenshots, and one more place to ask a question.</span>
-    </p>
-    <p>
-      <span class="fr">Bibliothèques libres employées : LibreHardwareMonitor, HidSharp, PresentMon, et les polices Orbitron, Rajdhani, Teko, Chakra Petch et Exo 2. Leurs licences accompagnent l'installation.</span>
-      <span class="en">Open-source libraries used: LibreHardwareMonitor, HidSharp, PresentMon, and the Orbitron, Rajdhani, Teko, Chakra Petch and Exo 2 fonts. Their licences ship with the installation.</span>
-    </p>
-  </footer>
-</div>
-
-<script>
-  (function () {
-    var root = document.documentElement;
-    var boutons = { fr: document.getElementById('btn-fr'), en: document.getElementById('btn-en') };
-    var titres = { fr: 'Aurora Moniteur Matériel', en: 'Aurora Hardware Monitor' };
-
-    function appliquer(langue) {
-      root.setAttribute('data-lang', langue);
-      root.lang = langue;
-      document.title = titres[langue];
-      boutons.fr.setAttribute('aria-pressed', String(langue === 'fr'));
-      boutons.en.setAttribute('aria-pressed', String(langue === 'en'));
-      try { localStorage.setItem('aurora-langue', langue); } catch (e) { /* navigation privée */ }
-    }
-
-    var choisie = null;
-    try { choisie = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
-    if (choisie !== 'fr' && choisie !== 'en') {
-      choisie = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
-    }
-    appliquer(choisie);
-
-    boutons.fr.addEventListener('click', function () { appliquer('fr'); });
-    boutons.en.addEventListener('click', function () { appliquer('en'); });
-  })();
-</script>
-
-<!-- Compteur de visites de Cloudflare : pas de cookie, pas de profil, rien qui identifie personne.
-     Il n'est pas injecté automatiquement (les enregistrements DNS sont en « DNS only », obligatoire
-     pour le certificat de GitHub Pages), d'où ce script posé à la main.
-     À reporter si la page est regénérée depuis l'artefact Claude, qui ne le contient pas. -->
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token": "2b2e9afa214040b4842912487d06564f"}'></script>
+<footer>
+  <div class="wrap">
+    <p><span class="fr">Aurora est un projet personnel, offert tel quel, sans garantie et sans support. Il a été mis au point sur quelques PC seulement : sur du matériel très différent, il peut afficher moins de choses.</span><span class="en">Aurora is a personal project, offered as is, with no warranty and no support. It was put together on a handful of PCs only: on very different hardware, it may show fewer things.</span></p>
+    <p><span class="fr">Version 1.0.0 · <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Téléchargements et notes de version</a></span><span class="en">Version 1.0.0 · <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a></span></p>
+    <p><span class="fr">Un bogue, une carte mère qu'Aurora lit mal, une idée ? Écris à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Dis ce que tu vois et sur quel matériel ; s'il y a eu un plantage, le fichier <code>%APPDATA%\Aurora\crash.log</code> aide beaucoup.</span><span class="en">A bug, a motherboard Aurora reads badly, an idea? Write to <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Say what you see and on what hardware; if there was a crash, the file <code>%APPDATA%\Aurora\crash.log</code> helps a lot.</span></p>
+    <p><span class="fr">Aurora a aussi une <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">page Facebook</a> : nouveautés, captures, et un endroit de plus pour poser une question.</span><span class="en">Aurora also has a <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">Facebook page</a>: news, screenshots, and one more place to ask a question.</span></p>
+    <p><span class="fr">Cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne ; l'application, elle, ne sait rien de tout ça.</span><span class="en">This page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone; the app itself knows nothing about any of it.</span></p>
+    <p><span class="fr">Bibliothèques libres employées : LibreHardwareMonitor, HidSharp, PresentMon, et les polices Orbitron, Rajdhani, Teko, Chakra Petch et Exo 2. Leurs licences accompagnent l'installation.</span><span class="en">Open-source libraries used: LibreHardwareMonitor, HidSharp, PresentMon, and the Orbitron, Rajdhani, Teko, Chakra Petch and Exo 2 fonts. Their licences ship with the installation.</span></p>
+  </div>
+</footer>
 
 <div class="loupe" id="loupe" role="dialog" aria-modal="true" aria-label="Image agrandie / Enlarged image">
   <button class="fermer" type="button" id="loupe-fermer" aria-label="Fermer / Close">&times;</button>
   <img id="loupe-image" alt="">
-  <div class="legende" id="loupe-legende"></div>
+  <div class="texte-loupe" id="loupe-texte"></div>
 </div>
 
 <script>
-  // Cliquer une capture l'agrandit : elles sont pleines de petits chiffres qu'on veut pouvoir lire.
-  (function () {
-    var loupe = document.getElementById('loupe');
-    var image = document.getElementById('loupe-image');
-    var legende = document.getElementById('loupe-legende');
-    var revenir = null;
+(function () {
+  var racine = document.documentElement;
+  var calme = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var langue = 'fr';
 
-    function ouvrir(source) {
-      image.src = source.currentSrc || source.src;
-      image.alt = source.alt || '';
-      legende.textContent = source.alt || '';
-      loupe.setAttribute('open', '');
-      document.body.style.overflow = 'hidden';
-      revenir = source;
-      document.getElementById('loupe-fermer').focus();
+  /* ——— Langue : textes, et images et vidéos de la bonne langue ——— */
+  var boutons = { fr: document.getElementById('btn-fr'), en: document.getElementById('btn-en') };
+  var titres = { fr: 'Aurora Moniteur Matériel', en: 'Aurora Hardware Monitor' };
+
+  function medias() {
+    document.querySelectorAll('[data-src-' + langue + ']').forEach(function (el) {
+      var src = el.getAttribute('data-src-' + langue);
+      var poster = el.getAttribute('data-poster-' + langue);
+      if (poster && el.getAttribute('poster') !== poster) { el.setAttribute('poster', poster); }
+      if (el.getAttribute('src') !== src) {
+        el.setAttribute('src', src);
+        if (el.tagName === 'VIDEO') { el.load(); if (el.dataset.visible === 'oui' && !calme) { el.play().catch(function () {}); } }
+      }
+    });
+    document.querySelectorAll('[data-alt-' + langue + ']').forEach(function (el) {
+      var texte = el.getAttribute('data-alt-' + langue);
+      if (el.tagName === 'VIDEO') { el.setAttribute('aria-label', texte); } else if (el.getAttribute('alt') !== null) { el.setAttribute('alt', texte); }
+    });
+  }
+
+  function appliquer(choix) {
+    langue = choix;
+    racine.setAttribute('data-lang', choix);
+    racine.lang = choix;
+    document.title = titres[choix];
+    boutons.fr.setAttribute('aria-pressed', String(choix === 'fr'));
+    boutons.en.setAttribute('aria-pressed', String(choix === 'en'));
+    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
+    medias();
+  }
+  var choisie = null;
+  try { choisie = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
+  if (choisie !== 'fr' && choisie !== 'en') {
+    choisie = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+  }
+  appliquer(choisie);
+  boutons.fr.addEventListener('click', function () { appliquer('fr'); });
+  boutons.en.addEventListener('click', function () { appliquer('en'); });
+
+  /* ——— Barre du haut : un trait dès qu'on descend ——— */
+  var barre = document.getElementById('barre');
+  function barreDefile() { barre.classList.toggle('defile', window.scrollY > 8); }
+  window.addEventListener('scroll', barreDefile, { passive: true });
+  barreDefile();
+
+  /* ——— Apparition au défilement, compteurs, vidéos jouées seulement quand elles se voient ——— */
+  var compteurs = [];
+  function compter(el) {
+    if (el.dataset.fait) { return; }
+    el.dataset.fait = '1';
+    var cible = Number(el.dataset.cible), depart = Number(el.dataset.depart || 0);
+    if (calme || cible === depart) { el.textContent = String(cible); return; }
+    var debut = null, duree = 1500;
+    function image(t) {
+      if (debut === null) { debut = t; }
+      var p = Math.min(1, (t - debut) / duree), doux = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(depart + (cible - depart) * doux));
+      if (p < 1) { requestAnimationFrame(image); }
     }
-
-    function fermer() {
-      loupe.removeAttribute('open');
-      document.body.style.overflow = '';
-      // L'image reste chargée : la vider ferait clignoter à la réouverture.
-      if (revenir) { revenir.focus(); revenir = null; }
-    }
-
-    document.querySelectorAll('figure img, .shot img').forEach(function (img) {
-      img.tabIndex = 0;
-      img.setAttribute('role', 'button');
-      img.addEventListener('click', function () { ouvrir(img); });
-      img.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); ouvrir(img); }
+    requestAnimationFrame(image);
+  }
+  if ('IntersectionObserver' in window) {
+    var voir = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (entree) {
+        if (!entree.isIntersecting) { return; }
+        entree.target.classList.add('vu');
+        entree.target.querySelectorAll('.compteur').forEach(compter);
+        voir.unobserve(entree.target);
       });
+    }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.revele').forEach(function (el) { voir.observe(el); });
+
+    var films = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (entree) {
+        var film = entree.target;
+        film.dataset.visible = entree.isIntersecting ? 'oui' : 'non';
+        if (entree.isIntersecting && !calme) { film.play().catch(function () {}); } else { film.pause(); }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('video').forEach(function (film) {
+      if (calme) { film.removeAttribute('autoplay'); film.pause(); }
+      films.observe(film);
     });
-    loupe.addEventListener('click', fermer);
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && loupe.hasAttribute('open')) { fermer(); }
+  } else {
+    document.querySelectorAll('.revele').forEach(function (el) { el.classList.add('vu'); });
+    document.querySelectorAll('.compteur').forEach(compter);
+  }
+
+  /* ——— L'écran du haut : se redresse en montant, s'incline un peu sous la souris ——— */
+  var ecran = document.getElementById('ecran'), cadre = document.getElementById('cadre');
+  if (!calme && ecran && cadre) {
+    function montee() {
+      var r = ecran.getBoundingClientRect(), vh = window.innerHeight;
+      var p = Math.max(0, Math.min(1, (vh - r.top) / (vh * 0.85)));
+      cadre.style.setProperty('--montee', ((1 - p) * 16).toFixed(2) + 'deg');
+      cadre.style.setProperty('--hauteur', r.height + 'px');
+    }
+    window.addEventListener('scroll', montee, { passive: true });
+    window.addEventListener('resize', montee);
+    montee();
+    ecran.addEventListener('mousemove', function (e) {
+      var r = cadre.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      cadre.style.setProperty('--ty', (x * 5).toFixed(2) + 'deg');
+      cadre.style.setProperty('--tx', (-y * 4).toFixed(2) + 'deg');
     });
-  })();
+    ecran.addEventListener('mouseleave', function () {
+      cadre.style.setProperty('--ty', '0deg');
+      cadre.style.setProperty('--tx', '0deg');
+    });
+  }
+
+  /* ——— Lueur des cartes qui suit la souris ——— */
+  document.querySelectorAll('.carte').forEach(function (carte) {
+    carte.addEventListener('mousemove', function (e) {
+      var r = carte.getBoundingClientRect();
+      carte.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      carte.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  /* ——— Visite guidée : onglets, avance toute seule tant qu'on n'y touche pas ——— */
+  var onglets = Array.prototype.slice.call(document.querySelectorAll('#onglets [role="tab"]'));
+  var imagesVisite = document.querySelectorAll('#pile-visite img');
+  var textesVisite = document.querySelectorAll('#visite-texte [data-onglet]');
+  var barreProgression = document.getElementById('progression');
+  var courant = 0, minuterie = null, touche = false, visiteVisible = false;
+  var DUREE = 5500;
+
+  function montrer(index, focus) {
+    courant = (index + onglets.length) % onglets.length;
+    var nom = onglets[courant].dataset.onglet;
+    onglets.forEach(function (o, i) {
+      o.setAttribute('aria-selected', String(i === courant));
+      o.tabIndex = i === courant ? 0 : -1;
+    });
+    imagesVisite.forEach(function (img) { img.classList.toggle('actif', img.dataset.onglet === nom); });
+    textesVisite.forEach(function (t) { t.hidden = t.dataset.onglet !== nom; });
+    if (focus) { onglets[courant].focus(); }
+    relancer();
+  }
+  function relancer() {
+    clearTimeout(minuterie);
+    barreProgression.style.transition = 'none';
+    barreProgression.style.width = '0';
+    if (touche || calme || !visiteVisible) { return; }
+    void barreProgression.offsetWidth;
+    barreProgression.style.transition = 'width ' + DUREE + 'ms linear';
+    barreProgression.style.width = '100%';
+    minuterie = setTimeout(function () { montrer(courant + 1, false); }, DUREE);
+  }
+  onglets.forEach(function (o, i) {
+    o.addEventListener('click', function () { touche = true; montrer(i, false); });
+    o.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault(); touche = true;
+        montrer(courant + (e.key === 'ArrowRight' ? 1 : -1), true);
+      }
+    });
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entrees) {
+      visiteVisible = entrees[0].isIntersecting;
+      relancer();
+    }, { threshold: 0.35 }).observe(document.getElementById('pile-visite'));
+  }
+
+  /* ——— Thèmes : la pastille change l'image et la couleur de la lueur ——— */
+  var pastilles = Array.prototype.slice.call(document.querySelectorAll('#pastilles button'));
+  var pileThemes = document.getElementById('pile-themes');
+  pastilles.forEach(function (p) {
+    p.addEventListener('click', function () {
+      var nom = p.dataset.theme;
+      pastilles.forEach(function (autre) { autre.setAttribute('aria-pressed', String(autre === p)); });
+      pileThemes.querySelectorAll('img').forEach(function (img) { img.classList.toggle('actif', img.dataset.theme === nom); });
+      document.querySelectorAll('#theme-texte [data-theme]').forEach(function (t) { t.hidden = t.dataset.theme !== nom; });
+      document.getElementById('themes').style.setProperty('--theme', p.dataset.couleur);
+    });
+  });
+
+  /* ——— Copier l'empreinte ——— */
+  var copier = document.getElementById('copier');
+  copier.addEventListener('click', function () {
+    var texte = document.getElementById('empreinte').textContent.trim();
+    var fini = function () {
+      copier.classList.add('fait');
+      copier.innerHTML = '<span class="fr">Copiée ✓</span><span class="en">Copied ✓</span>';
+      setTimeout(function () { copier.classList.remove('fait'); copier.innerHTML = '<span class="fr">Copier</span><span class="en">Copy</span>'; }, 2200);
+    };
+    if (navigator.clipboard) { navigator.clipboard.writeText(texte).then(fini, function () {}); }
+  });
+
+  /* ——— Loupe : un clic sur une capture l'agrandit ——— */
+  var loupe = document.getElementById('loupe'), image = document.getElementById('loupe-image');
+  var legende = document.getElementById('loupe-texte'), revenir = null;
+  function ouvrir(source) {
+    image.src = source.currentSrc || source.src;
+    image.alt = source.alt || '';
+    legende.textContent = source.alt || '';
+    loupe.setAttribute('open', '');
+    document.body.style.overflow = 'hidden';
+    revenir = source;
+    document.getElementById('loupe-fermer').focus();
+  }
+  function fermer() {
+    loupe.removeAttribute('open');
+    document.body.style.overflow = '';
+    if (revenir) { revenir.focus(); revenir = null; }
+  }
+  document.querySelectorAll('.capture, .pile img').forEach(function (img) {
+    img.addEventListener('click', function () { ouvrir(img); });
+    img.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ouvrir(img); }
+    });
+  });
+  loupe.addEventListener('click', fermer);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && loupe.hasAttribute('open')) { fermer(); } });
+})();
 </script>
 
+<!-- Compteur de visites de Cloudflare : pas de cookie, pas de profil, rien qui identifie personne.
+     Il n'est pas injecté automatiquement (les enregistrements DNS sont en « DNS only », obligatoire
+     pour le certificat de GitHub Pages), d'où ce script posé à la main. -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "2b2e9afa214040b4842912487d06564f"}'></script>
 </body>
 </html>
