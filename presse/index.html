@@ -125,6 +125,11 @@
   .logo .apercu img { width: 96px; height: 96px; }
   .liens { display: flex; flex-wrap: wrap; gap: 10px; }
 
+  /* Le mot de Denis */
+  blockquote.mot { margin: 14px 0 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--accent); max-width: 860px; }
+  blockquote.mot p { color: var(--ink); font-size: 19px; }
+  blockquote.mot cite { display: block; margin-top: 10px; color: var(--dim); font-style: normal; font-weight: 600; }
+
   ul.puces { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
   ul.puces li { position: relative; padding-left: 22px; }
   ul.puces li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 9px; height: 9px; background: var(--accent);
@@ -312,10 +317,20 @@
   <section>
     <div class="wrap">
       <h2><span class="fr">Qui fait Aurora</span><span class="en">Who makes Aurora</span></h2>
-      <p class="intro" style="color: var(--text); margin-bottom: 0">
-        <span class="fr">Aurora est née d'un besoin de Denis, un Québécois qui monte ses propres PC depuis des années&nbsp;: savoir ce qui se passe dans son PC, en mots simples plutôt qu'en colonnes de chiffres. Denis n'est pas programmeur&nbsp;: il a créé Aurora en travaillant avec une intelligence artificielle (Claude, d'Anthropic), qui écrit le code pendant que lui décide de ce qu'Aurora doit faire et l'essaie sur ses propres machines. Il l'a d'abord faite pour lui, puis l'a partagée. Elle est gratuite, et elle le restera. Pour une question ou une entrevue, écris-lui à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>&nbsp;: il répond lui-même.</span>
-        <span class="en">Aurora was born from a need Denis had, a Quebecer who has been building his own PCs for years: knowing what's going on inside his PC, in plain words rather than columns of numbers. Denis isn't a programmer: he created Aurora by working with an artificial intelligence (Claude, by Anthropic), which writes the code while he decides what Aurora should do and tests it on his own machines. He made it for himself first, then shared it. It's free, and it will stay free. For a question or an interview, write to him at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>: he answers himself.</span>
-      </p>
+      <!-- Le mot de Denis au « je », comme sur le site ; la présentation à la troisième personne, dessous, est celle
+           qu'un youtubeur ou un journaliste peut reprendre telle quelle. -->
+      <blockquote class="mot">
+        <p><span class="fr">«&nbsp;J'ai longtemps monté mes propres PC, et j'ai toujours voulu savoir ce qui se passe dedans, en mots simples plutôt qu'en colonnes de chiffres. Je ne suis pas programmeur&nbsp;: j'ai créé Aurora en travaillant avec une intelligence artificielle (Claude, d'Anthropic). Elle écrit le code&nbsp;; moi, je décide de ce qu'Aurora doit faire et je l'essaie sur mes propres machines. Je l'ai d'abord faite pour moi, puis je l'ai partagée. Elle est gratuite, et elle le restera. Pour une question ou une entrevue, écris-moi à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>&nbsp;: je réponds moi-même.&nbsp;»</span><span class="en">“I've been building my own PCs for a long time, and I always wanted to know what's going on inside, in plain words rather than columns of numbers. I'm not a programmer: I created Aurora by working with an artificial intelligence (Claude, by Anthropic). It writes the code; I decide what Aurora should do and test it on my own machines. I made it for myself first, then shared it. It's free, and it will stay free. For a question or an interview, write to me at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>: I answer myself.”</span></p>
+        <cite>— Denis</cite>
+      </blockquote>
+      <div class="texte-a-copier" style="margin: 18px 0 0">
+        <h3><span class="fr">Présentation à copier</span><span class="en">Bio to copy</span></h3>
+        <p class="a-copier">
+          <span class="fr">Aurora est créée par Denis, un Québécois qui monte ses propres PC depuis des années. Sans être programmeur, il la développe avec l'IA Claude&nbsp;: l'IA écrit le code, lui décide de ce qu'Aurora doit faire et l'essaie sur ses machines.</span>
+          <span class="en">Aurora is made by Denis, a Quebecer who has been building his own PCs for years. Without being a programmer, he develops it with the Claude AI: the AI writes the code, he decides what Aurora should do and tests it on his machines.</span>
+        </p>
+        <button class="copier" type="button"><span class="fr">Copier</span><span class="en">Copy</span></button>
+      </div>
     </div>
   </section>
 </main>
