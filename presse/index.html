@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurora — Trousse de presse</title>
+<meta name="description" content="Trousse de presse d'Aurora, moniteur matériel gratuit pour Windows : textes à copier, captures en haute résolution, logo et vidéos.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aurora — trousse de presse">
+<meta property="og:description" content="Textes, captures, logo et vidéos pour parler d'Aurora, moniteur matériel gratuit pour Windows.">
+<meta property="og:image" content="https://auroraapp.ca/img/v1/partage.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600&display=swap">
+<style>
+  /* Les couleurs du site (thème Carbone d'Aurora). */
+  :root {
+    --ground: #09090b;
+    --panel: #141619;
+    --panel-2: #1a1d22;
+    --edge: #272a31;
+    --edge-2: #383d46;
+    --accent: #ff2340;
+    --accent-hi: #ff5468;
+    --accent-soft: rgba(255, 35, 64, .13);
+    --ink: #f2f4f7;
+    --text: #c3c8d0;
+    --dim: #868d97;
+    --green: #3ddc84;
+    color-scheme: dark;
+  }
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root[data-lang="en"] .fr { display: none !important; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(1200px 560px at 50% -260px, rgba(255, 35, 64, .2), transparent 70%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, .021) 0 3px, transparent 3px 6px),
+      repeating-linear-gradient(-45deg, rgba(0, 0, 0, .32) 0 3px, transparent 3px 6px),
+      var(--ground);
+    color: var(--text);
+    font: 500 18px/1.6 Rajdhani, "Segoe UI", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--accent-hi); }
+  strong, b { color: var(--ink); font-weight: 600; }
+  h1, h2, h3 { font-family: "Chakra Petch", "Segoe UI", sans-serif; color: var(--ink); margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(34px, 6vw, 60px); line-height: 1.02; }
+  h2 { font-size: clamp(26px, 3.6vw, 36px); line-height: 1.1; }
+  h3 { font-size: 21px; line-height: 1.2; }
+  p { margin: 0; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+  /* Barre du haut */
+  .barre { position: sticky; top: 0; z-index: 5; background: rgba(9, 9, 11, .88); backdrop-filter: blur(8px);
+           border-bottom: 1px solid var(--edge); }
+  .barre .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+  .marque { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none;
+            font: 700 20px "Chakra Petch", sans-serif; letter-spacing: 1px; }
+  .marque img { width: 30px; height: 30px; }
+  .langues { display: flex; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--edge-2); overflow: hidden; }
+  .langues button { background: none; border: 0; color: var(--text); font: 700 14px Rajdhani, sans-serif;
+                    padding: 7px 14px; cursor: pointer; }
+  .langues button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .langues button:focus-visible, .bouton:focus-visible, .copier:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Tête de page */
+  .tete { padding: 56px 0 28px; }
+  .tag { display: inline-block; font: 700 13px "Chakra Petch", sans-serif; letter-spacing: 2px; color: #fff;
+         background: var(--accent); padding: 4px 12px; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+         margin-bottom: 16px; }
+  .lead { max-width: 760px; margin-top: 16px; font-size: 20px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .bouton { display: inline-flex; align-items: center; gap: 9px; background: var(--accent); color: #fff; text-decoration: none;
+            font: 700 17px Rajdhani, sans-serif; padding: 11px 20px;
+            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
+  .bouton:hover { background: var(--accent-hi); }
+  .bouton.discret { background: var(--panel-2); color: var(--ink); box-shadow: inset 0 0 0 1px var(--edge-2); }
+  .bouton svg { width: 18px; height: 18px; flex: none; }
+
+  /* Sections */
+  section { padding: 34px 0; border-top: 1px solid var(--edge); }
+  section > .wrap > h2 { margin-bottom: 8px; }
+  .intro { color: var(--dim); margin-bottom: 22px; max-width: 760px; }
+  .grille { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .carte { background: linear-gradient(180deg, var(--panel-2), var(--panel)); box-shadow: inset 0 0 0 1px var(--edge);
+           padding: 18px 20px; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px)); }
+  .carte h3 { margin-bottom: 6px; }
+  .carte .nouveau { display: inline-block; font: 700 12px "Chakra Petch", sans-serif; letter-spacing: 1px;
+                    color: var(--accent-hi); margin-bottom: 4px; }
+
+  /* En bref */
+  .faits { display: grid; gap: 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+           box-shadow: inset 0 0 0 1px var(--edge); background: var(--panel); }
+  .faits div { padding: 14px 18px; border-bottom: 1px solid var(--edge); border-right: 1px solid var(--edge); }
+  .faits dt { font: 600 13px "Chakra Petch", sans-serif; letter-spacing: 1.5px; color: var(--dim); text-transform: uppercase; }
+  .faits dd { margin: 2px 0 0; color: var(--ink); }
+
+  /* Textes à copier */
+  .texte-a-copier { position: relative; background: var(--panel); box-shadow: inset 0 0 0 1px var(--edge);
+                    padding: 18px 20px 16px; margin-bottom: 14px; }
+  .texte-a-copier h3 { font-size: 15px; letter-spacing: 1.5px; color: var(--dim); text-transform: uppercase; margin-bottom: 8px; }
+  .texte-a-copier p { color: var(--ink); }
+  .copier { margin-top: 12px; background: var(--panel-2); color: var(--ink); border: 0; box-shadow: inset 0 0 0 1px var(--edge-2);
+            font: 700 15px Rajdhani, sans-serif; padding: 6px 14px; cursor: pointer; }
+  .copier.fait { color: var(--green); }
+
+  /* Captures */
+  .captures { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); }
+  .captures figure { margin: 0; background: var(--panel); box-shadow: inset 0 0 0 1px var(--edge); padding: 8px; }
+  .captures figcaption { font-size: 15px; color: var(--dim); padding: 8px 4px 2px; }
+
+  /* Logo */
+  .logo { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+  .logo .apercu { display: flex; gap: 14px; }
+  .logo .apercu div { width: 132px; height: 132px; display: grid; place-items: center; box-shadow: inset 0 0 0 1px var(--edge); }
+  .logo .apercu .clair { background: #f2f4f7; }
+  .logo .apercu img { width: 96px; height: 96px; }
+  .liens { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  ul.puces { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  ul.puces li { position: relative; padding-left: 22px; }
+  ul.puces li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 9px; height: 9px; background: var(--accent);
+                        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+  code { font: 600 16px Consolas, "Cascadia Mono", monospace; color: var(--ink); background: var(--panel-2);
+         padding: 1px 6px; overflow-wrap: anywhere; }
+  .pied { padding: 30px 0 46px; color: var(--dim); font-size: 16px; border-top: 1px solid var(--edge); }
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .tete { padding-top: 36px; }
+    .lead { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<header class="barre">
+  <div class="wrap">
+    <a class="marque" href="../"><img src="../favicon.svg" alt="" width="30" height="30">AURORA</a>
+    <div class="langues" role="group" aria-label="Langue / Language">
+      <button id="btn-fr" type="button" aria-pressed="true">FR</button>
+      <button id="btn-en" type="button" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="tete">
+    <div class="wrap">
+      <div class="tag"><span class="fr">TROUSSE DE PRESSE</span><span class="en">PRESS KIT</span></div>
+      <h1><span class="fr">Aurora, le moniteur matériel qui parle en mots simples</span><span class="en">Aurora, the hardware monitor that speaks plain words</span></h1>
+      <p class="lead">
+        <span class="fr">Tout ce qu'il faut pour parler d'Aurora&nbsp;: des textes à copier, des captures en haute résolution, le logo et des vidéos. Tout est libre d'utilisation pour présenter Aurora.</span>
+        <span class="en">Everything you need to talk about Aurora: copy-ready text, high-resolution screenshots, the logo and videos. Everything here is free to use to present Aurora.</span>
+      </p>
+      <div class="actions">
+        <a class="bouton" href="aurora-captures-fr.zip" data-href-fr="aurora-captures-fr.zip" data-href-en="aurora-captures-en.zip" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+          <span class="fr">Toutes les captures (ZIP, 7,3&nbsp;Mo)</span><span class="en">All screenshots (ZIP, 7.3&nbsp;MB)</span>
+        </a>
+        <a class="bouton discret" href="mailto:contact@auroraapp.ca"><span class="fr">Écrire à Denis</span><span class="en">Write to Denis</span></a>
+        <a class="bouton discret" href="../"><span class="fr">Le site d'Aurora</span><span class="en">Aurora's website</span></a>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="fr">En bref</span><span class="en">At a glance</span></h2>
+      <p class="intro"><span class="fr">Les faits à retenir.</span><span class="en">The key facts.</span></p>
+      <dl class="faits">
+        <div><dt><span class="fr">Nom</span><span class="en">Name</span></dt><dd><span class="fr">Aurora — Moniteur matériel</span><span class="en">Aurora — Hardware Monitor</span></dd></div>
+        <div><dt>Version</dt><dd><span class="fr">1.0.4, 26&nbsp;septembre 2026</span><span class="en">1.0.4, September 26, 2026</span></dd></div>
+        <div><dt><span class="fr">Prix</span><span class="en">Price</span></dt><dd><span class="fr">Gratuite, sans publicité, sans compte</span><span class="en">Free, no ads, no account</span></dd></div>
+        <div><dt><span class="fr">Système</span><span class="en">System</span></dt><dd><span class="fr">Windows 10&nbsp;et 11, 64&nbsp;bits · 9,2&nbsp;Mo</span><span class="en">Windows 10&nbsp;and 11, 64-bit · 9.2&nbsp;MB</span></dd></div>
+        <div><dt><span class="fr">Confiance</span><span class="en">Trust</span></dt><dd><span class="fr">Installeur signé électroniquement</span><span class="en">Digitally signed installer</span></dd></div>
+        <div><dt><span class="fr">Langues</span><span class="en">Languages</span></dt><dd><span class="fr">Français et anglais</span><span class="en">French and English</span></dd></div>
+        <div><dt><span class="fr">Vie privée</span><span class="en">Privacy</span></dt><dd><span class="fr">Aucune mesure envoyée&nbsp;; Internet seulement pour le numéro de version, et quand on le demande</span><span class="en">No readings sent; the Internet only for the version number, and when you ask</span></dd></div>
+        <div><dt><span class="fr">Créateur</span><span class="en">Creator</span></dt><dd><span class="fr">Denis, au Québec</span><span class="en">Denis, in Quebec</span></dd></div>
+        <div><dt><span class="fr">Site et contact</span><span class="en">Website and contact</span></dt><dd><a href="https://auroraapp.ca">auroraapp.ca</a> · <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="fr">Textes à copier</span><span class="en">Copy-ready text</span></h2>
+      <p class="intro"><span class="fr">À reprendre tels quels, ou à adapter.</span><span class="en">Use them as they are, or adapt them.</span></p>
+      <div class="texte-a-copier">
+        <h3><span class="fr">En une phrase</span><span class="en">In one sentence</span></h3>
+        <p class="a-copier">
+          <span class="fr">Aurora est un moniteur matériel gratuit pour Windows qui surveille ton PC en direct — températures, ventilateurs, disques, réseau, FPS en jeu — et te dit en mots simples s'il va bien.</span>
+          <span class="en">Aurora is a free hardware monitor for Windows that watches your PC live — temperatures, fans, drives, network, in-game FPS — and tells you in plain words whether it's doing well.</span>
+        </p>
+        <button class="copier" type="button"><span class="fr">Copier</span><span class="en">Copy</span></button>
+      </div>
+      <div class="texte-a-copier">
+        <h3><span class="fr">En un paragraphe</span><span class="en">In one paragraph</span></h3>
+        <p class="a-copier">
+          <span class="fr">Aurora est un moniteur matériel gratuit pour Windows 10&nbsp;et 11. Elle affiche en direct les températures, les ventilateurs, les disques, le réseau et les FPS en jeu dans un tableau de bord clair, et surtout, elle les comprend&nbsp;: son onglet Santé dit en mots simples ce qui cloche et quoi faire, qu'il s'agisse d'un disque usé, d'un ventilateur arrêté, d'une erreur que Windows a notée en silence ou d'un écran branché au mauvais endroit. Elle garde aussi la trace de ce qui a changé sur le PC, pour relier un problème à sa cause probable. Sans compte ni publicité, elle n'envoie aucune mesure, et elle parle français et anglais.</span>
+          <span class="en">Aurora is a free hardware monitor for Windows 10&nbsp;and 11. It shows temperatures, fans, drives, network and in-game FPS live in a clear dashboard, and above all, it makes sense of them: its Health tab says in plain words what's wrong and what to do — a worn drive, a stopped fan, an error Windows logged silently, or a display plugged into the wrong port. It also keeps track of what changed on the PC, to link a problem to its likely cause. No account, no ads, it sends none of your readings, and it speaks French and English.</span>
+        </p>
+        <button class="copier" type="button"><span class="fr">Copier</span><span class="en">Copy</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="fr">Ce qui la distingue</span><span class="en">What sets it apart</span></h2>
+      <p class="intro"><span class="fr">Aurora ne fait pas que mesurer&nbsp;: elle explique.</span><span class="en">Aurora doesn't just measure: it explains.</span></p>
+      <div class="grille">
+        <div class="carte"><h3><span class="fr">Un bilan de santé en mots simples</span><span class="en">A health check in plain words</span></h3>
+          <p><span class="fr">Ce qui cloche, pourquoi, et quoi faire&nbsp;: disques, températures, ventilateurs, pile du BIOS, bloc d'alimentation, et ce que Windows note sans rien dire.</span><span class="en">What's wrong, why, and what to do: drives, temperatures, fans, BIOS battery, power supply, and what Windows logs without a word.</span></p></div>
+        <div class="carte"><span class="nouveau"><span class="fr">NOUVEAU DANS LA 1.0.4</span><span class="en">NEW IN 1.0.4</span></span>
+          <h3><span class="fr">La vérification du montage</span><span class="en">The build check</span></h3>
+          <p><span class="fr">Un écran branché sur la carte mère ou réglé trop bas, une carte graphique dans le mauvais port&nbsp;: des erreurs qui ne se voient pas.</span><span class="en">A display plugged into the motherboard or set too low, a graphics card in the wrong slot: mistakes you can't see.</span></p></div>
+        <div class="carte"><h3><span class="fr">La machine à remonter le temps</span><span class="en">The time machine</span></h3>
+          <p><span class="fr">Pilotes, mises à jour, programmes au démarrage&nbsp;: ce qui a changé sur le PC, jour après jour, relié aux problèmes.</span><span class="en">Drivers, updates, startup programs: what changed on the PC, day after day, linked to problems.</span></p></div>
+        <div class="carte"><h3><span class="fr">Les jeux</span><span class="en">Games</span></h3>
+          <p><span class="fr">FPS, 1&nbsp;% bas, ce qui limite les images, un overlay, et les gels ou plantages expliqués avec l'état du PC juste avant.</span><span class="en">FPS, 1% low, what caps the frames, an overlay, and freezes or crashes explained with the state of the PC just before.</span></p></div>
+        <div class="carte"><h3><span class="fr">La radiographie</span><span class="en">The X-ray</span></h3>
+          <p><span class="fr">La tour dessinée avec ses vrais ventilateurs, l'air qui circule, et les points chauds.</span><span class="en">The rig drawn with its real fans, the air flowing through, and the hot spots.</span></p></div>
+        <div class="carte"><h3><span class="fr">Hors de l'écran</span><span class="en">Beyond the screen</span></h3>
+          <p><span class="fr">Sept touches pour le Stream Deck, les mesures sur le téléphone par un code QR, et les autres PC de la maison.</span><span class="en">Seven Stream Deck keys, readings on your phone through a QR code, and the other PCs at home.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="fr">Captures</span><span class="en">Screenshots</span></h2>
+      <p class="intro">
+        <span class="fr">La vraie Aurora, en mode démonstration. Quatorze captures en PNG, 1746&nbsp;×&nbsp;983, dans chaque langue&nbsp;: <a href="aurora-captures-fr.zip" download>en français</a> ou <a href="aurora-captures-en.zip" download>en anglais</a> (ZIP, 7,3&nbsp;Mo).</span>
+        <span class="en">The real Aurora, in demo mode. Fourteen PNG screenshots, 1746&nbsp;×&nbsp;983, in each language: <a href="aurora-captures-en.zip" download>in English</a> or <a href="aurora-captures-fr.zip" download>in French</a> (ZIP, 7.3&nbsp;MB).</span>
+      </p>
+      <div class="captures">
+        <figure><img loading="lazy" width="1500" height="845" src="../img/v1/vue-fr.webp" data-src-fr="../img/v1/vue-fr.webp" data-src-en="../img/v1/vue-en.webp" data-alt-fr="La vue d'ensemble d'Aurora." data-alt-en="Aurora's overview." alt="La vue d'ensemble d'Aurora.">
+          <figcaption><span class="fr">La vue d'ensemble</span><span class="en">The overview</span></figcaption></figure>
+        <figure><img loading="lazy" width="1500" height="845" src="../img/v1/sante-fr.webp" data-src-fr="../img/v1/sante-fr.webp" data-src-en="../img/v1/sante-en.webp" data-alt-fr="L'onglet Santé." data-alt-en="The Health tab." alt="L'onglet Santé.">
+          <figcaption><span class="fr">L'onglet Santé</span><span class="en">The Health tab</span></figcaption></figure>
+        <figure><img loading="lazy" width="1500" height="845" src="../img/v1/montage-fr.webp" data-src-fr="../img/v1/montage-fr.webp" data-src-en="../img/v1/montage-en.webp" data-alt-fr="La vérification du montage, dans l'onglet Santé." data-alt-en="The build check, in the Health tab." alt="La vérification du montage, dans l'onglet Santé.">
+          <figcaption><span class="fr">La vérification du montage</span><span class="en">The build check</span></figcaption></figure>
+        <figure><img loading="lazy" width="1500" height="845" src="../img/v1/radiographie-fr.webp" data-src-fr="../img/v1/radiographie-fr.webp" data-src-en="../img/v1/radiographie-en.webp" data-alt-fr="La radiographie de la tour." data-alt-en="The X-ray of the rig." alt="La radiographie de la tour.">
+          <figcaption><span class="fr">La radiographie</span><span class="en">The X-ray</span></figcaption></figure>
+        <figure><img loading="lazy" width="1500" height="845" src="../img/v1/jeux-fr.webp" data-src-fr="../img/v1/jeux-fr.webp" data-src-en="../img/v1/jeux-en.webp" data-alt-fr="L'onglet Jeux." data-alt-en="The Games tab." alt="L'onglet Jeux.">
+          <figcaption><span class="fr">L'onglet Jeux</span><span class="en">The Games tab</span></figcaption></figure>
+        <figure><img loading="lazy" width="1500" height="845" src="../img/v1/changements-fr.webp" data-src-fr="../img/v1/changements-fr.webp" data-src-en="../img/v1/changements-en.webp" data-alt-fr="L'onglet Changements." data-alt-en="The Changes tab." alt="L'onglet Changements.">
+          <figcaption><span class="fr">La machine à remonter le temps</span><span class="en">The time machine</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Logo</h2>
+      <p class="intro"><span class="fr">L'hexagone et son onde, sur fond transparent.</span><span class="en">The hexagon and its wave, on a transparent background.</span></p>
+      <div class="logo">
+        <div class="apercu">
+          <div><img src="aurora-logo.svg" alt="" width="96" height="96"></div>
+          <div class="clair"><img src="aurora-logo.svg" alt="" width="96" height="96"></div>
+        </div>
+        <div class="liens">
+          <a class="bouton discret" href="aurora-logo.svg" download>SVG</a>
+          <a class="bouton discret" href="aurora-logo-512.png" download>PNG 512&nbsp;px</a>
+          <a class="bouton discret" href="aurora-logo-1024.png" download>PNG 1024&nbsp;px</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="fr">Vidéos</span><span class="en">Videos</span></h2>
+      <p class="intro"><span class="fr">La chaîne d'Aurora, et deux films sans son du tableau de bord à reprendre.</span><span class="en">Aurora's channel, and two silent clips of the dashboard you can reuse.</span></p>
+      <ul class="puces">
+        <li><a href="https://www.youtube.com/watch?v=Kn24WM0OK6M"><span class="fr">Aurora 1.0&nbsp;: le moniteur de PC gratuit, en français</span><span class="en">Aurora 1.0: the free PC monitor (in French)</span></a> <span class="fr">(YouTube)</span><span class="en">(YouTube)</span></li>
+        <li><a href="https://www.youtube.com/shorts/PsFaLdun_Gs"><span class="fr">Tout ton PC sur un seul écran</span><span class="en">Your whole PC on one screen (in French)</span></a> <span class="fr">(Short YouTube)</span><span class="en">(YouTube Short)</span></li>
+        <li><a href="https://www.youtube.com/@Auroraapp-info"><span class="fr">La chaîne Aurora - Moniteur matériel</span><span class="en">The Aurora channel</span></a></li>
+        <li><span class="fr">Le tableau de bord en mouvement&nbsp;: <a href="../img/v1/vue-fr.mp4" download>en français</a> ou <a href="../img/v1/vue-en.mp4" download>en anglais</a> (MP4, 8&nbsp;s)&nbsp;; la radiographie&nbsp;: <a href="../img/v1/radio-fr.mp4" download>en français</a> ou <a href="../img/v1/radio-en.mp4" download>en anglais</a>.</span><span class="en">The dashboard in motion: <a href="../img/v1/vue-en.mp4" download>in English</a> or <a href="../img/v1/vue-fr.mp4" download>in French</a> (MP4, 8&nbsp;s); the X-ray: <a href="../img/v1/radio-en.mp4" download>in English</a> or <a href="../img/v1/radio-fr.mp4" download>in French</a>.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="fr">Pour une vidéo</span><span class="en">For a video</span></h2>
+      <div class="grille" style="margin-top: 18px">
+        <div class="carte">
+          <h3><span class="fr">Filmer sans montrer ton PC</span><span class="en">Film without showing your PC</span></h3>
+          <p><span class="fr">Aurora a un mode démonstration, avec des mesures simulées et «&nbsp;Capteurs simulés&nbsp;» écrit en bas de la fenêtre. Touches Windows&nbsp;+&nbsp;R, puis&nbsp;: <code>"C:\Program Files\Aurora\aurora.exe" --demo</code>. Pas besoin de fermer ton Aurora&nbsp;: la démonstration s'ouvre à côté, sans droits administrateur.</span><span class="en">Aurora has a demo mode, with simulated readings and “Sensors simulated” written at the bottom of the window. Press Windows&nbsp;+&nbsp;R, then: <code>"C:\Program Files\Aurora\aurora.exe" --demo</code>. No need to close your Aurora: the demo opens alongside, without administrator rights.</span></p>
+        </div>
+        <div class="carte">
+          <h3><span class="fr">Des idées de sujets</span><span class="en">Topic ideas</span></h3>
+          <ul class="puces">
+            <li><span class="fr">«&nbsp;Mon PC va-t-il bien&nbsp;? Un logiciel gratuit me le dit en mots simples&nbsp;»</span><span class="en">“Is my PC OK? A free app tells me in plain words”</span></li>
+            <li><span class="fr">«&nbsp;Ton écran est peut-être branché au mauvais endroit&nbsp;»</span><span class="en">“Your display might be plugged into the wrong port”</span></li>
+            <li><span class="fr">«&nbsp;Tes températures sur ton Stream Deck, gratuitement&nbsp;»</span><span class="en">“Your temperatures on your Stream Deck, for free”</span></li>
+            <li><span class="fr">«&nbsp;Il n'est pas programmeur, et il a créé son logiciel avec l'IA&nbsp;»</span><span class="en">“He's not a programmer, and he built his app with AI”</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="fr">Qui fait Aurora</span><span class="en">Who makes Aurora</span></h2>
+      <p class="intro" style="color: var(--text); margin-bottom: 0">
+        <span class="fr">Aurora est née d'un besoin de Denis, un Québécois qui monte ses propres PC depuis des années&nbsp;: savoir ce qui se passe dans son PC, en mots simples plutôt qu'en colonnes de chiffres. Denis n'est pas programmeur&nbsp;: il a créé Aurora en travaillant avec une intelligence artificielle (Claude, d'Anthropic), qui écrit le code pendant que lui décide de ce qu'Aurora doit faire et l'essaie sur ses propres machines. Il l'a d'abord faite pour lui, puis l'a partagée. Elle est gratuite, et elle le restera. Pour une question ou une entrevue, écris-lui à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>&nbsp;: il répond lui-même.</span>
+        <span class="en">Aurora was born from a need Denis had, a Quebecer who has been building his own PCs for years: knowing what's going on inside his PC, in plain words rather than columns of numbers. Denis isn't a programmer: he created Aurora by working with an artificial intelligence (Claude, by Anthropic), which writes the code while he decides what Aurora should do and tests it on his own machines. He made it for himself first, then shared it. It's free, and it will stay free. For a question or an interview, write to him at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>: he answers himself.</span>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <span class="fr">Aurora — Moniteur matériel · <a href="../">auroraapp.ca</a> · Les textes, captures, logo et vidéos de cette page sont libres d'utilisation pour présenter Aurora. Comme le reste du site, cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne.</span>
+    <span class="en">Aurora — Hardware Monitor · <a href="../">auroraapp.ca</a> · The text, screenshots, logo and videos on this page are free to use to present Aurora. Like the rest of the site, this page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var racine = document.documentElement;
+  var boutons = { fr: document.getElementById('btn-fr'), en: document.getElementById('btn-en') };
+  var titres = { fr: 'Aurora — Trousse de presse', en: 'Aurora — Press kit' };
+
+  function appliquer(choix) {
+    racine.setAttribute('data-lang', choix);
+    racine.lang = choix;
+    document.title = titres[choix];
+    boutons.fr.setAttribute('aria-pressed', String(choix === 'fr'));
+    boutons.en.setAttribute('aria-pressed', String(choix === 'en'));
+    document.querySelectorAll('[data-src-' + choix + ']').forEach(function (el) {
+      el.setAttribute('src', el.getAttribute('data-src-' + choix));
+      el.setAttribute('alt', el.getAttribute('data-alt-' + choix) || '');
+    });
+    document.querySelectorAll('[data-href-' + choix + ']').forEach(function (el) {
+      el.setAttribute('href', el.getAttribute('data-href-' + choix));
+    });
+    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
+  }
+
+  // La langue du lien (« ?lang=en » dans un courriel à un youtubeur anglophone), sinon celle choisie sur le site,
+  // sinon celle du navigateur.
+  var demandee = new URLSearchParams(location.search).get('lang');
+  var choisie = null;
+  try { choisie = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
+  if (demandee === 'fr' || demandee === 'en') { choisie = demandee; }
+  if (choisie !== 'fr' && choisie !== 'en') {
+    choisie = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+  }
+  appliquer(choisie);
+  boutons.fr.addEventListener('click', function () { appliquer('fr'); });
+  boutons.en.addEventListener('click', function () { appliquer('en'); });
+
+  // Copier : le texte de la langue affichée.
+  document.querySelectorAll('.copier').forEach(function (bouton) {
+    bouton.addEventListener('click', function () {
+      var langue = racine.getAttribute('data-lang') || 'fr';
+      var texte = bouton.parentElement.querySelector('.a-copier .' + langue).textContent.replace(/\s+/g, ' ').trim();
+      var fini = function () {
+        bouton.classList.add('fait');
+        bouton.querySelector('.fr').textContent = 'Copié';
+        bouton.querySelector('.en').textContent = 'Copied';
+        setTimeout(function () {
+          bouton.classList.remove('fait');
+          bouton.querySelector('.fr').textContent = 'Copier';
+          bouton.querySelector('.en').textContent = 'Copy';
+        }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(texte).then(fini, function () {});
+      }
+    });
+  });
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "2b2e9afa214040b4842912487d06564f"}'></script>
+</body>
+</html>
