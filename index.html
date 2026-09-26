@@ -274,6 +274,19 @@
   .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 520px) { .duo { grid-template-columns: 1fr; } }
 
+  /* ——— Stream Deck : les touches telles que le module les dessine, sur un pavé ——— */
+  .deck { display: grid; gap: 16px; justify-items: center; }
+  .pave {
+    width: min(100%, 540px); display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.8vw, 16px);
+    padding: clamp(14px, 2.4vw, 24px); border-radius: 24px; background: linear-gradient(#17191d, #0c0d10);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 0 0 1px rgba(255, 255, 255, .07), 0 30px 90px -20px rgba(255, 35, 64, .3);
+  }
+  .pave img, .pave .libre { width: 100%; aspect-ratio: 1; border-radius: 12.5%;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 6px 14px -6px rgba(0, 0, 0, .9); }
+  .pave .libre { background: #06070a; }
+  .deck .legende { margin-top: 0; }
+  .radio .texte .actions { justify-content: flex-start; }
+
   /* Panneaux aux coins coupés, lueur qui suit la souris. */
   .carte {
     position: relative; padding: 22px 22px 24px; background: var(--panel);
@@ -511,6 +524,7 @@
           <ul class="puces">
             <li><span><span class="fr">Disques : usure SMART, place qui manque, chaleur.</span><span class="en">Drives: SMART wear, running out of space, heat.</span></span></li>
             <li><span><span class="fr">Un ventilateur ou la pompe qui lâche, la pile du BIOS qui faiblit.</span><span class="en">A fan or the pump giving up, a BIOS battery getting weak.</span></span></li>
+            <li><span><span class="fr">Le bloc d'alimentation qui fléchit : son 12 V suivi sous la charge, si ta carte mère le mesure.</span><span class="en">A power supply starting to sag: its 12 V tracked under load, if your motherboard measures it.</span></span></li>
             <li><span><span class="fr">Ce que Windows note sans rien dire : erreurs matérielles, écrans bleus, arrêts brutaux.</span><span class="en">What Windows logs without a word: hardware errors, blue screens, sudden shutdowns.</span></span></li>
             <li><span><span class="fr">La chaleur qui monte au fil des mois : la poussière se voit avant de coûter cher.</span><span class="en">Heat creeping up over the months: dust shows before it costs you.</span></span></li>
             <li><span><span class="fr">Une notification — et une alarme si tu veux — quand c'est urgent.</span><span class="en">A notification — and an alarm if you want — when it is urgent.</span></span></li>
@@ -692,6 +706,60 @@
           <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h9M8.5 3v2M6 5c.5 3 2.5 5.5 5 7M11 5c-.8 3.5-3.2 6.5-6 8"/><path d="m13 21 4-9 4 9M14.3 18h5.4"/></svg></span>
           <h4><span class="fr">Français et anglais</span><span class="en">French and English</span></h4>
           <p><span class="fr">Toute l'application, jusqu'aux unités et aux notifications. La langue suit Windows, ou se choisit.</span><span class="en">The whole app, right down to units and notifications. The language follows Windows, or you pick it.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Stream Deck ——— -->
+  <section id="stream-deck">
+    <div class="wrap radio">
+      <div class="deck revele">
+        <div class="pave">
+          <img width="144" height="144" src="img/deck/cpu-temperature-fr.svg" data-src-fr="img/deck/cpu-temperature-fr.svg" data-src-en="img/deck/cpu-temperature-en.svg"
+               data-alt-fr="Touche Processeur : 58 degrés" data-alt-en="Processor key: 58 degrees" alt="Touche Processeur : 58 degrés">
+          <img width="144" height="144" src="img/deck/gpu-temperature-fr.svg" data-src-fr="img/deck/gpu-temperature-fr.svg" data-src-en="img/deck/gpu-temperature-en.svg"
+               data-alt-fr="Touche Carte graphique : 61 degrés" data-alt-en="Graphics card key: 61 degrees" alt="Touche Carte graphique : 61 degrés">
+          <img width="144" height="144" src="img/deck/hotspot-fr.svg" data-src-fr="img/deck/hotspot-fr.svg" data-src-en="img/deck/hotspot-en.svg"
+               data-alt-fr="Touche Point chaud : 79 degrés" data-alt-en="Hotspot key: 79 degrees" alt="Touche Point chaud : 79 degrés">
+          <img width="144" height="144" src="img/deck/fps-fr.svg" data-src-fr="img/deck/fps-fr.svg" data-src-en="img/deck/fps-en.svg"
+               data-alt-fr="Touche FPS : 141 images par seconde dans Metro Exodus" data-alt-en="FPS key: 141 frames per second in Metro Exodus" alt="Touche FPS : 141 images par seconde dans Metro Exodus">
+          <img width="144" height="144" src="img/deck/cpu-load-fr.svg" data-src-fr="img/deck/cpu-load-fr.svg" data-src-en="img/deck/cpu-load-en.svg"
+               data-alt-fr="Touche Charge du processeur : 23 %" data-alt-en="CPU load key: 23 %" alt="Touche Charge du processeur : 23 %">
+          <img width="144" height="144" src="img/deck/gpu-load-fr.svg" data-src-fr="img/deck/gpu-load-fr.svg" data-src-en="img/deck/gpu-load-en.svg"
+               data-alt-fr="Touche Charge de la carte graphique : 88 %" data-alt-en="GPU load key: 88 %" alt="Touche Charge de la carte graphique : 88 %">
+          <img width="144" height="144" src="img/deck/memory-fr.svg" data-src-fr="img/deck/memory-fr.svg" data-src-en="img/deck/memory-en.svg"
+               data-alt-fr="Touche Mémoire : 41 %" data-alt-en="Memory key: 41 %" alt="Touche Mémoire : 41 %">
+          <span class="libre" aria-hidden="true"></span>
+        </div>
+        <p class="legende">
+          <span class="fr">Les touches telles que le module les dessine, avec les mesures de la démonstration d'Aurora.</span>
+          <span class="en">The keys exactly as the plugin draws them, with Aurora's demo readings.</span>
+        </p>
+      </div>
+      <div class="texte revele d1">
+        <div class="tag"><span class="fr">STREAM DECK</span><span class="en">STREAM DECK</span></div>
+        <h2><span class="fr">Tes mesures sous les doigts</span><span class="en">Your readings at your fingertips</span></h2>
+        <p>
+          <span class="fr">Tu as un Stream Deck d'Elgato ? Le module Aurora met ses mesures sur tes touches : températures, point chaud, charges, mémoire vive, et les FPS du jeu en cours avec son nom. Relues toutes les deux secondes, aux couleurs des alertes d'Aurora ; une touche enfoncée ouvre Aurora.</span>
+          <span class="en">Got an Elgato Stream Deck? The Aurora plugin puts its readings on your keys: temperatures, hotspot, loads, memory, and the FPS of the game you are playing, with its name. Refreshed every two seconds, in Aurora's alert colours; press a key and Aurora opens.</span>
+        </p>
+        <div class="duo">
+          <div class="carte">
+            <h4><span class="fr">Ce qu'il faut</span><span class="en">What you need</span></h4>
+            <p><span class="fr">Aurora 1.0.3 ouverte, avec « Partager ce PC » coché dans l'onglet Mes PC, et le logiciel Stream Deck 6.5 ou plus. Le module lit Aurora sur ton PC, sans Internet.</span><span class="en">Aurora 1.0.3 running, with “Share this PC” ticked in the My PCs tab, and the Stream Deck software 6.5 or later. The plugin reads Aurora on your PC, no Internet needed.</span></p>
+          </div>
+          <div class="carte">
+            <h4><span class="fr">Installer</span><span class="en">Install</span></h4>
+            <p><span class="fr">Double-clique sur le fichier : le logiciel Stream Deck l'ajoute. Glisse ensuite les touches voulues depuis la catégorie « Aurora ».</span><span class="en">Double-click the file: the Stream Deck software adds it. Then drag the keys you want from the “Aurora” category.</span></p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/streamdeck-v1.0.0/Aurora.streamDeckPlugin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+            <span class="fr">Télécharger le module</span><span class="en">Download the plugin</span>
+          </a>
+          <span class="meta"><span class="fr">Version <b>1.0.0</b> · 88 Ko · gratuit, comme Aurora</span><span class="en">Version <b>1.0.0</b> · 88 KB · free, like Aurora</span></span>
         </div>
       </div>
     </div>
