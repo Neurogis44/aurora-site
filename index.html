@@ -431,7 +431,7 @@
           <span class="en">Aurora watches your computer live — temperatures, fans, drives, network, in-game FPS — and tells you <b>in plain words whether it is doing well</b>. Free, no account, and it sends nothing unless you ask.</span>
         </p>
         <div class="actions revele d3">
-          <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/latest">
+          <a class="bouton" id="telecharger-haut" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.2/Aurora-Setup-1.0.2.exe">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
             <span class="fr">Télécharger pour Windows</span><span class="en">Download for Windows</span>
           </a>
@@ -804,7 +804,7 @@
         </div>
       </div>
       <div class="actions revele">
-        <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/latest">
+        <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.2/Aurora-Setup-1.0.2.exe">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
           <span class="fr">Télécharger Aurora 1.0.2</span><span class="en">Download Aurora 1.0.2</span>
         </a>
@@ -1043,6 +1043,14 @@
       setTimeout(function () { copier.classList.remove('fait'); copier.innerHTML = '<span class="fr">Copier</span><span class="en">Copy</span>'; }, 2200);
     };
     if (navigator.clipboard) { navigator.clipboard.writeText(texte).then(fini, function () {}); }
+  });
+
+  /* ——— Télécharger : le lien mène droit à l'installeur (sur GitHub, signé), le téléchargement part tout de suite
+     et la page reste ici. Depuis le haut de la page, on descend ensuite aux instructions d'installation. ——— */
+  document.getElementById('telecharger-haut').addEventListener('click', function () {
+    setTimeout(function () {
+      document.getElementById('installer').scrollIntoView({ behavior: calme ? 'auto' : 'smooth', block: 'start' });
+    }, 400);
   });
 
   /* ——— Loupe : un clic sur une capture l'agrandit ——— */
