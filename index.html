@@ -83,9 +83,11 @@
   .liens { display: flex; gap: 4px; margin-left: 12px; }
   .liens a {
     color: var(--dim); text-decoration: none; font: 600 15px/1 Rajdhani, sans-serif; letter-spacing: .5px;
-    padding: 8px 12px; transition: color .2s;
+    padding: 8px 12px; transition: color .2s; white-space: nowrap;
   }
   .liens a:hover { color: var(--ink); }
+  .liens a.neuf { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); }
+  .liens a.neuf .point { width: 6px; height: 6px; }
   .barre .vide { flex: 1; }
   .kofi {
     display: inline-flex; align-items: center; gap: 7px; text-decoration: none; white-space: nowrap;
@@ -101,7 +103,14 @@
   }
   .langues button[aria-pressed="true"] { background: var(--accent); color: #fff; }
   .langues button:focus-visible, .kofi:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  @media (max-width: 860px) { .liens { display: none; } }
+  /* Cinq liens : sur un écran moyen, le café ne garde que son cœur et les liens se resserrent ; plus étroit, ils
+     laissent la place (le reste de la page est à un défilement). */
+  @media (max-width: 1120px) {
+    .liens a { padding: 8px 8px; }
+    .kofi span { display: none; }
+    .kofi { padding: 8px 10px; }
+  }
+  @media (max-width: 940px) { .liens { display: none; } }
   @media (max-width: 520px) {
     .kofi span { display: none; }
     .kofi { padding: 8px 10px; }
@@ -418,6 +427,7 @@
     <nav class="liens" aria-label="Sections">
       <a href="#nouveautes"><span class="fr">Nouveautés 1.0</span><span class="en">What's new</span></a>
       <a href="#visite"><span class="fr">Visite guidée</span><span class="en">Tour</span></a>
+      <a class="neuf" href="#stream-deck"><i class="point" aria-hidden="true"></i>Stream Deck</a>
       <a href="#pourquoi"><span class="fr">Pourquoi Aurora</span><span class="en">Why Aurora</span></a>
       <a href="#installer"><span class="fr">Installer</span><span class="en">Install</span></a>
     </nav>
@@ -451,8 +461,8 @@
           <a class="bouton discret" href="#visite"><span class="fr">Voir ce qu'elle fait</span><span class="en">See what it does</span></a>
         </div>
         <p class="meta revele d3">
-          <span class="fr">Version <b>1.0.3</b> · 9,2 Mo · signée · Windows 10 et 11, 64 bits</span>
-          <span class="en">Version <b>1.0.3</b> · 9.2 MB · signed · Windows 10 and 11, 64-bit</span>
+          <span class="fr">Version <b>1.0.3</b> · 9,2&nbsp;Mo · signée · Windows 10&nbsp;et 11, 64&nbsp;bits</span>
+          <span class="en">Version <b>1.0.3</b> · 9.2&nbsp;MB · signed · Windows 10&nbsp;and 11, 64-bit</span>
         </p>
         <div class="faits revele d3">
           <span class="fr">Gratuite</span><span class="en">Free</span>
@@ -474,7 +484,7 @@
                  data-alt-en="Aurora's dashboard in motion: game in progress, media, processor, graphics card, fans, memory, network, drives and displays."></video>
         </div></div>
         <p class="legende">
-          <span class="fr">La vraie Aurora, filmée en démonstration : rien n'est monté, rien n'est dessiné pour l'occasion.</span>
+          <span class="fr">La vraie Aurora, filmée en démonstration&nbsp;: rien n'est monté, rien n'est dessiné pour l'occasion.</span>
           <span class="en">The real Aurora, filmed in demo mode: nothing staged, nothing drawn for the occasion.</span>
         </p>
       </div>
@@ -499,9 +509,9 @@
     <div class="wrap">
       <div class="entete revele">
         <div class="tag"><span class="fr">NOUVEAU DANS LA 1.0</span><span class="en">NEW IN 1.0</span></div>
-        <h2><span class="fr">Elle ne fait plus que mesurer : elle comprend.</span><span class="en">It no longer just measures: it understands.</span></h2>
+        <h2><span class="fr">Elle ne fait plus que mesurer&nbsp;: elle comprend.</span><span class="en">It no longer just measures: it understands.</span></h2>
         <p>
-          <span class="fr">Trois onglets transforment les chiffres en réponses : est-ce que mon PC va bien, qu'est-ce qui a changé, et pourquoi mon jeu rame.</span>
+          <span class="fr">Trois onglets transforment les chiffres en réponses&nbsp;: est-ce que mon PC va bien, qu'est-ce qui a changé, et pourquoi mon jeu rame.</span>
           <span class="en">Three tabs turn numbers into answers: is my PC doing well, what changed, and why is my game struggling.</span>
         </p>
       </div>
@@ -516,22 +526,22 @@
         </div>
         <div class="texte revele d1">
           <div class="tag"><span class="fr">SANTÉ</span><span class="en">HEALTH</span></div>
-          <h3><span class="fr">Ton PC va bien ? Aurora te le dit.</span><span class="en">Is your PC OK? Aurora tells you.</span></h3>
+          <h3><span class="fr">Ton PC va bien&nbsp;? Aurora te le dit.</span><span class="en">Is your PC OK? Aurora tells you.</span></h3>
           <p>
             <span class="fr">Un bilan refait chaque seconde, qui ne parle que de ce qui cloche, du plus grave au moins grave — et qui te dit aussi quand tout va bien.</span>
             <span class="en">A check-up redone every second that only talks about what is wrong, most serious first — and also tells you when all is well.</span>
           </p>
           <ul class="puces">
-            <li><span><span class="fr">Disques : usure SMART, place qui manque, chaleur.</span><span class="en">Drives: SMART wear, running out of space, heat.</span></span></li>
+            <li><span><span class="fr">Disques&nbsp;: usure SMART, place qui manque, chaleur.</span><span class="en">Drives: SMART wear, running out of space, heat.</span></span></li>
             <li><span><span class="fr">Un ventilateur ou la pompe qui lâche, la pile du BIOS qui faiblit.</span><span class="en">A fan or the pump giving up, a BIOS battery getting weak.</span></span></li>
-            <li><span><span class="fr">Le bloc d'alimentation qui fléchit : son 12 V suivi sous la charge, si ta carte mère le mesure.</span><span class="en">A power supply starting to sag: its 12 V tracked under load, if your motherboard measures it.</span></span></li>
-            <li><span><span class="fr">Ce que Windows note sans rien dire : erreurs matérielles, écrans bleus, arrêts brutaux.</span><span class="en">What Windows logs without a word: hardware errors, blue screens, sudden shutdowns.</span></span></li>
-            <li><span><span class="fr">La chaleur qui monte au fil des mois : la poussière se voit avant de coûter cher.</span><span class="en">Heat creeping up over the months: dust shows before it costs you.</span></span></li>
+            <li><span><span class="fr">Le bloc d'alimentation qui fléchit&nbsp;: son 12&nbsp;V suivi sous la charge, si ta carte mère le mesure.</span><span class="en">A power supply starting to sag: its 12&nbsp;V tracked under load, if your motherboard measures it.</span></span></li>
+            <li><span><span class="fr">Ce que Windows note sans rien dire&nbsp;: erreurs matérielles, écrans bleus, arrêts brutaux.</span><span class="en">What Windows logs without a word: hardware errors, blue screens, sudden shutdowns.</span></span></li>
+            <li><span><span class="fr">La chaleur qui monte au fil des mois&nbsp;: la poussière se voit avant de coûter cher.</span><span class="en">Heat creeping up over the months: dust shows before it costs you.</span></span></li>
             <li><span><span class="fr">Une notification — et une alarme si tu veux — quand c'est urgent.</span><span class="en">A notification — and an alarm if you want — when it is urgent.</span></span></li>
           </ul>
           <p class="temoin">
-            <span class="fr">« Elle m'a appris que ma carte graphique tire 50 W à ne rien faire : mes trois écrans l'empêchent de ralentir. »</span>
-            <span class="en">“It taught me that my graphics card draws 50 W while doing nothing: my three displays keep it from slowing down.”</span>
+            <span class="fr">«&nbsp;Elle m'a appris que ma carte graphique tire 50&nbsp;W à ne rien faire&nbsp;: mes trois écrans l'empêchent de ralentir.&nbsp;»</span>
+            <span class="en">“It taught me that my graphics card draws 50&nbsp;W while doing nothing: my three displays keep it from slowing down.”</span>
             <cite>— Denis Desbiens</cite>
           </p>
         </div>
@@ -549,13 +559,13 @@
           <div class="tag"><span class="fr">CHANGEMENTS</span><span class="en">CHANGES</span></div>
           <h3><span class="fr">La machine à remonter le temps</span><span class="en">The time machine</span></h3>
           <p>
-            <span class="fr">Ton PC est lent depuis mardi ? Aurora le photographie toutes les dix minutes et note ce qui change : logiciels, pilotes, services, programmes au démarrage, mises à jour de Windows, BIOS.</span>
+            <span class="fr">Ton PC est lent depuis mardi&nbsp;? Aurora le photographie toutes les dix minutes et note ce qui change&nbsp;: logiciels, pilotes, services, programmes au démarrage, mises à jour de Windows, BIOS.</span>
             <span class="en">Your PC has been slow since Tuesday? Aurora takes a snapshot of it every ten minutes and notes what changes: software, drivers, services, startup programs, Windows updates, BIOS.</span>
           </p>
           <ul class="puces">
             <li><span><span class="fr">Dans l'onglet Santé, un problème vient avec ce qui a changé juste avant.</span><span class="en">In the Health tab, a problem comes with what changed just before it.</span></span></li>
             <li><span><span class="fr">Le démarrage de Windows chronométré — jusqu'au bureau, prêt, arrêt — et qui le ralentit.</span><span class="en">Windows startup timed — to the desktop, ready, shutdown — and who slows it down.</span></span></li>
-            <li><span><span class="fr">Le bruit filtré : les pilotes qui vont et viennent, les mises à jour de Defender.</span><span class="en">The noise filtered out: drivers that come and go, Defender updates.</span></span></li>
+            <li><span><span class="fr">Le bruit filtré&nbsp;: les pilotes qui vont et viennent, les mises à jour de Defender.</span><span class="en">The noise filtered out: drivers that come and go, Defender updates.</span></span></li>
           </ul>
         </div>
       </div>
@@ -572,12 +582,12 @@
           <div class="tag"><span class="fr">JEUX</span><span class="en">GAMES</span></div>
           <h3><span class="fr">Tes jeux, au fil du temps</span><span class="en">Your games, over time</span></h3>
           <p>
-            <span class="fr">Chaque partie est gardée : FPS moyens, 1 % bas, durée. Aurora voit quand un jeu tourne moins vite qu'à ses débuts.</span>
-            <span class="en">Every session is kept: average FPS, 1 % low, duration. Aurora notices when a game runs slower than it used to.</span>
+            <span class="fr">Chaque partie est gardée&nbsp;: FPS moyens, 1&nbsp;% bas, durée. Aurora voit quand un jeu tourne moins vite qu'à ses débuts.</span>
+            <span class="en">Every session is kept: average FPS, 1&nbsp;% low, duration. Aurora notices when a game runs slower than it used to.</span>
           </p>
           <ul class="puces">
-            <li><span><span class="fr">Un jeu qui gèle ou plante : l'état du PC juste avant — chaleur, mémoire vidéo, pilote graphique.</span><span class="en">A game that freezes or crashes: the state of the PC just before — heat, video memory, graphics driver.</span></span></li>
-            <li><span><span class="fr">Ce qui limite tes FPS : la carte graphique, ou le processeur qui la freine.</span><span class="en">What limits your FPS: the graphics card, or the processor holding it back.</span></span></li>
+            <li><span><span class="fr">Un jeu qui gèle ou plante&nbsp;: l'état du PC juste avant — chaleur, mémoire vidéo, pilote graphique.</span><span class="en">A game that freezes or crashes: the state of the PC just before — heat, video memory, graphics driver.</span></span></li>
+            <li><span><span class="fr">Ce qui limite tes FPS&nbsp;: la carte graphique, ou le processeur qui la freine.</span><span class="en">What limits your FPS: the graphics card, or the processor holding it back.</span></span></li>
             <li><span><span class="fr">Un overlay par-dessus tes parties, dans sa propre petite fenêtre, sans rien toucher au jeu.</span><span class="en">An overlay on top of your games, in its own small window, without touching the game.</span></span></li>
           </ul>
         </div>
@@ -614,8 +624,8 @@
           <span class="progression" id="progression"></span>
         </div>
         <p class="visite-texte" id="visite-texte" aria-live="polite">
-          <span data-onglet="vue"><span class="fr">Tout ton PC sur un écran : processeur, carte graphique, mémoire, ventilateurs, disques, réseau, écrans, musique et jeu en cours.</span><span class="en">Your whole PC on one screen: processor, graphics card, memory, fans, drives, network, displays, music and the game in progress.</span></span>
-          <span data-onglet="radiographie" hidden><span class="fr">Ta tour dessinée d'après la vraie : les pièces s'allument selon leur chaleur, l'air circule, les ventilateurs tournent à leur vraie vitesse.</span><span class="en">Your rig drawn from the real one: parts light up with their heat, the air flows, the fans spin at their real speed.</span></span>
+          <span data-onglet="vue"><span class="fr">Tout ton PC sur un écran&nbsp;: processeur, carte graphique, mémoire, ventilateurs, disques, réseau, écrans, musique et jeu en cours.</span><span class="en">Your whole PC on one screen: processor, graphics card, memory, fans, drives, network, displays, music and the game in progress.</span></span>
+          <span data-onglet="radiographie" hidden><span class="fr">Ta tour dessinée d'après la vraie&nbsp;: les pièces s'allument selon leur chaleur, l'air circule, les ventilateurs tournent à leur vraie vitesse.</span><span class="en">Your rig drawn from the real one: parts light up with their heat, the air flows, the fans spin at their real speed.</span></span>
           <span data-onglet="jeux" hidden><span class="fr">La partie en cours avec ses FPS, et tous tes jeux avec leur tendance, leurs gels et leurs plantages.</span><span class="en">The session in progress with its FPS, and all your games with their trend, freezes and crashes.</span></span>
           <span data-onglet="sante" hidden><span class="fr">Le bilan, en mots simples, du plus grave au moins grave — et ce qui a changé juste avant.</span><span class="en">The check-up, in plain words, most serious first — and what changed just before.</span></span>
           <span data-onglet="changements" hidden><span class="fr">Ce qui a changé sur ton PC, jour après jour, et le démarrage de Windows chronométré.</span><span class="en">What changed on your PC, day after day, and Windows startup timed.</span></span>
@@ -642,13 +652,13 @@
         <div class="tag"><span class="fr">RADIOGRAPHIE</span><span class="en">X-RAY</span></div>
         <h2><span class="fr">Ta tour, vue par la vitre</span><span class="en">Your rig, seen through the window</span></h2>
         <p>
-          <span class="fr">Dis une fois à Aurora combien de ventilateurs il y a à chaque endroit de ton boîtier. Elle dessine ta tour, et calcule la pression dedans : positive, l'air passe par les filtres et la poussière reste dehors.</span>
+          <span class="fr">Dis une fois à Aurora combien de ventilateurs il y a à chaque endroit de ton boîtier. Elle dessine ta tour, et calcule la pression dedans&nbsp;: positive, l'air passe par les filtres et la poussière reste dehors.</span>
           <span class="en">Tell Aurora once how many fans sit at each spot in your case. It draws your rig, and works out the pressure inside: positive means air comes in through the filters and dust stays out.</span>
         </p>
         <div class="duo">
           <div class="carte">
             <h4><span class="fr">Ventilateurs commandés</span><span class="en">Fans under control</span></h4>
-            <p><span class="fr">Silencieux, Équilibré, Performance, ou Automatique : Performance en jeu, Silencieux pendant la musique. À 100 % au-dessus de 85 °C, rendus à ta carte mère dès qu'Aurora se ferme.</span><span class="en">Quiet, Balanced, Performance, or Automatic: Performance while gaming, Quiet during music. 100 % above 85 °C, handed back to your motherboard the moment Aurora closes.</span></p>
+            <p><span class="fr">Silencieux, Équilibré, Performance, ou Automatique&nbsp;: Performance en jeu, Silencieux pendant la musique. À 100&nbsp;% au-dessus de 85&nbsp;°C, rendus à ta carte mère dès qu'Aurora se ferme.</span><span class="en">Quiet, Balanced, Performance, or Automatic: Performance while gaming, Quiet during music. 100&nbsp;% above 85&nbsp;°C, handed back to your motherboard the moment Aurora closes.</span></p>
           </div>
           <div class="carte">
             <h4><span class="fr">Test de refroidissement</span><span class="en">Cooling test</span></h4>
@@ -690,7 +700,7 @@
         <div class="carte revele">
           <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
           <h4><span class="fr">Alimentation automatique</span><span class="en">Automatic power</span></h4>
-          <p><span class="fr">Performances en jeu, économie au repos : le mode d'alimentation de Windows change tout seul, et revient à ton habitude en quittant.</span><span class="en">Performance while gaming, savings at rest: the Windows power plan switches by itself, and returns to your usual one when you quit.</span></p>
+          <p><span class="fr">Performances en jeu, économie au repos&nbsp;: le mode d'alimentation de Windows change tout seul, et revient à ton habitude en quittant.</span><span class="en">Performance while gaming, savings at rest: the Windows power plan switches by itself, and returns to your usual one when you quit.</span></p>
         </div>
         <div class="carte revele d1">
           <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4.5-6"/></svg></span>
@@ -741,17 +751,17 @@
         <div class="tag"><span class="fr">STREAM DECK</span><span class="en">STREAM DECK</span></div>
         <h2><span class="fr">Tes mesures sous les doigts</span><span class="en">Your readings at your fingertips</span></h2>
         <p>
-          <span class="fr">Tu as un Stream Deck d'Elgato ? Le module Aurora met ses mesures sur tes touches : températures, point chaud, charges, mémoire vive, et les FPS du jeu en cours avec son nom. Relues toutes les deux secondes, aux couleurs des alertes d'Aurora ; une touche enfoncée ouvre Aurora.</span>
+          <span class="fr">Tu as un Stream Deck d'Elgato&nbsp;? Le module Aurora met ses mesures sur tes touches&nbsp;: températures, point chaud, charges, mémoire vive, et les FPS du jeu en cours avec son nom. Relues toutes les deux secondes, aux couleurs des alertes d'Aurora&nbsp;; une touche enfoncée ouvre Aurora.</span>
           <span class="en">Got an Elgato Stream Deck? The Aurora plugin puts its readings on your keys: temperatures, hotspot, loads, memory, and the FPS of the game you are playing, with its name. Refreshed every two seconds, in Aurora's alert colours; press a key and Aurora opens.</span>
         </p>
         <div class="duo">
           <div class="carte">
             <h4><span class="fr">Ce qu'il faut</span><span class="en">What you need</span></h4>
-            <p><span class="fr">Aurora 1.0.3 ouverte, avec « Partager ce PC » coché dans l'onglet Mes PC, et le logiciel Stream Deck 6.5 ou plus. Le module lit Aurora sur ton PC, sans Internet.</span><span class="en">Aurora 1.0.3 running, with “Share this PC” ticked in the My PCs tab, and the Stream Deck software 6.5 or later. The plugin reads Aurora on your PC, no Internet needed.</span></p>
+            <p><span class="fr">Aurora 1.0.3&nbsp;ouverte, avec «&nbsp;Partager ce PC&nbsp;» coché dans l'onglet Mes PC, et le logiciel Stream Deck 6.5&nbsp;ou plus. Le module lit Aurora sur ton PC, sans Internet.</span><span class="en">Aurora 1.0.3&nbsp;running, with “Share this PC” ticked in the My PCs tab, and the Stream Deck software 6.5&nbsp;or later. The plugin reads Aurora on your PC, no Internet needed.</span></p>
           </div>
           <div class="carte">
             <h4><span class="fr">Installer</span><span class="en">Install</span></h4>
-            <p><span class="fr">Double-clique sur le fichier : le logiciel Stream Deck l'ajoute. Glisse ensuite les touches voulues depuis la catégorie « Aurora ».</span><span class="en">Double-click the file: the Stream Deck software adds it. Then drag the keys you want from the “Aurora” category.</span></p>
+            <p><span class="fr">Double-clique sur le fichier&nbsp;: le logiciel Stream Deck l'ajoute. Glisse ensuite les touches voulues depuis la catégorie «&nbsp;Aurora&nbsp;».</span><span class="en">Double-click the file: the Stream Deck software adds it. Then drag the keys you want from the “Aurora” category.</span></p>
           </div>
         </div>
         <div class="actions">
@@ -759,7 +769,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
             <span class="fr">Télécharger le module</span><span class="en">Download the plugin</span>
           </a>
-          <span class="meta"><span class="fr">Version <b>1.0.0</b> · 88 Ko · gratuit, comme Aurora</span><span class="en">Version <b>1.0.0</b> · 88 KB · free, like Aurora</span></span>
+          <span class="meta"><span class="fr">Version <b>1.0.0</b> · 88&nbsp;Ko · gratuit, comme Aurora</span><span class="en">Version <b>1.0.0</b> · 88&nbsp;KB · free, like Aurora</span></span>
         </div>
       </div>
     </div>
@@ -787,11 +797,11 @@
         <img data-theme="forge" loading="lazy" width="1200" height="676" src="img/v1/theme-forge-fr.webp" data-src-fr="img/v1/theme-forge-fr.webp" data-src-en="img/v1/theme-forge-en.webp" alt="" data-alt-fr="Le thème Forge." data-alt-en="The Forge theme.">
       </div>
       <p class="theme-texte" id="theme-texte">
-        <span data-theme="carbone"><span class="fr">Carbone, celui d'origine : fibre de carbone et rouge vif.</span><span class="en">Carbon, the original: carbon fibre and vivid red.</span></span>
-        <span data-theme="neon" hidden><span class="fr">Néon : science-fiction bleu et orange.</span><span class="en">Neon: blue-and-orange science fiction.</span></span>
-        <span data-theme="glace" hidden><span class="fr">Glace : nuit polaire et verre givré.</span><span class="en">Ice: polar night and frosted glass.</span></span>
-        <span data-theme="clair" hidden><span class="fr">Clair : le seul sur fond blanc, pour une pièce ensoleillée.</span><span class="en">Light: the only one on white, for a sunlit room.</span></span>
-        <span data-theme="forge" hidden><span class="fr">Forge : acier brossé, rivets et braise sous les panneaux.</span><span class="en">Forge: brushed steel, rivets and embers under the panels.</span></span>
+        <span data-theme="carbone"><span class="fr">Carbone, celui d'origine&nbsp;: fibre de carbone et rouge vif.</span><span class="en">Carbon, the original: carbon fibre and vivid red.</span></span>
+        <span data-theme="neon" hidden><span class="fr">Néon&nbsp;: science-fiction bleu et orange.</span><span class="en">Neon: blue-and-orange science fiction.</span></span>
+        <span data-theme="glace" hidden><span class="fr">Glace&nbsp;: nuit polaire et verre givré.</span><span class="en">Ice: polar night and frosted glass.</span></span>
+        <span data-theme="clair" hidden><span class="fr">Clair&nbsp;: le seul sur fond blanc, pour une pièce ensoleillée.</span><span class="en">Light: the only one on white, for a sunlit room.</span></span>
+        <span data-theme="forge" hidden><span class="fr">Forge&nbsp;: acier brossé, rivets et braise sous les panneaux.</span><span class="en">Forge: brushed steel, rivets and embers under the panels.</span></span>
       </p>
     </div>
   </section>
@@ -809,11 +819,11 @@
           <span class="en">I built my own PCs for years, and I always wanted to know what goes on inside — not with columns of numbers, but in plain words. Aurora is the tool I wanted for myself.</span>
         </p>
         <p>
-          <span class="fr">Elle m'a déjà surpris plus d'une fois : un écran Samsung connecté à mon réseau depuis des mois sans que je le sache, et ma carte graphique qui tire 50 W à ne rien faire. Quand Wolfenstein a gelé deux fois dans la même soirée, j'ai voulu savoir pourquoi : c'est devenu l'onglet Jeux.</span>
-          <span class="en">It has surprised me more than once: a Samsung monitor connected to my network for months without my knowing, and my graphics card drawing 50 W while doing nothing. When Wolfenstein froze twice in one evening, I wanted to know why: that became the Games tab.</span>
+          <span class="fr">Elle m'a déjà surpris plus d'une fois&nbsp;: un écran Samsung connecté à mon réseau depuis des mois sans que je le sache, et ma carte graphique qui tire 50&nbsp;W à ne rien faire. Quand Wolfenstein a gelé deux fois dans la même soirée, j'ai voulu savoir pourquoi&nbsp;: c'est devenu l'onglet Jeux.</span>
+          <span class="en">It has surprised me more than once: a Samsung monitor connected to my network for months without my knowing, and my graphics card drawing 50&nbsp;W while doing nothing. When Wolfenstein froze twice in one evening, I wanted to know why: that became the Games tab.</span>
         </p>
         <p>
-          <span class="fr">Aurora est gratuite, et elle le restera. Si elle t'apprend quelque chose sur ton PC, écris-moi : ça me fait toujours plaisir.</span>
+          <span class="fr">Aurora est gratuite, et elle le restera. Si elle t'apprend quelque chose sur ton PC, écris-moi&nbsp;: ça me fait toujours plaisir.</span>
           <span class="en">Aurora is free, and it will stay that way. If it teaches you something about your PC, write to me: I always enjoy hearing it.</span>
         </p>
         <div class="signature">
@@ -834,15 +844,15 @@
       <div class="trois">
         <div class="carte revele">
           <h4><span class="fr">Vie privée</span><span class="en">Privacy</span></h4>
-          <p><span class="fr">Pas de compte, pas de publicité, aucune mesure envoyée, personne suivi. Elle demande trois choses à Internet, et seulement trois : une fois par jour, le numéro de la dernière version ; le test de vitesse, quand tu cliques dessus ; et ton message, quand tu écris au support depuis les Réglages — avec la fiche de ton matériel seulement si tu coches la case (modèles, versions, capteurs ; jamais ton nom, ton adresse, tes jeux ni tes logiciels). Les deux premières se coupent.</span><span class="en">No account, no ads, no readings sent, nobody tracked. It asks the Internet three things, and only three: once a day, the latest version number; the speed test, when you click it; and your message, when you write to support from Settings — with your hardware sheet only if you tick the box (models, versions, sensors; never your name, address, games or software). The first two can be turned off.</span></p>
+          <p><span class="fr">Pas de compte, pas de publicité, aucune mesure envoyée, personne suivi. Elle demande trois choses à Internet, et seulement trois&nbsp;: une fois par jour, le numéro de la dernière version&nbsp;; le test de vitesse, quand tu cliques dessus&nbsp;; et ton message, quand tu écris au support depuis les Réglages — avec la fiche de ton matériel seulement si tu coches la case (modèles, versions, capteurs&nbsp;; jamais ton nom, ton adresse, tes jeux ni tes logiciels). Les deux premières se coupent.</span><span class="en">No account, no ads, no readings sent, nobody tracked. It asks the Internet three things, and only three: once a day, the latest version number; the speed test, when you click it; and your message, when you write to support from Settings — with your hardware sheet only if you tick the box (models, versions, sensors; never your name, address, games or software). The first two can be turned off.</span></p>
         </div>
         <div class="carte revele d1">
           <h4><span class="fr">Signée</span><span class="en">Signed</span></h4>
-          <p><span class="fr">Aurora et son installeur sont signés électroniquement au nom de <strong>Denis Desbiens</strong> : Windows sait d'où vient le fichier, et t'avertirait si quelqu'un le modifiait en chemin.</span><span class="en">Aurora and its installer are digitally signed in the name of <strong>Denis Desbiens</strong>: Windows knows where the file comes from, and would warn you if anyone altered it along the way.</span></p>
+          <p><span class="fr">Aurora et son installeur sont signés électroniquement au nom de <strong>Denis Desbiens</strong>&nbsp;: Windows sait d'où vient le fichier, et t'avertirait si quelqu'un le modifiait en chemin.</span><span class="en">Aurora and its installer are digitally signed in the name of <strong>Denis Desbiens</strong>: Windows knows where the file comes from, and would warn you if anyone altered it along the way.</span></p>
         </div>
         <div class="carte revele d2">
           <h4><span class="fr">Ce qu'il faut</span><span class="en">What you need</span></h4>
-          <p><span class="fr">Windows 10 (1809 ou plus récent) ou 11, en 64 bits. Les droits administrateur, demandés au démarrage : c'est la seule façon de lire les capteurs de température. L'installeur ajoute au besoin .NET 10 et le pilote PawnIO.</span><span class="en">Windows 10 (1809 or newer) or 11, 64-bit. Administrator rights, asked for at startup: that is the only way to read temperature sensors. The installer adds .NET 10 and the PawnIO driver if needed.</span></p>
+          <p><span class="fr">Windows 10&nbsp;(1809&nbsp;ou plus récent) ou 11, en 64&nbsp;bits. Les droits administrateur, demandés au démarrage&nbsp;: c'est la seule façon de lire les capteurs de température. L'installeur ajoute au besoin .NET 10&nbsp;et le pilote PawnIO.</span><span class="en">Windows 10&nbsp;(1809&nbsp;or newer) or 11, 64-bit. Administrator rights, asked for at startup: that is the only way to read temperature sensors. The installer adds .NET 10&nbsp;and the PawnIO driver if needed.</span></p>
         </div>
       </div>
     </div>
@@ -857,15 +867,15 @@
       </div>
       <ol class="etapes">
         <li class="revele"><p><span class="fr">Télécharge le fichier et ouvre-le. Ton navigateur ne devrait pas rechigner.</span><span class="en">Download the file and open it. Your browser should not object.</span></p></li>
-        <li class="revele d1"><p><span class="fr">Windows demande les droits administrateur. La fenêtre affiche « Éditeur vérifié : Denis Desbiens ».</span><span class="en">Windows asks for administrator rights. The window shows “Verified publisher: Denis Desbiens”.</span></p></li>
-        <li class="revele d2"><p><span class="fr">L'installation ajoute .NET 10 et PawnIO s'ils manquent : ça peut prendre quelques minutes, barre figée. C'est normal.</span><span class="en">The installation adds .NET 10 and PawnIO if they are missing: that can take a few minutes, bar frozen. This is normal.</span></p></li>
+        <li class="revele d1"><p><span class="fr">Windows demande les droits administrateur. La fenêtre affiche «&nbsp;Éditeur vérifié&nbsp;: Denis Desbiens&nbsp;».</span><span class="en">Windows asks for administrator rights. The window shows “Verified publisher: Denis Desbiens”.</span></p></li>
+        <li class="revele d2"><p><span class="fr">L'installation ajoute .NET 10&nbsp;et PawnIO s'ils manquent&nbsp;: ça peut prendre quelques minutes, barre figée. C'est normal.</span><span class="en">The installation adds .NET 10&nbsp;and PawnIO if they are missing: that can take a few minutes, bar frozen. This is normal.</span></p></li>
       </ol>
       <div class="avertissement revele">
         <h4><span class="fr">Si Windows t'avertit quand même</span><span class="en">If Windows warns you anyway</span></h4>
-        <p><span class="fr">Windows regarde aussi la réputation d'un fichier : combien de gens l'ont installé sans ennui. Une nouvelle version peut encore afficher un avertissement les premiers jours. Clique « Informations complémentaires » : le nom de l'auteur y est.</span><span class="en">Windows also looks at a file's reputation: how many people have installed it without trouble. A new version may still show a warning for the first few days. Click “More info”: the author's name is right there.</span></p>
+        <p><span class="fr">Windows regarde aussi la réputation d'un fichier&nbsp;: combien de gens l'ont installé sans ennui. Une nouvelle version peut encore afficher un avertissement les premiers jours. Clique «&nbsp;Informations complémentaires&nbsp;»&nbsp;: le nom de l'auteur y est.</span><span class="en">Windows also looks at a file's reputation: how many people have installed it without trouble. A new version may still show a warning for the first few days. Click “More info”: the author's name is right there.</span></p>
       </div>
       <div class="empreinte revele">
-        <p><span class="fr">Pour vérifier le fichier toi-même : clic droit → Propriétés → « Signatures numériques ». Ou compare son empreinte, dans PowerShell : <code>Get-FileHash .\Aurora-Setup-1.0.3.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.3.exe -Algorithm SHA256</code></span></p>
+        <p><span class="fr">Pour vérifier le fichier toi-même&nbsp;: clic droit → Propriétés → «&nbsp;Signatures numériques&nbsp;». Ou compare son empreinte, dans PowerShell&nbsp;: <code>Get-FileHash .\Aurora-Setup-1.0.3.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.3.exe -Algorithm SHA256</code></span></p>
         <div class="ligne">
           <code id="empreinte">EC60E080FC4210234BE372BA7B5EB6D557F917D3D67737A852F341D198521CE6</code>
           <button class="copier" type="button" id="copier"><span class="fr">Copier</span><span class="en">Copy</span></button>
@@ -887,7 +897,7 @@
       <div class="don revele">
         <div class="tag"><span class="fr">UN COUP DE MAIN</span><span class="en">A HAND</span></div>
         <h2><span class="fr">Aurora est gratuite, et le restera</span><span class="en">Aurora is free, and will stay free</span></h2>
-        <p><span class="fr">Pas de version payante, pas de publicité, rien à débloquer. Si elle t'est utile et que tu veux encourager la suite, il y a un pot. Un don ne donne droit à rien de plus : c'est un merci, pas un achat.</span><span class="en">No paid version, no ads, nothing to unlock. If it is useful to you and you would like to help what comes next, there is a tip jar. A donation buys nothing extra: it is a thank you, not a purchase.</span></p>
+        <p><span class="fr">Pas de version payante, pas de publicité, rien à débloquer. Si elle t'est utile et que tu veux encourager la suite, il y a un pot. Un don ne donne droit à rien de plus&nbsp;: c'est un merci, pas un achat.</span><span class="en">No paid version, no ads, nothing to unlock. If it is useful to you and you would like to help what comes next, there is a tip jar. A donation buys nothing extra: it is a thank you, not a purchase.</span></p>
         <a class="bouton" href="https://ko-fi.com/auroraapp" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9A5.4 5.4 0 0 1 12 6.3 5.4 5.4 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9z"/></svg>
           <span class="fr">Offrir un café</span><span class="en">Buy a coffee</span>
@@ -900,12 +910,12 @@
 
 <footer>
   <div class="wrap">
-    <p><span class="fr">Aurora est un projet personnel, offert tel quel et sans garantie. Il a été mis au point sur quelques PC seulement : sur du matériel très différent, il peut afficher moins de choses.</span><span class="en">Aurora is a personal project, offered as is, with no warranty. It was put together on a handful of PCs only: on very different hardware, it may show fewer things.</span></p>
-    <p><span class="fr">Version 1.0.3 · <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Téléchargements et notes de version</a></span><span class="en">Version 1.0.3 · <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a></span></p>
-    <p><span class="fr">Un bogue, une carte mère qu'Aurora lit mal, une idée ? Écris-moi depuis Aurora (Réglages → Support) ou à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Dis ce que tu vois et sur quel matériel ; s'il y a eu un plantage, le fichier <code>%APPDATA%\Aurora\crash.log</code> aide beaucoup.</span><span class="en">A bug, a motherboard Aurora reads badly, an idea? Write to me from Aurora (Settings → Support) or at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Say what you see and on what hardware; if there was a crash, the file <code>%APPDATA%\Aurora\crash.log</code> helps a lot.</span></p>
-    <p><span class="fr">Aurora a aussi une <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">page Facebook</a>, une <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">chaîne YouTube</a> et un compte <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok</a> : nouveautés, captures, vidéos, et un endroit de plus pour poser une question.</span><span class="en">Aurora also has a <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">Facebook page</a>, a <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">YouTube channel</a> and a <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok account</a>: news, screenshots, videos, and one more place to ask a question.</span></p>
-    <p><span class="fr">Cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne ; l'application, elle, ne sait rien de tout ça.</span><span class="en">This page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone; the app itself knows nothing about any of it.</span></p>
-    <p><span class="fr">Bibliothèques libres employées : LibreHardwareMonitor, HidSharp, PresentMon, et les polices Orbitron, Rajdhani, Teko, Chakra Petch et Exo 2. Leurs licences accompagnent l'installation.</span><span class="en">Open-source libraries used: LibreHardwareMonitor, HidSharp, PresentMon, and the Orbitron, Rajdhani, Teko, Chakra Petch and Exo 2 fonts. Their licences ship with the installation.</span></p>
+    <p><span class="fr">Aurora est un projet personnel, offert tel quel et sans garantie. Il a été mis au point sur quelques PC seulement&nbsp;: sur du matériel très différent, il peut afficher moins de choses.</span><span class="en">Aurora is a personal project, offered as is, with no warranty. It was put together on a handful of PCs only: on very different hardware, it may show fewer things.</span></p>
+    <p><span class="fr">Version 1.0.3&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Téléchargements et notes de version</a></span><span class="en">Version 1.0.3&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a></span></p>
+    <p><span class="fr">Un bogue, une carte mère qu'Aurora lit mal, une idée&nbsp;? Écris-moi depuis Aurora (Réglages → Support) ou à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Dis ce que tu vois et sur quel matériel&nbsp;; s'il y a eu un plantage, le fichier <code>%APPDATA%\Aurora\crash.log</code> aide beaucoup.</span><span class="en">A bug, a motherboard Aurora reads badly, an idea? Write to me from Aurora (Settings → Support) or at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Say what you see and on what hardware; if there was a crash, the file <code>%APPDATA%\Aurora\crash.log</code> helps a lot.</span></p>
+    <p><span class="fr">Aurora a aussi une <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">page Facebook</a>, une <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">chaîne YouTube</a> et un compte <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok</a>&nbsp;: nouveautés, captures, vidéos, et un endroit de plus pour poser une question.</span><span class="en">Aurora also has a <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">Facebook page</a>, a <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">YouTube channel</a> and a <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok account</a>: news, screenshots, videos, and one more place to ask a question.</span></p>
+    <p><span class="fr">Cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne&nbsp;; l'application, elle, ne sait rien de tout ça.</span><span class="en">This page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone; the app itself knows nothing about any of it.</span></p>
+    <p><span class="fr">Bibliothèques libres employées&nbsp;: LibreHardwareMonitor, HidSharp, PresentMon, et les polices Orbitron, Rajdhani, Teko, Chakra Petch et Exo 2. Leurs licences accompagnent l'installation.</span><span class="en">Open-source libraries used: LibreHardwareMonitor, HidSharp, PresentMon, and the Orbitron, Rajdhani, Teko, Chakra Petch and Exo 2&nbsp;fonts. Their licences ship with the installation.</span></p>
   </div>
 </footer>
 
