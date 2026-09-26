@@ -217,7 +217,7 @@
   .entete { display: grid; gap: 16px; justify-items: center; text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
   .entete p { color: var(--dim); font-size: clamp(18px, 2.2vw, 21px); max-width: 700px; }
 
-  /* ——— Nouveautés de la 1.0 : une rangée par onglet, image d'un côté, texte de l'autre ——— */
+  /* ——— Nouveautés, et ce qu'elle fait : une rangée par sujet, image d'un côté, texte de l'autre ——— */
   .rangee { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 4.5vw, 56px); align-items: center; }
   .rangee + .rangee { margin-top: clamp(64px, 9vw, 110px); }
   .rangee.inverse { grid-template-columns: 1fr 1.4fr; }
@@ -248,6 +248,12 @@
     color: var(--ink); font-size: 18px; font-style: italic;
   }
   .temoin cite { display: block; margin-top: 6px; font-style: normal; color: var(--dim); font-size: 15px; }
+  /* Sous les rangées des nouveautés, trois cartes de plus ; celle du Stream Deck mène à sa section. */
+  .trio { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); margin-top: clamp(56px, 8vw, 96px); }
+  @media (max-width: 900px) { .trio { grid-template-columns: 1fr; } }
+  a.carte { text-decoration: none; color: inherit; }
+  a.carte .suite { color: var(--accent-hi); font-weight: 600; }
+  a.carte:hover .suite { text-decoration: underline; }
 
   /* ——— Visite guidée : les onglets comme dans l'application ——— */
   .onglets { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 26px; }
@@ -425,7 +431,7 @@
       <span>AURORA</span>
     </a>
     <nav class="liens" aria-label="Sections">
-      <a href="#nouveautes"><span class="fr">Nouveautés 1.0</span><span class="en">What's new</span></a>
+      <a href="#nouveautes"><span class="fr">Nouveautés</span><span class="en">What's new</span></a>
       <a href="#visite"><span class="fr">Visite guidée</span><span class="en">Tour</span></a>
       <a class="neuf" href="#stream-deck"><i class="point" aria-hidden="true"></i>Stream Deck</a>
       <a href="#pourquoi"><span class="fr">Pourquoi Aurora</span><span class="en">Why Aurora</span></a>
@@ -447,7 +453,7 @@
   <div class="hero">
     <div class="wrap">
       <div class="intro centre">
-        <a class="nouveau revele" href="#nouveautes"><i class="point"></i><span class="fr">NOUVEAU · VERSION 1.0</span><span class="en">NEW · VERSION 1.0</span></a>
+        <a class="nouveau revele" href="#nouveautes"><i class="point"></i><span class="fr">NOUVEAU · VERSION 1.0.3</span><span class="en">NEW · VERSION 1.0.3</span></a>
         <h1 class="revele d1"><span class="fr">Ton PC, <span class="rouge">en clair.</span></span><span class="en">Your PC, <span class="rouge">in&nbsp;plain&nbsp;sight.</span></span></h1>
         <p class="lead revele d2">
           <span class="fr">Aurora surveille ton ordinateur en direct — températures, ventilateurs, disques, réseau, FPS en jeu — et te dit <b>en mots simples s'il va bien</b>. Gratuite, sans compte, et elle n'envoie rien sans que tu le demandes.</span>
@@ -504,11 +510,95 @@
     </div>
   </div>
 
-  <!-- ——— Nouveautés de la 1.0 ——— -->
+  <!-- ——— Nouveautés de la 1.0.3 ——— -->
   <section id="nouveautes">
     <div class="wrap">
       <div class="entete revele">
-        <div class="tag"><span class="fr">NOUVEAU DANS LA 1.0</span><span class="en">NEW IN 1.0</span></div>
+        <div class="tag"><span class="fr">NOUVEAU DANS LA 1.0.3</span><span class="en">NEW IN 1.0.3</span></div>
+        <h2><span class="fr">Ton PC, semaine après semaine</span><span class="en">Your PC, week after week</span></h2>
+        <p>
+          <span class="fr">Aurora mesurait déjà tout, chaque seconde. Elle suit maintenant ton PC dans la durée&nbsp;: de nouvelles mesures, des graphiques semaine après semaine, et tout ce qu'elle voit dans un fichier Excel.</span>
+          <span class="en">Aurora already measured everything, every second. It now follows your PC over time: new readings, week-after-week charts, and everything it sees in an Excel file.</span>
+        </p>
+      </div>
+
+      <div class="rangee">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/semaines-fr.webp" data-src-fr="img/v1/semaines-fr.webp" data-src-en="img/v1/semaines-en.webp"
+               data-alt-fr="L'onglet Santé, au fil des semaines : la carte graphique a pris 6 °C depuis le début, et Windows met 43 s à démarrer au lieu de 31."
+               data-alt-en="The Health tab, week after week: the graphics card has gained 6 °C since the start, and Windows takes 43 s to start instead of 31."
+               alt="L'onglet Santé, au fil des semaines : la carte graphique a pris 6 °C depuis le début, et Windows met 43 s à démarrer au lieu de 31.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">AU FIL DES SEMAINES</span><span class="en">WEEK AFTER WEEK</span></div>
+          <h3><span class="fr">Ton PC comparé à lui-même</span><span class="en">Your PC compared with itself</span></h3>
+          <p>
+            <span class="fr">Dans l'onglet Santé, une barre par semaine. Chaque semaine est comparée à tes premières, au même effort et sans la saison&nbsp;: si les barres montent, c'est ton PC qui change, pas l'été.</span>
+            <span class="en">In the Health tab, one bar per week. Each week is compared with your first ones, at the same effort and without the season: if the bars rise, it is your PC changing, not the summer.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">La chaleur de la carte graphique, de son point chaud et du processeur&nbsp;: la poussière, la pâte thermique qui sèche.</span><span class="en">How warm the graphics card, its hotspot and the processor run: dust, thermal paste drying out.</span></span></li>
+            <li><span><span class="fr">Le 12&nbsp;V de ton bloc d'alimentation sous la charge.</span><span class="en">Your power supply's 12&nbsp;V under load.</span></span></li>
+            <li><span><span class="fr">Le temps que Windows met à démarrer, jusqu'au PC prêt.</span><span class="en">How long Windows takes to start, until the PC is ready.</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rangee inverse">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/mesures-fr.webp" data-src-fr="img/v1/mesures-fr.webp" data-src-en="img/v1/mesures-en.webp"
+               data-alt-fr="La radiographie : les points chauds de la tour, point chaud et mémoire de la carte graphique et barrettes compris, et en bas le rail 12 V de l'alimentation."
+               data-alt-en="The X-ray: the rig's hot spots, graphics card hotspot, its memory and the memory modules included, and at the bottom the power supply's 12 V rail."
+               alt="La radiographie : les points chauds de la tour, point chaud et mémoire de la carte graphique et barrettes compris, et en bas le rail 12 V de l'alimentation.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">NOUVELLES MESURES</span><span class="en">NEW READINGS</span></div>
+          <h3><span class="fr">Les points chauds, et le 12&nbsp;V de ton bloc</span><span class="en">Hot spots, and your power supply's 12&nbsp;V</span></h3>
+          <p>
+            <span class="fr">Les points chauds de la radiographie s'allongent, et le bilan de santé les surveille tous.</span>
+            <span class="en">The X-ray's hot spots list grows, and the health check keeps an eye on all of them.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Le point chaud de la carte graphique&nbsp;: l'endroit le plus chaud de sa puce, là où elle se bride.</span><span class="en">The graphics card hotspot: the hottest spot on its chip, where it throttles.</span></span></li>
+            <li><span><span class="fr">La mémoire de la carte graphique, et tes barrettes quand elles ont une sonde.</span><span class="en">The graphics card's memory, and your memory modules when they have a sensor.</span></span></li>
+            <li><span><span class="fr">La mémoire engagée, comme dans le Gestionnaire des tâches.</span><span class="en">Committed memory, as in Task Manager.</span></span></li>
+            <li><span><span class="fr">Le 12&nbsp;V, au repos et sous la charge, si ta carte mère le mesure.</span><span class="en">The 12&nbsp;V, at rest and under load, if your motherboard measures it.</span></span></li>
+          </ul>
+          <p class="temoin">
+            <span class="fr">«&nbsp;J'ai lancé OCCT&nbsp;: à 500&nbsp;W, mon 12&nbsp;V est descendu à 11,90&nbsp;V. C'est dans la norme, et Aurora me dira s'il se met à fléchir.&nbsp;»</span>
+            <span class="en">“I ran OCCT: at 500&nbsp;W, my 12&nbsp;V went down to 11.90&nbsp;V. That is within spec, and Aurora will tell me if it starts to sag.”</span>
+            <cite>— Denis Desbiens</cite>
+          </p>
+        </div>
+      </div>
+
+      <div class="trio">
+        <div class="carte revele">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14.5h18M9 4v16"/></svg></span>
+          <h4><span class="fr">L'enregistreur</span><span class="en">The recorder</span></h4>
+          <p><span class="fr">Toutes les mesures, chaque seconde, pendant 10&nbsp;min, 30&nbsp;min ou 1&nbsp;h, dans un fichier qui s'ouvre dans Excel. Depuis l'onglet Santé ou le menu de l'icône.</span><span class="en">Every reading, each second, for 10&nbsp;min, 30&nbsp;min or 1&nbsp;h, in a file that opens in Excel. From the Health tab or the icon menu.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/><path d="M12 9v8"/></svg></span>
+          <h4><span class="fr">En jeu</span><span class="en">In game</span></h4>
+          <p><span class="fr">Le point chaud dans l'overlay, en option, et dans le résumé de chaque partie, avec la mémoire vidéo au plus chaud et le 12&nbsp;V au plus bas.</span><span class="en">The hotspot in the overlay, as an option, and in each game's summary, with the hottest video memory and the lowest 12&nbsp;V.</span></p>
+        </div>
+        <a class="carte revele d2" href="#stream-deck">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="5.5" height="5.5" rx="1.2"/><rect x="9.25" y="5.5" width="5.5" height="5.5" rx="1.2"/><rect x="16" y="5.5" width="5.5" height="5.5" rx="1.2"/><rect x="2.5" y="13" width="5.5" height="5.5" rx="1.2"/><rect x="9.25" y="13" width="5.5" height="5.5" rx="1.2"/><rect x="16" y="13" width="5.5" height="5.5" rx="1.2"/></svg></span>
+          <h4><span class="fr">Aurora sur ton Stream Deck</span><span class="en">Aurora on your Stream Deck</span></h4>
+          <p><span class="fr">Sept touches pour le Stream Deck d'Elgato&nbsp;: températures, point chaud, charges, mémoire vive et FPS. À télécharger à part. <span class="suite">Voir le module →</span></span><span class="en">Seven keys for the Elgato Stream Deck: temperatures, hotspot, loads, memory and FPS. A separate download. <span class="suite">See the plugin →</span></span></p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Ce qu'elle fait : Santé, Changements, Jeux (les nouveautés de la 1.0) ——— -->
+  <section id="essentiel">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">CE QU'ELLE FAIT</span><span class="en">WHAT IT DOES</span></div>
         <h2><span class="fr">Elle ne fait plus que mesurer&nbsp;: elle comprend.</span><span class="en">It no longer just measures: it understands.</span></h2>
         <p>
           <span class="fr">Trois onglets transforment les chiffres en réponses&nbsp;: est-ce que mon PC va bien, qu'est-ce qui a changé, et pourquoi mon jeu rame.</span>
@@ -716,6 +806,26 @@
           <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h9M8.5 3v2M6 5c.5 3 2.5 5.5 5 7M11 5c-.8 3.5-3.2 6.5-6 8"/><path d="m13 21 4-9 4 9M14.3 18h5.4"/></svg></span>
           <h4><span class="fr">Français et anglais</span><span class="en">French and English</span></h4>
           <p><span class="fr">Toute l'application, jusqu'aux unités et aux notifications. La langue suit Windows, ou se choisit.</span><span class="en">The whole app, right down to units and notifications. The language follows Windows, or you pick it.</span></p>
+        </div>
+        <div class="carte revele">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2.5" width="8" height="5.5" rx="1"/><rect x="6" y="8" width="12" height="13.5" rx="2"/><path d="M10.5 4.8h.01M13.5 4.8h.01"/></svg></span>
+          <h4><span class="fr">Clés USB et cartes SD</span><span class="en">USB drives and SD cards</span></h4>
+          <p><span class="fr">Ta clé apparaît avec sa place libre, ses vitesses et sa liaison USB — Aurora te dit si elle est bridée en USB 2. Un bouton l'éjecte en toute sécurité.</span><span class="en">Your drive shows up with its free space, speeds and USB link — Aurora tells you if it is stuck at USB 2. One button ejects it safely.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.8 14.1c2.9.3 5.2 2.8 5.2 5.9"/></svg></span>
+          <h4><span class="fr">Plusieurs comptes</span><span class="en">Several accounts</span></h4>
+          <p><span class="fr">Chaque compte choisit s'il démarre avec Windows. Deux sessions ouvertes&nbsp;: une seule Aurora commande les ventilateurs, celle de la personne devant l'écran.</span><span class="en">Each account decides whether it starts with Windows. Two sessions open: only one Aurora controls the fans, the one of the person in front of the screen.</span></p>
+        </div>
+        <div class="carte revele d2">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>
+          <h4><span class="fr">Écris-moi</span><span class="en">Write to me</span></h4>
+          <p><span class="fr">Un bogue, une question, une idée&nbsp;: la section Support des Réglages m'envoie ton message, avec la fiche de ton matériel si tu veux.</span><span class="en">A bug, a question, an idea: the Support section in Settings sends me your message, with your hardware sheet if you want.</span></p>
+        </div>
+        <div class="carte revele d3">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span>
+          <h4><span class="fr">Multimédia</span><span class="en">Media</span></h4>
+          <p><span class="fr">Ce qui joue, de Spotify à YouTube&nbsp;: lecture, pause, volume et sortie audio. Et la télécommande sur ton téléphone.</span><span class="en">Whatever is playing, from Spotify to YouTube: play, pause, volume and audio output. And a remote on your phone.</span></p>
         </div>
       </div>
     </div>
