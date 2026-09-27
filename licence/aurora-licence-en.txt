@@ -1,0 +1,64 @@
+﻿AURORA LICENCE
+
+Version 1, September 26, 2026. The French version governs.
+
+Aurora © 2026 Denis Desbiens. All rights reserved, except what this licence allows you.
+
+Aurora is free. By installing or using it, you accept this licence. If you don't accept it, don't install Aurora.
+
+
+WHAT YOU CAN DO
+
+- Use Aurora for free, on as many PCs as you like, at home or at work. A technician can use it to check a customer's PC.
+- Share the installer as is, unmodified: give it to a friend, copy it to a USB drive, link to auroraapp.ca.
+- Show Aurora in a video, an article or a livestream, with screenshots and its logo.
+
+
+WHAT YOU CAN'T DO
+
+- Sell Aurora or charge for it, alone or with something else (a PC sold with Aurora preinstalled, paid software or a paid service that provides it), without my written permission.
+- Modify Aurora or its installer, or share a modified version.
+- Decompile Aurora or try to recover its code, unless the law allows it despite this restriction.
+- Remove the author's name, or present Aurora as your own work.
+
+
+NO WARRANTY
+
+Aurora is provided as is, without warranty of any kind, to the fullest extent permitted by law. It was developed on only a handful of PCs: on your hardware, a reading may be missing or wrong.
+
+When you ask it to, Aurora acts on your PC: fan speeds, power mode, cooling test, closing an app, ejecting a drive. You use these controls at your own risk. Aurora doesn't replace your hardware's own protections.
+
+
+LIABILITY
+
+To the fullest extent permitted by law, the author isn't liable for any damage arising from using Aurora or being unable to use it, such as damaged hardware, lost data, or lost time or income.
+
+Nothing in this licence takes away the rights the law guarantees you and that can't be waived.
+
+
+PRIVACY
+
+Aurora creates no account and sends nothing over the Internet unless you ask, except one question: is there a new version? You can turn this off in Settings. The speed test and messages to support, with your hardware summary if you check the box, only go out when you click.
+
+
+OTHER AUTHORS' COMPONENTS
+
+Aurora includes components by other authors (LibreHardwareMonitor, PresentMon, fonts…). Each keeps its own licence, which prevails over this one for that component. They're all in the "licences" folder next to Aurora (C:\Program Files\Aurora\licences).
+
+
+TERMINATION
+
+If you don't comply with this licence, you lose the right to use Aurora and must uninstall it.
+
+
+CHANGES
+
+A new version of Aurora may come with a new version of this licence. Each version of Aurora keeps the licence you received it with.
+
+
+GOVERNING LAW
+
+This licence is governed by the laws of Quebec and the federal laws of Canada that apply there.
+
+
+Contact: contact@auroraapp.ca · https://auroraapp.ca

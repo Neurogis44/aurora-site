@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurora — Licence</title>
+<meta name="description" content="La licence d'Aurora, moniteur matériel gratuit pour Windows : ce que tu peux en faire, en mots simples.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aurora — licence">
+<meta property="og:description" content="Aurora est gratuite : ce que tu peux en faire, en mots simples.">
+<meta property="og:image" content="https://auroraapp.ca/img/v1/partage.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&display=swap">
+<style>
+  /* Les couleurs du site (thème Carbone d'Aurora), comme la trousse de presse. */
+  :root {
+    --ground: #09090b;
+    --panel: #141619;
+    --panel-2: #1a1d22;
+    --edge: #272a31;
+    --edge-2: #383d46;
+    --accent: #ff2340;
+    --accent-hi: #ff5468;
+    --ink: #f2f4f7;
+    --text: #c3c8d0;
+    --dim: #868d97;
+    --green: #3ddc84;
+    color-scheme: dark;
+  }
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root[data-lang="en"] .fr { display: none !important; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(1200px 560px at 50% -260px, rgba(255, 35, 64, .2), transparent 70%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, .021) 0 3px, transparent 3px 6px),
+      repeating-linear-gradient(-45deg, rgba(0, 0, 0, .32) 0 3px, transparent 3px 6px),
+      var(--ground);
+    color: var(--text);
+    font: 500 18px/1.6 Rajdhani, "Segoe UI", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  a { color: var(--accent-hi); }
+  strong, b { color: var(--ink); font-weight: 600; }
+  h1, h2, h3 { font-family: "Chakra Petch", "Segoe UI", sans-serif; color: var(--ink); margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(34px, 6vw, 60px); line-height: 1.02; }
+  h2 { font-size: clamp(24px, 3.2vw, 32px); line-height: 1.1; }
+  h3 { font-size: 21px; line-height: 1.2; }
+  p { margin: 0; }
+  p + p { margin-top: 12px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  .texte { max-width: 820px; }
+  /* Une section de texte garde le bord gauche des cartes : seule sa largeur de lecture est bornée. */
+  .wrap.texte { max-width: 1120px; }
+  .wrap.texte > * { max-width: 820px; }
+
+  /* Barre du haut */
+  .barre { position: sticky; top: 0; z-index: 5; background: rgba(9, 9, 11, .88); backdrop-filter: blur(8px);
+           border-bottom: 1px solid var(--edge); }
+  .barre .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+  .marque { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none;
+            font: 700 20px "Chakra Petch", sans-serif; letter-spacing: 1px; }
+  .marque img { width: 30px; height: 30px; }
+  .langues { display: flex; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--edge-2); overflow: hidden; }
+  .langues button { background: none; border: 0; color: var(--text); font: 700 14px Rajdhani, sans-serif;
+                    padding: 7px 14px; cursor: pointer; }
+  .langues button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .langues button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Tête de page */
+  .tete { padding: 56px 0 30px; }
+  .tag { display: inline-block; font: 700 13px "Chakra Petch", sans-serif; letter-spacing: 2px; color: #fff;
+         background: var(--accent); padding: 4px 12px; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+         margin-bottom: 16px; }
+  .lead { max-width: 760px; margin-top: 16px; font-size: 20px; color: var(--ink); }
+  .version { margin-top: 18px; color: var(--dim); font-size: 16px; }
+  .tete .texte { margin-top: 18px; }
+
+  /* Sections */
+  section { padding: 32px 0; border-top: 1px solid var(--edge); }
+  section h2 { margin-bottom: 12px; }
+  .grille { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .grille.quatre { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+  .carte { background: linear-gradient(180deg, var(--panel-2), var(--panel)); box-shadow: inset 0 0 0 1px var(--edge);
+           padding: 18px 20px; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px)); }
+  .carte h3 { margin-bottom: 10px; }
+  .carte.oui h3 { color: var(--green); }
+  .carte.non h3 { color: var(--accent-hi); }
+
+  /* Listes : un crochet vert pour ce qui est permis, une croix rouge pour ce qui ne l'est pas. */
+  ul.liste { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  ul.liste li { position: relative; padding-left: 26px; }
+  .oui li::before { content: ""; position: absolute; left: 6px; top: .28em; width: 6px; height: 12px;
+                    border: solid var(--green); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+  .non li::before, .non li::after { content: ""; position: absolute; left: 2px; top: .78em; width: 14px; height: 2.5px;
+                                    background: var(--accent-hi); }
+  .non li::before { transform: rotate(45deg); }
+  .non li::after { transform: rotate(-45deg); }
+  code { font: 600 16px Consolas, "Cascadia Mono", monospace; color: var(--ink); background: var(--panel-2);
+         padding: 1px 6px; overflow-wrap: anywhere; }
+
+  .pied { padding: 30px 0 46px; color: var(--dim); font-size: 16px; border-top: 1px solid var(--edge); }
+  .pied p + p { margin-top: 8px; }
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .tete { padding-top: 36px; }
+    .lead { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<header class="barre">
+  <div class="wrap">
+    <a class="marque" href="../"><img src="../favicon.svg" alt="" width="30" height="30">AURORA</a>
+    <div class="langues" role="group" aria-label="Langue / Language">
+      <button id="btn-fr" type="button" aria-pressed="true">FR</button>
+      <button id="btn-en" type="button" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="tete">
+    <div class="wrap">
+      <div class="tag">LICENCE</div>
+      <h1><span class="fr">La licence d'Aurora</span><span class="en">Aurora's licence</span></h1>
+      <p class="lead"><span class="fr">Aurora est gratuite. Voici ce que tu peux en faire, en mots simples.</span><span class="en">Aurora is free. Here's what you can do with it, in plain words.</span></p>
+      <div class="texte">
+        <p><span class="fr">Aurora © 2026&nbsp;Denis Desbiens. Tous droits réservés, sauf ce que cette licence te permet.</span><span class="en">Aurora © 2026&nbsp;Denis Desbiens. All rights reserved, except what this licence allows you.</span></p>
+        <p><span class="fr">Aurora est gratuite. En l'installant ou en l'utilisant, tu acceptes cette licence. Si tu ne l'acceptes pas, n'installe pas Aurora.</span><span class="en">Aurora is free. By installing or using it, you accept this licence. If you don't accept it, don't install Aurora.</span></p>
+      </div>
+      <p class="version"><span class="fr">Version 1&nbsp;du 26&nbsp;septembre 2026. La version française fait foi. Texte brut&nbsp;: <a href="aurora-licence-fr.txt">en français</a> ou <a href="aurora-licence-en.txt">en anglais</a>.</span><span class="en">Version 1, September 26, 2026. The French version governs. Plain text: <a href="aurora-licence-en.txt">in English</a> or <a href="aurora-licence-fr.txt">in French</a>.</span></p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="grille">
+        <div class="carte oui">
+          <h3><span class="fr">Ce que tu peux faire</span><span class="en">What you can do</span></h3>
+          <ul class="liste">
+            <li><span class="fr">Utiliser Aurora gratuitement, sur autant de PC que tu veux, à la maison comme au travail. Un technicien peut s'en servir pour vérifier le PC d'un client.</span><span class="en">Use Aurora for free, on as many PCs as you like, at home or at work. A technician can use it to check a customer's PC.</span></li>
+            <li><span class="fr">Partager l'installeur tel quel, sans le modifier&nbsp;: le donner à un ami, le copier sur une clé USB, mettre un lien vers auroraapp.ca.</span><span class="en">Share the installer as is, unmodified: give it to a friend, copy it to a USB drive, link to auroraapp.ca.</span></li>
+            <li><span class="fr">Montrer Aurora dans une vidéo, un article ou une diffusion en direct, avec des captures d'écran et son logo.</span><span class="en">Show Aurora in a video, an article or a livestream, with screenshots and its logo.</span></li>
+          </ul>
+        </div>
+        <div class="carte non">
+          <h3><span class="fr">Ce que tu ne peux pas faire</span><span class="en">What you can't do</span></h3>
+          <ul class="liste">
+            <li><span class="fr">Vendre Aurora ou la faire payer, seule ou avec autre chose (un PC vendu avec Aurora déjà installée, un logiciel ou un service payant qui la fournit), sans mon accord écrit.</span><span class="en">Sell Aurora or charge for it, alone or with something else (a PC sold with Aurora preinstalled, paid software or a paid service that provides it), without my written permission.</span></li>
+            <li><span class="fr">Modifier Aurora ou son installeur, ou partager une version modifiée.</span><span class="en">Modify Aurora or its installer, or share a modified version.</span></li>
+            <li><span class="fr">Décompiler Aurora ou chercher à retrouver son code, sauf si la loi te le permet malgré cette interdiction.</span><span class="en">Decompile Aurora or try to recover its code, unless the law allows it despite this restriction.</span></li>
+            <li><span class="fr">Retirer le nom de l'auteur, ou présenter Aurora comme ton œuvre.</span><span class="en">Remove the author's name, or present Aurora as your own work.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap texte">
+      <h2><span class="fr">Sans garantie</span><span class="en">No warranty</span></h2>
+      <p><span class="fr">Aurora est offerte telle quelle, sans garantie d'aucune sorte, dans toute la mesure permise par la loi. Elle a été mise au point sur quelques PC seulement&nbsp;: sur ton matériel, une mesure peut manquer ou être fausse.</span><span class="en">Aurora is provided as is, without warranty of any kind, to the fullest extent permitted by law. It was developed on only a handful of PCs: on your hardware, a reading may be missing or wrong.</span></p>
+      <p><span class="fr">Quand tu le lui demandes, Aurora agit sur ton PC&nbsp;: vitesse des ventilateurs, mode d'alimentation, test de refroidissement, arrêt d'une application, éjection d'un disque. Ces commandes sont à tes risques. Aurora ne remplace pas les protections de ton matériel.</span><span class="en">When you ask it to, Aurora acts on your PC: fan speeds, power mode, cooling test, closing an app, ejecting a drive. You use these controls at your own risk. Aurora doesn't replace your hardware's own protections.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap texte">
+      <h2><span class="fr">Responsabilité</span><span class="en">Liability</span></h2>
+      <p><span class="fr">Dans toute la mesure permise par la loi, l'auteur n'est pas responsable des dommages liés à l'utilisation d'Aurora ou à l'impossibilité de l'utiliser, comme du matériel endommagé, des données perdues, ou du temps ou des revenus perdus.</span><span class="en">To the fullest extent permitted by law, the author isn't liable for any damage arising from using Aurora or being unable to use it, such as damaged hardware, lost data, or lost time or income.</span></p>
+      <p><span class="fr">Rien dans cette licence ne t'enlève les droits que la loi te garantit et auxquels on ne peut pas renoncer.</span><span class="en">Nothing in this licence takes away the rights the law guarantees you and that can't be waived.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap texte">
+      <h2><span class="fr">Vie privée</span><span class="en">Privacy</span></h2>
+      <p><span class="fr">Aurora ne crée aucun compte et n'envoie rien sur Internet sans que tu le demandes, sauf une question&nbsp;: existe-t-il une nouvelle version&nbsp;? Ça se coupe dans les Réglages. Le test de vitesse et les messages au support, avec la fiche de ton matériel si tu coches la case, ne partent que si tu cliques.</span><span class="en">Aurora creates no account and sends nothing over the Internet unless you ask, except one question: is there a new version? You can turn this off in Settings. The speed test and messages to support, with your hardware summary if you check the box, only go out when you click.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grille quatre">
+        <div class="carte">
+          <h3><span class="fr">Composants d'autres auteurs</span><span class="en">Other authors' components</span></h3>
+          <p><span class="fr">Aurora contient des composants d'autres auteurs (LibreHardwareMonitor, PresentMon, polices…). Chacun garde sa propre licence, qui l'emporte sur celle-ci pour ce composant. Elles sont toutes dans le dossier «&nbsp;licences&nbsp;», à côté d'Aurora (<code>C:\Program Files\Aurora\licences</code>).</span><span class="en">Aurora includes components by other authors (LibreHardwareMonitor, PresentMon, fonts…). Each keeps its own licence, which prevails over this one for that component. They're all in the “licences” folder next to Aurora (<code>C:\Program Files\Aurora\licences</code>).</span></p>
+        </div>
+        <div class="carte">
+          <h3><span class="fr">Fin de la licence</span><span class="en">Termination</span></h3>
+          <p><span class="fr">Si tu ne respectes pas cette licence, tu perds le droit d'utiliser Aurora et tu dois la désinstaller.</span><span class="en">If you don't comply with this licence, you lose the right to use Aurora and must uninstall it.</span></p>
+        </div>
+        <div class="carte">
+          <h3><span class="fr">Changements</span><span class="en">Changes</span></h3>
+          <p><span class="fr">Une nouvelle version d'Aurora peut venir avec une nouvelle version de cette licence. Chaque version d'Aurora garde la licence avec laquelle tu l'as reçue.</span><span class="en">A new version of Aurora may come with a new version of this licence. Each version of Aurora keeps the licence you received it with.</span></p>
+        </div>
+        <div class="carte">
+          <h3><span class="fr">Loi applicable</span><span class="en">Governing law</span></h3>
+          <p><span class="fr">Cette licence est régie par les lois du Québec et par les lois fédérales du Canada qui s'y appliquent.</span><span class="en">This licence is governed by the laws of Quebec and the federal laws of Canada that apply there.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <p><span class="fr">Une question sur cette licence, ou une demande d'accord (vente, distribution)&nbsp;? Écris à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>.</span><span class="en">A question about this licence, or a permission request (sale, distribution)? Write to <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>.</span></p>
+    <p><span class="fr">Aurora — Moniteur matériel · <a href="../">auroraapp.ca</a> · <a href="../presse/">Trousse de presse</a> · Comme le reste du site, cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne.</span><span class="en">Aurora — Hardware Monitor · <a href="../">auroraapp.ca</a> · <a href="../presse/?lang=en">Press kit</a> · Like the rest of the site, this page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone.</span></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var racine = document.documentElement;
+  var boutons = { fr: document.getElementById('btn-fr'), en: document.getElementById('btn-en') };
+  var titres = { fr: 'Aurora — Licence', en: 'Aurora — Licence' };
+
+  function appliquer(choix) {
+    racine.setAttribute('data-lang', choix);
+    racine.lang = choix;
+    document.title = titres[choix];
+    boutons.fr.setAttribute('aria-pressed', String(choix === 'fr'));
+    boutons.en.setAttribute('aria-pressed', String(choix === 'en'));
+    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
+  }
+
+  // La langue du lien (« ?lang=en », celui du Readme anglais), sinon celle choisie sur le site, sinon celle du navigateur.
+  var demandee = new URLSearchParams(location.search).get('lang');
+  var choisie = null;
+  try { choisie = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
+  if (demandee === 'fr' || demandee === 'en') { choisie = demandee; }
+  if (choisie !== 'fr' && choisie !== 'en') {
+    choisie = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+  }
+  appliquer(choisie);
+  boutons.fr.addEventListener('click', function () { appliquer('fr'); });
+  boutons.en.addEventListener('click', function () { appliquer('en'); });
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "2b2e9afa214040b4842912487d06564f"}'></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿LICENCE D'AURORA
+
+Version 1 du 26 septembre 2026. La version française fait foi.
+
+Aurora © 2026 Denis Desbiens. Tous droits réservés, sauf ce que cette licence te permet.
+
+Aurora est gratuite. En l'installant ou en l'utilisant, tu acceptes cette licence. Si tu ne l'acceptes pas, n'installe pas Aurora.
+
+
+CE QUE TU PEUX FAIRE
+
+- Utiliser Aurora gratuitement, sur autant de PC que tu veux, à la maison comme au travail. Un technicien peut s'en servir pour vérifier le PC d'un client.
+- Partager l'installeur tel quel, sans le modifier : le donner à un ami, le copier sur une clé USB, mettre un lien vers auroraapp.ca.
+- Montrer Aurora dans une vidéo, un article ou une diffusion en direct, avec des captures d'écran et son logo.
+
+
+CE QUE TU NE PEUX PAS FAIRE
+
+- Vendre Aurora ou la faire payer, seule ou avec autre chose (un PC vendu avec Aurora déjà installée, un logiciel ou un service payant qui la fournit), sans mon accord écrit.
+- Modifier Aurora ou son installeur, ou partager une version modifiée.
+- Décompiler Aurora ou chercher à retrouver son code, sauf si la loi te le permet malgré cette interdiction.
+- Retirer le nom de l'auteur, ou présenter Aurora comme ton œuvre.
+
+
+SANS GARANTIE
+
+Aurora est offerte telle quelle, sans garantie d'aucune sorte, dans toute la mesure permise par la loi. Elle a été mise au point sur quelques PC seulement : sur ton matériel, une mesure peut manquer ou être fausse.
+
+Quand tu le lui demandes, Aurora agit sur ton PC : vitesse des ventilateurs, mode d'alimentation, test de refroidissement, arrêt d'une application, éjection d'un disque. Ces commandes sont à tes risques. Aurora ne remplace pas les protections de ton matériel.
+
+
+RESPONSABILITÉ
+
+Dans toute la mesure permise par la loi, l'auteur n'est pas responsable des dommages liés à l'utilisation d'Aurora ou à l'impossibilité de l'utiliser, comme du matériel endommagé, des données perdues, ou du temps ou des revenus perdus.
+
+Rien dans cette licence ne t'enlève les droits que la loi te garantit et auxquels on ne peut pas renoncer.
+
+
+VIE PRIVÉE
+
+Aurora ne crée aucun compte et n'envoie rien sur Internet sans que tu le demandes, sauf une question : existe-t-il une nouvelle version ? Ça se coupe dans les Réglages. Le test de vitesse et les messages au support, avec la fiche de ton matériel si tu coches la case, ne partent que si tu cliques.
+
+
+COMPOSANTS D'AUTRES AUTEURS
+
+Aurora contient des composants d'autres auteurs (LibreHardwareMonitor, PresentMon, polices…). Chacun garde sa propre licence, qui l'emporte sur celle-ci pour ce composant. Elles sont toutes dans le dossier « licences », à côté d'Aurora (C:\Program Files\Aurora\licences).
+
+
+FIN DE LA LICENCE
+
+Si tu ne respectes pas cette licence, tu perds le droit d'utiliser Aurora et tu dois la désinstaller.
+
+
+CHANGEMENTS
+
+Une nouvelle version d'Aurora peut venir avec une nouvelle version de cette licence. Chaque version d'Aurora garde la licence avec laquelle tu l'as reçue.
+
+
+LOI APPLICABLE
+
+Cette licence est régie par les lois du Québec et par les lois fédérales du Canada qui s'y appliquent.
+
+
+Contact : contact@auroraapp.ca · https://auroraapp.ca
