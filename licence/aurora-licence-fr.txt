@@ -1,6 +1,6 @@
 ﻿LICENCE D'AURORA
 
-Version 1 du 26 septembre 2026. La version française fait foi.
+Version 2 du 30 septembre 2026. La version française fait foi.
 
 Aurora © 2026 Denis Desbiens. Tous droits réservés, sauf ce que cette licence te permet.
 
@@ -26,7 +26,9 @@ SANS GARANTIE
 
 Aurora est offerte telle quelle, sans garantie d'aucune sorte, dans toute la mesure permise par la loi. Elle a été mise au point sur quelques PC seulement : sur ton matériel, une mesure peut manquer ou être fausse.
 
-Quand tu le lui demandes, Aurora agit sur ton PC : vitesse des ventilateurs, mode d'alimentation, test de refroidissement, arrêt d'une application, éjection d'un disque. Ces commandes sont à tes risques. Aurora ne remplace pas les protections de ton matériel.
+Quand tu le lui demandes, Aurora agit sur ton PC : vitesse des ventilateurs, mode d'alimentation, test de refroidissement, arrêt d'une application, éjection d'un disque, réglages de Windows (onglet Windows : ceux de ton compte, les réglages de jeu, le démarrage rapide, les programmes au démarrage, la fréquence des écrans) et son entretien (vérifier Windows et les disques avec les outils de Microsoft, envoyer les vieux fichiers temporaires à la corbeille, vider la corbeille : ce qui en est vidé ne se récupère plus). Ces commandes sont à tes risques. Aurora ne remplace pas les protections de ton matériel.
+
+Avant de changer un réglage de Windows, Aurora retient sa valeur d'origine ; elle la remet d'un clic (« Remettre », « Tout remettre comme avant ») et à sa désinstallation. La fréquence d'un écran fait exception : c'est un choix direct, comme dans les Paramètres de Windows, essayé quinze secondes avant d'être gardé. Aurora ne touche jamais à la sécurité de Windows (antivirus, pare-feu, mises à jour, contrôle de compte) ni à ce que Windows protège contre les programmes.
 
 
 RESPONSABILITÉ

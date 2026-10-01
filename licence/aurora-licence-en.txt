@@ -1,6 +1,6 @@
 ﻿AURORA LICENCE
 
-Version 1, September 26, 2026. The French version governs.
+Version 2, September 30, 2026. The French version governs.
 
 Aurora © 2026 Denis Desbiens. All rights reserved, except what this licence allows you.
 
@@ -26,7 +26,9 @@ NO WARRANTY
 
 Aurora is provided as is, without warranty of any kind, to the fullest extent permitted by law. It was developed on only a handful of PCs: on your hardware, a reading may be missing or wrong.
 
-When you ask it to, Aurora acts on your PC: fan speeds, power mode, cooling test, closing an app, ejecting a drive. You use these controls at your own risk. Aurora doesn't replace your hardware's own protections.
+When you ask it to, Aurora acts on your PC: fan speeds, power mode, cooling test, closing an app, ejecting a drive, Windows settings (Windows tab: your account's settings, game settings, fast startup, startup programs, display refresh rates) and its maintenance (checking Windows and the drives with Microsoft's tools, sending old temporary files to the Recycle Bin, emptying the Recycle Bin: what's emptied can't be recovered). You use these controls at your own risk. Aurora doesn't replace your hardware's own protections.
+
+Before changing a Windows setting, Aurora keeps its original value; it puts it back in one click ("Put back", "Put everything back") and when it's uninstalled. A display's refresh rate is the exception: it's a direct choice, as in Windows Settings, tried for fifteen seconds before being kept. It never touches Windows security (antivirus, firewall, updates, account control) nor what Windows protects from programs.
 
 
 LIABILITY

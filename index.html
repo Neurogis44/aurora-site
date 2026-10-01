@@ -453,22 +453,22 @@
   <div class="hero">
     <div class="wrap">
       <div class="intro centre">
-        <a class="nouveau revele" href="#nouveautes"><i class="point"></i><span class="fr">NOUVEAU · VERSION 1.0.6</span><span class="en">NEW · VERSION 1.0.6</span></a>
+        <a class="nouveau revele" href="#nouveautes"><i class="point"></i><span class="fr">NOUVEAU · VERSION 1.0.7</span><span class="en">NEW · VERSION 1.0.7</span></a>
         <h1 class="revele d1"><span class="fr">Ton PC, <span class="rouge">en clair.</span></span><span class="en">Your PC, <span class="rouge">in&nbsp;plain&nbsp;sight.</span></span></h1>
         <p class="lead revele d2">
           <span class="fr">Aurora surveille ton ordinateur en direct — températures, ventilateurs, disques, réseau, FPS en jeu — et te dit <b>en mots simples s'il va bien</b>. Gratuite, sans compte, et elle n'envoie rien sans que tu le demandes.</span>
           <span class="en">Aurora watches your computer live — temperatures, fans, drives, network, in-game FPS — and tells you <b>in plain words whether it is doing well</b>. Free, no account, and it sends nothing unless you ask.</span>
         </p>
         <div class="actions revele d3">
-          <a class="bouton" id="telecharger-haut" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.6/Aurora-Setup-1.0.6.exe">
+          <a class="bouton" id="telecharger-haut" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.7/Aurora-Setup-1.0.7.exe">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
             <span class="fr">Télécharger pour Windows</span><span class="en">Download for Windows</span>
           </a>
           <a class="bouton discret" href="#visite"><span class="fr">Voir ce qu'elle fait</span><span class="en">See what it does</span></a>
         </div>
         <p class="meta revele d3">
-          <span class="fr">Version <b>1.0.6</b> · 9,4&nbsp;Mo · signée · Windows 10&nbsp;et 11, 64&nbsp;bits</span>
-          <span class="en">Version <b>1.0.6</b> · 9.4&nbsp;MB · signed · Windows 10&nbsp;and 11, 64-bit</span>
+          <span class="fr">Version <b>1.0.7</b> · 9,7&nbsp;Mo · signée · Windows 10&nbsp;et 11, 64&nbsp;bits</span>
+          <span class="en">Version <b>1.0.7</b> · 9.7&nbsp;MB · signed · Windows 10&nbsp;and 11, 64-bit</span>
         </p>
         <div class="faits revele d3">
           <span class="fr">Gratuite</span><span class="en">Free</span>
@@ -510,11 +510,125 @@
     </div>
   </div>
 
-  <!-- ——— Nouveautés de la 1.0.6 ——— -->
+  <!-- ——— Nouveautés de la 1.0.7 ——— -->
   <section id="nouveautes">
     <div class="wrap">
       <div class="entete revele">
-        <div class="tag"><span class="fr">NOUVEAU DANS LA 1.0.6</span><span class="en">NEW IN 1.0.6</span></div>
+        <div class="tag"><span class="fr">NOUVEAU DANS LA 1.0.7</span><span class="en">NEW IN 1.0.7</span></div>
+        <h2><span class="fr">Mesuré, pas promis</span><span class="en">Measured, not promised</span></h2>
+        <p>
+          <span class="fr">Ce qui limite tes FPS, en direct. L'effet de chaque changement sur ton PC. Et un onglet pour régler Windows, où tout se remet.</span>
+          <span class="en">What limits your FPS, live. The effect of every change on your PC. And a tab to tune Windows, where everything can be put back.</span>
+        </p>
+      </div>
+
+      <div class="rangee">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1186" height="417"
+               src="img/v1/limite-fr.webp" data-src-fr="img/v1/limite-fr.webp" data-src-en="img/v1/limite-en.webp"
+               data-alt-fr="L'overlay de jeu en HUD, en démonstration : 131 FPS, la carte graphique à 75 %, le processeur à 9 % au total, et « LIMITÉ PAR CPU » : un seul cœur est saturé."
+               data-alt-en="The game overlay as a HUD, in demo mode: 131 FPS, the graphics card at 76%, the processor at 8% overall, and “LIMITED BY CPU”: a single core is saturated."
+               alt="L'overlay de jeu en HUD, en démonstration : 131 FPS, la carte graphique à 75 %, le processeur à 9 % au total, et « LIMITÉ PAR CPU » : un seul cœur est saturé.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">EN JEU</span><span class="en">IN GAME</span></div>
+          <h3><span class="fr">Ce qui limite tes FPS</span><span class="en">What limits your FPS</span></h3>
+          <p>
+            <span class="fr">Pendant une partie, l'overlay dit en un mot ce qui retient tes images par seconde. Pas une estimation d'après une liste de pièces&nbsp;: une mesure, sur ton PC, pendant que tu joues.</span>
+            <span class="en">During a game, the overlay tells you in one word what's holding your frame rate back. Not a guess from a parts list: a measurement, on your PC, while you play.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">«&nbsp;GPU&nbsp;»&nbsp;: ta carte graphique est à fond. C'est la situation normale.</span><span class="en">“GPU”: your graphics card is maxed out. That's the normal situation.</span></span></li>
+            <li><span><span class="fr">«&nbsp;CPU&nbsp;»&nbsp;: un cœur du processeur est saturé et la freine — même quand le processeur affiche moins de 10&nbsp;% au total.</span><span class="en">“CPU”: one processor core is saturated and holding it back — even when the processor shows under 10% overall.</span></span></li>
+            <li><span><span class="fr">«&nbsp;BRIDAGE&nbsp;»&nbsp;: VSync ou limiteur d'images. Rien à corriger, et le processeur n'est pas accusé à tort.</span><span class="en">“FPS CAP”: VSync or a frame limiter. Nothing to fix, and the processor isn't wrongly blamed.</span></span></li>
+            <li><span><span class="fr">Sur 30&nbsp;jours, «&nbsp;Que changer en premier&nbsp;?&nbsp;» (onglet Jeux)&nbsp;: la carte, le processeur, la mémoire… ou rien du tout.</span><span class="en">Over 30 days, “What to upgrade first?” (Games tab): the card, the processor, the memory… or nothing at all.</span></span></li>
+          </ul>
+          <p class="temoin">
+            <span class="fr">«&nbsp;Ma Radeon RX&nbsp;9070&nbsp;XT donne le rythme 99,8&nbsp;% du temps de jeu, et mon Ryzen&nbsp;9 9900X ne la freine presque jamais. Le verdict d'Aurora&nbsp;: rien ne presse.&nbsp;»</span>
+            <span class="en">“My Radeon RX&nbsp;9070&nbsp;XT sets the pace 99.8% of the gaming time, and my Ryzen&nbsp;9 9900X almost never holds it back. Aurora's verdict: no rush.”</span>
+            <cite>— Denis</cite>
+          </p>
+        </div>
+      </div>
+
+      <div class="rangee inverse">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/effet-fr.webp" data-src-fr="img/v1/effet-fr.webp" data-src-en="img/v1/effet-en.webp"
+               data-alt-fr="L'onglet Changements, en démonstration : un verdict au bout de chaque ligne qui peut compter, et l'effet du nouveau pilote graphique ouvert : +6 % dans Cyberpunk 2077."
+               data-alt-en="The Changes tab, in demo mode: a verdict at the end of every line that can count, and the effect of the new graphics driver opened: +6% in Cyberpunk 2077."
+               alt="L'onglet Changements, en démonstration : un verdict au bout de chaque ligne qui peut compter, et l'effet du nouveau pilote graphique ouvert : +6 % dans Cyberpunk 2077.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">CHANGEMENTS</span><span class="en">CHANGES</span></div>
+          <h3><span class="fr">L'effet de chaque changement</span><span class="en">The effect of every change</span></h3>
+          <p>
+            <span class="fr">Un nouveau pilote graphique, un BIOS, une mise à jour de Windows, un programme au démarrage&nbsp;: Aurora mesure tout seul ce qu'il a donné, avant et après.</span>
+            <span class="en">A new graphics driver, a BIOS, a Windows update, a startup program: Aurora measures on its own what it did, before and after.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Tes jeux (images par seconde), tes températures à effort égal, ton démarrage.</span><span class="en">Your games (frames per second), your temperatures at equal load, your startup.</span></span></li>
+            <li><span><span class="fr">Jamais de verdict sans de quoi comparer&nbsp;: trois parties, trois démarrages, une heure d'effort de chaque côté.</span><span class="en">Never a verdict without something to compare: three sessions, three startups, an hour of load on each side.</span></span></li>
+            <li><span><span class="fr">Ce que tu fais toi-même se note aussi&nbsp;: la poussière, la pâte thermique, les pads de la carte graphique.</span><span class="en">What you do yourself can be noted too: dust, thermal paste, graphics card pads.</span></span></li>
+            <li><span><span class="fr">Une notification quand le verdict arrive.</span><span class="en">A notification when the verdict comes in.</span></span></li>
+          </ul>
+          <p class="temoin">
+            <span class="fr">«&nbsp;Aurora a mesuré ce que Spotify, lancé au démarrage, ajoute à mon démarrage&nbsp;: 1,8&nbsp;seconde.&nbsp;»</span>
+            <span class="en">“Aurora measured what Spotify, launched at startup, adds to my startup: 1.8 seconds.”</span>
+            <cite>— Denis</cite>
+          </p>
+        </div>
+      </div>
+
+      <div class="rangee">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/windows-fr.webp" data-src-fr="img/v1/windows-fr.webp" data-src-en="img/v1/windows-en.webp"
+               data-alt-fr="L'onglet Windows, en démonstration : ce qui est déjà bien réglé, ce qu'Aurora a changé avec un bouton « Remettre » sur chaque ligne, le démarrage et les réglages de jeu."
+               data-alt-en="The Windows tab, in demo mode: what's already set right, what Aurora changed with a “Put back” button on each line, startup and gaming settings."
+               alt="L'onglet Windows, en démonstration : ce qui est déjà bien réglé, ce qu'Aurora a changé avec un bouton « Remettre » sur chaque ligne, le démarrage et les réglages de jeu.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">NOUVEL ONGLET</span><span class="en">NEW TAB</span></div>
+          <h3><span class="fr">Régler Windows, et tout remettre</span><span class="en">Tune Windows, and put it all back</span></h3>
+          <p>
+            <span class="fr">L'onglet Windows lit tout — démarrage, réglages de jeu, écrans, mémoire, confidentialité, petits dérangements — et règle seulement ce que tu coches, par les moyens officiels de Windows.</span>
+            <span class="en">The Windows tab reads everything — startup, gaming settings, displays, memory, privacy, small annoyances — and only changes what you check, through Windows' official means.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Jamais les protections&nbsp;: Defender, pare-feu, contrôle de compte, mises à jour.</span><span class="en">Never the protections: Defender, firewall, User Account Control, updates.</span></span></li>
+            <li><span><span class="fr">La valeur d'origine notée avant tout changement&nbsp;: «&nbsp;Remettre&nbsp;» d'un clic, «&nbsp;Tout remettre comme avant&nbsp;», et la désinstallation remet tout.</span><span class="en">The original value written down before any change: “Put back” in one click, “Put everything back”, and uninstalling puts it all back.</span></span></li>
+            <li><span><span class="fr">Mesuré plutôt que promis&nbsp;: le temps gagné au démarrage, et la fréquence d'un écran essayée 15&nbsp;secondes avant d'être gardée.</span><span class="en">Measured rather than promised: the time saved at startup, and a display's refresh rate tried for 15 seconds before it's kept.</span></span></li>
+            <li><span><span class="fr">L'entretien&nbsp;: vérifier et réparer Windows (DISM, SFC), vérifier les disques, les vieux fichiers temporaires à la corbeille.</span><span class="en">Maintenance: check and repair Windows (DISM, SFC), check your drives, old temporary files to the Recycle Bin.</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="trio">
+        <div class="carte revele">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5" rx=".5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg></span>
+          <h4><span class="fr">Les Ryzen X3D</span><span class="en">Ryzen X3D chips</span></h4>
+          <p><span class="fr">Sur un 7900X3D, 7950X3D, 9900X3D ou 9950X3D, l'alimentation automatique garde pendant tes jeux le mode que demande AMD, l'onglet Windows vérifie le reste (mode Jeu, Game Bar, pilote), et montre sur quel CCD tourne le jeu.</span><span class="en">On a 7900X3D, 7950X3D, 9900X3D or 9950X3D, automatic power management keeps the mode AMD asks for while you play, the Windows tab checks the rest (Game Mode, Game Bar, driver), and shows which CCD the game runs on.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v4h-4"/></svg></span>
+          <h4><span class="fr">Le vrai redémarrage</span><span class="en">The real restart</span></h4>
+          <p><span class="fr">Le démarrage rapide de Windows ne redémarre pas vraiment&nbsp;: Aurora le montre en gris dans l'onglet Changements, et te dit depuis quand Windows n'a pas vraiment redémarré.</span><span class="en">Windows fast startup doesn't really restart: Aurora shows it in grey in the Changes tab, and tells you how long Windows hasn't really restarted.</span></p>
+        </div>
+        <div class="carte revele d2">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="8" width="19" height="8" rx="1.5"/><path d="M15 12h3.5"/></svg></span>
+          <h4><span class="fr">Un overlay qui tient</span><span class="en">An overlay that fits</span></h4>
+          <p><span class="fr">Chaque thème a ses propres mesures, prises avec les valeurs les plus longues&nbsp;: dans le thème Forge, le bouton «&nbsp;Agrandir&nbsp;» de la barre n'est plus coupé.</span><span class="en">Each theme has its own measurements, taken with the longest values: in the Forge theme, the bar's “Expand” button is no longer cut off.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Nouveautés de la 1.0.6 ——— -->
+  <section id="depuis-1-0-6">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">DEPUIS LA 1.0.6</span><span class="en">SINCE 1.0.6</span></div>
         <h2><span class="fr">Ton ordi, tour ou portable</span><span class="en">Your PC, tower or laptop</span></h2>
         <p>
           <span class="fr">La radiographie reconnaît maintenant les portables, tes ventilateurs portent le nom que tu leur donnes, et l'onglet Santé dit la vraie raison quand une mesure manque.</span>
@@ -881,6 +995,7 @@
           </p>
           <ul class="puces">
             <li><span><span class="fr">Dans l'onglet Santé, un problème vient avec ce qui a changé juste avant.</span><span class="en">In the Health tab, a problem comes with what changed just before it.</span></span></li>
+            <li><span><span class="fr">L'effet de chaque changement, mesuré avant et après&nbsp;: tes jeux, tes températures, ton démarrage.</span><span class="en">The effect of every change, measured before and after: your games, your temperatures, your startup.</span></span></li>
             <li><span><span class="fr">Le démarrage de Windows chronométré — jusqu'au bureau, prêt, arrêt — et qui le ralentit.</span><span class="en">Windows startup timed — to the desktop, ready, shutdown — and who slows it down.</span></span></li>
             <li><span><span class="fr">Le bruit filtré&nbsp;: les pilotes qui vont et viennent, les mises à jour de Defender.</span><span class="en">The noise filtered out: drivers that come and go, Defender updates.</span></span></li>
           </ul>
@@ -904,7 +1019,7 @@
           </p>
           <ul class="puces">
             <li><span><span class="fr">Un jeu qui gèle ou plante&nbsp;: l'état du PC juste avant — chaleur, mémoire vidéo, pilote graphique.</span><span class="en">A game that freezes or crashes: the state of the PC just before — heat, video memory, graphics driver.</span></span></li>
-            <li><span><span class="fr">Ce qui limite tes FPS&nbsp;: la carte graphique, ou le processeur qui la freine.</span><span class="en">What limits your FPS: the graphics card, or the processor holding it back.</span></span></li>
+            <li><span><span class="fr">Ce qui limite tes FPS, en direct dans l'overlay&nbsp;: la carte graphique, le processeur qui la freine, ou un bridage — et ce qu'il faudrait changer en premier.</span><span class="en">What limits your FPS, live in the overlay: the graphics card, the processor holding it back, or an FPS cap — and what to upgrade first.</span></span></li>
             <li><span><span class="fr">Un overlay par-dessus tes parties, dans sa propre petite fenêtre, sans rien toucher au jeu.</span><span class="en">An overlay on top of your games, in its own small window, without touching the game.</span></span></li>
           </ul>
         </div>
@@ -917,7 +1032,7 @@
     <div class="wrap">
       <div class="entete revele">
         <div class="tag"><span class="fr">VISITE GUIDÉE</span><span class="en">GUIDED TOUR</span></div>
-        <h2><span class="fr">Sept onglets, un seul programme</span><span class="en">Seven tabs, one program</span></h2>
+        <h2><span class="fr">Huit onglets, un seul programme</span><span class="en">Eight tabs, one program</span></h2>
         <p><span class="fr">Clique un onglet, comme dans Aurora.</span><span class="en">Click a tab, just like in Aurora.</span></p>
       </div>
       <div class="revele">
@@ -927,6 +1042,7 @@
           <button role="tab" type="button" aria-selected="false" data-onglet="jeux"><span class="fr">Jeux</span><span class="en">Games</span></button>
           <button role="tab" type="button" aria-selected="false" data-onglet="sante"><span class="fr">Santé</span><span class="en">Health</span></button>
           <button role="tab" type="button" aria-selected="false" data-onglet="changements"><span class="fr">Changements</span><span class="en">Changes</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="windows"><span class="fr">Windows</span><span class="en">Windows</span></button>
           <button role="tab" type="button" aria-selected="false" data-onglet="mespc"><span class="fr">Mes PC</span><span class="en">My PCs</span></button>
           <button role="tab" type="button" aria-selected="false" data-onglet="reglages"><span class="fr">Réglages</span><span class="en">Settings</span></button>
         </div>
@@ -936,6 +1052,7 @@
           <img data-onglet="jeux" loading="lazy" width="1500" height="845" src="img/v1/jeux-fr.webp" data-src-fr="img/v1/jeux-fr.webp" data-src-en="img/v1/jeux-en.webp" alt="" data-alt-fr="L'onglet Jeux." data-alt-en="The Games tab.">
           <img data-onglet="sante" loading="lazy" width="1500" height="845" src="img/v1/sante-fr.webp" data-src-fr="img/v1/sante-fr.webp" data-src-en="img/v1/sante-en.webp" alt="" data-alt-fr="L'onglet Santé." data-alt-en="The Health tab.">
           <img data-onglet="changements" loading="lazy" width="1500" height="845" src="img/v1/changements-fr.webp" data-src-fr="img/v1/changements-fr.webp" data-src-en="img/v1/changements-en.webp" alt="" data-alt-fr="L'onglet Changements." data-alt-en="The Changes tab.">
+          <img data-onglet="windows" loading="lazy" width="1500" height="845" src="img/v1/windows-fr.webp" data-src-fr="img/v1/windows-fr.webp" data-src-en="img/v1/windows-en.webp" alt="" data-alt-fr="L'onglet Windows." data-alt-en="The Windows tab.">
           <img data-onglet="mespc" loading="lazy" width="1500" height="845" src="img/v1/mespc-fr.webp" data-src-fr="img/v1/mespc-fr.webp" data-src-en="img/v1/mespc-en.webp" alt="" data-alt-fr="L'onglet Mes PC." data-alt-en="The My PCs tab.">
           <img data-onglet="reglages" loading="lazy" width="1500" height="845" src="img/v1/reglages-fr.webp" data-src-fr="img/v1/reglages-fr.webp" data-src-en="img/v1/reglages-en.webp" alt="" data-alt-fr="L'onglet Réglages." data-alt-en="The Settings tab.">
           <span class="progression" id="progression"></span>
@@ -943,9 +1060,10 @@
         <p class="visite-texte" id="visite-texte" aria-live="polite">
           <span data-onglet="vue"><span class="fr">Tout ton PC sur un écran&nbsp;: processeur, carte graphique, mémoire, ventilateurs, disques, réseau, écrans, musique et jeu en cours.</span><span class="en">Your whole PC on one screen: processor, graphics card, memory, fans, drives, network, displays, music and the game in progress.</span></span>
           <span data-onglet="radiographie" hidden><span class="fr">Ton ordi dessiné d'après le vrai, tour ou portable&nbsp;: les pièces s'allument selon leur chaleur, l'air circule, les ventilateurs tournent à leur vraie vitesse.</span><span class="en">Your PC drawn from the real one, tower or laptop: parts light up with their heat, the air flows, the fans spin at their real speed.</span></span>
-          <span data-onglet="jeux" hidden><span class="fr">La partie en cours avec ses FPS, et tous tes jeux avec leur tendance, leurs gels et leurs plantages.</span><span class="en">The session in progress with its FPS, and all your games with their trend, freezes and crashes.</span></span>
+          <span data-onglet="jeux" hidden><span class="fr">La partie en cours avec ses FPS et ce qui les limite, tous tes jeux avec leur tendance, leurs gels et leurs plantages, et ce qu'il faudrait changer en premier.</span><span class="en">The session in progress with its FPS and what limits them, all your games with their trend, freezes and crashes, and what to upgrade first.</span></span>
           <span data-onglet="sante" hidden><span class="fr">Le bilan, en mots simples, du plus grave au moins grave&nbsp;: ce qui cloche, quoi faire, et ce qui a changé juste avant.</span><span class="en">The check-up, in plain words, most serious first: what's wrong, what to do, and what changed just before.</span></span>
-          <span data-onglet="changements" hidden><span class="fr">Ce qui a changé sur ton PC, jour après jour, et le démarrage de Windows chronométré.</span><span class="en">What changed on your PC, day after day, and Windows startup timed.</span></span>
+          <span data-onglet="changements" hidden><span class="fr">Ce qui a changé sur ton PC, jour après jour, l'effet de chaque changement, et le démarrage de Windows chronométré.</span><span class="en">What changed on your PC, day after day, the effect of every change, and Windows startup timed.</span></span>
+          <span data-onglet="windows" hidden><span class="fr">Windows lu en entier, et réglé seulement si tu le coches&nbsp;: chaque réglage se remet d'un clic, et l'entretien se fait avec les outils de Microsoft.</span><span class="en">Windows read in full, and tuned only if you check it: each setting goes back in one click, and maintenance uses Microsoft's own tools.</span></span>
           <span data-onglet="mespc" hidden><span class="fr">Les autres PC de la maison en tuiles, un fichier envoyé de l'un à l'autre, et la même vue sur ton téléphone grâce à un code QR.</span><span class="en">The other PCs at home as tiles, a file sent from one to another, and the same view on your phone through a QR code.</span></span>
           <span data-onglet="reglages" hidden><span class="fr">Langue, thème, démarrage avec Windows, partage et seuils d'alerte, degré par degré.</span><span class="en">Language, theme, start with Windows, sharing and alert limits, degree by degree.</span></span>
         </p>
@@ -1212,16 +1330,16 @@
         <p><span class="fr">Windows regarde aussi la réputation d'un fichier&nbsp;: combien de gens l'ont installé sans ennui. Une nouvelle version peut encore afficher un avertissement les premiers jours. Clique «&nbsp;Informations complémentaires&nbsp;»&nbsp;: le nom de l'auteur y est.</span><span class="en">Windows also looks at a file's reputation: how many people have installed it without trouble. A new version may still show a warning for the first few days. Click “More info”: the author's name is right there.</span></p>
       </div>
       <div class="empreinte revele">
-        <p><span class="fr">Pour vérifier le fichier toi-même&nbsp;: clic droit → Propriétés → «&nbsp;Signatures numériques&nbsp;». Ou compare son empreinte, dans PowerShell&nbsp;: <code>Get-FileHash .\Aurora-Setup-1.0.6.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.6.exe -Algorithm SHA256</code></span></p>
+        <p><span class="fr">Pour vérifier le fichier toi-même&nbsp;: clic droit → Propriétés → «&nbsp;Signatures numériques&nbsp;». Ou compare son empreinte, dans PowerShell&nbsp;: <code>Get-FileHash .\Aurora-Setup-1.0.7.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.7.exe -Algorithm SHA256</code></span></p>
         <div class="ligne">
-          <code id="empreinte">B20FB49206FD6283FA516247B6731686DAB349BB18F2205738E6E0F9B81C41CC</code>
+          <code id="empreinte">78431448D23CE6C8F30257477731E27F824AA8E72603F3CE02AC2B07800D0A43</code>
           <button class="copier" type="button" id="copier"><span class="fr">Copier</span><span class="en">Copy</span></button>
         </div>
       </div>
       <div class="actions revele">
-        <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.6/Aurora-Setup-1.0.6.exe">
+        <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.7/Aurora-Setup-1.0.7.exe">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
-          <span class="fr">Télécharger Aurora 1.0.6</span><span class="en">Download Aurora 1.0.6</span>
+          <span class="fr">Télécharger Aurora 1.0.7</span><span class="en">Download Aurora 1.0.7</span>
         </a>
         <a class="bouton discret" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases"><span class="fr">Toutes les versions</span><span class="en">All versions</span></a>
       </div>
@@ -1248,7 +1366,7 @@
 <footer>
   <div class="wrap">
     <p><span class="fr">Aurora est un projet personnel, gratuit, offert tel quel et sans garantie (voir sa <a href="licence/">licence</a>). Il a été mis au point sur quelques PC seulement&nbsp;: sur du matériel très différent, il peut afficher moins de choses.</span><span class="en">Aurora is a personal project, free, offered as is, with no warranty (see its <a href="licence/">licence</a>). It was put together on a handful of PCs only: on very different hardware, it may show fewer things.</span></p>
-    <p><span class="fr">Version 1.0.6&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Téléchargements et notes de version</a>&nbsp;· <a href="presse/">Trousse de presse</a>&nbsp;· <a href="licence/">Licence</a></span><span class="en">Version 1.0.6&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a>&nbsp;· <a href="presse/">Press kit</a>&nbsp;· <a href="licence/">Licence</a></span></p>
+    <p><span class="fr">Version 1.0.7&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Téléchargements et notes de version</a>&nbsp;· <a href="presse/">Trousse de presse</a>&nbsp;· <a href="licence/">Licence</a></span><span class="en">Version 1.0.7&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a>&nbsp;· <a href="presse/">Press kit</a>&nbsp;· <a href="licence/">Licence</a></span></p>
     <p><span class="fr">Un bogue, une carte mère qu'Aurora lit mal, une idée&nbsp;? Écris-moi depuis Aurora (Réglages → Support) ou à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Dis ce que tu vois et sur quel matériel&nbsp;; s'il y a eu un plantage, le fichier <code>%APPDATA%\Aurora\crash.log</code> aide beaucoup.</span><span class="en">A bug, a motherboard Aurora reads badly, an idea? Write to me from Aurora (Settings → Support) or at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Say what you see and on what hardware; if there was a crash, the file <code>%APPDATA%\Aurora\crash.log</code> helps a lot.</span></p>
     <p><span class="fr">Aurora a aussi une <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">page Facebook</a>, une <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">chaîne YouTube</a> et un compte <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok</a>&nbsp;: nouveautés, captures, vidéos, et un endroit de plus pour poser une question.</span><span class="en">Aurora also has a <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">Facebook page</a>, a <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">YouTube channel</a> and a <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok account</a>: news, screenshots, videos, and one more place to ask a question.</span></p>
     <p><span class="fr">Cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne&nbsp;; l'application, elle, ne sait rien de tout ça.</span><span class="en">This page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone; the app itself knows nothing about any of it.</span></p>
