@@ -28,7 +28,7 @@ Aurora is provided as is, without warranty of any kind, to the fullest extent pe
 
 When you ask it to, Aurora acts on your PC: fan speeds, power mode, cooling test, closing an app, ejecting a drive, Windows settings (Windows tab: your account's settings, game settings, fast startup, startup programs, display refresh rates) and its maintenance (checking Windows and the drives with Microsoft's tools, sending old temporary files to the Recycle Bin, emptying the Recycle Bin: what's emptied can't be recovered). You use these controls at your own risk. Aurora doesn't replace your hardware's own protections.
 
-Before changing a Windows setting, Aurora keeps its original value; it puts it back in one click ("Put back", "Put everything back") and when it's uninstalled. A display's refresh rate is the exception: it's a direct choice, as in Windows Settings, tried for fifteen seconds before being kept. It never touches Windows security (antivirus, firewall, updates, account control) nor what Windows protects from programs.
+Before changing a Windows setting, Aurora keeps its original value; it puts it back in one click ("Restore", "Restore everything") and when it's uninstalled. A display's refresh rate is the exception: it's a direct choice, as in Windows Settings, tried for fifteen seconds before being kept. It never touches Windows security (antivirus, firewall, updates, account control) nor what Windows protects from programs.
 
 
 LIABILITY
