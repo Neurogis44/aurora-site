@@ -300,7 +300,7 @@
     box-shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 6px 14px -6px rgba(0, 0, 0, .9); }
   .pave .libre { background: #06070a; }
   .deck .legende { margin-top: 0; }
-  .radio .texte .actions { justify-content: flex-start; }
+  .radio .texte .actions, .rangee .texte .actions { justify-content: flex-start; }
 
   /* Panneaux aux coins coupés, lueur qui suit la souris. */
   .carte {
@@ -454,22 +454,22 @@
   <div class="hero">
     <div class="wrap">
       <div class="intro centre">
-        <a class="nouveau revele" href="#nouveautes"><i class="point"></i><span class="fr">NOUVEAU · VERSION 1.0.8</span><span class="en">NEW · VERSION 1.0.8</span></a>
+        <a class="nouveau revele" href="#nouveautes"><i class="point"></i><span class="fr">NOUVEAU · VERSION 1.0.9</span><span class="en">NEW · VERSION 1.0.9</span></a>
         <h1 class="revele d1"><span class="fr">Ton PC, <span class="rouge">en clair.</span></span><span class="en">Your PC, <span class="rouge">in&nbsp;plain&nbsp;sight.</span></span></h1>
         <p class="lead revele d2">
           <span class="fr">Aurora surveille ton ordinateur en direct — températures, ventilateurs, disques, réseau, FPS en jeu — et te dit <b>en mots simples s'il va bien</b>. Gratuite, sans compte, et elle n'envoie rien sans que tu le demandes.</span>
           <span class="en">Aurora watches your computer live — temperatures, fans, drives, network, in-game FPS — and tells you <b>in plain words whether it is doing well</b>. Free, no account, and it sends nothing unless you ask.</span>
         </p>
         <div class="actions revele d3">
-          <a class="bouton" id="telecharger-haut" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.8/Aurora-Setup-1.0.8.exe">
+          <a class="bouton" id="telecharger-haut" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.9/Aurora-Setup-1.0.9.exe">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
             <span class="fr">Télécharger pour Windows</span><span class="en">Download for Windows</span>
           </a>
           <a class="bouton discret" href="#visite"><span class="fr">Voir ce qu'elle fait</span><span class="en">See what it does</span></a>
         </div>
         <p class="meta revele d3">
-          <span class="fr">Version <b>1.0.8</b> · 9,7&nbsp;Mo · signée · Windows 10&nbsp;et 11, 64&nbsp;bits</span>
-          <span class="en">Version <b>1.0.8</b> · 9.7&nbsp;MB · signed · Windows 10&nbsp;and 11, 64-bit</span>
+          <span class="fr">Version <b>1.0.9</b> · 9,8&nbsp;Mo · signée · Windows 10&nbsp;et 11, 64&nbsp;bits</span>
+          <span class="en">Version <b>1.0.9</b> · 9.8&nbsp;MB · signed · Windows 10&nbsp;and 11, 64-bit</span>
         </p>
         <div class="faits revele d3">
           <span class="fr">Gratuite</span><span class="en">Free</span>
@@ -511,11 +511,84 @@
     </div>
   </div>
 
-  <!-- ——— Nouveautés de la 1.0.8 ——— -->
+  <!-- ——— Nouveautés de la 1.0.9 ——— -->
   <section id="nouveautes">
     <div class="wrap">
       <div class="entete revele">
-        <div class="tag"><span class="fr">NOUVEAU DANS LA 1.0.8</span><span class="en">NEW IN 1.0.8</span></div>
+        <div class="tag"><span class="fr">NOUVEAU DANS LA 1.0.9</span><span class="en">NEW IN 1.0.9</span></div>
+        <h2><span class="fr">Habille-la à ton goût</span><span class="en">Dress it your way</span></h2>
+        <p>
+          <span class="fr">Six skins dans l'ambiance d'autant de genres de jeux, et un tableau de bord qui bouge en continu, sans rien prendre à tes jeux.</span>
+          <span class="en">Six skins in the mood of as many kinds of games, and a dashboard that moves smoothly, without taking anything from your games.</span>
+        </p>
+      </div>
+
+      <div class="rangee">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="790"
+               src="img/v1/skins-fr.webp" data-src-fr="img/v1/skins-fr.webp" data-src-en="img/v1/skins-en.webp"
+               data-alt-fr="Les six skins en jeu : l'overlay de jeu habillé de Pixel, Escouade, Boulevard, Précision, Sortilège et Tempête, chacun sur le paysage de son aperçu."
+               data-alt-en="The six skins in game: the game overlay wearing Pixel, Squad, Boulevard, Precision, Spellbound and Storm, each on the landscape of its preview."
+               alt="Les six skins en jeu : l'overlay de jeu habillé de Pixel, Escouade, Boulevard, Précision, Sortilège et Tempête, chacun sur le paysage de son aperçu.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">SKINS</span><span class="en">SKINS</span></div>
+          <h3><span class="fr">Six ambiances, 3&nbsp;$ chacune</span><span class="en">Six moods, CA$3 each</span></h3>
+          <p>
+            <span class="fr">Un skin change toute l'allure d'Aurora, jusqu'à l'overlay de jeu. Tu l'installes en deux clics dans les Réglages, et tu reviens aux thèmes gratuits quand tu veux.</span>
+            <span class="en">A skin changes Aurora's whole look, all the way to the game overlay. You install it in two clicks in Settings, and go back to the free themes whenever you like.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Pixel, Escouade, Boulevard, Précision, Sortilège et Tempête&nbsp;: des noms, des polices et des dessins à nous.</span><span class="en">Pixel, Squad, Boulevard, Precision, Spellbound and Storm: names, fonts and drawings of our own.</span></span></li>
+            <li><span><span class="fr">Acheté une fois, sur tous tes PC. Jamais un programme&nbsp;: un fichier signé par Aurora, sans connexion.</span><span class="en">Bought once, on all your PCs. Never a program: a file signed by Aurora, with no connection.</span></span></li>
+            <li><span><span class="fr">Les cinq thèmes restent gratuits.</span><span class="en">The five themes stay free.</span></span></li>
+          </ul>
+          <div class="actions">
+            <a class="bouton" href="skins/"><span class="fr">Voir les skins</span><span class="en">See the skins</span></a>
+          </div>
+          <p class="temoin">
+            <span class="fr">«&nbsp;Aurora est gratuite, et elle le restera. Les skins, c'est ma façon de la faire vivre.&nbsp;»</span>
+            <span class="en">“Aurora is free, and it will stay that way. Skins are how I keep it going.”</span>
+            <cite>— Denis</cite>
+          </p>
+        </div>
+      </div>
+
+      <div class="rangee inverse">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/quoi-de-neuf-fr.webp" data-src-fr="img/v1/quoi-de-neuf-fr.webp" data-src-en="img/v1/quoi-de-neuf-en.webp"
+               data-alt-fr="La fenêtre « Quoi de neuf » de la 1.0.9, en démonstration : les skins, le tableau de bord fluide, le repos pendant les parties, le 1 % bas en direct et la licence version 3, en six tuiles."
+               data-alt-en="The “What's new” window of 1.0.9, in demo mode: skins, the fluid dashboard, resting while you play, the live 1% low and licence version 3, in six tiles."
+               alt="La fenêtre « Quoi de neuf » de la 1.0.9, en démonstration : les skins, le tableau de bord fluide, le repos pendant les parties, le 1 % bas en direct et la licence version 3, en six tuiles.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">TABLEAU DE BORD</span><span class="en">DASHBOARD</span></div>
+          <h3><span class="fr">Fluide, et au repos pendant tes parties</span><span class="en">Fluid, and resting while you play</span></h3>
+          <p>
+            <span class="fr">Tout bouge à la cadence de ton écran&nbsp;; les chiffres, eux, changent une fois par seconde, pour rester lisibles.</span>
+            <span class="en">Everything moves at your display's refresh rate; the numbers change once a second, so they stay readable.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Les graphiques défilent en continu, les jauges et les ventilateurs glissent.</span><span class="en">Charts scroll smoothly, gauges and fans glide.</span></span></li>
+            <li><span><span class="fr">Pendant une partie et sur batterie, il ne se redessine plus qu'une fois par seconde. Mesuré&nbsp;: aucune image perdue en jeu.</span><span class="en">During a game and on battery, it only redraws once a second. Measured: no frame lost in game.</span></span></li>
+            <li><span><span class="fr">Le 1&nbsp;% bas en direct porte sur les 30 dernières secondes&nbsp;: un écran de chargement ne le fausse plus.</span><span class="en">The live 1% low covers the last 30 seconds: a loading screen no longer skews it.</span></span></li>
+          </ul>
+          <p class="temoin">
+            <span class="fr">«&nbsp;Je voulais un tableau de bord qui bouge sans à-coups, mais pas au prix d'une seule image par seconde dans mes jeux.&nbsp;»</span>
+            <span class="en">“I wanted a dashboard that moves without a single jolt, but not at the cost of a single frame per second in my games.”</span>
+            <cite>— Denis</cite>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Nouveautés de la 1.0.8 ——— -->
+  <section id="depuis-1-0-8">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">DEPUIS LA 1.0.8</span><span class="en">SINCE 1.0.8</span></div>
         <h2><span class="fr">Relu de fond en comble</span><span class="en">Reviewed top to bottom</span></h2>
         <p>
           <span class="fr">Une version de correctifs&nbsp;: l'onglet Windows, relu ligne par ligne, est juste sur plus de PC et encore plus prudent.</span>
@@ -526,7 +599,7 @@
       <div class="rangee">
         <div class="visuel revele">
           <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
-               src="img/v1/quoi-de-neuf-fr.webp" data-src-fr="img/v1/quoi-de-neuf-fr.webp" data-src-en="img/v1/quoi-de-neuf-en.webp"
+               src="img/v1/quoi-de-neuf-1-0-8-fr.webp" data-src-fr="img/v1/quoi-de-neuf-1-0-8-fr.webp" data-src-en="img/v1/quoi-de-neuf-1-0-8-en.webp"
                data-alt-fr="La fenêtre « Quoi de neuf », en démonstration : après une mise à jour, les nouveautés de la 1.0.8 en huit tuiles, une seule fois."
                data-alt-en="The “What's new” window, in demo mode: after an update, what's new in 1.0.8 in eight tiles, shown once."
                alt="La fenêtre « Quoi de neuf », en démonstration : après une mise à jour, les nouveautés de la 1.0.8 en huit tuiles, une seule fois.">
@@ -1374,16 +1447,16 @@
         <p><span class="fr">Windows regarde aussi la réputation d'un fichier&nbsp;: combien de gens l'ont installé sans ennui. Une nouvelle version peut encore afficher un avertissement les premiers jours. Clique «&nbsp;Informations complémentaires&nbsp;»&nbsp;: le nom de l'auteur y est.</span><span class="en">Windows also looks at a file's reputation: how many people have installed it without trouble. A new version may still show a warning for the first few days. Click “More info”: the author's name is right there.</span></p>
       </div>
       <div class="empreinte revele">
-        <p><span class="fr">Pour vérifier le fichier toi-même&nbsp;: clic droit → Propriétés → «&nbsp;Signatures numériques&nbsp;». Ou compare son empreinte, dans PowerShell&nbsp;: <code>Get-FileHash .\Aurora-Setup-1.0.8.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.8.exe -Algorithm SHA256</code></span></p>
+        <p><span class="fr">Pour vérifier le fichier toi-même&nbsp;: clic droit → Propriétés → «&nbsp;Signatures numériques&nbsp;». Ou compare son empreinte, dans PowerShell&nbsp;: <code>Get-FileHash .\Aurora-Setup-1.0.9.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.9.exe -Algorithm SHA256</code></span></p>
         <div class="ligne">
-          <code id="empreinte">9635B4983B052A7CB14D852D783A60FCAE3A8777D22CE741094786FBFE0E2A4B</code>
+          <code id="empreinte">B1A3F816BBA3D660D50A9F66028189EEB2348FE12BBB53E8FDEF7FDC4EEB61EC</code>
           <button class="copier" type="button" id="copier"><span class="fr">Copier</span><span class="en">Copy</span></button>
         </div>
       </div>
       <div class="actions revele">
-        <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.8/Aurora-Setup-1.0.8.exe">
+        <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.9/Aurora-Setup-1.0.9.exe">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
-          <span class="fr">Télécharger Aurora 1.0.8</span><span class="en">Download Aurora 1.0.8</span>
+          <span class="fr">Télécharger Aurora 1.0.9</span><span class="en">Download Aurora 1.0.9</span>
         </a>
         <a class="bouton discret" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases"><span class="fr">Toutes les versions</span><span class="en">All versions</span></a>
       </div>
@@ -1410,7 +1483,7 @@
 <footer>
   <div class="wrap">
     <p><span class="fr">Aurora est un projet personnel, gratuit, offert tel quel et sans garantie (voir sa <a href="licence/">licence</a>). Il a été mis au point sur quelques PC seulement&nbsp;: sur du matériel très différent, il peut afficher moins de choses.</span><span class="en">Aurora is a personal project, free, offered as is, with no warranty (see its <a href="licence/">licence</a>). It was put together on a handful of PCs only: on very different hardware, it may show fewer things.</span></p>
-    <p><span class="fr">Version 1.0.8&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Téléchargements et notes de version</a>&nbsp;· <a href="presse/">Trousse de presse</a>&nbsp;· <a href="licence/">Licence</a></span><span class="en">Version 1.0.8&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a>&nbsp;· <a href="presse/">Press kit</a>&nbsp;· <a href="licence/">Licence</a></span></p>
+    <p><span class="fr">Version 1.0.9&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Téléchargements et notes de version</a>&nbsp;· <a href="presse/">Trousse de presse</a>&nbsp;· <a href="licence/">Licence</a></span><span class="en">Version 1.0.9&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a>&nbsp;· <a href="presse/">Press kit</a>&nbsp;· <a href="licence/">Licence</a></span></p>
     <p><span class="fr">Un bogue, une carte mère qu'Aurora lit mal, une idée&nbsp;? Écris-moi depuis Aurora (Réglages → Support) ou à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Dis ce que tu vois et sur quel matériel&nbsp;; s'il y a eu un plantage, le fichier <code>%APPDATA%\Aurora\crash.log</code> aide beaucoup.</span><span class="en">A bug, a motherboard Aurora reads badly, an idea? Write to me from Aurora (Settings → Support) or at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Say what you see and on what hardware; if there was a crash, the file <code>%APPDATA%\Aurora\crash.log</code> helps a lot.</span></p>
     <p><span class="fr">Aurora a aussi une <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">page Facebook</a>, une <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">chaîne YouTube</a> et un compte <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok</a>&nbsp;: nouveautés, captures, vidéos, et un endroit de plus pour poser une question.</span><span class="en">Aurora also has a <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">Facebook page</a>, a <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">YouTube channel</a> and a <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok account</a>: news, screenshots, videos, and one more place to ask a question.</span></p>
     <p><span class="fr">Cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne&nbsp;; l'application, elle, ne sait rien de tout ça.</span><span class="en">This page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone; the app itself knows nothing about any of it.</span></p>
