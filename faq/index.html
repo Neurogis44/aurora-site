@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurora — Questions fréquentes</title>
+<meta name="description" content="Les questions qu'on pose le plus sur Aurora, le moniteur matériel gratuit pour Windows : installation, antivirus, droits administrateur, capteurs, jeux et overlay, vie privée, onglet Windows, mises à jour, skins, limites connues.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aurora — questions fréquentes">
+<meta property="og:description" content="Installation, antivirus, capteurs, jeux, vie privée, mises à jour : les réponses courtes, en mots simples.">
+<meta property="og:image" content="https://auroraapp.ca/img/v1/partage.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&display=swap">
+<style>
+  /* Les couleurs du site (thème Carbone d'Aurora). */
+  :root {
+    --ground: #09090b;
+    --panel: #141619;
+    --panel-2: #1a1d22;
+    --edge: #272a31;
+    --edge-2: #383d46;
+    --accent: #ff2340;
+    --accent-hi: #ff5468;
+    --ink: #f2f4f7;
+    --text: #c3c8d0;
+    --dim: #868d97;
+    color-scheme: dark;
+  }
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root[data-lang="en"] .fr { display: none !important; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(1200px 560px at 50% -260px, rgba(255, 35, 64, .2), transparent 70%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, .021) 0 3px, transparent 3px 6px),
+      repeating-linear-gradient(-45deg, rgba(0, 0, 0, .32) 0 3px, transparent 3px 6px),
+      var(--ground);
+    color: var(--text);
+    font: 500 18px/1.6 Rajdhani, "Segoe UI", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  a { color: var(--accent-hi); }
+  strong, b { color: var(--ink); font-weight: 600; }
+  h1, h2 { font-family: "Chakra Petch", "Segoe UI", sans-serif; color: var(--ink); margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.04; }
+  h2 { font-size: clamp(22px, 3vw, 28px); line-height: 1.15; margin-bottom: 14px; }
+  p { margin: 0; }
+  p + p, p + ul, ul + p, p + ol, ol + p { margin-top: 10px; }
+  ul, ol { margin: 0; padding-left: 22px; }
+  li + li { margin-top: 4px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+  .barre { position: sticky; top: 0; z-index: 5; background: rgba(9, 9, 11, .88); backdrop-filter: blur(8px);
+           border-bottom: 1px solid var(--edge); }
+  .barre .wrap { max-width: 1120px; display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+  .marque { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none;
+            font: 700 20px "Chakra Petch", sans-serif; letter-spacing: 1px; }
+  .marque img { width: 30px; height: 30px; }
+  .langues { display: flex; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--edge-2); overflow: hidden; }
+  .langues button { background: none; border: 0; color: var(--text); font: 700 14px Rajdhani, sans-serif;
+                    padding: 7px 14px; cursor: pointer; }
+  .langues button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .langues button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .tete { padding: 56px 0 26px; }
+  .tag { display: inline-block; font: 700 13px "Chakra Petch", sans-serif; letter-spacing: 2px; color: #fff;
+         background: var(--accent); padding: 4px 12px; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+         margin-bottom: 16px; }
+  .lead { margin-top: 16px; font-size: 20px; }
+  /* Le sommaire : une pastille par thème. */
+  .sommaire { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; padding: 0; list-style: none; }
+  .sommaire li + li { margin-top: 0; }
+  .sommaire a { display: block; color: var(--ink); text-decoration: none; font: 600 15px Rajdhani, sans-serif;
+                padding: 6px 14px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--edge-2); }
+  .sommaire a:hover, .sommaire a:focus-visible { box-shadow: inset 0 0 0 1px var(--accent); outline: none; }
+  section { padding: 30px 0; border-top: 1px solid var(--edge); }
+  /* Une question : elle s'ouvre d'un clic. */
+  details { background: var(--panel); box-shadow: inset 0 0 0 1px var(--edge); border-left: 3px solid transparent; }
+  details + details { margin-top: 8px; }
+  details[open] { box-shadow: inset 0 0 0 1px var(--edge-2); border-left-color: var(--accent); }
+  summary { cursor: pointer; list-style: none; position: relative; padding: 13px 46px 13px 18px;
+            font: 600 19px/1.35 Rajdhani, sans-serif; color: var(--ink); }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: ""; position: absolute; right: 20px; top: 50%; width: 9px; height: 9px;
+                   border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+                   transform: translateY(-70%) rotate(45deg); transition: transform .18s; }
+  details[open] summary::after { transform: translateY(-25%) rotate(-135deg); }
+  summary:hover { color: #fff; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .reponse { padding: 0 18px 16px 18px; }
+  .encadre { background: var(--panel); box-shadow: inset 0 0 0 1px var(--edge); border-left: 3px solid var(--accent); padding: 16px 20px; }
+  kbd { font: 700 15px Rajdhani, sans-serif; color: var(--ink); background: var(--panel-2); padding: 1px 7px;
+        border-radius: 4px; box-shadow: inset 0 -2px 0 var(--edge-2), inset 0 0 0 1px var(--edge-2); white-space: nowrap; }
+  code { font: 600 16px Consolas, "Cascadia Mono", monospace; color: var(--ink); background: var(--panel-2); padding: 1px 6px;
+         overflow-wrap: anywhere; }
+  .pied { padding: 30px 0 46px; color: var(--dim); font-size: 16px; border-top: 1px solid var(--edge); }
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .tete { padding-top: 36px; }
+    .lead { font-size: 18px; }
+    summary { font-size: 18px; padding-left: 14px; }
+    .reponse { padding: 0 14px 14px; }
+  }
+</style>
+</head>
+<body>
+<header class="barre">
+  <div class="wrap">
+    <a class="marque" href="../"><img src="../favicon.svg" alt="" width="30" height="30">AURORA</a>
+    <div class="langues" role="group" aria-label="Langue / Language">
+      <button id="btn-fr" type="button" aria-pressed="true">FR</button>
+      <button id="btn-en" type="button" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="tete">
+    <div class="wrap">
+      <div class="tag"><span class="fr">QUESTIONS FRÉQUENTES</span><span class="en">FREQUENTLY ASKED QUESTIONS</span></div>
+      <h1><span class="fr">Les réponses aux questions qu'on me pose le plus</span><span class="en">Answers to the questions I get asked most</span></h1>
+      <p class="lead"><span class="fr">Aurora est faite par une seule personne, moi, sur mon temps libre. Avant de m'écrire, jette un œil ici&nbsp;: ta réponse y est peut-être déjà. Sinon, <a href="#me-joindre">écris-moi</a>&nbsp;: je lis tout.</span><span class="en">Aurora is made by one person, me, in my spare time. Before you write to me, have a look here: your answer may already be here. If not, <a href="#me-joindre">write to me</a>: I read everything.</span></p>
+      <ul class="sommaire">
+        <li><a href="#installation"><span class="fr">Installation</span><span class="en">Installing</span></a></li>
+        <li><a href="#quotidien"><span class="fr">Au quotidien</span><span class="en">Day to day</span></a></li>
+        <li><a href="#jeux"><span class="fr">Jeux et overlay</span><span class="en">Games and overlay</span></a></li>
+        <li><a href="#vie-privee"><span class="fr">Vie privée</span><span class="en">Privacy</span></a></li>
+        <li><a href="#onglet-windows"><span class="fr">Onglet Windows</span><span class="en">Windows tab</span></a></li>
+        <li><a href="#mises-a-jour"><span class="fr">Mises à jour</span><span class="en">Updates</span></a></li>
+        <li><a href="#skins">Skins</a></li>
+        <li><a href="#aurora"><span class="fr">Qui fait Aurora</span><span class="en">Who makes Aurora</span></a></li>
+        <li><a href="#limites"><span class="fr">Limites connues</span><span class="en">Known limits</span></a></li>
+        <li><a href="#me-joindre"><span class="fr">Me joindre</span><span class="en">Contact me</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ——— Installation ——— -->
+  <section id="installation">
+    <div class="wrap">
+      <h2><span class="fr">Installer Aurora en confiance</span><span class="en">Installing Aurora with confidence</span></h2>
+
+      <details id="avertissement-windows">
+        <summary><span class="fr">Windows m'avertit à l'installation. Est-ce normal&nbsp;?</span><span class="en">Windows warns me during installation. Is that normal?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Oui, ça peut arriver. Aurora et son installeur sont signés à mon nom, mais Windows regarde aussi la <b>réputation</b> d'un fichier&nbsp;: combien de gens l'ont installé sans ennui. Une nouvelle version peut donc afficher un avertissement les premiers jours.</span><span class="en">Yes, it can happen. Aurora and its installer are signed in my name, but Windows also looks at a file's <b>reputation</b>: how many people have installed it without trouble. A new version may therefore show a warning for the first few days.</span></p>
+          <p><span class="fr">Clique «&nbsp;Informations complémentaires&nbsp;»&nbsp;: l'éditeur affiché doit être <b>Denis Desbiens</b>. Si c'est le cas, «&nbsp;Exécuter quand même&nbsp;» installe Aurora.</span><span class="en">Click “More info”: the publisher shown should be <b>Denis Desbiens</b>. If it is, “Run anyway” installs Aurora.</span></p>
+        </div>
+      </details>
+
+      <details id="antivirus">
+        <summary><span class="fr">Mon antivirus se méfie d'Aurora. Est-ce un virus&nbsp;?</span><span class="en">My antivirus is wary of Aurora. Is it a virus?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Non. Aurora et son installeur sont signés à mon nom, et chaque nouvelle version passe par VirusTotal, qui la fait analyser par plus de 70&nbsp;antivirus&nbsp;: la 1.0.9 n'a été signalée par <b>aucun des 71</b> (<a href="https://www.virustotal.com/gui/file/b1a3f816bba3d660d50a9f66028189eeb2348fe12bbb53e8fdef7fdc4eeb61ec" rel="noopener">voir le rapport</a>).</span><span class="en">No. Aurora and its installer are signed in my name, and every new version goes through VirusTotal, which has it scanned by more than 70&nbsp;antivirus engines: version 1.0.9 was flagged by <b>none of the 71</b> (<a href="https://www.virustotal.com/gui/file/b1a3f816bba3d660d50a9f66028189eeb2348fe12bbb53e8fdef7fdc4eeb61ec" rel="noopener">see the report</a>).</span></p>
+          <p><span class="fr">Si ton antivirus la bloque quand même, c'est une fausse alerte&nbsp;: <a href="#me-joindre">écris-moi</a> avec son nom et son message, je la signalerai à son éditeur.</span><span class="en">If your antivirus blocks it anyway, it's a false alarm: <a href="#me-joindre">write to me</a> with its name and its message, and I'll report it to its maker.</span></p>
+        </div>
+      </details>
+
+      <details id="administrateur">
+        <summary><span class="fr">Pourquoi Aurora demande-t-elle les droits administrateur&nbsp;?</span><span class="en">Why does Aurora ask for administrator rights?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Pour lire les capteurs&nbsp;: températures, tensions, vitesse des ventilateurs. Windows les réserve aux programmes qui ont ces droits. Si tu refuses, Aurora s'ouvre quand même, mais sans les disques, les ventilateurs ni les températures du processeur.</span><span class="en">To read the sensors: temperatures, voltages, fan speeds. Windows reserves them for programs that have those rights. If you say no, Aurora still opens, but without the drives, the fans or the processor temperatures.</span></p>
+          <p><span class="fr">Windows te les demande à chaque ouverture, sauf si tu coches «&nbsp;Démarrer avec Windows&nbsp;» (Réglages, panneau Démarrage et mises à jour)&nbsp;: Aurora démarre alors toute seule à l'ouverture de ta session, sans rien demander, et attend cachée près de l'horloge.</span><span class="en">Windows asks every time you open it, unless you tick “Start with Windows” (Settings, startup and updates panel): Aurora then starts by itself when you sign in, without asking, and waits hidden near the clock.</span></p>
+        </div>
+      </details>
+
+      <details id="pawnio">
+        <summary><span class="fr">C'est quoi, PawnIO&nbsp;?</span><span class="en">What is PawnIO?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Le petit pilote par lequel LibreHardwareMonitor, la bibliothèque libre qui lit les capteurs pour Aurora, accède au processeur et à la carte mère&nbsp;: températures, fréquences, consommation, ventilateurs, tensions. Sans lui, les températures du processeur restent à «&nbsp;—&nbsp;» et les ventilateurs de la carte mère n'apparaissent pas.</span><span class="en">The small driver through which LibreHardwareMonitor, the open-source library that reads the sensors for Aurora, reaches the processor and motherboard: temperatures, clocks, power, fans, voltages. Without it, processor temperatures stay at “—” and the motherboard fans don't show up.</span></p>
+          <p><span class="fr">L'installeur l'ajoute s'il manque&nbsp;: il le prend chez son auteur et vérifie son empreinte avant de l'installer.</span><span class="en">The installer adds it if it's missing: it downloads it from its author and checks its fingerprint before installing it.</span></p>
+        </div>
+      </details>
+
+      <details id="verifier">
+        <summary><span class="fr">Comment vérifier que le fichier vient bien de toi&nbsp;?</span><span class="en">How can I check the file really comes from you?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Clic droit sur l'installeur, Propriétés, onglet «&nbsp;Signatures numériques&nbsp;»&nbsp;: le signataire est <b>Denis Desbiens</b>. Tu peux aussi comparer son empreinte avec celle donnée sous <a href="../#installer">le bouton de téléchargement</a>.</span><span class="en">Right-click the installer, Properties, “Digital Signatures” tab: the signer is <b>Denis Desbiens</b>. You can also compare its fingerprint with the one given under <a href="../?lang=en#installer">the download button</a>.</span></p>
+        </div>
+      </details>
+
+      <details id="configuration">
+        <summary><span class="fr">De quoi Aurora a-t-elle besoin&nbsp;?</span><span class="en">What does Aurora need?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Windows&nbsp;10 (1809 ou plus récent) ou Windows&nbsp;11, en 64&nbsp;bits&nbsp;; les PC à processeur ARM ne sont pas pris en charge. L'installeur ajoute au besoin .NET&nbsp;10 et le pilote PawnIO&nbsp;: ça peut prendre quelques minutes, la barre figée. C'est normal.</span><span class="en">Windows&nbsp;10 (1809 or newer) or Windows&nbsp;11, 64-bit; PCs with an ARM processor aren't supported. The installer adds .NET&nbsp;10 and the PawnIO driver if needed: it can take a few minutes, with the bar frozen. That's normal.</span></p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ——— Au quotidien ——— -->
+  <section id="quotidien">
+    <div class="wrap">
+      <h2><span class="fr">Au quotidien</span><span class="en">Day to day</span></h2>
+
+      <details id="fermer">
+        <summary><span class="fr">Je ferme Aurora, mais elle tourne encore&nbsp;?</span><span class="en">I close Aurora, but it keeps running?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Oui&nbsp;: la croix la cache près de l'horloge, pour qu'elle continue de veiller (alertes de température, overlay, mesures). Clique la petite flèche «&nbsp;^&nbsp;» de la barre des tâches si tu ne vois pas son icône.</span><span class="en">Yes: the close button hides it near the clock, so it keeps watching (temperature alerts, overlay, readings). Click the small “^” arrow on the taskbar if you don't see its icon.</span></p>
+          <p><span class="fr">Pour la quitter pour de bon&nbsp;: clic droit sur l'icône, «&nbsp;Quitter&nbsp;». Elle remet alors ton mode d'alimentation habituel et rend les ventilateurs à ta carte mère.</span><span class="en">To really quit: right-click the icon, “Quit”. It then puts your usual power plan back and hands the fans back to your motherboard.</span></p>
+        </div>
+      </details>
+
+      <details id="valeurs-manquantes">
+        <summary><span class="fr">Une valeur manque, ou un panneau est vide. Est-ce un bogue&nbsp;?</span><span class="en">A value is missing, or a panel is empty. Is that a bug?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Pas forcément. Aurora n'affiche que ce que ton matériel annonce, et ne devine jamais&nbsp;: une valeur qu'elle ne peut pas lire s'affiche «&nbsp;—&nbsp;», ou sa ligne n'apparaît pas. Certaines cartes mères ne disent rien de la pile du BIOS ou du 12&nbsp;V, beaucoup de portables cachent la vitesse de leurs ventilateurs, et seuls les ventilateurs qui ont tourné au moins une fois sont montrés.</span><span class="en">Not necessarily. Aurora only shows what your hardware reports, and never guesses: a value it can't read shows as “—”, or its line doesn't appear. Some motherboards say nothing about the BIOS battery or the 12&nbsp;V rail, many laptops hide their fan speeds, and only fans that have spun at least once are shown.</span></p>
+          <p><span class="fr">Si la température du processeur manque, l'onglet Santé te dit pourquoi (par exemple, les droits administrateur refusés). Et si une valeur manque alors qu'un autre logiciel la voit, <a href="#me-joindre">écris-moi</a> depuis Aurora en cochant «&nbsp;Joindre la fiche de mon matériel&nbsp;»&nbsp;: c'est ce qui me permet de corriger.</span><span class="en">If the processor temperature is missing, the Health tab tells you why (for example, administrator rights refused). And if a value is missing while another program can see it, <a href="#me-joindre">write to me</a> from Aurora and tick the box that attaches your hardware sheet: that's what lets me fix it.</span></p>
+        </div>
+      </details>
+
+      <details id="ventilateurs">
+        <summary><span class="fr">Mes ventilateurs ont des noms vagues. Je peux les renommer&nbsp;?</span><span class="en">My fans have vague names. Can I rename them?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Oui, sur un PC de bureau&nbsp;: onglet <b>Radiographie</b>, panneau «&nbsp;Ton ordi&nbsp;», «&nbsp;Modifier&nbsp;», puis la liste «&nbsp;Tes ventilateurs&nbsp;». Tu les reconnais à leur vitesse&nbsp;; donne à chacun un nom (18&nbsp;caractères au plus), comme «&nbsp;Boîtier avant&nbsp;». Ce nom remplace l'ancien partout dans Aurora.</span><span class="en">Yes, on a desktop PC: <b>X-ray</b> tab, the panel about your PC, Edit, then the list of your fans. You'll recognize them by their speed; give each one a name (up to 18&nbsp;characters), like “Front case”. That name replaces the old one everywhere in Aurora.</span></p>
+        </div>
+      </details>
+
+      <details id="sante">
+        <summary><span class="fr">L'onglet Santé me signale quelque chose. Dois-je m'inquiéter&nbsp;?</span><span class="en">The Health tab points something out. Should I worry?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Il te dit en mots simples ce qu'il a vu, si c'est à regarder ou plus sérieux, et quoi faire. Il surveille entre autres&nbsp;:</span><span class="en">It tells you in plain words what it saw, whether it's something to keep an eye on or more serious, and what to do. Among other things, it watches:</span></p>
+          <ul>
+            <li><span class="fr">les températures, et la chaleur qui monte au fil des mois (poussière, pâte thermique)&nbsp;;</span><span class="en">temperatures, and heat creeping up over the months (dust, thermal paste);</span></li>
+            <li><span class="fr">un ventilateur ou une pompe arrêtés&nbsp;;</span><span class="en">a stopped fan or pump;</span></li>
+            <li><span class="fr">les disques&nbsp;: leur usure, leur santé, trop pleins ou trop chauds&nbsp;;</span><span class="en">drives: their wear, their health, too full or too hot;</span></li>
+            <li><span class="fr">la pile du BIOS qui faiblit, et le 12&nbsp;V qui fléchit sous la charge (si ta carte mère les mesure)&nbsp;;</span><span class="en">a weakening BIOS battery, and the 12&nbsp;V rail sagging under load (if your motherboard measures them);</span></li>
+            <li><span class="fr">ce que Windows note en silence&nbsp;: erreurs matérielles, écrans bleus avec leur code, arrêts brutaux, pilote graphique relancé&nbsp;;</span><span class="en">what Windows logs silently: hardware errors, blue screens with their code, sudden shutdowns, graphics driver resets;</span></li>
+            <li><span class="fr">un démarrage de Windows qui s'alourdit, un jeu plus lent qu'avant, ou qui a gelé&nbsp;;</span><span class="en">Windows startup getting slower, a game slower than before, or one that froze;</span></li>
+            <li><span class="fr">les erreurs de montage&nbsp;: écran branché sur la carte mère plutôt que sur la carte graphique, écran sous sa fréquence, carte graphique privée de voies PCIe.</span><span class="en">setup mistakes: a monitor plugged into the motherboard instead of the graphics card, a monitor below its refresh rate, a graphics card missing PCIe lanes.</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details id="changements">
+        <summary><span class="fr">À quoi sert l'onglet Changements&nbsp;?</span><span class="en">What is the Changes tab for?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">C'est la machine à remonter le temps. Toutes les dix minutes, Aurora note ce qui a changé sur ton PC&nbsp;: programmes installés, pilotes, services, programmes au démarrage, tâches planifiées, BIOS, mises à jour de Windows, vitesse de la mémoire, et les notes que tu ajoutes toi-même. Quand un problème commence, tu vois ce qui a changé juste avant. Aurora garde deux ans d'historique, et rien ne quitte ton PC.</span><span class="en">It's the time machine. Every ten minutes, Aurora notes what changed on your PC: installed programs, drivers, services, startup programs, scheduled tasks, BIOS, Windows updates, memory speed, and the notes you add yourself. When a problem starts, you see what changed just before. Aurora keeps two years of history, and nothing leaves your PC.</span></p>
+        </div>
+      </details>
+
+      <details id="langue">
+        <summary><span class="fr">Aurora parle-t-elle français et anglais&nbsp;?</span><span class="en">Does Aurora speak French and English?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Oui, les deux. Au départ, elle suit la langue de Windows (l'anglais si Windows n'est pas en français)&nbsp;; pour la changer&nbsp;: Réglages, panneau Affichage, «&nbsp;Langue&nbsp;».</span><span class="en">Yes, both. At first it follows Windows' language (English if Windows isn't in French); to change it: Settings, Language &amp; theme panel, Language.</span></p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ——— Jeux et overlay ——— -->
+  <section id="jeux">
+    <div class="wrap">
+      <h2><span class="fr">Jeux et overlay</span><span class="en">Games and overlay</span></h2>
+
+      <details id="fps">
+        <summary><span class="fr">Les FPS de mon jeu ne s'affichent pas</span><span class="en">My game's FPS don't show up</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Aurora reconnaît toute seule les jeux des bibliothèques Steam, Epic, GOG, Xbox, EA et Ubisoft, et ceux que Windows connaît (Game Bar). Il lui faut les droits administrateur, et la case «&nbsp;Mesurer les FPS des jeux&nbsp;» cochée (onglet Jeux&nbsp;; elle l'est au départ).</span><span class="en">Aurora recognizes games from the Steam, Epic, GOG, Xbox, EA and Ubisoft libraries on its own, plus the ones Windows knows (Game Bar). It needs administrator rights, and the box for measuring game FPS ticked (Games tab; it is by default).</span></p>
+          <p><span class="fr">Si ton jeu n'est pas reconnu&nbsp;: onglet Jeux, panneau «&nbsp;Détection des jeux&nbsp;», bouton «&nbsp;C'est un jeu&nbsp;». Une partie de moins de 30&nbsp;secondes n'est pas gardée.</span><span class="en">If your game isn't recognized: Games tab, game detection panel, and the button that marks it as a game. A session shorter than 30&nbsp;seconds isn't kept.</span></p>
+        </div>
+      </details>
+
+      <details id="overlay">
+        <summary><span class="fr">Comment afficher l'overlay en jeu&nbsp;?</span><span class="en">How do I show the overlay in game?</span></summary>
+        <div class="reponse">
+          <p><span class="fr"><kbd>Alt</kbd> + <kbd>Maj</kbd> + <kbd>A</kbd> l'affiche ou le cache, même en pleine partie&nbsp;; <kbd>Alt</kbd> + <kbd>Maj</kbd> + <kbd>D</kbd> passe à la disposition suivante. Le menu de l'icône près de l'horloge l'affiche aussi.</span><span class="en"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> shows or hides it, even mid-game; <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd> switches to the next layout. The menu of the icon near the clock shows it too.</span></p>
+          <p><span class="fr">Ces raccourcis se changent dans l'onglet Jeux, panneau «&nbsp;Overlay de jeu&nbsp;», «&nbsp;Raccourcis clavier&nbsp;»&nbsp;: Ctrl + Maj + A / D, Ctrl + Maj + F9 / F10, ou aucun. Si un autre programme prend déjà une combinaison, Aurora te le dit.</span><span class="en">These shortcuts can be changed in the Games tab, game overlay panel, keyboard shortcuts: Ctrl + Shift + A / D, Ctrl + Shift + F9 / F10, or none. If another program already uses a combination, Aurora tells you.</span></p>
+        </div>
+      </details>
+
+      <details id="plein-ecran">
+        <summary><span class="fr">L'overlay n'apparaît pas par-dessus mon jeu</span><span class="en">The overlay doesn't show over my game</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Ton jeu est sans doute en <b>plein écran exclusif</b>&nbsp;: Windows n'y laisse rien passer par-dessus (les FPS, eux, sont quand même mesurés). Choisis «&nbsp;Plein écran fenêtré&nbsp;» ou «&nbsp;Sans bordure&nbsp;» dans les options d'affichage du jeu, ou place l'overlay sur un autre écran.</span><span class="en">Your game is probably in <b>exclusive fullscreen</b>: Windows lets nothing show on top of it (the FPS are still measured). Pick “Borderless” or “Windowed fullscreen” in the game's display options, or put the overlay on another screen.</span></p>
+        </div>
+      </details>
+
+      <details id="performances">
+        <summary><span class="fr">Aurora ralentit-elle mes jeux&nbsp;?</span><span class="en">Does Aurora slow my games down?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Pas pendant une partie. Je l'ai mesuré avant de sortir la 1.0.9, avec un jeu d'essai limité par la carte graphique&nbsp;: l'Aurora d'avant, restée visible sur un autre écran, lui prenait 5 à 7&nbsp;images par seconde&nbsp;; la 1.0.9, qui se met au repos pendant une partie reconnue, aucune. L'outil qui compte les FPS (PresentMon) ne tourne que pendant une partie.</span><span class="en">Not during a game. I measured it before releasing 1.0.9, with a test game limited by the graphics card: the previous Aurora, left visible on another screen, took 5 to 7&nbsp;frames per second from it; 1.0.9, which rests during a recognized game, took none. The tool that counts FPS (PresentMon) only runs during a game.</span></p>
+          <p><span class="fr">Pour le maximum, cache le tableau de bord pendant que tu joues et garde seulement l'overlay.</span><span class="en">For the very best, hide the dashboard while you play and keep only the overlay.</span></p>
+        </div>
+      </details>
+
+      <details id="stream-deck">
+        <summary><span class="fr">Aurora fonctionne-t-elle avec un Stream Deck&nbsp;?</span><span class="en">Does Aurora work with a Stream Deck?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Oui, avec un module gratuit à télécharger à part&nbsp;: sept touches qui montrent en direct les températures du processeur et de la carte graphique, le point chaud, les charges, la mémoire vive et les FPS du jeu en cours. Il faut Aurora&nbsp;1.0.4 ou plus récente, ouverte, et le logiciel Stream Deck&nbsp;6.5 ou plus récent. Tout se lit sur ton PC même, sans Internet. <a href="../#stream-deck">Voir le module</a>.</span><span class="en">Yes, with a free plugin you download separately: seven keys that show live the processor and graphics card temperatures, the hot spot, the loads, the RAM and the FPS of the game you're playing. You need Aurora&nbsp;1.0.4 or newer, running, and the Stream Deck software&nbsp;6.5 or newer. Everything is read on your own PC, with no Internet. <a href="../?lang=en#stream-deck">See the plugin</a>.</span></p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ——— Vie privée ——— -->
+  <section id="vie-privee">
+    <div class="wrap">
+      <h2><span class="fr">Vie privée</span><span class="en">Privacy</span></h2>
+
+      <details id="internet">
+        <summary><span class="fr">Aurora envoie-t-elle mes données quelque part&nbsp;?</span><span class="en">Does Aurora send my data anywhere?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Non. Pas de compte, pas de publicité, aucune mesure envoyée, personne suivi. Aurora demande trois choses à Internet, et seulement trois&nbsp;:</span><span class="en">No. No account, no ads, no readings sent, nobody tracked. Aurora asks the Internet three things, and only three:</span></p>
+          <ul>
+            <li><span class="fr">une fois par jour, le numéro de la dernière version&nbsp;;</span><span class="en">once a day, the latest version number;</span></li>
+            <li><span class="fr">le test de vitesse de ta connexion, quand tu cliques dessus&nbsp;;</span><span class="en">your connection's speed test, when you click it;</span></li>
+            <li><span class="fr">ton message, quand tu écris au support depuis les Réglages, avec la fiche de ton matériel seulement si tu coches la case (modèles, versions, capteurs&nbsp;; jamais ton nom, ton adresse, tes jeux ni tes logiciels).</span><span class="en">your message, when you write to support from Settings, with your hardware sheet only if you tick the box (models, versions, sensors; never your name, address, games or software).</span></li>
+          </ul>
+          <p><span class="fr">La première se coupe dans les Réglages, panneau Démarrage et mises à jour&nbsp;; les deux autres ne partent jamais toutes seules.</span><span class="en">The first can be turned off in Settings, startup and updates panel; the other two never go out on their own.</span></p>
+        </div>
+      </details>
+
+      <details id="mes-pc">
+        <summary><span class="fr">«&nbsp;Mes PC&nbsp;» passe-t-il par Internet&nbsp;?</span><span class="en">Does “My PCs” go through the Internet?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Non. Il ne fonctionne que sur le réseau de ta maison, et il est coupé au départ&nbsp;: coche «&nbsp;Partager ce PC sur le réseau de la maison&nbsp;» pour voir tes autres PC, suivre tes mesures sur ton téléphone ou t'envoyer des fichiers d'un PC à l'autre. Rien ne passe par Internet. Ne l'active pas sur un réseau partagé (résidence, café, hôtel).</span><span class="en">No. It only works on your home network, and it's off by default: tick the box that shares this PC on the home network to see your other PCs, follow your readings on your phone, or send files from one PC to another. Nothing goes through the Internet. Don't turn it on on a shared network (dorm, café, hotel).</span></p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ——— Onglet Windows et entretien ——— -->
+  <section id="onglet-windows">
+    <div class="wrap">
+      <h2><span class="fr">L'onglet Windows et l'entretien</span><span class="en">The Windows tab and maintenance</span></h2>
+
+      <details id="windows-sans-risque">
+        <summary><span class="fr">L'onglet Windows va-t-il dérégler mon PC&nbsp;?</span><span class="en">Will the Windows tab mess up my PC?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Non. Il lit tout, et ne change que ce que tu coches, par les moyens officiels de Windows. Avant chaque changement, Aurora note la valeur d'origine&nbsp;: «&nbsp;Remettre&nbsp;» la rend d'un clic, «&nbsp;Tout remettre comme avant&nbsp;» défait tout, et la désinstallation remet tout aussi. Seule exception&nbsp;: la fréquence d'un écran, un choix direct, comme dans les Paramètres de Windows.</span><span class="en">No. It reads everything, and only changes what you tick, through Windows' official means. Before each change, Aurora writes down the original value: “Restore” brings it back in one click, “Restore everything” undoes it all, and uninstalling restores everything too. One exception: a monitor's refresh rate, a direct choice, as in Windows Settings.</span></p>
+          <p><span class="fr">Il ne touche jamais à la sécurité de Windows&nbsp;: antivirus, pare-feu, contrôle de compte, mises à jour. Un réglage que Windows protège (le cadenas) ouvre plutôt la bonne page des Paramètres.</span><span class="en">It never touches Windows security: antivirus, firewall, account control, updates. A setting Windows protects (the padlock) opens the right Settings page instead.</span></p>
+        </div>
+      </details>
+
+      <details id="entretien">
+        <summary><span class="fr">Que fait la section Entretien&nbsp;?</span><span class="en">What does the Maintenance section do?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Elle lance, un à la fois et seulement quand tu cliques, les outils de Microsoft eux-mêmes&nbsp;:</span><span class="en">It runs Microsoft's own tools, one at a time and only when you click:</span></p>
+          <ul>
+            <li><span class="fr"><b>Vérifier et réparer Windows</b>&nbsp;: DISM, puis SFC, et te dit le résultat en clair. Ce n'est pas une optimisation&nbsp;: c'est une réparation, à essayer avant de penser à réinitialiser ton PC.</span><span class="en"><b>Check and repair Windows</b>: DISM, then SFC, and tells you the result in plain words. It's not an optimization: it's a repair, to try before you think of resetting your PC.</span></li>
+            <li><span class="fr"><b>Vérifier les disques</b>&nbsp;: <code>chkdsk /scan</code>, sans redémarrer.</span><span class="en"><b>Check the drives</b>: <code>chkdsk /scan</code>, without restarting.</span></li>
+            <li><span class="fr"><b>Les fichiers temporaires</b> de plus de 24&nbsp;h&nbsp;: à la corbeille, après ta confirmation, donc récupérables tant que tu ne la vides pas&nbsp;; ceux qu'un programme utilise restent.</span><span class="en"><b>Temporary files</b> older than 24&nbsp;hours: to the Recycle Bin, after you confirm, so recoverable until you empty it; those a program is using stay put.</span></li>
+            <li><span class="fr"><b>Vider la corbeille</b> demande une deuxième confirmation&nbsp;: c'est la seule action sans retour.</span><span class="en"><b>Emptying the Recycle Bin</b> asks for a second confirmation: it's the only action with no way back.</span></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ——— Mises à jour et désinstallation ——— -->
+  <section id="mises-a-jour">
+    <div class="wrap">
+      <h2><span class="fr">Mises à jour et désinstallation</span><span class="en">Updates and uninstalling</span></h2>
+
+      <details id="mettre-a-jour">
+        <summary><span class="fr">Comment mettre Aurora à jour&nbsp;?</span><span class="en">How do I update Aurora?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Aurora regarde une fois par jour s'il y a une nouvelle version. Si oui, un bandeau te l'annonce, et Windows te prévient une fois. «&nbsp;Ouvrir la page&nbsp;» t'amène au téléchargement&nbsp;: lance l'installeur, il ferme Aurora proprement et la remplace. Tes réglages sont gardés, et «&nbsp;Quoi de neuf&nbsp;» te montre les nouveautés.</span><span class="en">Aurora checks once a day for a new version. If there is one, a banner tells you, and Windows notifies you once. The button opens the download page: run the installer, it closes Aurora cleanly and replaces it. Your settings are kept, and “What's new” shows you what changed.</span></p>
+          <p><span class="fr">Rien ne se télécharge ni ne s'installe tout seul depuis Internet&nbsp;: c'est toi qui décides.</span><span class="en">Nothing is downloaded or installed on its own from the Internet: you decide.</span></p>
+        </div>
+      </details>
+
+      <details id="desinstaller">
+        <summary><span class="fr">Comment désinstaller Aurora&nbsp;?</span><span class="en">How do I uninstall Aurora?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Paramètres de Windows, Applications, Aurora, Désinstaller. La désinstallation ferme Aurora, remet comme avant les réglages de Windows qu'elle avait changés pour toi, et retire son démarrage automatique.</span><span class="en">Windows Settings, Apps, Aurora, Uninstall. Uninstalling closes Aurora, puts back the Windows settings it had changed for you, and removes its automatic startup.</span></p>
+          <p><span class="fr">Restent sur ton PC, au cas où tu la réinstallerais&nbsp;: tes réglages (<code>%APPDATA%\Aurora</code>) et sa mémoire (<code>C:\Program Files\Aurora\donnees</code>)&nbsp;; tu peux supprimer ces deux dossiers si tu ne comptes pas y revenir. Restent aussi .NET&nbsp;10 et PawnIO, que d'autres programmes peuvent utiliser&nbsp;: ils se désinstallent à part, dans Applications.</span><span class="en">What stays on your PC, in case you reinstall it: your settings (<code>%APPDATA%\Aurora</code>) and its memory (<code>C:\Program Files\Aurora\donnees</code>); you can delete these two folders if you don't plan to come back. .NET&nbsp;10 and PawnIO also stay, since other programs may use them: they're uninstalled separately, in Apps.</span></p>
+        </div>
+      </details>
+
+      <details id="mac-linux">
+        <summary><span class="fr">Aurora existe-t-elle pour Mac ou Linux&nbsp;?</span><span class="en">Is Aurora available for Mac or Linux?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Pas pour l'instant&nbsp;: Aurora est pour Windows&nbsp;10 et&nbsp;11, en 64&nbsp;bits.</span><span class="en">Not for now: Aurora is for Windows&nbsp;10 and&nbsp;11, 64-bit.</span></p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ——— Skins ——— -->
+  <section id="skins">
+    <div class="wrap">
+      <h2>Skins</h2>
+
+      <details id="skin-quoi">
+        <summary><span class="fr">C'est quoi, un skin&nbsp;?</span><span class="en">What's a skin?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Une nouvelle allure pour tout Aurora, overlay de jeu compris&nbsp;: des couleurs, des polices et des dessins dans l'ambiance d'un genre de jeu. C'est facultatif&nbsp;: les cinq thèmes d'Aurora (Carbone, Néon, Glace, Clair et Forge) restent gratuits. Un skin n'est jamais un programme&nbsp;: Aurora vérifie seulement qu'il est signé, sans aucune connexion. <a href="../skins/">Voir les skins</a>.</span><span class="en">A new look for all of Aurora, game overlay included: colours, fonts and drawings in the mood of a kind of game. It's optional: Aurora's five themes (Carbon, Neon, Ice, Light and Forge) stay free. A skin is never a program: Aurora only checks that it's signed, with no connection at all. <a href="../skins/?lang=en">See the skins</a>.</span></p>
+        </div>
+      </details>
+
+      <details id="skin-installer">
+        <summary><span class="fr">Comment installer un skin acheté&nbsp;?</span><span class="en">How do I install a skin I bought?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Dans Aurora&nbsp;: Réglages, panneau Affichage, «&nbsp;Installer un skin…&nbsp;», puis choisis le fichier <code>.auroraskin</code> que tu as téléchargé. Aurora change d'allure tout de suite. Pour revenir à un thème gratuit, clique-le&nbsp;: ton skin reste installé et revient d'un clic. Il faut Aurora&nbsp;1.0.9 ou plus récente.</span><span class="en">In Aurora: Settings, Language &amp; theme panel, “Install a skin…”, then pick the <code>.auroraskin</code> file you downloaded. Aurora changes its look right away. To go back to a free theme, click it: your skin stays installed and comes back in one click. You need Aurora&nbsp;1.0.9 or newer.</span></p>
+        </div>
+      </details>
+
+      <details id="skin-rembourser">
+        <summary><span class="fr">Et si un skin ne marche pas, ou ne me plaît pas&nbsp;?</span><span class="en">What if a skin doesn't work, or I don't like it?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Écris-moi dans les 30&nbsp;jours à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>&nbsp;: je te rembourse au complet, sans discussion (<a href="../conditions/#remboursements">conditions de vente</a>).</span><span class="en">Write to me within 30&nbsp;days at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>: I'll refund you in full, no questions asked (<a href="../conditions/?lang=en#remboursements">terms of sale</a>).</span></p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ——— Qui fait Aurora ——— -->
+  <section id="aurora">
+    <div class="wrap">
+      <h2><span class="fr">Qui fait Aurora</span><span class="en">Who makes Aurora</span></h2>
+
+      <details id="qui">
+        <summary><span class="fr">Qui est derrière Aurora&nbsp;?</span><span class="en">Who is behind Aurora?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Moi, Denis, au Québec. Je monte mes propres PC depuis longtemps, et je ne suis pas programmeur&nbsp;: j'ai créé Aurora avec l'aide de l'intelligence artificielle (Claude, d'Anthropic). Mon histoire est dans la <a href="../presse/">trousse de presse</a>.</span><span class="en">Me, Denis, in Quebec. I've been building my own PCs for a long time, and I'm not a programmer: I created Aurora with the help of artificial intelligence (Claude, by Anthropic). My story is in the <a href="../presse/?lang=en">press kit</a>.</span></p>
+        </div>
+      </details>
+
+      <details id="gratuite">
+        <summary><span class="fr">Aurora restera-t-elle gratuite&nbsp;?</span><span class="en">Will Aurora stay free?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Oui. Pas de publicité, pas de compte, aucune donnée vendue. Ce qui la fait vivre, ce sont les <a href="../skins/">skins</a>, facultatifs, et les cafés offerts sur <a href="https://ko-fi.com/auroraapp" rel="noopener">Ko-fi</a>&nbsp;: ils m'aident à la garder signée et à jour.</span><span class="en">Yes. No ads, no account, no data sold. What keeps it going is the optional <a href="../skins/?lang=en">skins</a> and the coffees offered on <a href="https://ko-fi.com/auroraapp" rel="noopener">Ko-fi</a>: they help me keep it signed and up to date.</span></p>
+        </div>
+      </details>
+
+      <details id="code-source">
+        <summary><span class="fr">Le code d'Aurora est-il public&nbsp;?</span><span class="en">Is Aurora's code public?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Non. Aurora est gratuite, mais son code n'est pas publié. Pour que tu puisses lui faire confiance quand même&nbsp;: chaque version est signée, chaque nouvelle version passe par VirusTotal, et ce qu'elle fait est écrit noir sur blanc dans sa <a href="../licence/">licence</a>. Les bibliothèques libres qu'elle utilise (LibreHardwareMonitor, PresentMon…) gardent leurs propres licences, installées avec elle.</span><span class="en">No. Aurora is free, but its code isn't published. So you can still trust it: every version is signed, every new version goes through VirusTotal, and what it does is spelled out in its <a href="../licence/?lang=en">licence</a>. The open-source libraries it uses (LibreHardwareMonitor, PresentMon…) keep their own licences, installed with it.</span></p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ——— Limites connues ——— -->
+  <section id="limites">
+    <div class="wrap">
+      <h2><span class="fr">Limites connues</span><span class="en">Known limits</span></h2>
+      <div class="encadre">
+        <p><span class="fr">Aurora a été mise au point sur les quelques PC de la maison&nbsp;: des processeurs Ryzen et un Core&nbsp;i5, des cartes graphiques Radeon et une GeForce. Elle n'a <b>pas encore</b> été essayée sur&nbsp;:</span><span class="en">Aurora was put together on the few PCs in my house: Ryzen processors and a Core&nbsp;i5, Radeon graphics cards and a GeForce. It has <b>not yet</b> been tried on:</span></p>
+        <ul>
+          <li><span class="fr">un vrai portable&nbsp;: la batterie, la vitesse des ventilateurs (souvent illisible), les portables à deux cartes graphiques&nbsp;;</span><span class="en">a real laptop: the battery, fan speeds (often unreadable), laptops with two graphics chips;</span></li>
+          <li><span class="fr">une carte graphique Intel Arc, ni une GeForce RTX (essayée sur une GTX)&nbsp;;</span><span class="en">an Intel Arc graphics card, nor a GeForce RTX (tried on a GTX);</span></li>
+          <li><span class="fr">les FPS avec la génération d'images (DLSS, FSR, AFMF), les jeux en Vulkan ou en OpenGL, et les jeux en ligne protégés par un anti-triche&nbsp;;</span><span class="en">FPS with frame generation (DLSS, FSR, AFMF), Vulkan or OpenGL games, and online games protected by an anti-cheat;</span></li>
+          <li><span class="fr">l'onglet Windows sur un vrai Windows&nbsp;10 (mis au point sous Windows&nbsp;11)&nbsp;;</span><span class="en">the Windows tab on a real Windows&nbsp;10 (built on Windows&nbsp;11);</span></li>
+          <li><span class="fr">la commande des ventilateurs sur les cartes mères Gigabyte et ASRock (vérifiée sur MSI et Asus).</span><span class="en">fan control on Gigabyte and ASRock motherboards (checked on MSI and Asus).</span></li>
+        </ul>
+        <p><span class="fr">Et une limite connue&nbsp;: l'anti-triche <b>FACEIT</b> refuse le pilote PawnIO. Tant qu'il tourne, Aurora ne voit ni la température du processeur ni les ventilateurs de la carte mère&nbsp;; l'onglet Santé te le dit.</span><span class="en">And one known limit: the <b>FACEIT</b> anti-cheat refuses the PawnIO driver. While it runs, Aurora sees neither the processor temperature nor the motherboard fans; the Health tab tells you so.</span></p>
+        <p><span class="fr">Si tu as un de ces PC, ton retour m'aide énormément, même si tout va bien&nbsp;: <a href="#me-joindre">écris-moi</a> ce que tu vois.</span><span class="en">If you have one of these PCs, your feedback helps me a lot, even if everything works: <a href="#me-joindre">write to me</a> with what you see.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Me joindre ——— -->
+  <section id="me-joindre">
+    <div class="wrap">
+      <h2><span class="fr">Me joindre</span><span class="en">Contact me</span></h2>
+
+      <details id="bogue" open>
+        <summary><span class="fr">J'ai trouvé un bogue. Comment te le dire&nbsp;?</span><span class="en">I found a bug. How do I tell you?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Le plus simple&nbsp;: dans Aurora, <b>Réglages → Support → Écrire au support</b>. Ton message part avec la version d'Aurora et sa langue, et, si tu coches la case, la fiche de ton matériel&nbsp;: c'est ce qui m'aide le plus. Laisse ton adresse si tu veux une réponse.</span><span class="en">The easiest way: in Aurora, <b>Settings → Support → Write to support</b>. Your message goes out with Aurora's version and language, and, if you tick the box, your hardware sheet: that's what helps me most. Leave your address if you'd like an answer.</span></p>
+          <p><span class="fr">Tu peux aussi écrire à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Dis ce que tu vois et sur quel matériel&nbsp;; si Aurora a planté, joins le fichier <code>%APPDATA%\Aurora\crash.log</code>. Si le problème va et vient, lance l'enregistreur (onglet Santé, ou «&nbsp;Enregistrer les mesures&nbsp;» dans le menu de l'icône près de l'horloge) pendant qu'il se produit, et envoie-moi le fichier qu'il crée dans <code>Documents\Aurora\Enregistrements</code>.</span><span class="en">You can also write to <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Say what you see and on what hardware; if Aurora crashed, attach the file <code>%APPDATA%\Aurora\crash.log</code>. If the problem comes and goes, start the recorder (Health tab, or the menu of the icon near the clock) while it happens, and send me the file it creates in <code>Documents\Aurora\Enregistrements</code>.</span></p>
+        </div>
+      </details>
+
+      <details id="delai">
+        <summary><span class="fr">Combien de temps pour une réponse&nbsp;?</span><span class="en">How long until I get an answer?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Je suis seul, sur mon temps libre&nbsp;: je lis tout, et je réponds d'abord aux problèmes. Ça peut prendre quelques jours. Quand un bogue est corrigé, la nouvelle version s'annonce toute seule dans Aurora.</span><span class="en">I'm on my own, in my spare time: I read everything, and I answer problems first. It can take a few days. When a bug is fixed, the new version announces itself in Aurora.</span></p>
+        </div>
+      </details>
+
+      <details id="ailleurs">
+        <summary><span class="fr">Où suivre Aurora&nbsp;?</span><span class="en">Where can I follow Aurora?</span></summary>
+        <div class="reponse">
+          <p><span class="fr">Sur sa <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">page Facebook</a>, sa <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">chaîne YouTube</a> et son compte <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok</a>&nbsp;: nouveautés, captures, vidéos, et un endroit de plus pour poser une question.</span><span class="en">On its <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">Facebook page</a>, its <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">YouTube channel</a> and its <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok account</a>: news, screenshots, videos, and one more place to ask a question.</span></p>
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <span class="fr">Aurora — Moniteur matériel · <a href="../">auroraapp.ca</a> · <a href="../skins/">Skins</a> · <a href="../presse/">Trousse de presse</a> · <a href="../licence/">Licence</a> · Comme le reste du site, cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne.</span>
+    <span class="en">Aurora — Hardware Monitor · <a href="../">auroraapp.ca</a> · <a href="../skins/?lang=en">Skins</a> · <a href="../presse/?lang=en">Press kit</a> · <a href="../licence/?lang=en">Licence</a> · Like the rest of the site, this page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var racine = document.documentElement;
+  var boutons = { fr: document.getElementById('btn-fr'), en: document.getElementById('btn-en') };
+  var titres = { fr: 'Aurora — Questions fréquentes', en: 'Aurora — FAQ' };
+
+  function appliquer(choix) {
+    racine.setAttribute('data-lang', choix);
+    racine.lang = choix;
+    document.title = titres[choix];
+    boutons.fr.setAttribute('aria-pressed', String(choix === 'fr'));
+    boutons.en.setAttribute('aria-pressed', String(choix === 'en'));
+    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
+  }
+
+  var demandee = new URLSearchParams(location.search).get('lang');
+  var choisie = null;
+  try { choisie = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
+  if (demandee === 'fr' || demandee === 'en') { choisie = demandee; }
+  if (choisie !== 'fr' && choisie !== 'en') {
+    choisie = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+  }
+  appliquer(choisie);
+  boutons.fr.addEventListener('click', function () { appliquer('fr'); });
+  boutons.en.addEventListener('click', function () { appliquer('en'); });
+
+  // Un lien vers une question précise (« faq/#antivirus ») l'ouvre et l'amène sous la barre du haut.
+  function ouvrir(sansAnimation) {
+    var cible = location.hash && document.getElementById(location.hash.slice(1));
+    if (cible && cible.tagName === 'DETAILS') {
+      cible.open = true;
+      cible.scrollIntoView(sansAnimation ? { block: 'start', behavior: 'instant' } : { block: 'start' });
+    }
+  }
+  ouvrir(true);
+  window.addEventListener('hashchange', function () { ouvrir(false); });
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "2b2e9afa214040b4842912487d06564f"}'></script>
+</body>
+</html>
