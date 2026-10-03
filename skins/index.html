@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurora — Skins</title>
+<meta name="description" content="Des skins pour Aurora, le moniteur matériel gratuit pour Windows : de nouvelles couleurs, polices et dessins pour tout Aurora, overlay de jeu compris. Pixel, l'ambiance des jeux de blocs, 3 $.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aurora — les skins">
+<meta property="og:description" content="Habille Aurora à ton goût : Pixel, l'ambiance des jeux de blocs, pour tout Aurora, overlay de jeu compris. 3 $.">
+<meta property="og:image" content="https://auroraapp.ca/img/skins/skins-partage.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600&family=Jersey+10&family=Silkscreen:wght@400;700&family=Tiny5&display=swap">
+<style>
+  /* Les couleurs du site (thème Carbone d'Aurora), et celles de Pixel pour sa fiche. */
+  :root {
+    --ground: #09090b;
+    --panel: #141619;
+    --panel-2: #1a1d22;
+    --edge: #272a31;
+    --edge-2: #383d46;
+    --accent: #ff2340;
+    --accent-hi: #ff5468;
+    --ink: #f2f4f7;
+    --text: #c3c8d0;
+    --dim: #868d97;
+    --green: #3ddc84;
+    /* Pixel */
+    --pierre: #383a41; --pierre-haut: #43464e; --pierre-bas: #2b2d33; --biseau-clair: #61646d; --biseau-sombre: #1a1b20;
+    --herbe: #6cc644; --herbe-sombre: #3f8a26; --herbe-claire: #9be36b; --terre: #87582c; --terre-sombre: #6b4421;
+    --or: #f2c040; --diamant: #4fd8d0; --encre-pixel: #f1f1e6; --pale: #a3a597;
+    color-scheme: dark;
+  }
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root[data-lang="en"] .fr { display: none !important; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(1200px 560px at 50% -260px, rgba(255, 35, 64, .2), transparent 70%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, .021) 0 3px, transparent 3px 6px),
+      repeating-linear-gradient(-45deg, rgba(0, 0, 0, .32) 0 3px, transparent 3px 6px),
+      var(--ground);
+    color: var(--text);
+    font: 500 18px/1.6 Rajdhani, "Segoe UI", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--accent-hi); }
+  strong, b { color: var(--ink); font-weight: 600; }
+  h1, h2, h3 { font-family: "Chakra Petch", "Segoe UI", sans-serif; color: var(--ink); margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(34px, 6vw, 60px); line-height: 1.02; }
+  h2 { font-size: clamp(26px, 3.6vw, 36px); line-height: 1.1; }
+  h3 { font-size: 21px; line-height: 1.2; }
+  p { margin: 0; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+  /* Barre du haut */
+  .barre { position: sticky; top: 0; z-index: 5; background: rgba(9, 9, 11, .88); backdrop-filter: blur(8px);
+           border-bottom: 1px solid var(--edge); }
+  .barre .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+  .marque { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none;
+            font: 700 20px "Chakra Petch", sans-serif; letter-spacing: 1px; }
+  .marque img { width: 30px; height: 30px; }
+  .langues { display: flex; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--edge-2); overflow: hidden; }
+  .langues button { background: none; border: 0; color: var(--text); font: 700 14px Rajdhani, sans-serif;
+                    padding: 7px 14px; cursor: pointer; }
+  .langues button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .langues button:focus-visible, .bouton:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Tête de page */
+  .tete { padding: 56px 0 28px; }
+  .tag { display: inline-block; font: 700 13px "Chakra Petch", sans-serif; letter-spacing: 2px; color: #fff;
+         background: var(--accent); padding: 4px 12px; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+         margin-bottom: 16px; }
+  .lead { max-width: 800px; margin-top: 16px; font-size: 20px; }
+  blockquote.mot { margin: 18px 0 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--accent); max-width: 860px; }
+  blockquote.mot p { color: var(--ink); font-size: 19px; }
+  blockquote.mot cite { display: block; margin-top: 10px; color: var(--dim); font-style: normal; font-weight: 600; }
+  .bouton { display: inline-flex; align-items: center; gap: 9px; background: var(--accent); color: #fff; text-decoration: none;
+            font: 700 17px Rajdhani, sans-serif; padding: 11px 20px; border: 0;
+            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
+  .bouton:hover { background: var(--accent-hi); }
+  .bouton.discret { background: var(--panel-2); color: var(--ink); box-shadow: inset 0 0 0 1px var(--edge-2); }
+
+  /* Sections */
+  section { padding: 34px 0; border-top: 1px solid var(--edge); }
+  section > .wrap > h2 { margin-bottom: 8px; }
+  .intro { color: var(--dim); margin-bottom: 22px; max-width: 780px; }
+
+  /* La fiche de Pixel : un bloc de pierre au biseau en pixels, avec sa bande d'herbe. */
+  .pixel { position: relative; color: var(--encre-pixel); font: 400 17px/1.55 Tiny5, Rajdhani, sans-serif;
+           background: linear-gradient(180deg, var(--pierre-haut), var(--pierre) 40%, var(--pierre-bas));
+           box-shadow: inset 4px 4px 0 var(--biseau-clair), inset -4px -4px 0 var(--biseau-sombre), 8px 8px 0 rgba(0, 0, 0, .4);
+           padding: 30px 26px 24px; }
+  .pixel::before { content: ""; position: absolute; left: 4px; right: 4px; top: 4px; height: 6px; background: var(--herbe); }
+  .pixel .haut { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 18px; }
+  .pixel h2 { font: 700 clamp(30px, 5vw, 44px)/1.05 Silkscreen, sans-serif; color: var(--herbe); letter-spacing: 2px;
+              text-shadow: 3px 3px 0 var(--herbe-sombre); }
+  .pixel .sous { color: var(--pale); font-size: 18px; margin-top: 4px; }
+  .pixel .prix { font: 400 46px/1 "Jersey 10", sans-serif; color: var(--or); white-space: nowrap; }
+  .pixel .prix small { font: 400 15px Tiny5, sans-serif; color: var(--pale); margin-left: 6px; }
+  .pixel .vitrine { margin-top: 18px; box-shadow: 0 0 0 4px var(--biseau-sombre); }
+  .pixel .colonnes { display: grid; gap: 22px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); margin-top: 22px; }
+  .pixel .description p + p { margin-top: 10px; }
+  .pixel ul.blocs { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .pixel ul.blocs li { position: relative; padding-left: 22px; }
+  .pixel ul.blocs li::before { content: ""; position: absolute; left: 0; top: .45em; width: 10px; height: 10px;
+                               background: var(--herbe); box-shadow: inset -3px -3px 0 var(--herbe-sombre); }
+  .pixel .acheter { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 22px; }
+  .bloc-bouton { display: inline-block; font: 400 18px Tiny5, sans-serif; color: #10200a; background: var(--herbe);
+                 box-shadow: inset 3px 3px 0 var(--herbe-claire), inset -3px -3px 0 var(--herbe-sombre);
+                 padding: 12px 22px 11px; text-decoration: none; border: 0; }
+  .bloc-bouton:hover { filter: brightness(1.08); }
+  .bloc-bouton.bientot { color: #d8d9cc; background: var(--pierre); cursor: default; filter: none;
+                         box-shadow: inset 3px 3px 0 var(--biseau-clair), inset -3px -3px 0 var(--biseau-sombre); }
+  .pixel .note { color: var(--pale); font-size: 15px; }
+  .galerie { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); margin-top: 22px; }
+  .galerie figure { margin: 0; background: var(--pierre-bas); box-shadow: inset 0 0 0 3px var(--biseau-sombre); padding: 8px; }
+  .galerie figcaption { color: var(--pale); font-size: 15px; padding: 8px 4px 2px; }
+
+  /* Comment l'installer */
+  ol.etapes { margin: 0; padding: 0; list-style: none; counter-reset: etape; display: grid; gap: 14px; max-width: 900px; }
+  ol.etapes li { counter-increment: etape; position: relative; padding: 14px 18px 14px 62px; background: var(--panel);
+                 box-shadow: inset 0 0 0 1px var(--edge); }
+  ol.etapes li::before { content: counter(etape); position: absolute; left: 16px; top: 12px; width: 32px; height: 32px;
+                         display: grid; place-items: center; font: 700 18px "Chakra Petch", sans-serif; color: #fff;
+                         background: var(--accent); clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 7px 100%, 0 calc(100% - 7px)); }
+  .capture-reglages { margin-top: 16px; max-width: 1000px; box-shadow: 0 0 0 1px var(--edge-2); }
+
+  /* Questions */
+  .questions { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); }
+  .questions div { background: linear-gradient(180deg, var(--panel-2), var(--panel)); box-shadow: inset 0 0 0 1px var(--edge); padding: 18px 20px; }
+  .questions h3 { font-size: 19px; margin-bottom: 6px; }
+  code { font: 600 16px Consolas, "Cascadia Mono", monospace; color: var(--ink); background: var(--panel-2); padding: 1px 6px; }
+  .pied { padding: 30px 0 46px; color: var(--dim); font-size: 16px; border-top: 1px solid var(--edge); }
+  @media (max-width: 760px) {
+    .pixel .colonnes { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .tete { padding-top: 36px; }
+    .lead { font-size: 18px; }
+    .pixel { padding: 26px 16px 20px; }
+    ol.etapes li { padding-left: 58px; }
+  }
+</style>
+</head>
+<body>
+<header class="barre">
+  <div class="wrap">
+    <a class="marque" href="../"><img src="../favicon.svg" alt="" width="30" height="30">AURORA</a>
+    <div class="langues" role="group" aria-label="Langue / Language">
+      <button id="btn-fr" type="button" aria-pressed="true">FR</button>
+      <button id="btn-en" type="button" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="tete">
+    <div class="wrap">
+      <div class="tag">SKINS</div>
+      <h1><span class="fr">Habille Aurora à ton goût</span><span class="en">Dress Aurora your way</span></h1>
+      <p class="lead">
+        <span class="fr">Un skin change toute l'allure d'Aurora&nbsp;: ses couleurs, ses polices, ses dessins, jusqu'à l'overlay de jeu. Tu l'achètes une fois, tu l'installes en deux clics, et tu reviens aux thèmes gratuits quand tu veux.</span>
+        <span class="en">A skin changes Aurora's whole look: its colors, its fonts, its drawings, all the way to the game overlay. You buy it once, install it in two clicks, and go back to the free themes whenever you like.</span>
+      </p>
+      <blockquote class="mot">
+        <p><span class="fr">«&nbsp;Aurora est gratuite, et elle le restera, ses cinq thèmes aussi. Les skins, c'est ma façon de la faire vivre&nbsp;: chaque skin acheté m'aide à garder Aurora signée, à jour et sans publicité. Merci&nbsp;!&nbsp;»</span><span class="en">“Aurora is free, and it will stay that way, its five themes too. Skins are how I keep it going: every skin you buy helps me keep Aurora signed, up to date and ad-free. Thank you!”</span></p>
+        <cite>— Denis</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <section id="pixel">
+    <div class="wrap">
+      <article class="pixel">
+        <div class="haut">
+          <div>
+            <h2>PIXEL</h2>
+            <p class="sous"><span class="fr">L'ambiance des jeux de blocs</span><span class="en">The feel of block-building games</span></p>
+          </div>
+          <p class="prix"><span class="fr">3&nbsp;$<small>CA</small></span><span class="en">CA$3</span></p>
+        </div>
+        <img class="vitrine" src="../img/skins/pixel-vue-fr.webp" data-src-fr="../img/skins/pixel-vue-fr.webp" data-src-en="../img/skins/pixel-vue-en.webp"
+             data-alt-fr="Le tableau de bord d'Aurora habillé du skin Pixel : panneaux de pierre, bande d'herbe, jauges en blocs"
+             data-alt-en="Aurora's dashboard wearing the Pixel skin: stone panels, a grass strip, block gauges"
+             alt="Le tableau de bord d'Aurora habillé du skin Pixel : panneaux de pierre, bande d'herbe, jauges en blocs" width="1500" height="845">
+        <div class="colonnes">
+          <div class="description">
+            <p><span class="fr">Des panneaux de pierre au biseau en pixels, une bande d'herbe en haut de la fenêtre, des jauges en anneaux de blocs qui passent de l'herbe à l'or puis à la lave quand ça chauffe, des graphiques en colonnes de blocs, des ventilateurs en blocs qui tournent pour vrai.</span><span class="en">Stone panels with pixel bevels, a grass strip across the top of the window, ring gauges made of blocks that go from grass to gold to lava as things heat up, block-column charts, block fans that really spin.</span></p>
+            <p><span class="fr">Et en jeu, l'overlay suit&nbsp;: panneau, HUD ou barre, tout en blocs, sans rien de coupé.</span><span class="en">And in game, the overlay follows: panel, HUD or bar, all in blocks, nothing cut off.</span></p>
+          </div>
+          <ul class="blocs">
+            <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
+            <li><span class="fr">Trois polices pixel libres&nbsp;: Jersey&nbsp;10, Silkscreen et Tiny5, accents compris</span><span class="en">Three free pixel fonts: Jersey&nbsp;10, Silkscreen and Tiny5, accents included</span></li>
+            <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Un fichier de 236&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 236&nbsp;KB file, signed by Aurora: no program</span></li>
+          </ul>
+        </div>
+        <div class="acheter">
+          <!-- Quand Pixel sera en vente chez Polar, ce bouton deviendra :
+               <a class="bloc-bouton" href="(lien de paiement Polar de Pixel)">Acheter Pixel · 3 $</a> -->
+          <span class="bloc-bouton bientot" aria-disabled="true"><span class="fr">Bientôt en vente</span><span class="en">Coming soon</span></span>
+          <p class="note"><span class="fr">Paiement sûr par Polar, taxes de ton pays calculées au paiement. Le fichier se télécharge tout de suite après. <a href="../conditions/">Conditions de vente et remboursement</a>.</span><span class="en">Secure payment through Polar, your country's taxes calculated at checkout. The file downloads right away. <a href="../conditions/?lang=en">Terms of sale and refunds</a>.</span></p>
+        </div>
+        <div class="galerie">
+          <figure>
+            <img src="../img/skins/pixel-jeu-fr.webp" data-src-fr="../img/skins/pixel-jeu-fr.webp" data-src-en="../img/skins/pixel-jeu-en.webp"
+                 data-alt-fr="L'overlay de jeu en HUD, habillé de Pixel, par-dessus un jeu de blocs"
+                 data-alt-en="The HUD game overlay wearing Pixel, over a block game"
+                 alt="L'overlay de jeu en HUD, habillé de Pixel, par-dessus un jeu de blocs" width="1500" height="844" loading="lazy">
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, cartes et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../img/skins/pixel-reglages-fr.webp" data-src-fr="../img/skins/pixel-reglages-fr.webp" data-src-en="../img/skins/pixel-reglages-en.webp"
+                 data-alt-fr="Réglages, panneau Affichage : la ligne Skins, Pixel porté"
+                 data-alt-en="Settings, Language &amp; theme panel: the Skins row, Pixel worn"
+                 alt="Réglages, panneau Affichage : la ligne Skins, Pixel porté" width="1500" height="340" loading="lazy">
+            <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Pixel, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Pixel, another to go back to your theme.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="installer">
+    <div class="wrap">
+      <h2><span class="fr">L'installer</span><span class="en">Installing it</span></h2>
+      <p class="intro"><span class="fr">Deux minutes, sans Internet du côté d'Aurora.</span><span class="en">Two minutes, with no Internet on Aurora's side.</span></p>
+      <ol class="etapes">
+        <li><span class="fr">Achète le skin, puis télécharge son fichier (<code>pixel.auroraskin</code>) avec le lien reçu par courriel.</span><span class="en">Buy the skin, then download its file (<code>pixel.auroraskin</code>) with the link you get by email.</span></li>
+        <li><span class="fr">Dans Aurora, va dans <b>Réglages</b>, panneau <b>Affichage</b>, et clique <b>Installer un skin…</b> La fenêtre s'ouvre dans tes Téléchargements&nbsp;: choisis le fichier.</span><span class="en">In Aurora, go to <b>Settings</b>, <b>Language &amp; theme</b> panel, and click <b>Install a skin…</b> The window opens in your Downloads: pick the file.</span></li>
+        <li><span class="fr">C'est tout&nbsp;: Aurora change d'allure tout de suite. Pour revenir à un thème gratuit, clique-le&nbsp;; ton skin reste installé et revient d'un clic.</span><span class="en">That's it: Aurora changes its look right away. To go back to a free theme, click it; your skin stays installed and comes back in one click.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="wrap">
+      <h2><span class="fr">Questions</span><span class="en">Questions</span></h2>
+      <p class="intro"><span class="fr">Les réponses courtes.</span><span class="en">The short answers.</span></p>
+      <div class="questions">
+        <div><h3><span class="fr">Les thèmes gratuits restent&nbsp;?</span><span class="en">Do the free themes stay?</span></h3>
+          <p><span class="fr">Oui. Carbone, Néon, Glace, Clair et Forge restent dans Aurora, gratuits. Les skins s'ajoutent à eux.</span><span class="en">Yes. Carbon, Neon, Ice, Light and Forge stay in Aurora, free. Skins come on top of them.</span></p></div>
+        <div><h3><span class="fr">Sur combien de PC&nbsp;?</span><span class="en">On how many PCs?</span></h3>
+          <p><span class="fr">Tous les tiens. Un skin ne se revend pas et ne se partage pas (<a href="../licence/">licence</a>).</span><span class="en">All of yours. A skin can't be resold or shared (<a href="../licence/?lang=en">licence</a>).</span></p></div>
+        <div><h3><span class="fr">Aurora va-t-elle se connecter quelque part&nbsp;?</span><span class="en">Will Aurora connect anywhere?</span></h3>
+          <p><span class="fr">Non. Installer ou porter un skin ne demande aucune connexion&nbsp;: Aurora vérifie seulement que le fichier est bien signé par elle. Un skin n'est jamais un programme.</span><span class="en">No. Installing or wearing a skin needs no connection: Aurora only checks that the file is signed by it. A skin is never a program.</span></p></div>
+        <div><h3><span class="fr">Et si ça ne marche pas, ou que je n'aime pas&nbsp;?</span><span class="en">What if it doesn't work, or I don't like it?</span></h3>
+          <p><span class="fr">Écris-moi dans les 30&nbsp;jours à <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>&nbsp;: je te rembourse au complet (<a href="../conditions/#remboursements">remboursements</a>).</span><span class="en">Write to me within 30&nbsp;days at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>: I'll refund you in full (<a href="../conditions/?lang=en#remboursements">refunds</a>).</span></p></div>
+        <div><h3><span class="fr">Pourquoi des skins payants&nbsp;?</span><span class="en">Why paid skins?</span></h3>
+          <p><span class="fr">Aurora n'a ni publicité ni compte, et ne vend aucune donnée. Les skins sont sa seule source de revenus.</span><span class="en">Aurora has no ads and no account, and sells no data. Skins are its only source of income.</span></p></div>
+        <div><h3><span class="fr">D'autres skins s'en viennent&nbsp;?</span><span class="en">Are more skins coming?</span></h3>
+          <p><span class="fr">Oui. Chacun dans l'ambiance d'un genre de jeu, avec des noms et des dessins à nous.</span><span class="en">Yes. Each one in the mood of a kind of game, with names and drawings of our own.</span></p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <span class="fr">Aurora — Moniteur matériel · <a href="../">auroraapp.ca</a> · <a href="../licence/">Licence</a> · <a href="../conditions/">Conditions de vente</a> · Pixel s'inspire de l'ambiance des jeux de blocs avec ses propres dessins&nbsp;; il n'est lié à aucun jeu. Comme le reste du site, cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne.</span>
+    <span class="en">Aurora — Hardware Monitor · <a href="../">auroraapp.ca</a> · <a href="../licence/?lang=en">Licence</a> · <a href="../conditions/?lang=en">Terms of sale</a> · Pixel draws on the feel of block-building games with drawings of its own; it isn't affiliated with any game. Like the rest of the site, this page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var racine = document.documentElement;
+  var boutons = { fr: document.getElementById('btn-fr'), en: document.getElementById('btn-en') };
+  var titres = { fr: 'Aurora — Skins', en: 'Aurora — Skins' };
+
+  function appliquer(choix) {
+    racine.setAttribute('data-lang', choix);
+    racine.lang = choix;
+    document.title = titres[choix];
+    boutons.fr.setAttribute('aria-pressed', String(choix === 'fr'));
+    boutons.en.setAttribute('aria-pressed', String(choix === 'en'));
+    document.querySelectorAll('[data-src-' + choix + ']').forEach(function (el) {
+      el.setAttribute('src', el.getAttribute('data-src-' + choix));
+      el.setAttribute('alt', el.getAttribute('data-alt-' + choix) || '');
+    });
+    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
+  }
+
+  // La langue du lien (« ?lang=en », comme le bouton « Voir les skins » d'Aurora en anglais), sinon celle choisie sur
+  // le site, sinon celle du navigateur.
+  var demandee = new URLSearchParams(location.search).get('lang');
+  var choisie = null;
+  try { choisie = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
+  if (demandee === 'fr' || demandee === 'en') { choisie = demandee; }
+  if (choisie !== 'fr' && choisie !== 'en') {
+    choisie = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+  }
+  appliquer(choisie);
+  boutons.fr.addEventListener('click', function () { appliquer('fr'); });
+  boutons.en.addEventListener('click', function () { appliquer('en'); });
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "2b2e9afa214040b4842912487d06564f"}'></script>
+</body>
+</html>

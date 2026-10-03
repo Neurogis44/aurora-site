@@ -1,6 +1,6 @@
 ﻿LICENCE D'AURORA
 
-Version 2 du 30 septembre 2026. La version française fait foi.
+Version 3 du 2 octobre 2026. La version française fait foi.
 
 Aurora © 2026 Denis Desbiens. Tous droits réservés, sauf ce que cette licence te permet.
 
@@ -20,6 +20,15 @@ CE QUE TU NE PEUX PAS FAIRE
 - Modifier Aurora ou son installeur, ou partager une version modifiée.
 - Décompiler Aurora ou chercher à retrouver son code, sauf si la loi te le permet malgré cette interdiction.
 - Retirer le nom de l'auteur, ou présenter Aurora comme ton œuvre.
+
+
+LES SKINS
+
+Aurora et ses cinq thèmes restent gratuits. Les skins, des habillages qui changent ses couleurs, ses polices et ses dessins, se vendent à part sur auroraapp.ca, par l'intermédiaire d'un revendeur qui encaisse le paiement et les taxes. Leurs conditions de vente et de remboursement sont sur auroraapp.ca/conditions.
+
+Un skin acheté, tu peux l'installer sur tous tes PC. Tu ne peux pas le revendre, le partager ou le mettre en ligne. Ses polices gardent leur propre licence libre (SIL Open Font License), jointe au téléchargement.
+
+Un skin n'est jamais un programme : ce sont des couleurs, des polices et des mesures, et Aurora n'installe que les skins qu'elle a signés. Installer ou porter un skin ne demande aucune connexion à Internet.
 
 
 SANS GARANTIE
