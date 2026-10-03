@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aurora — Skins</title>
-<meta name="description" content="Des skins pour Aurora, le moniteur matériel gratuit pour Windows : de nouvelles couleurs, polices et dessins pour tout Aurora, overlay de jeu compris. Pixel, l'ambiance des jeux de blocs, 3 $.">
+<meta name="description" content="Des skins pour Aurora, le moniteur matériel gratuit pour Windows : de nouvelles couleurs, polices et dessins pour tout Aurora, overlay de jeu compris. Six skins, chacun dans l'ambiance d'un genre de jeu, 3 $ chacun.">
 <meta name="theme-color" content="#09090b">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aurora — les skins">
-<meta property="og:description" content="Habille Aurora à ton goût : Pixel, l'ambiance des jeux de blocs, pour tout Aurora, overlay de jeu compris. 3 $.">
+<meta property="og:description" content="Habille Aurora à ton goût : six skins, chacun dans l'ambiance d'un genre de jeu (blocs, tir tactique, ville ouverte, tir compétitif, arène de héros, bataille royale), pour tout Aurora, overlay de jeu compris. 3 $ chacun.">
 <meta property="og:image" content="https://auroraapp.ca/img/skins/skins-partage.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600&family=Jersey+10&family=Silkscreen:wght@400;700&family=Tiny5&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600&family=Jersey+10&family=Silkscreen:wght@400;700&family=Tiny5&family=Saira+Stencil+One&family=Barlow+Condensed:wght@500;600&family=Share+Tech+Mono&family=Anton&family=Pacifico&family=Bebas+Neue&family=Barlow:wght@500;700&family=Cinzel:wght@700&family=Philosopher:wght@400;700&family=Lilita+One&family=Nunito:wght@700;800&display=swap">
 <style>
-  /* Les couleurs du site (thème Carbone d'Aurora), et celles de Pixel pour sa fiche. */
+  /* Les couleurs du site (thème Carbone d'Aurora), et celles de Pixel pour sa fiche ; les autres fiches ont les leurs. */
   :root {
     --ground: #09090b;
     --panel: #141619;
@@ -125,6 +125,176 @@
   .galerie figure { margin: 0; background: var(--pierre-bas); box-shadow: inset 0 0 0 3px var(--biseau-sombre); padding: 8px; }
   .galerie figcaption { color: var(--pale); font-size: 15px; padding: 8px 4px 2px; }
 
+  /* Le sommaire : un aperçu de chaque skin (son fond et sa couleur, comme dans les Réglages d'Aurora) et son nom. */
+  .sommaire { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .sommaire a { display: inline-flex; align-items: center; gap: 9px; font: 700 16px Rajdhani, sans-serif; color: var(--ink);
+                text-decoration: none; padding: 6px 14px 6px 10px; background: var(--panel-2); box-shadow: inset 0 0 0 1px var(--edge-2);
+                clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
+  .sommaire a:hover { background: #22262d; }
+  .sommaire a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .sommaire i { width: 26px; height: 12px; background: linear-gradient(90deg, var(--fond) 50%, var(--couleur) 50%);
+                box-shadow: 0 0 0 1px rgba(255, 255, 255, .18); }
+
+  /* Chaque skin dans son monde : la bande de sa section reprend le fond du skin. */
+  #pixel { background: linear-gradient(180deg, #5aa0e6 0 15%, #62a8ea 15% 29%, #6cb0ee 29% 43%, #78b8f0 43% 57%,
+                                       #86c2f2 57% 71%, #94caf3 71% 85%, #a2d2f4 85%); }
+  #escouade { background-color: #15170f;
+              background-image: linear-gradient(#262a1c 1px, transparent 1px), linear-gradient(90deg, #262a1c 1px, transparent 1px),
+                                linear-gradient(#1f2217 1px, transparent 1px), linear-gradient(90deg, #1f2217 1px, transparent 1px);
+              background-size: 128px 128px, 128px 128px, 32px 32px, 32px 32px; }
+  #boulevard { background: linear-gradient(180deg, #150a24, #2a0f45 40%, #6a1f63 72%, #c2416e 90%, #ff8a3d); }
+  #precision { background: linear-gradient(115deg, #ebe6de 0 58%, #e2dcd2 58%); }
+  #precision .wrap { filter: drop-shadow(0 10px 18px rgba(15, 25, 35, .18)); }
+  #sortilege { background:
+      radial-gradient(1.6px 1.6px at 8% 14%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 22% 64%, #fff 50%, transparent 52%),
+      radial-gradient(1.4px 1.4px at 37% 9%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 51% 88%, #fff 50%, transparent 52%),
+      radial-gradient(1.6px 1.6px at 64% 30%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 79% 72%, #fff 50%, transparent 52%),
+      radial-gradient(1.4px 1.4px at 92% 18%, #fff 50%, transparent 52%), radial-gradient(1.2px 1.2px at 96% 56%, #fff 50%, transparent 52%),
+      radial-gradient(900px 380px at 78% 0%, rgba(169, 123, 255, .16), transparent 70%), #0a1022; }
+  #tempete { background: linear-gradient(100deg, transparent 0 87%, #9b5cff 87%, #5b2bd6),
+                         linear-gradient(180deg, #2f7bff, #4b95ff 45%, #9fd2ff); }
+
+  /* Les fiches des cinq autres skins : la disposition de Pixel, chacune habillée comme son skin (couleurs, polices et
+     dessins de sa maquette, maquettes/<id>.html dans Aurora). */
+  .carte { position: relative; padding: 30px 26px 24px; }
+  .carte .haut { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 18px; }
+  .carte .prix { white-space: nowrap; }
+  .carte .vitrine { margin-top: 18px; }
+  .carte .colonnes { display: grid; gap: 22px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); margin-top: 22px; }
+  .carte .description p + p { margin-top: 10px; }
+  .carte ul.liste { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .carte ul.liste li { position: relative; padding-left: 24px; }
+  .carte ul.liste li::before { content: ""; position: absolute; left: 0; top: .5em; width: 10px; height: 10px; }
+  .carte .acheter { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 22px; }
+  .carte .acheter > a { display: inline-block; text-decoration: none; }
+  .carte .note { font-size: 15px; }
+
+  /* Escouade : une plaque d'acier olive aux équerres de visée, titre au pochoir et ruban de danger. */
+  .escouade { --e-sable: #d9b87c; --e-signal: #f2a03a; --e-danger: #f0c419; --e-bord: #4a503b; --e-pale: #9d987f;
+              color: #ece6d2; font: 500 19px/1.5 "Barlow Condensed", Rajdhani, sans-serif; border: 1px solid var(--e-bord);
+              background: linear-gradient(180deg, #33382a, #2a2e22 45%, #1e2119); box-shadow: 0 12px 30px rgba(0, 0, 0, .45); }
+  .escouade::before, .escouade::after { content: ""; position: absolute; width: 22px; height: 22px; border: 3px solid var(--e-sable); }
+  .escouade::before { left: -1px; top: -1px; border-right: 0; border-bottom: 0; }
+  .escouade::after { right: -1px; bottom: -1px; border-left: 0; border-top: 0; }
+  .escouade h2 { display: flex; align-items: center; gap: 16px; font: 400 clamp(30px, 5vw, 44px)/1.05 "Saira Stencil One", sans-serif;
+                 letter-spacing: 4px; color: var(--e-sable); }
+  .escouade h2::after { content: ""; flex: none; width: 64px; height: 12px;
+                        background: repeating-linear-gradient(-45deg, var(--e-danger) 0 7px, #17140b 7px 14px); }
+  .escouade .sous { color: var(--e-pale); margin-top: 4px; }
+  .escouade .prix { font: 400 44px/1 "Share Tech Mono", monospace; color: var(--e-signal); word-spacing: -.45em; }
+  .escouade .prix small { font: 600 15px "Barlow Condensed", sans-serif; letter-spacing: 1px; color: var(--e-pale); margin-left: 6px; }
+  .escouade .vitrine { box-shadow: 0 0 0 1px var(--e-bord); }
+  .escouade ul.liste li::before { border: 2px solid var(--e-sable); }
+  .escouade .acheter > a { font: 600 19px "Barlow Condensed", sans-serif; letter-spacing: 1.5px; text-transform: uppercase;
+                           color: #17140b; background: var(--e-signal); padding: 11px 24px 10px;
+                           clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
+  .escouade .acheter > a:hover { background: #f7b45c; }
+  .escouade a { color: var(--e-signal); }
+  .escouade .note, .escouade .galerie figcaption { color: var(--e-pale); }
+  .escouade .galerie figure { background: rgba(0, 0, 0, .18); box-shadow: inset 0 0 0 1px var(--e-bord); }
+
+  /* Boulevard : un panneau de verre sombre au contour de néon, le nom en enseigne lumineuse. */
+  .boulevard { --b-rose: #ff3d8b; --b-orange: #ffa53a; --b-turquoise: #2ee6d6; --b-pale: #c6a3d6;
+               color: #fdeffd; font: 500 18px/1.55 Rajdhani, sans-serif; border-radius: 16px; border: 2px solid transparent;
+               background: linear-gradient(180deg, rgba(28, 12, 44, .9), rgba(18, 8, 30, .94)) padding-box,
+                           linear-gradient(135deg, var(--b-rose), #b23cff 55%, var(--b-orange)) border-box;
+               box-shadow: 0 0 28px rgba(255, 61, 139, .28), inset 0 1px 0 rgba(255, 255, 255, .06); }
+  .boulevard h2 { font: 400 clamp(38px, 6vw, 56px)/1.3 Pacifico, cursive; color: #ffe3f1;
+                  text-shadow: 0 0 2px #fff, 0 0 10px var(--b-rose), 0 0 24px var(--b-rose); }
+  .boulevard .sous { font: 400 17px/1.3 Anton, sans-serif; letter-spacing: 1.5px; text-transform: uppercase; color: var(--b-rose);
+                     text-shadow: 2px 2px 0 #3a0d2e; }
+  .boulevard .sous::after { content: ""; display: block; height: 2px; margin-top: 6px; background: linear-gradient(90deg, var(--b-turquoise), transparent); }
+  .boulevard .prix { font: 500 56px/1 Teko, sans-serif; color: var(--b-turquoise); text-shadow: 0 0 14px rgba(46, 230, 214, .55); }
+  .boulevard .prix small { font: 600 15px Rajdhani, sans-serif; color: var(--b-pale); margin-left: 6px; text-shadow: none; }
+  .boulevard .vitrine { border-radius: 10px; box-shadow: 0 0 0 1px rgba(255, 61, 139, .45); }
+  .boulevard ul.liste li::before { width: 14px; height: 6px; top: .62em; border-radius: 3px;
+                                   background: linear-gradient(90deg, var(--b-rose), var(--b-orange)); }
+  .boulevard .acheter > a { font: 700 18px Rajdhani, sans-serif; color: #fff; padding: 10px 26px; border-radius: 999px;
+                            background: linear-gradient(90deg, var(--b-rose), var(--b-orange)); box-shadow: 0 0 16px rgba(255, 61, 139, .6); }
+  .boulevard .acheter > a:hover { filter: brightness(1.08); }
+  .boulevard a { color: var(--b-turquoise); }
+  .boulevard .note, .boulevard .galerie figcaption { color: var(--b-pale); }
+  .boulevard .galerie figure { border-radius: 12px; background: rgba(255, 255, 255, .03); box-shadow: inset 0 0 0 1px rgba(255, 61, 139, .35); }
+  .boulevard .galerie img { border-radius: 6px; }
+
+  /* Précision : une feuille de papier au coin tranché bordé de rouge, encre marine, le seul skin clair. */
+  .precision { --p-encre: #111c26; --p-pale: #66727c; --p-rouge: #f0434f; --p-marine: #1f4a63; --p-trait: #d6d0c5; --p-creme: #ebe6de;
+               color: var(--p-encre); font: 500 18px/1.55 Barlow, sans-serif; background: linear-gradient(180deg, #f8f6f2, #f1eee8);
+               clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 0 100%); }
+  .precision::after { content: ""; position: absolute; right: 0; top: 0; width: 48px; height: 48px; background: var(--p-rouge);
+                      clip-path: polygon(0 0, 14px 0, 100% 34px, 100% 100%); }
+  .precision strong, .precision b { color: var(--p-encre); }
+  .precision .haut { padding-bottom: 12px; border-bottom: 1px solid var(--p-trait); }
+  .precision h2 { font: 400 clamp(40px, 6.5vw, 62px)/1 "Bebas Neue", sans-serif; letter-spacing: 3px; color: var(--p-encre); }
+  .precision h2 b { color: var(--p-rouge); font-weight: 400; }
+  .precision .sous { color: var(--p-pale); margin-top: 6px; }
+  .precision .prix { font: 400 56px/1 "Bebas Neue", sans-serif; letter-spacing: 1px; color: var(--p-encre); margin-right: 22px; }
+  .precision .prix small { font: 700 14px Barlow, sans-serif; letter-spacing: 1.5px; color: var(--p-pale); margin-left: 6px; }
+  .precision .vitrine { box-shadow: 0 8px 20px rgba(15, 25, 35, .14); }
+  .precision ul.liste li::before { width: 11px; height: 7px; top: .62em; background: var(--p-rouge); transform: skewX(-20deg); }
+  .precision .acheter > a { font: 700 16px Barlow, sans-serif; letter-spacing: 1.5px; text-transform: uppercase; color: #fff;
+                            background: var(--p-rouge); padding: 12px 30px 11px; clip-path: polygon(11px 0, 100% 0, calc(100% - 11px) 100%, 0 100%); }
+  .precision .acheter > a:hover { background: #c43844; }
+  .precision a { color: var(--p-marine); }
+  .precision .note, .precision .galerie figcaption { color: var(--p-pale); }
+  .precision .galerie figure { background: var(--p-creme); box-shadow: none;
+                               clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%); }
+
+  /* Sortilège : un cadre d'or doublé, une gemme de magie à chaque coin, la nuit bleu profond. */
+  .sortilege { --s-or: #e2b65e; --s-or-sombre: #7a5c2e; --s-or-clair: #f6dc9c; --s-pale: #a3a7bc; --s-arcane: #a97bff;
+               color: #f1e7d0; font: 400 18px/1.6 Philosopher, Georgia, serif; padding: 34px 30px 28px; border: 1px solid var(--s-or-sombre);
+               background: radial-gradient(800px 360px at 75% -12%, rgba(169, 123, 255, .16), transparent 70%),
+                           linear-gradient(180deg, rgba(20, 31, 60, .97), rgba(11, 17, 37, .98)); }
+  .sortilege::before { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(226, 182, 94, .42); pointer-events: none; }
+  .sortilege .gemme { position: absolute; width: 14px; height: 14px; transform: rotate(45deg); border: 1px solid var(--s-or-clair);
+                      background: linear-gradient(135deg, #efe2ff, var(--s-arcane) 45%, #4a2a9a); }
+  .sortilege .gemme.hg { left: -8px; top: -8px; }
+  .sortilege .gemme.hd { right: -8px; top: -8px; }
+  .sortilege .gemme.bg { left: -8px; bottom: -8px; }
+  .sortilege .gemme.bd { right: -8px; bottom: -8px; }
+  .sortilege strong, .sortilege b { color: #f1e7d0; }
+  .sortilege .haut { padding-bottom: 12px; border-bottom: 1px solid;
+                     border-image: linear-gradient(90deg, rgba(226, 182, 94, .85), rgba(226, 182, 94, .25) 70%, transparent) 1; }
+  .sortilege h2 { font: 700 clamp(30px, 5vw, 46px)/1.1 Cinzel, serif; letter-spacing: 5px; color: var(--s-or); }
+  .sortilege h2::before { content: ""; display: inline-block; width: 12px; height: 12px; margin: 0 16px 8px 2px; transform: rotate(45deg);
+                          background: var(--s-arcane); box-shadow: 0 0 10px rgba(169, 123, 255, .8); }
+  .sortilege .sous { color: var(--s-pale); margin-top: 6px; }
+  .sortilege .prix { font: 700 44px/1 Cinzel, serif; color: #f1e7d0; }
+  .sortilege .prix small { font: 400 15px Philosopher, serif; color: var(--s-pale); margin-left: 6px; }
+  .sortilege .vitrine { box-shadow: 0 0 0 1px var(--s-or-sombre), 0 0 0 5px #0b1125, 0 0 0 6px rgba(226, 182, 94, .4); }
+  .sortilege ul.liste li::before { width: 8px; height: 8px; top: .62em; left: 2px; transform: rotate(45deg); background: var(--s-arcane);
+                                   box-shadow: 0 0 8px rgba(169, 123, 255, .7); }
+  .sortilege .acheter > a { font: 700 18px Philosopher, serif; color: #1d1405; padding: 11px 26px; border-radius: 2px;
+                            border: 1px solid var(--s-or-clair); background: linear-gradient(180deg, var(--s-or-clair), #c9973f);
+                            box-shadow: 0 0 18px rgba(226, 182, 94, .35); }
+  .sortilege .acheter > a:hover { filter: brightness(1.06); }
+  .sortilege a { color: var(--s-or-clair); }
+  .sortilege .note, .sortilege .galerie figcaption { color: var(--s-pale); }
+  .sortilege .galerie figure { background: rgba(8, 12, 28, .55); box-shadow: inset 0 0 0 1px rgba(226, 182, 94, .3); }
+
+  /* Tempête : une carte arrondie cerclée de blanc à l'ombre pleine, comme un autocollant, et ses éclairs. */
+  .tempete { --t-nuit: #12136b; --t-lavande: #c9cfff; --t-jaune: #ffd23f; --t-jaune-ombre: #b98a00;
+             color: #fff; font: 700 18px/1.55 Nunito, sans-serif; border-radius: 26px; border: 4px solid #fff;
+             background: linear-gradient(180deg, #3b47d9, #2828a3); box-shadow: 0 10px 0 var(--t-nuit); }
+  .tempete strong, .tempete b { color: #fff; }
+  .tempete h2 { display: flex; align-items: center; gap: 12px; font: 400 clamp(34px, 6vw, 54px)/1.05 "Lilita One", sans-serif;
+                letter-spacing: 1px; color: #fff; text-shadow: 0 4px 0 var(--t-nuit); }
+  .tempete h2::before { content: ""; flex: none; width: 26px; height: 36px; background: var(--t-jaune);
+                        clip-path: polygon(58% 0, 0 56%, 42% 56%, 25% 100%, 100% 37.5%, 58% 37.5%, 83% 0); }
+  .tempete .sous { color: var(--t-lavande); margin-top: 6px; }
+  .tempete .prix { font: 400 52px/1 "Lilita One", sans-serif; color: var(--t-jaune); text-shadow: 0 4px 0 var(--t-nuit); }
+  .tempete .prix small { font: 800 15px Nunito, sans-serif; color: var(--t-lavande); margin-left: 6px; text-shadow: none; }
+  .tempete .vitrine { border-radius: 14px; border: 3px solid #fff; box-shadow: 0 6px 0 var(--t-nuit); }
+  .tempete ul.liste li::before { width: 12px; height: 12px; top: .5em; border-radius: 50%; background: var(--t-jaune);
+                                 box-shadow: 0 2px 0 var(--t-jaune-ombre); }
+  .tempete .acheter > a { font: 800 18px Nunito, sans-serif; color: #1d1a5c; padding: 10px 26px; border-radius: 999px;
+                          border: 3px solid #fff; background: var(--t-jaune); box-shadow: 0 5px 0 var(--t-jaune-ombre); }
+  .tempete .acheter > a:hover { background: #ffdc66; }
+  .tempete a { color: var(--t-jaune); }
+  .tempete .note, .tempete .galerie figcaption { color: var(--t-lavande); }
+  .tempete .galerie figure { border-radius: 16px; background: rgba(14, 16, 90, .4); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .45); }
+  .tempete .galerie img { border-radius: 9px; }
+
   /* Comment l'installer */
   ol.etapes { margin: 0; padding: 0; list-style: none; counter-reset: etape; display: grid; gap: 14px; max-width: 900px; }
   ol.etapes li { counter-increment: etape; position: relative; padding: 14px 18px 14px 62px; background: var(--panel);
@@ -141,13 +311,14 @@
   code { font: 600 16px Consolas, "Cascadia Mono", monospace; color: var(--ink); background: var(--panel-2); padding: 1px 6px; }
   .pied { padding: 30px 0 46px; color: var(--dim); font-size: 16px; border-top: 1px solid var(--edge); }
   @media (max-width: 760px) {
-    .pixel .colonnes { grid-template-columns: 1fr; }
+    .pixel .colonnes, .carte .colonnes { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     body { font-size: 17px; }
     .tete { padding-top: 36px; }
     .lead { font-size: 18px; }
-    .pixel { padding: 26px 16px 20px; }
+    .pixel, .carte { padding: 26px 16px 20px; }
+    .sortilege { padding: 30px 18px 22px; }
     ol.etapes li { padding-left: 58px; }
   }
 </style>
@@ -176,6 +347,14 @@
         <p><span class="fr">«&nbsp;Aurora est gratuite, et elle le restera, ses cinq thèmes aussi. Les skins, c'est ma façon de la faire vivre&nbsp;: chaque skin acheté m'aide à garder Aurora signée, à jour et sans publicité. Merci&nbsp;!&nbsp;»</span><span class="en">“Aurora is free, and it will stay that way, its five themes too. Skins are how I keep it going: every skin you buy helps me keep Aurora signed, up to date and ad-free. Thank you!”</span></p>
         <cite>— Denis</cite>
       </blockquote>
+      <nav class="sommaire" aria-label="Les skins / The skins">
+        <a href="#pixel"><i style="--fond: #2b2d33; --couleur: #6cc644" aria-hidden="true"></i>Pixel</a>
+        <a href="#escouade"><i style="--fond: #1e2119; --couleur: #d9b87c" aria-hidden="true"></i><span class="fr">Escouade</span><span class="en">Squad</span></a>
+        <a href="#boulevard"><i style="--fond: #150a24; --couleur: #ff3d8b" aria-hidden="true"></i>Boulevard</a>
+        <a href="#precision"><i style="--fond: #f1eee8; --couleur: #f0434f" aria-hidden="true"></i><span class="fr">Précision</span><span class="en">Precision</span></a>
+        <a href="#sortilege"><i style="--fond: #0a1022; --couleur: #e2b65e" aria-hidden="true"></i><span class="fr">Sortilège</span><span class="en">Spellbound</span></a>
+        <a href="#tempete"><i style="--fond: #2828a3; --couleur: #ffd23f" aria-hidden="true"></i><span class="fr">Tempête</span><span class="en">Storm</span></a>
+      </nav>
     </div>
   </div>
 
@@ -217,7 +396,7 @@
                  data-alt-fr="L'overlay de jeu en HUD, habillé de Pixel, par-dessus un jeu de blocs"
                  data-alt-en="The HUD game overlay wearing Pixel, over a block game"
                  alt="L'overlay de jeu en HUD, habillé de Pixel, par-dessus un jeu de blocs" width="1500" height="844" loading="lazy">
-            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, cartes et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, carte graphique et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
           </figure>
           <figure>
             <img src="../img/skins/pixel-reglages-fr.webp" data-src-fr="../img/skins/pixel-reglages-fr.webp" data-src-en="../img/skins/pixel-reglages-en.webp"
@@ -231,12 +410,273 @@
     </div>
   </section>
 
+  <section id="escouade">
+    <div class="wrap">
+      <article class="carte escouade">
+        <div class="haut">
+          <div>
+            <h2><span class="fr">ESCOUADE</span><span class="en">SQUAD</span></h2>
+            <p class="sous"><span class="fr">L'ambiance des jeux de tir tactiques</span><span class="en">The feel of tactical shooters</span></p>
+          </div>
+          <p class="prix"><span class="fr">3&nbsp;$<small>CA</small></span><span class="en">CA$3</span></p>
+        </div>
+        <img class="vitrine" src="../img/skins/escouade-vue-fr.webp" data-src-fr="../img/skins/escouade-vue-fr.webp" data-src-en="../img/skins/escouade-vue-en.webp"
+             data-alt-fr="Le tableau de bord d'Aurora habillé du skin Escouade : plaques d'acier olive, titres au pochoir, jauges en réticule"
+             data-alt-en="Aurora's dashboard wearing the Squad skin: olive steel plates, stencilled titles, reticle gauges"
+             alt="Le tableau de bord d'Aurora habillé du skin Escouade : plaques d'acier olive, titres au pochoir, jauges en réticule" width="1500" height="845" loading="lazy">
+        <div class="colonnes">
+          <div class="description">
+            <p><span class="fr">Un fond de carte d'opération quadrillée, des plaques d'acier olive aux équerres de visée, des titres au pochoir suivis d'un bout de ruban de danger, des jauges en réticule, des graphiques en traits au sommet orange, la mémoire en cartouches.</span><span class="en">A gridded operations-map backdrop, olive steel plates with targeting brackets, stencilled titles followed by a strip of hazard tape, reticle gauges, line charts with orange tips, memory in cartridges.</span></p>
+            <p><span class="fr">Et en jeu, l'overlay suit&nbsp;: panneau, HUD ou barre, avec ses équerres, sans rien de coupé. Derrière son aperçu, dans l'onglet Jeux&nbsp;: un village de terre cuite.</span><span class="en">And in game, the overlay follows: panel, HUD or bar, with its brackets, nothing cut off. Behind its preview in the Games tab: a terracotta village.</span></p>
+          </div>
+          <ul class="liste">
+            <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
+            <li><span class="fr">Trois polices libres&nbsp;: Saira Stencil One, Barlow Condensed et Share Tech Mono, accents compris</span><span class="en">Three free fonts: Saira Stencil One, Barlow Condensed and Share Tech Mono, accents included</span></li>
+            <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Un fichier de 359&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 359&nbsp;KB file, signed by Aurora: no program</span></li>
+          </ul>
+        </div>
+        <div class="acheter">
+          <!-- Le lien de paiement d'Escouade chez Polar (Products → Checkout Links). -->
+          <a href="https://buy.polar.sh/polar_cl_Dd3L5HHFLPGitaFhSjwRf34wJAwFyrvaotEkj4TD4SL" rel="noopener"><span class="fr">Acheter Escouade · 3&nbsp;$</span><span class="en">Buy Squad · CA$3</span></a>
+          <p class="note"><span class="fr">Paiement sûr par Polar, taxes de ton pays calculées au paiement. Le fichier se télécharge tout de suite après. <a href="../conditions/">Conditions de vente et remboursement</a>.</span><span class="en">Secure payment through Polar, your country's taxes calculated at checkout. The file downloads right away. <a href="../conditions/?lang=en">Terms of sale and refunds</a>.</span></p>
+        </div>
+        <div class="galerie">
+          <figure>
+            <img src="../img/skins/escouade-jeu-fr.webp" data-src-fr="../img/skins/escouade-jeu-fr.webp" data-src-en="../img/skins/escouade-jeu-en.webp"
+                 data-alt-fr="L'overlay de jeu en HUD, habillé d'Escouade, sur le village de terre cuite de son aperçu"
+                 data-alt-en="The HUD game overlay wearing Squad, on the terracotta village of its preview"
+                 alt="L'overlay de jeu en HUD, habillé d'Escouade, sur le village de terre cuite de son aperçu" width="1500" height="844" loading="lazy">
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, carte graphique et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../img/skins/escouade-reglages-fr.webp" data-src-fr="../img/skins/escouade-reglages-fr.webp" data-src-en="../img/skins/escouade-reglages-en.webp"
+                 data-alt-fr="Réglages, panneau Affichage : la ligne Skins, Escouade porté"
+                 data-alt-en="Settings, Language &amp; theme panel: the Skins row, Squad worn"
+                 alt="Réglages, panneau Affichage : la ligne Skins, Escouade porté" width="1500" height="315" loading="lazy">
+            <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Escouade, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Squad, another to go back to your theme.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="boulevard">
+    <div class="wrap">
+      <article class="carte boulevard">
+        <div class="haut">
+          <div>
+            <h2>Boulevard</h2>
+            <p class="sous"><span class="fr">L'ambiance des jeux de ville ouverte</span><span class="en">The feel of open-city games</span></p>
+          </div>
+          <p class="prix"><span class="fr">3&nbsp;$<small>CA</small></span><span class="en">CA$3</span></p>
+        </div>
+        <img class="vitrine" src="../img/skins/boulevard-vue-fr.webp" data-src-fr="../img/skins/boulevard-vue-fr.webp" data-src-en="../img/skins/boulevard-vue-en.webp"
+             data-alt-fr="Le tableau de bord d'Aurora habillé du skin Boulevard : la ville au coucher du soleil, des panneaux de verre au contour de néon"
+             data-alt-en="Aurora's dashboard wearing the Boulevard skin: the city at sunset, glass panels with neon outlines"
+             alt="Le tableau de bord d'Aurora habillé du skin Boulevard : la ville au coucher du soleil, des panneaux de verre au contour de néon" width="1500" height="845" loading="lazy">
+        <div class="colonnes">
+          <div class="description">
+            <p><span class="fr">La ville au coucher du soleil derrière toute la fenêtre&nbsp;: le ciel violet qui vire au rose et à l'orange, le soleil rayé, les gratte-ciel aux fenêtres allumées, les palmiers. Par-dessus, des panneaux de verre sombre au contour de néon, le nom d'Aurora en enseigne lumineuse, des titres en grosses capitales, des jauges et des égaliseurs au néon.</span><span class="en">The city at sunset behind the whole window: a purple sky turning pink and orange, the striped sun, skyscrapers with lit windows, palm trees. On top, dark glass panels with neon outlines, Aurora's name as a glowing sign, bold headline titles, neon gauges and equalizers.</span></p>
+            <p><span class="fr">Et en jeu, l'overlay suit&nbsp;: panneau, HUD ou barre, au néon. Derrière son aperçu, dans l'onglet Jeux&nbsp;: un boulevard qui file vers le soleil.</span><span class="en">And in game, the overlay follows: panel, HUD or bar, in neon. Behind its preview in the Games tab: a boulevard running toward the sun.</span></p>
+          </div>
+          <ul class="liste">
+            <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
+            <li><span class="fr">Pacifico pour l'enseigne et Anton pour les titres, polices libres, accents compris</span><span class="en">Pacifico for the sign and Anton for the titles, free fonts, accents included</span></li>
+            <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Un fichier de 490&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 490&nbsp;KB file, signed by Aurora: no program</span></li>
+          </ul>
+        </div>
+        <div class="acheter">
+          <!-- Le lien de paiement de Boulevard chez Polar (Products → Checkout Links). -->
+          <a href="https://buy.polar.sh/polar_cl_wYasN51ntG1GbjFxEcyTk5jkUlScS11Rzx87Q4VDNij" rel="noopener"><span class="fr">Acheter Boulevard · 3&nbsp;$</span><span class="en">Buy Boulevard · CA$3</span></a>
+          <p class="note"><span class="fr">Paiement sûr par Polar, taxes de ton pays calculées au paiement. Le fichier se télécharge tout de suite après. <a href="../conditions/">Conditions de vente et remboursement</a>.</span><span class="en">Secure payment through Polar, your country's taxes calculated at checkout. The file downloads right away. <a href="../conditions/?lang=en">Terms of sale and refunds</a>.</span></p>
+        </div>
+        <div class="galerie">
+          <figure>
+            <img src="../img/skins/boulevard-jeu-fr.webp" data-src-fr="../img/skins/boulevard-jeu-fr.webp" data-src-en="../img/skins/boulevard-jeu-en.webp"
+                 data-alt-fr="L'overlay de jeu en HUD, habillé de Boulevard, sur le boulevard au coucher du soleil de son aperçu"
+                 data-alt-en="The HUD game overlay wearing Boulevard, on the sunset boulevard of its preview"
+                 alt="L'overlay de jeu en HUD, habillé de Boulevard, sur le boulevard au coucher du soleil de son aperçu" width="1500" height="844" loading="lazy">
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, carte graphique et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../img/skins/boulevard-reglages-fr.webp" data-src-fr="../img/skins/boulevard-reglages-fr.webp" data-src-en="../img/skins/boulevard-reglages-en.webp"
+                 data-alt-fr="Réglages, panneau Affichage : la ligne Skins, Boulevard porté"
+                 data-alt-en="Settings, Language &amp; theme panel: the Skins row, Boulevard worn"
+                 alt="Réglages, panneau Affichage : la ligne Skins, Boulevard porté" width="1500" height="316" loading="lazy">
+            <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Boulevard, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Boulevard, another to go back to your theme.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="precision">
+    <div class="wrap">
+      <article class="carte precision">
+        <div class="haut">
+          <div>
+            <h2><span class="fr">PRÉCISION</span><span class="en">PRECISION</span><b>.</b></h2>
+            <p class="sous"><span class="fr">L'ambiance des jeux de tir compétitifs</span><span class="en">The feel of competitive shooters</span></p>
+          </div>
+          <p class="prix"><span class="fr">3&nbsp;$<small>CA</small></span><span class="en">CA$3</span></p>
+        </div>
+        <img class="vitrine" src="../img/skins/precision-vue-fr.webp" data-src-fr="../img/skins/precision-vue-fr.webp" data-src-en="../img/skins/precision-vue-en.webp"
+             data-alt-fr="Le tableau de bord d'Aurora habillé du skin Précision : des feuilles de papier crème au coin tranché, des cadrans de chronomètre"
+             data-alt-en="Aurora's dashboard wearing the Precision skin: cream paper sheets with a cut corner, stopwatch dials"
+             alt="Le tableau de bord d'Aurora habillé du skin Précision : des feuilles de papier crème au coin tranché, des cadrans de chronomètre" width="1500" height="845" loading="lazy">
+        <div class="colonnes">
+          <div class="description">
+            <p><span class="fr">Le seul skin clair&nbsp;: l'épure sur fond crème, des feuilles de papier au coin tranché bordé d'un liseré rouge, une encre marine, des cadrans de chronomètre aux graduations fines et leur aiguille rouge, de gros chiffres condensés, des boutons en biais.</span><span class="en">The only light skin: clean lines on a cream background, paper sheets with a cut corner edged in red, navy ink, stopwatch dials with fine ticks and a red needle, big condensed digits, slanted buttons.</span></p>
+            <p><span class="fr">Et en jeu, l'overlay suit&nbsp;: panneau, HUD ou barre, net et lisible. Derrière son aperçu, dans l'onglet Jeux&nbsp;: une arène claire aux bâtiments pastel.</span><span class="en">And in game, the overlay follows: panel, HUD or bar, crisp and readable. Behind its preview in the Games tab: a bright arena with pastel buildings.</span></p>
+          </div>
+          <ul class="liste">
+            <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
+            <li><span class="fr">Bebas Neue et Barlow, polices libres, accents compris</span><span class="en">Bebas Neue and Barlow, free fonts, accents included</span></li>
+            <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Un fichier de 268&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 268&nbsp;KB file, signed by Aurora: no program</span></li>
+          </ul>
+        </div>
+        <div class="acheter">
+          <!-- Le lien de paiement de Précision chez Polar (Products → Checkout Links). -->
+          <a href="https://buy.polar.sh/polar_cl_kb46LjyIx3NUo1vMj6T36R3nflD2eRpoubLLh26Iho8" rel="noopener"><span class="fr">Acheter Précision · 3&nbsp;$</span><span class="en">Buy Precision · CA$3</span></a>
+          <p class="note"><span class="fr">Paiement sûr par Polar, taxes de ton pays calculées au paiement. Le fichier se télécharge tout de suite après. <a href="../conditions/">Conditions de vente et remboursement</a>.</span><span class="en">Secure payment through Polar, your country's taxes calculated at checkout. The file downloads right away. <a href="../conditions/?lang=en">Terms of sale and refunds</a>.</span></p>
+        </div>
+        <div class="galerie">
+          <figure>
+            <img src="../img/skins/precision-jeu-fr.webp" data-src-fr="../img/skins/precision-jeu-fr.webp" data-src-en="../img/skins/precision-jeu-en.webp"
+                 data-alt-fr="L'overlay de jeu en HUD, habillé de Précision, sur l'arène claire de son aperçu"
+                 data-alt-en="The HUD game overlay wearing Precision, on the bright arena of its preview"
+                 alt="L'overlay de jeu en HUD, habillé de Précision, sur l'arène claire de son aperçu" width="1500" height="844" loading="lazy">
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, carte graphique et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../img/skins/precision-reglages-fr.webp" data-src-fr="../img/skins/precision-reglages-fr.webp" data-src-en="../img/skins/precision-reglages-en.webp"
+                 data-alt-fr="Réglages, panneau Affichage : la ligne Skins, Précision porté"
+                 data-alt-en="Settings, Language &amp; theme panel: the Skins row, Precision worn"
+                 alt="Réglages, panneau Affichage : la ligne Skins, Précision porté" width="1500" height="315" loading="lazy">
+            <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Précision, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Precision, another to go back to your theme.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="sortilege">
+    <div class="wrap">
+      <article class="carte sortilege">
+        <i class="gemme hg" aria-hidden="true"></i><i class="gemme hd" aria-hidden="true"></i><i class="gemme bg" aria-hidden="true"></i><i class="gemme bd" aria-hidden="true"></i>
+        <div class="haut">
+          <div>
+            <h2><span class="fr">SORTILÈGE</span><span class="en">SPELLBOUND</span></h2>
+            <p class="sous"><span class="fr">L'ambiance des arènes de héros</span><span class="en">The feel of hero arenas</span></p>
+          </div>
+          <p class="prix"><span class="fr">3&nbsp;$<small>CA</small></span><span class="en">CA$3</span></p>
+        </div>
+        <img class="vitrine" src="../img/skins/sortilege-vue-fr.webp" data-src-fr="../img/skins/sortilege-vue-fr.webp" data-src-en="../img/skins/sortilege-vue-en.webp"
+             data-alt-fr="Le tableau de bord d'Aurora habillé du skin Sortilège : une nuit bleu profond, des cadres d'or aux gemmes de magie"
+             data-alt-en="Aurora's dashboard wearing the Spellbound skin: a deep blue night, gold frames with magic gems"
+             alt="Le tableau de bord d'Aurora habillé du skin Sortilège : une nuit bleu profond, des cadres d'or aux gemmes de magie" width="1500" height="845" loading="lazy">
+        <div class="colonnes">
+          <div class="description">
+            <p><span class="fr">Une nuit bleu profond semée d'étoiles et de grands cercles de runes, des cadres d'or doublés avec une gemme de magie à chaque coin, des titres d'or, des jauges cerclées d'or dont l'arc de magie luit, des éclats de cristal pour les graphiques, des rangées de gemmes pour les barres.</span><span class="en">A deep blue night strewn with stars and great rune circles, double gold frames with a magic gem at each corner, gold titles, gold-ringed gauges with a glowing arc of magic, crystal shards for the charts, rows of gems for the bars.</span></p>
+            <p><span class="fr">Et en jeu, l'overlay suit&nbsp;: panneau, HUD ou barre, cerclé d'or. Derrière son aperçu, dans l'onglet Jeux&nbsp;: une nuit magique, la lune, des piliers en ruine et des cristaux qui flottent.</span><span class="en">And in game, the overlay follows: panel, HUD or bar, framed in gold. Behind its preview in the Games tab: a magic night, the moon, ruined pillars and floating crystals.</span></p>
+          </div>
+          <ul class="liste">
+            <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
+            <li><span class="fr">Cinzel et Philosopher, polices libres, accents compris</span><span class="en">Cinzel and Philosopher, free fonts, accents included</span></li>
+            <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Un fichier de 285&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 285&nbsp;KB file, signed by Aurora: no program</span></li>
+          </ul>
+        </div>
+        <div class="acheter">
+          <!-- Le lien de paiement de Sortilège chez Polar (Products → Checkout Links). -->
+          <a href="https://buy.polar.sh/polar_cl_sw7DNEVADieuh8PdUtSQfrhGbPRHgRaHi4agB4Lhuxb" rel="noopener"><span class="fr">Acheter Sortilège · 3&nbsp;$</span><span class="en">Buy Spellbound · CA$3</span></a>
+          <p class="note"><span class="fr">Paiement sûr par Polar, taxes de ton pays calculées au paiement. Le fichier se télécharge tout de suite après. <a href="../conditions/">Conditions de vente et remboursement</a>.</span><span class="en">Secure payment through Polar, your country's taxes calculated at checkout. The file downloads right away. <a href="../conditions/?lang=en">Terms of sale and refunds</a>.</span></p>
+        </div>
+        <div class="galerie">
+          <figure>
+            <img src="../img/skins/sortilege-jeu-fr.webp" data-src-fr="../img/skins/sortilege-jeu-fr.webp" data-src-en="../img/skins/sortilege-jeu-en.webp"
+                 data-alt-fr="L'overlay de jeu en HUD, habillé de Sortilège, sur la nuit magique de son aperçu"
+                 data-alt-en="The HUD game overlay wearing Spellbound, on the magic night of its preview"
+                 alt="L'overlay de jeu en HUD, habillé de Sortilège, sur la nuit magique de son aperçu" width="1500" height="844" loading="lazy">
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, carte graphique et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../img/skins/sortilege-reglages-fr.webp" data-src-fr="../img/skins/sortilege-reglages-fr.webp" data-src-en="../img/skins/sortilege-reglages-en.webp"
+                 data-alt-fr="Réglages, panneau Affichage : la ligne Skins, Sortilège porté"
+                 data-alt-en="Settings, Language &amp; theme panel: the Skins row, Spellbound worn"
+                 alt="Réglages, panneau Affichage : la ligne Skins, Sortilège porté" width="1500" height="309" loading="lazy">
+            <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Sortilège, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Spellbound, another to go back to your theme.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="tempete">
+    <div class="wrap">
+      <article class="carte tempete">
+        <div class="haut">
+          <div>
+            <h2><span class="fr">TEMPÊTE</span><span class="en">STORM</span></h2>
+            <p class="sous"><span class="fr">L'ambiance des batailles royales en dessin animé</span><span class="en">The feel of cartoon battle royales</span></p>
+          </div>
+          <p class="prix"><span class="fr">3&nbsp;$<small>CA</small></span><span class="en">CA$3</span></p>
+        </div>
+        <img class="vitrine" src="../img/skins/tempete-vue-fr.webp" data-src-fr="../img/skins/tempete-vue-fr.webp" data-src-en="../img/skins/tempete-vue-en.webp"
+             data-alt-fr="Le tableau de bord d'Aurora habillé du skin Tempête : un grand ciel bleu, des cartes arrondies cerclées de blanc"
+             data-alt-en="Aurora's dashboard wearing the Storm skin: a big blue sky, rounded white-rimmed cards"
+             alt="Le tableau de bord d'Aurora habillé du skin Tempête : un grand ciel bleu, des cartes arrondies cerclées de blanc" width="1500" height="845" loading="lazy">
+        <div class="colonnes">
+          <div class="description">
+            <p><span class="fr">Un grand ciel bleu et le mur violet de la tempête qui arrive par la droite, des cartes arrondies cerclées de blanc avec leur ombre pleine, comme des autocollants, des titres marqués d'un éclair, des jauges dont la couleur suit la rareté de leur valeur (gris, vert, bleu, violet, or), des capsules pour les graphiques.</span><span class="en">A big blue sky and the purple storm wall coming in from the right, rounded white-rimmed cards with solid shadows, like stickers, lightning-bolt titles, gauges whose color follows the rarity of their value (grey, green, blue, purple, gold), capsules for the charts.</span></p>
+            <p><span class="fr">Et en jeu, l'overlay suit&nbsp;: panneau, HUD ou barre, en dessin animé. Derrière son aperçu, dans l'onglet Jeux&nbsp;: une île avec sa maison, ses arbres et la tempête au bord.</span><span class="en">And in game, the overlay follows: panel, HUD or bar, cartoon style. Behind its preview in the Games tab: an island with its house, its trees and the storm at the edge.</span></p>
+          </div>
+          <ul class="liste">
+            <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
+            <li><span class="fr">Lilita One et Nunito, polices libres, accents compris</span><span class="en">Lilita One and Nunito, free fonts, accents included</span></li>
+            <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Un fichier de 274&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 274&nbsp;KB file, signed by Aurora: no program</span></li>
+          </ul>
+        </div>
+        <div class="acheter">
+          <!-- Le lien de paiement de Tempête chez Polar (Products → Checkout Links). -->
+          <a href="https://buy.polar.sh/polar_cl_Fd5un9X24QbFMHqQKPY60tmgO88dw9iAccoat3sddQr" rel="noopener"><span class="fr">Acheter Tempête · 3&nbsp;$</span><span class="en">Buy Storm · CA$3</span></a>
+          <p class="note"><span class="fr">Paiement sûr par Polar, taxes de ton pays calculées au paiement. Le fichier se télécharge tout de suite après. <a href="../conditions/">Conditions de vente et remboursement</a>.</span><span class="en">Secure payment through Polar, your country's taxes calculated at checkout. The file downloads right away. <a href="../conditions/?lang=en">Terms of sale and refunds</a>.</span></p>
+        </div>
+        <div class="galerie">
+          <figure>
+            <img src="../img/skins/tempete-jeu-fr.webp" data-src-fr="../img/skins/tempete-jeu-fr.webp" data-src-en="../img/skins/tempete-jeu-en.webp"
+                 data-alt-fr="L'overlay de jeu en HUD, habillé de Tempête, sur l'île de dessin animé de son aperçu"
+                 data-alt-en="The HUD game overlay wearing Storm, on the cartoon island of its preview"
+                 alt="L'overlay de jeu en HUD, habillé de Tempête, sur l'île de dessin animé de son aperçu" width="1500" height="844" loading="lazy">
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, carte graphique et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../img/skins/tempete-reglages-fr.webp" data-src-fr="../img/skins/tempete-reglages-fr.webp" data-src-en="../img/skins/tempete-reglages-en.webp"
+                 data-alt-fr="Réglages, panneau Affichage : la ligne Skins, Tempête porté"
+                 data-alt-en="Settings, Language &amp; theme panel: the Skins row, Storm worn"
+                 alt="Réglages, panneau Affichage : la ligne Skins, Tempête porté" width="1500" height="317" loading="lazy">
+            <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Tempête, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Storm, another to go back to your theme.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section id="installer">
     <div class="wrap">
       <h2><span class="fr">L'installer</span><span class="en">Installing it</span></h2>
       <p class="intro"><span class="fr">Deux minutes, sans Internet du côté d'Aurora.</span><span class="en">Two minutes, with no Internet on Aurora's side.</span></p>
       <ol class="etapes">
-        <li><span class="fr">Achète le skin, puis télécharge son fichier (<code>pixel.auroraskin</code>) avec le lien reçu par courriel.</span><span class="en">Buy the skin, then download its file (<code>pixel.auroraskin</code>) with the link you get by email.</span></li>
+        <li><span class="fr">Achète le skin, puis télécharge son fichier (par exemple <code>pixel.auroraskin</code>) avec le lien reçu par courriel.</span><span class="en">Buy the skin, then download its file (for example <code>pixel.auroraskin</code>) with the link you get by email.</span></li>
         <li><span class="fr">Dans Aurora, va dans <b>Réglages</b>, panneau <b>Affichage</b>, et clique <b>Installer un skin…</b> La fenêtre s'ouvre dans tes Téléchargements&nbsp;: choisis le fichier.</span><span class="en">In Aurora, go to <b>Settings</b>, <b>Language &amp; theme</b> panel, and click <b>Install a skin…</b> The window opens in your Downloads: pick the file.</span></li>
         <li><span class="fr">C'est tout&nbsp;: Aurora change d'allure tout de suite. Pour revenir à un thème gratuit, clique-le&nbsp;; ton skin reste installé et revient d'un clic.</span><span class="en">That's it: Aurora changes its look right away. To go back to a free theme, click it; your skin stays installed and comes back in one click.</span></li>
       </ol>
@@ -267,8 +707,8 @@
 
 <footer class="pied">
   <div class="wrap">
-    <span class="fr">Aurora — Moniteur matériel · <a href="../">auroraapp.ca</a> · <a href="../licence/">Licence</a> · <a href="../conditions/">Conditions de vente</a> · Pixel s'inspire de l'ambiance des jeux de blocs avec ses propres dessins&nbsp;; il n'est lié à aucun jeu. Comme le reste du site, cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne.</span>
-    <span class="en">Aurora — Hardware Monitor · <a href="../">auroraapp.ca</a> · <a href="../licence/?lang=en">Licence</a> · <a href="../conditions/?lang=en">Terms of sale</a> · Pixel draws on the feel of block-building games with drawings of its own; it isn't affiliated with any game. Like the rest of the site, this page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone.</span>
+    <span class="fr">Aurora — Moniteur matériel · <a href="../">auroraapp.ca</a> · <a href="../licence/">Licence</a> · <a href="../conditions/">Conditions de vente</a> · Chaque skin s'inspire de l'ambiance d'un genre de jeu avec ses propres dessins et des polices libres&nbsp;; aucun n'est lié à un jeu. Comme le reste du site, cette page compte ses visiteurs avec Cloudflare, sans cookie et sans rien qui identifie personne.</span>
+    <span class="en">Aurora — Hardware Monitor · <a href="../">auroraapp.ca</a> · <a href="../licence/?lang=en">Licence</a> · <a href="../conditions/?lang=en">Terms of sale</a> · Each skin draws on the feel of a kind of game with drawings of its own and free fonts; none is affiliated with any game. Like the rest of the site, this page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone.</span>
   </div>
 </footer>
 
