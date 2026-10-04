@@ -367,6 +367,21 @@
     clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
   }
   .etapes p { font-size: 17px; }
+  /* La marche à suivre en images (captures d'Edge faites par Denis) : la grande capture de l'étape 3 à droite des deux
+     premières, les deux dernières étapes dessous ; une seule colonne sur un écran étroit. */
+  .etapes.guide { grid-template-columns: 1fr 1fr; grid-template-areas: "e1 e3" "e2 e3" "e4 e5"; }
+  .etapes.guide > li { display: grid; gap: 12px; align-content: start; }
+  .etapes.guide > li:nth-child(1) { grid-area: e1; }
+  .etapes.guide > li:nth-child(2) { grid-area: e2; }
+  .etapes.guide > li:nth-child(3) { grid-area: e3; }
+  .etapes.guide > li:nth-child(4) { grid-area: e4; }
+  .etapes.guide > li:nth-child(5) { grid-area: e5; }
+  .etapes.guide h4 { margin: 0; font: 700 19px/1.25 "Chakra Petch", sans-serif; color: var(--ink); }
+  .etapes.guide img { display: block; max-width: 100%; height: auto; box-shadow: 0 0 0 1px var(--edge-2); }
+  .guide-note { color: var(--dim); font-size: 15px; }
+  @media (max-width: 860px) {
+    .etapes.guide { grid-template-columns: 1fr; grid-template-areas: "e1" "e2" "e3" "e4" "e5"; }
+  }
   .avertissement { border-left: 3px solid var(--warm); padding: 14px 18px; background: linear-gradient(90deg, rgba(255, 176, 32, .09), transparent); display: grid; gap: 6px; }
   .avertissement h4 { margin: 0; color: var(--warm); font: 700 18px/1.2 "Chakra Petch", sans-serif; }
   .empreinte { display: grid; gap: 10px; }
@@ -1435,16 +1450,50 @@
     <div class="wrap installer">
       <div class="entete revele">
         <div class="tag"><span class="fr">INSTALLATION</span><span class="en">INSTALLATION</span></div>
-        <h2><span class="fr">Trois étapes, sans surprise</span><span class="en">Three steps, no surprises</span></h2>
+        <h2><span class="fr">Pas à pas, sans surprise</span><span class="en">Step by step, no surprises</span></h2>
+        <p>
+          <span class="fr">Une nouvelle version n'a pas encore de réputation auprès de Microsoft&nbsp;: les premiers jours, Edge peut s'en méfier, même signée. Voici quoi faire, avec les vraies fenêtres.</span>
+          <span class="en">A new version has no reputation with Microsoft yet: for the first few days, Edge may be wary of it, even though it's signed. Here's what to do, with the real windows.</span>
+        </p>
       </div>
-      <ol class="etapes">
-        <li class="revele"><p><span class="fr">Télécharge le fichier et ouvre-le. Ton navigateur ne devrait pas rechigner.</span><span class="en">Download the file and open it. Your browser should not object.</span></p></li>
-        <li class="revele d1"><p><span class="fr">Windows demande les droits administrateur. La fenêtre affiche «&nbsp;Éditeur vérifié&nbsp;: Denis Desbiens&nbsp;».</span><span class="en">Windows asks for administrator rights. The window shows “Verified publisher: Denis Desbiens”.</span></p></li>
-        <li class="revele d2"><p><span class="fr">L'installation ajoute .NET 10&nbsp;et PawnIO s'ils manquent&nbsp;: ça peut prendre quelques minutes, barre figée. C'est normal.</span><span class="en">The installation adds .NET 10&nbsp;and PawnIO if they are missing: that can take a few minutes, bar frozen. This is normal.</span></p></li>
+      <ol class="etapes guide">
+        <li class="revele">
+          <h4><span class="fr">Télécharge le fichier</span><span class="en">Download the file</span></h4>
+          <p><span class="fr">Si Edge dit qu'il «&nbsp;n'est pas fréquemment téléchargé&nbsp;», c'est seulement qu'il est encore récent.</span><span class="en">If Edge says it “isn't commonly downloaded”, that just means it's still new.</span></p>
+          <img loading="lazy" width="362" height="204" src="img/v1/installation-1.webp"
+               data-alt-fr="Le panneau des téléchargements d'Edge : « Aurora-Setup-1.0.9 (1).exe n'est pas fréquemment téléchargé. Assurez-vous que vous faites confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir. »"
+               data-alt-en="Edge's downloads panel, in French: the file isn't commonly downloaded; make sure you trust it before opening it."
+               alt="Le panneau des téléchargements d'Edge : « Aurora-Setup-1.0.9 (1).exe n'est pas fréquemment téléchargé. Assurez-vous que vous faites confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir. »">
+        </li>
+        <li class="revele d1">
+          <h4><span class="fr">Garde-le</span><span class="en">Keep it</span></h4>
+          <p><span class="fr">Passe la souris sur le fichier, clique les trois points «&nbsp;…&nbsp;», puis «&nbsp;Conserver&nbsp;».</span><span class="en">Hover over the file, click the three dots “…”, then “Keep”.</span></p>
+          <img loading="lazy" width="258" height="214" src="img/v1/installation-2.webp"
+               data-alt-fr="Le menu « … » du téléchargement : Supprimer, Conserver, Signaler ce fichier comme fiable, En savoir plus, Copier le lien de téléchargement."
+               data-alt-en="The download's “…” menu, in French: Delete, Keep, Report this file as safe, Learn more, Copy download link."
+               alt="Le menu « … » du téléchargement : Supprimer, Conserver, Signaler ce fichier comme fiable, En savoir plus, Copier le lien de téléchargement.">
+        </li>
+        <li class="revele d2">
+          <h4><span class="fr">Vérifie l'éditeur</span><span class="en">Check the publisher</span></h4>
+          <p><span class="fr">Edge te demande de confirmer. L'éditeur doit être <b>Denis Desbiens</b>&nbsp;: clique la flèche à côté de «&nbsp;Supprimer&nbsp;», puis «&nbsp;Conserver quand même&nbsp;».</span><span class="en">Edge asks you to confirm. The publisher should be <b>Denis Desbiens</b>: click the arrow next to “Delete”, then “Keep anyway”.</span></p>
+          <img loading="lazy" width="367" height="552" src="img/v1/installation-3.webp"
+               data-alt-fr="Edge demande de vérifier qu'on fait confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir : l'éditeur est Denis Desbiens ; sous la flèche de « Supprimer », « Conserver quand même »."
+               data-alt-en="Edge asks you to make sure you trust the file before opening it, in French: the publisher is Denis Desbiens; under the “Delete” arrow, “Keep anyway”."
+               alt="Edge demande de vérifier qu'on fait confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir : l'éditeur est Denis Desbiens ; sous la flèche de « Supprimer », « Conserver quand même ».">
+        </li>
+        <li class="revele">
+          <h4><span class="fr">Ouvre-le</span><span class="en">Open it</span></h4>
+          <p><span class="fr">Windows demande les droits administrateur. La fenêtre affiche «&nbsp;Éditeur vérifié&nbsp;: Denis Desbiens&nbsp;»&nbsp;: clique «&nbsp;Oui&nbsp;».</span><span class="en">Windows asks for administrator rights. The window shows “Verified publisher: Denis Desbiens”: click “Yes”.</span></p>
+        </li>
+        <li class="revele d1">
+          <h4><span class="fr">Laisse-le travailler</span><span class="en">Let it work</span></h4>
+          <p><span class="fr">L'installation ajoute .NET 10&nbsp;et PawnIO s'ils manquent&nbsp;: ça peut prendre quelques minutes, barre figée. C'est normal. Aurora s'ouvre quand tu cliques «&nbsp;Terminer&nbsp;».</span><span class="en">The installation adds .NET 10&nbsp;and PawnIO if they are missing: that can take a few minutes, bar frozen. This is normal. Aurora opens when you click “Finish”.</span></p>
+        </li>
       </ol>
+      <p class="guide-note revele"><span class="fr">Un autre navigateur peut afficher un avertissement semblable&nbsp;: choisis de garder le fichier.</span><span class="en">Screenshots of Edge in French. Another browser may show a similar warning: choose to keep the file.</span></p>
       <div class="avertissement revele">
-        <h4><span class="fr">Si Windows t'avertit quand même</span><span class="en">If Windows warns you anyway</span></h4>
-        <p><span class="fr">Windows regarde aussi la réputation d'un fichier&nbsp;: combien de gens l'ont installé sans ennui. Une nouvelle version peut encore afficher un avertissement les premiers jours. Clique «&nbsp;Informations complémentaires&nbsp;»&nbsp;: le nom de l'auteur y est.</span><span class="en">Windows also looks at a file's reputation: how many people have installed it without trouble. A new version may still show a warning for the first few days. Click “More info”: the author's name is right there.</span></p>
+        <h4><span class="fr">Si Windows t'avertit en l'ouvrant</span><span class="en">If Windows warns you when you open it</span></h4>
+        <p><span class="fr">«&nbsp;Windows a protégé votre ordinateur&nbsp;»&nbsp;: c'est la même réputation qui se bâtit. Clique «&nbsp;Informations complémentaires&nbsp;»&nbsp;: si l'éditeur est Denis Desbiens, «&nbsp;Exécuter quand même&nbsp;» installe Aurora.</span><span class="en">“Windows protected your PC”: it's the same reputation still building up. Click “More info”: if the publisher is Denis Desbiens, “Run anyway” installs Aurora.</span></p>
       </div>
       <div class="empreinte revele">
         <p><span class="fr">Pour vérifier le fichier toi-même&nbsp;: clic droit → Propriétés → «&nbsp;Signatures numériques&nbsp;». Ou compare son empreinte, dans PowerShell&nbsp;: <code>Get-FileHash .\Aurora-Setup-1.0.9.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.9.exe -Algorithm SHA256</code></span></p>
