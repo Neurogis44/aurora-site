@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aurora — Skins</title>
-<meta name="description" content="Des skins pour Aurora, le moniteur matériel gratuit pour Windows : de nouvelles couleurs, polices et dessins pour tout Aurora, overlay de jeu compris. Six skins, chacun dans l'ambiance d'un genre de jeu, 3 $ chacun.">
+<meta name="description" content="Des skins pour Aurora, le moniteur matériel gratuit pour Windows : de nouvelles couleurs, polices et dessins pour tout Aurora, overlay de jeu compris. Neuf skins, chacun avec son ambiance, 3 $ chacun.">
 <meta name="theme-color" content="#09090b">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aurora — les skins">
-<meta property="og:description" content="Habille Aurora à ton goût : six skins, chacun dans l'ambiance d'un genre de jeu (blocs, tir tactique, ville ouverte, tir compétitif, arène de héros, bataille royale), pour tout Aurora, overlay de jeu compris. 3 $ chacun.">
+<meta property="og:description" content="Habille Aurora à ton goût : neuf skins, chacun avec son ambiance (blocs, tir tactique, ville ouverte, tir compétitif, arène de héros, bataille royale, BD de super-héros, salle des machines, vieil écran vert), pour tout Aurora, overlay de jeu compris. 3 $ chacun.">
 <meta property="og:image" content="https://auroraapp.ca/img/skins/skins-partage.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600&family=Jersey+10&family=Silkscreen:wght@400;700&family=Tiny5&family=Saira+Stencil+One&family=Barlow+Condensed:wght@500;600&family=Share+Tech+Mono&family=Anton&family=Pacifico&family=Bebas+Neue&family=Barlow:wght@500;700&family=Cinzel:wght@700&family=Philosopher:wght@400;700&family=Lilita+One&family=Nunito:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600&family=Jersey+10&family=Silkscreen:wght@400;700&family=Tiny5&family=Saira+Stencil+One&family=Barlow+Condensed:wght@500;600&family=Share+Tech+Mono&family=Anton&family=Pacifico&family=Bebas+Neue&family=Barlow:wght@500;700&family=Cinzel:wght@700&family=Philosopher:wght@400;700&family=Lilita+One&family=Nunito:wght@700;800&family=Bangers&family=Comic+Neue:wght@400;700&family=VT323&display=swap">
 <style>
   /* Les couleurs du site (thème Carbone d'Aurora), et celles de Pixel pour sa fiche ; les autres fiches ont les leurs. */
   :root {
@@ -295,6 +295,84 @@
   .tempete .galerie figure { border-radius: 16px; background: rgba(14, 16, 90, .4); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .45); }
   .tempete .galerie img { border-radius: 9px; }
 
+  /* Kaboum : une case de BD sur papier crème à trame de points, cernée d'encre épaisse, le titre lettré en relief et
+     un récitatif jaune. */
+  .kaboum { --k-encre: #161616; --k-rouge: #e8262b; --k-bleu: #1d63d6; --k-jaune: #ffd60a; --k-pale: #5a564d;
+            color: var(--k-encre); font: 700 18px/1.55 "Comic Neue", "Comic Sans MS", sans-serif;
+            background: radial-gradient(rgba(22, 22, 22, .09) 1.2px, transparent 1.6px) 0 0 / 9px 9px, #fff4d6;
+            border: 4px solid var(--k-encre); box-shadow: 8px 8px 0 var(--k-encre); }
+  .kaboum strong, .kaboum b { color: var(--k-encre); }
+  .kaboum h2 { font: 400 clamp(38px, 6.5vw, 60px)/1 Bangers, sans-serif; letter-spacing: 3px; color: var(--k-jaune);
+               -webkit-text-stroke: 2px var(--k-encre); paint-order: stroke fill; text-shadow: 4px 4px 0 var(--k-encre); }
+  .kaboum .sous { display: inline-block; margin-top: 10px; padding: 3px 12px; background: var(--k-jaune);
+                  border: 3px solid var(--k-encre); color: var(--k-encre); }
+  .kaboum .prix { font: 400 54px/1 Bangers, sans-serif; letter-spacing: 1px; color: var(--k-rouge);
+                  -webkit-text-stroke: 1.5px var(--k-encre); paint-order: stroke fill; text-shadow: 3px 3px 0 var(--k-encre); }
+  .kaboum .prix small { font: 700 15px "Comic Neue", sans-serif; letter-spacing: 0; color: var(--k-pale); margin-left: 6px;
+                        -webkit-text-stroke: 0; text-shadow: none; }
+  .kaboum .vitrine { border: 4px solid var(--k-encre); box-shadow: 6px 6px 0 var(--k-encre); }
+  .kaboum ul.liste li::before { width: 12px; height: 12px; top: .45em; background: var(--k-rouge); border: 2px solid var(--k-encre); }
+  .kaboum ul.liste li:nth-child(3n+2)::before { background: var(--k-bleu); }
+  .kaboum ul.liste li:nth-child(3n)::before { background: var(--k-jaune); }
+  .kaboum .acheter > a { font: 400 25px/1 Bangers, sans-serif; letter-spacing: 2px; color: var(--k-encre); padding: 12px 26px 10px;
+                         background: var(--k-jaune); border: 3px solid var(--k-encre); box-shadow: 5px 5px 0 var(--k-encre); }
+  .kaboum .acheter > a:hover { background: #ffe14d; }
+  .kaboum a { color: var(--k-bleu); }
+  .kaboum .note, .kaboum .galerie figcaption { color: var(--k-pale); }
+  .kaboum .galerie figure { background: #fffdf7; box-shadow: inset 0 0 0 3px var(--k-encre); }
+
+  /* Chaufferie : une plaque d'acier rivetée aux quatre coins, sa bande de peinture de sécurité, le titre au pochoir. */
+  .chaufferie { --c-jaune: #f2b705; --c-pale: #98a0a7; --c-bord: #3b4147;
+                --rivet: radial-gradient(circle, #c9cfd4 0 2px, #6b7379 3px, #2a2f33 4.5px, transparent 5.5px);
+                color: #e6e2d6; font: 500 19px/1.5 "Barlow Condensed", Rajdhani, sans-serif; border: 2px solid var(--c-bord);
+                background: var(--rivet) 6px 14px / 16px 16px no-repeat, var(--rivet) calc(100% - 6px) 14px / 16px 16px no-repeat,
+                            var(--rivet) 6px calc(100% - 6px) / 16px 16px no-repeat,
+                            var(--rivet) calc(100% - 6px) calc(100% - 6px) / 16px 16px no-repeat,
+                            linear-gradient(180deg, #2b3035, #202428 55%, #16191c);
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 12px 30px rgba(0, 0, 0, .45); }
+  .chaufferie::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 8px;
+                        background: repeating-linear-gradient(-45deg, var(--c-jaune) 0 12px, #16140c 12px 24px); }
+  .chaufferie h2 { font: 400 clamp(30px, 5vw, 46px)/1.05 "Saira Stencil One", sans-serif; letter-spacing: 4px; color: var(--c-jaune); }
+  .chaufferie .sous { color: var(--c-pale); margin-top: 4px; }
+  .chaufferie .prix { font: 400 44px/1 "Share Tech Mono", monospace; color: var(--c-jaune); word-spacing: -.45em; }
+  .chaufferie .prix small { font: 600 15px "Barlow Condensed", sans-serif; letter-spacing: 1px; color: var(--c-pale); margin-left: 6px; }
+  .chaufferie .vitrine { box-shadow: 0 0 0 2px var(--c-bord), 0 0 0 6px #121518; }
+  .chaufferie ul.liste li::before { width: 10px; height: 10px; top: .5em; border-radius: 50%;
+                                    background: radial-gradient(circle at 35% 35%, #d6dbe0, #6b7379 70%); }
+  .chaufferie .acheter > a { font: 600 19px "Barlow Condensed", sans-serif; letter-spacing: 1.5px; text-transform: uppercase;
+                             color: #16140c; background: var(--c-jaune); padding: 11px 24px 10px; border: 2px solid #16140c;
+                             box-shadow: 0 0 0 2px var(--c-jaune); }
+  .chaufferie .acheter > a:hover { background: #ffc828; }
+  .chaufferie a { color: var(--c-jaune); }
+  .chaufferie .note, .chaufferie .galerie figcaption { color: var(--c-pale); }
+  .chaufferie .galerie figure { background: rgba(0, 0, 0, .2); box-shadow: inset 0 0 0 1px var(--c-bord); }
+
+  /* Terminal : un vieil écran à phosphore vert, ses lignes de balayage, son cadre en double trait qui luit et son curseur. */
+  .terminal { --v-vert: #33ff66; --v-texte: #7dff9a; --v-pale: #2fae55; --v-sombre: #0f6b2c;
+              color: var(--v-texte); font: 400 18px/1.6 "Share Tech Mono", monospace;
+              background: repeating-linear-gradient(180deg, rgba(51, 255, 102, .045) 0 1px, transparent 1px 3px),
+                          radial-gradient(1200px 500px at 50% 0%, rgba(51, 255, 102, .08), transparent 70%), #030a05;
+              border: 4px double var(--v-vert); box-shadow: 0 0 18px rgba(51, 255, 102, .35), inset 0 0 24px rgba(51, 255, 102, .12);
+              text-shadow: 0 0 6px rgba(51, 255, 102, .35); }
+  .terminal strong, .terminal b { color: var(--v-vert); }
+  .terminal h2 { font: 400 clamp(42px, 7vw, 68px)/1 VT323, monospace; letter-spacing: 6px; color: var(--v-vert);
+                 text-shadow: 0 0 8px rgba(51, 255, 102, .8), 0 0 22px rgba(51, 255, 102, .45); }
+  .terminal h2::after { content: "█"; margin-left: 10px; animation: curseur 1.1s steps(1) infinite; }
+  @keyframes curseur { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .terminal h2::after { animation: none; } }
+  .terminal .sous { color: var(--v-pale); margin-top: 4px; }
+  .terminal .sous::before { content: "> "; color: var(--v-vert); }
+  .terminal .prix { font: 400 58px/1 VT323, monospace; color: var(--v-vert); }
+  .terminal .prix small { font: 400 15px "Share Tech Mono", monospace; color: var(--v-pale); margin-left: 6px; }
+  .terminal .vitrine { box-shadow: 0 0 0 1px var(--v-sombre), 0 0 16px rgba(51, 255, 102, .25); }
+  .terminal ul.liste li::before { content: "■"; width: auto; height: auto; top: 0; color: var(--v-vert); }
+  .terminal .acheter > a { font: 400 27px/1 VT323, monospace; letter-spacing: 2px; text-transform: uppercase; color: #021006;
+                           background: var(--v-vert); padding: 10px 22px 8px; text-shadow: none; box-shadow: 0 0 14px rgba(51, 255, 102, .55); }
+  .terminal .acheter > a:hover { background: var(--v-texte); }
+  .terminal a { color: var(--v-vert); }
+  .terminal .note, .terminal .galerie figcaption { color: var(--v-pale); }
+  .terminal .galerie figure { background: rgba(3, 10, 5, .6); box-shadow: inset 0 0 0 1px var(--v-sombre); }
+
   /* Comment l'installer */
   ol.etapes { margin: 0; padding: 0; list-style: none; counter-reset: etape; display: grid; gap: 14px; max-width: 900px; }
   ol.etapes li { counter-increment: etape; position: relative; padding: 14px 18px 14px 62px; background: var(--panel);
@@ -354,6 +432,9 @@
         <a href="#precision"><i style="--fond: #f1eee8; --couleur: #f0434f" aria-hidden="true"></i><span class="fr">Précision</span><span class="en">Precision</span></a>
         <a href="#sortilege"><i style="--fond: #0a1022; --couleur: #e2b65e" aria-hidden="true"></i><span class="fr">Sortilège</span><span class="en">Spellbound</span></a>
         <a href="#tempete"><i style="--fond: #2828a3; --couleur: #ffd23f" aria-hidden="true"></i><span class="fr">Tempête</span><span class="en">Storm</span></a>
+        <a href="#kaboum"><i style="--fond: #fff4d6; --couleur: #e8262b" aria-hidden="true"></i><span class="fr">Kaboum</span><span class="en">Kaboom</span></a>
+        <a href="#chaufferie"><i style="--fond: #16191c; --couleur: #f2b705" aria-hidden="true"></i><span class="fr">Chaufferie</span><span class="en">Boiler Room</span></a>
+        <a href="#terminal"><i style="--fond: #030a05; --couleur: #33ff66" aria-hidden="true"></i>Terminal</a>
       </nav>
     </div>
   </div>
@@ -381,7 +462,7 @@
             <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
             <li><span class="fr">Trois polices pixel libres&nbsp;: Jersey&nbsp;10, Silkscreen et Tiny5, accents compris</span><span class="en">Three free pixel fonts: Jersey&nbsp;10, Silkscreen and Tiny5, accents included</span></li>
             <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
-            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9&nbsp;ou plus récente, Windows&nbsp;10&nbsp;et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9&nbsp;or newer, Windows&nbsp;10&nbsp;and&nbsp;11</span></li>
             <li><span class="fr">Un fichier de 236&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 236&nbsp;KB file, signed by Aurora: no program</span></li>
           </ul>
         </div>
@@ -433,7 +514,7 @@
             <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
             <li><span class="fr">Trois polices libres&nbsp;: Saira Stencil One, Barlow Condensed et Share Tech Mono, accents compris</span><span class="en">Three free fonts: Saira Stencil One, Barlow Condensed and Share Tech Mono, accents included</span></li>
             <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
-            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9&nbsp;ou plus récente, Windows&nbsp;10&nbsp;et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9&nbsp;or newer, Windows&nbsp;10&nbsp;and&nbsp;11</span></li>
             <li><span class="fr">Un fichier de 359&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 359&nbsp;KB file, signed by Aurora: no program</span></li>
           </ul>
         </div>
@@ -485,7 +566,7 @@
             <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
             <li><span class="fr">Pacifico pour l'enseigne et Anton pour les titres, polices libres, accents compris</span><span class="en">Pacifico for the sign and Anton for the titles, free fonts, accents included</span></li>
             <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
-            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9&nbsp;ou plus récente, Windows&nbsp;10&nbsp;et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9&nbsp;or newer, Windows&nbsp;10&nbsp;and&nbsp;11</span></li>
             <li><span class="fr">Un fichier de 490&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 490&nbsp;KB file, signed by Aurora: no program</span></li>
           </ul>
         </div>
@@ -537,7 +618,7 @@
             <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
             <li><span class="fr">Bebas Neue et Barlow, polices libres, accents compris</span><span class="en">Bebas Neue and Barlow, free fonts, accents included</span></li>
             <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
-            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9&nbsp;ou plus récente, Windows&nbsp;10&nbsp;et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9&nbsp;or newer, Windows&nbsp;10&nbsp;and&nbsp;11</span></li>
             <li><span class="fr">Un fichier de 268&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 268&nbsp;KB file, signed by Aurora: no program</span></li>
           </ul>
         </div>
@@ -590,7 +671,7 @@
             <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
             <li><span class="fr">Cinzel et Philosopher, polices libres, accents compris</span><span class="en">Cinzel and Philosopher, free fonts, accents included</span></li>
             <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
-            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9&nbsp;ou plus récente, Windows&nbsp;10&nbsp;et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9&nbsp;or newer, Windows&nbsp;10&nbsp;and&nbsp;11</span></li>
             <li><span class="fr">Un fichier de 285&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 285&nbsp;KB file, signed by Aurora: no program</span></li>
           </ul>
         </div>
@@ -642,7 +723,7 @@
             <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
             <li><span class="fr">Lilita One et Nunito, polices libres, accents compris</span><span class="en">Lilita One and Nunito, free fonts, accents included</span></li>
             <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
-            <li><span class="fr">Aurora&nbsp;1.0.9 ou plus récente, Windows&nbsp;10 et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9 or newer, Windows&nbsp;10 and&nbsp;11</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.9&nbsp;ou plus récente, Windows&nbsp;10&nbsp;et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.9&nbsp;or newer, Windows&nbsp;10&nbsp;and&nbsp;11</span></li>
             <li><span class="fr">Un fichier de 274&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 274&nbsp;KB file, signed by Aurora: no program</span></li>
           </ul>
         </div>
@@ -665,6 +746,163 @@
                  data-alt-en="Settings, Language &amp; theme panel: the Skins row, Storm worn"
                  alt="Réglages, panneau Affichage : la ligne Skins, Tempête porté" width="1500" height="317" loading="lazy">
             <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Tempête, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Storm, another to go back to your theme.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Les trois de la 1.0.10 : ils demandent Aurora 1.0.10 (à mettre en ligne avec elle, pas avant). -->
+  <section id="kaboum">
+    <div class="wrap">
+      <article class="carte kaboum">
+        <div class="haut">
+          <div>
+            <h2><span class="fr">KABOUM</span><span class="en">KABOOM</span></h2>
+            <p class="sous"><span class="fr">L'ambiance des BD de super-héros</span><span class="en">The feel of superhero comics</span></p>
+          </div>
+          <p class="prix"><span class="fr">3&nbsp;$<small>CA</small></span><span class="en">CA$3</span></p>
+        </div>
+        <img class="vitrine" src="../img/skins/kaboum-vue-fr.webp" data-src-fr="../img/skins/kaboum-vue-fr.webp" data-src-en="../img/skins/kaboum-vue-en.webp"
+             data-alt-fr="Le tableau de bord d'Aurora habillé du skin Kaboum : une page de BD sur papier crème, des cases cernées d'encre, des jauges encrées aux couleurs primaires"
+             data-alt-en="Aurora's dashboard wearing the Kaboom skin: a comic book page on cream paper, ink-bordered panels, inked gauges in primary colors"
+             alt="Le tableau de bord d'Aurora habillé du skin Kaboum : une page de BD sur papier crème, des cases cernées d'encre, des jauges encrées aux couleurs primaires" width="1500" height="845" loading="lazy">
+        <div class="colonnes">
+          <div class="description">
+            <p><span class="fr">Une page de BD sur fond clair&nbsp;: le papier et sa trame de points, des cases cernées d'encre épaisse, les titres dans des encadrés jaunes, le nom d'Aurora lettré en relief, des jauges encrées aux couleurs primaires, des barres hachurées et des éclats pour les alertes.</span><span class="en">A comic book page on a light background: paper with halftone dots, panels with thick ink borders, titles in yellow caption boxes, Aurora's name lettered in relief, inked gauges in primary colors, hatched bars and bursts for alerts.</span></p>
+            <p><span class="fr">Et en jeu, l'overlay suit&nbsp;: panneau, HUD ou barre. Derrière son aperçu, dans l'onglet Jeux&nbsp;: une ville de BD sous un grand «&nbsp;KABOUM&nbsp;!&nbsp;».</span><span class="en">And in game, the overlay follows: panel, HUD or bar. Behind its preview in the Games tab: a comic book city under a big “KABOOM!”.</span></p>
+          </div>
+          <ul class="liste">
+            <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
+            <li><span class="fr">Bangers et Comic Neue, polices libres, accents compris</span><span class="en">Bangers and Comic Neue, free fonts, accents included</span></li>
+            <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.10&nbsp;ou plus récente, Windows&nbsp;10&nbsp;et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.10&nbsp;or newer, Windows&nbsp;10&nbsp;and&nbsp;11</span></li>
+            <li><span class="fr">Un fichier de 203&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 203&nbsp;KB file, signed by Aurora: no program</span></li>
+          </ul>
+        </div>
+        <div class="acheter">
+          <!-- Le lien de paiement de Kaboum chez Polar (Products → Checkout Links) : À METTRE avant de publier. -->
+          <a href="https://buy.polar.sh/LIEN-KABOUM-A-VENIR" rel="noopener"><span class="fr">Acheter Kaboum · 3&nbsp;$</span><span class="en">Buy Kaboom · CA$3</span></a>
+          <p class="note"><span class="fr">Paiement sûr par Polar, taxes de ton pays calculées au paiement. Le fichier se télécharge tout de suite après. <a href="../conditions/">Conditions de vente et remboursement</a>.</span><span class="en">Secure payment through Polar, your country's taxes calculated at checkout. The file downloads right away. <a href="../conditions/?lang=en">Terms of sale and refunds</a>.</span></p>
+        </div>
+        <div class="galerie">
+          <figure>
+            <img src="../img/skins/kaboum-jeu-fr.webp" data-src-fr="../img/skins/kaboum-jeu-fr.webp" data-src-en="../img/skins/kaboum-jeu-en.webp"
+                 data-alt-fr="L'overlay de jeu en HUD, habillé de Kaboum, dans le ciel de la ville de BD de son aperçu"
+                 data-alt-en="The HUD game overlay wearing Kaboom, in the sky of the comic book city of its preview"
+                 alt="L'overlay de jeu en HUD, habillé de Kaboum, dans le ciel de la ville de BD de son aperçu" width="1500" height="844" loading="lazy">
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, carte graphique et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../img/skins/kaboum-reglages-fr.webp" data-src-fr="../img/skins/kaboum-reglages-fr.webp" data-src-en="../img/skins/kaboum-reglages-en.webp"
+                 data-alt-fr="Réglages, panneau Affichage : la ligne Skins, Kaboum porté"
+                 data-alt-en="Settings, Language &amp; theme panel: the Skins row, Kaboom worn"
+                 alt="Réglages, panneau Affichage : la ligne Skins, Kaboum porté" width="1500" height="322" loading="lazy">
+            <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Kaboum, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Kaboom, another to go back to your theme.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="chaufferie">
+    <div class="wrap">
+      <article class="carte chaufferie">
+        <div class="haut">
+          <div>
+            <h2><span class="fr">CHAUFFERIE</span><span class="en">BOILER ROOM</span></h2>
+            <p class="sous"><span class="fr">L'ambiance d'une vieille salle des machines</span><span class="en">The feel of an old engine room</span></p>
+          </div>
+          <p class="prix"><span class="fr">3&nbsp;$<small>CA</small></span><span class="en">CA$3</span></p>
+        </div>
+        <img class="vitrine" src="../img/skins/chaufferie-vue-fr.webp" data-src-fr="../img/skins/chaufferie-vue-fr.webp" data-src-en="../img/skins/chaufferie-vue-en.webp"
+             data-alt-fr="Le tableau de bord d'Aurora habillé du skin Chaufferie : plaques d'acier rivetées sur tôle larmée rouillée, manomètres chromés en guise de jauges"
+             data-alt-en="Aurora's dashboard wearing the Boiler Room skin: riveted steel plates on rusty diamond plate, chrome pressure gauges for gauges"
+             alt="Le tableau de bord d'Aurora habillé du skin Chaufferie : plaques d'acier rivetées sur tôle larmée rouillée, manomètres chromés en guise de jauges" width="1500" height="845" loading="lazy">
+        <div class="colonnes">
+          <div class="description">
+            <p><span class="fr">Une salle des machines usée par les années&nbsp;: tôle larmée rouillée, plaques d'acier rivetées, manomètres chromés au cadran jauni en guise de jauges, peinture de sécurité écaillée.</span><span class="en">An engine room worn by the years: rusty diamond plate, riveted steel panels, chrome pressure gauges with yellowed dials for gauges, chipped safety paint.</span></p>
+            <p><span class="fr">Et en jeu, l'overlay suit&nbsp;: panneau, HUD ou barre. Derrière son aperçu, dans l'onglet Jeux&nbsp;: la chaufferie elle-même, avec son manomètre, ses tuyaux, sa vapeur et sa vanne rouge.</span><span class="en">And in game, the overlay follows: panel, HUD or bar. Behind its preview in the Games tab: the boiler room itself, with its pressure gauge, pipes, steam and red valve.</span></p>
+          </div>
+          <ul class="liste">
+            <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
+            <li><span class="fr">Trois polices libres&nbsp;: Saira Stencil One, Barlow Condensed et Share Tech Mono, accents compris</span><span class="en">Three free fonts: Saira Stencil One, Barlow Condensed and Share Tech Mono, accents included</span></li>
+            <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.10&nbsp;ou plus récente, Windows&nbsp;10&nbsp;et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.10&nbsp;or newer, Windows&nbsp;10&nbsp;and&nbsp;11</span></li>
+            <li><span class="fr">Un fichier de 1,5&nbsp;Mo, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 1.5&nbsp;MB file, signed by Aurora: no program</span></li>
+          </ul>
+        </div>
+        <div class="acheter">
+          <!-- Le lien de paiement de Chaufferie chez Polar (Products → Checkout Links) : À METTRE avant de publier. -->
+          <a href="https://buy.polar.sh/LIEN-CHAUFFERIE-A-VENIR" rel="noopener"><span class="fr">Acheter Chaufferie · 3&nbsp;$</span><span class="en">Buy Boiler Room · CA$3</span></a>
+          <p class="note"><span class="fr">Paiement sûr par Polar, taxes de ton pays calculées au paiement. Le fichier se télécharge tout de suite après. <a href="../conditions/">Conditions de vente et remboursement</a>.</span><span class="en">Secure payment through Polar, your country's taxes calculated at checkout. The file downloads right away. <a href="../conditions/?lang=en">Terms of sale and refunds</a>.</span></p>
+        </div>
+        <div class="galerie">
+          <figure>
+            <img src="../img/skins/chaufferie-jeu-fr.webp" data-src-fr="../img/skins/chaufferie-jeu-fr.webp" data-src-en="../img/skins/chaufferie-jeu-en.webp"
+                 data-alt-fr="L'overlay de jeu en HUD, habillé de Chaufferie, devant la citerne de la salle des machines de son aperçu"
+                 data-alt-en="The HUD game overlay wearing Boiler Room, in front of the tank of the engine room of its preview"
+                 alt="L'overlay de jeu en HUD, habillé de Chaufferie, devant la citerne de la salle des machines de son aperçu" width="1500" height="844" loading="lazy">
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, carte graphique et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../img/skins/chaufferie-reglages-fr.webp" data-src-fr="../img/skins/chaufferie-reglages-fr.webp" data-src-en="../img/skins/chaufferie-reglages-en.webp"
+                 data-alt-fr="Réglages, panneau Affichage : la ligne Skins, Chaufferie porté"
+                 data-alt-en="Settings, Language &amp; theme panel: the Skins row, Boiler Room worn"
+                 alt="Réglages, panneau Affichage : la ligne Skins, Chaufferie porté" width="1500" height="331" loading="lazy">
+            <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Chaufferie, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Boiler Room, another to go back to your theme.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="terminal">
+    <div class="wrap">
+      <article class="carte terminal">
+        <div class="haut">
+          <div>
+            <h2>TERMINAL</h2>
+            <p class="sous"><span class="fr">L'ambiance des vieux écrans à phosphore vert</span><span class="en">The feel of old green phosphor screens</span></p>
+          </div>
+          <p class="prix"><span class="fr">3&nbsp;$<small>CA</small></span><span class="en">CA$3</span></p>
+        </div>
+        <img class="vitrine" src="../img/skins/terminal-vue-fr.webp" data-src-fr="../img/skins/terminal-vue-fr.webp" data-src-en="../img/skins/terminal-vue-en.webp"
+             data-alt-fr="Le tableau de bord d'Aurora habillé du skin Terminal : un écran à phosphore vert, des cadres en double trait, des jauges et des graphiques en blocs"
+             data-alt-en="Aurora's dashboard wearing the Terminal skin: a green phosphor screen, double-line frames, block gauges and charts"
+             alt="Le tableau de bord d'Aurora habillé du skin Terminal : un écran à phosphore vert, des cadres en double trait, des jauges et des graphiques en blocs" width="1500" height="845" loading="lazy">
+        <div class="colonnes">
+          <div class="description">
+            <p><span class="fr">Un vieil écran cathodique à phosphore vert&nbsp;: lignes de balayage, cadres en double trait qui luisent, jauges et graphiques en blocs, boutons en vidéo inversée.</span><span class="en">An old green phosphor CRT: scanlines, glowing double-line frames, block gauges and charts, inverse-video buttons.</span></p>
+            <p><span class="fr">Et en jeu, l'overlay suit&nbsp;: panneau, HUD ou barre. Derrière son aperçu, dans l'onglet Jeux&nbsp;: un paysage en fil de fer sous un soleil rayé.</span><span class="en">And in game, the overlay follows: panel, HUD or bar. Behind its preview in the Games tab: a wireframe landscape under a striped sun.</span></p>
+          </div>
+          <ul class="liste">
+            <li><span class="fr">Tout Aurora habillé&nbsp;: tableau de bord, onglets, Réglages, overlay de jeu</span><span class="en">All of Aurora dressed up: dashboard, tabs, Settings, game overlay</span></li>
+            <li><span class="fr">VT323&nbsp;et Share Tech Mono, polices libres, accents compris</span><span class="en">VT323&nbsp;and Share Tech Mono, free fonts, accents included</span></li>
+            <li><span class="fr">En français et en anglais, comme Aurora</span><span class="en">In French and English, like Aurora</span></li>
+            <li><span class="fr">Aurora&nbsp;1.0.10&nbsp;ou plus récente, Windows&nbsp;10&nbsp;et&nbsp;11</span><span class="en">Aurora&nbsp;1.0.10&nbsp;or newer, Windows&nbsp;10&nbsp;and&nbsp;11</span></li>
+            <li><span class="fr">Un fichier de 613&nbsp;Ko, signé par Aurora&nbsp;: aucun programme</span><span class="en">One 613&nbsp;KB file, signed by Aurora: no program</span></li>
+          </ul>
+        </div>
+        <div class="acheter">
+          <!-- Le lien de paiement de Terminal chez Polar (Products → Checkout Links) : À METTRE avant de publier. -->
+          <a href="https://buy.polar.sh/LIEN-TERMINAL-A-VENIR" rel="noopener"><span class="fr">Acheter Terminal · 3&nbsp;$</span><span class="en">Buy Terminal · CA$3</span></a>
+          <p class="note"><span class="fr">Paiement sûr par Polar, taxes de ton pays calculées au paiement. Le fichier se télécharge tout de suite après. <a href="../conditions/">Conditions de vente et remboursement</a>.</span><span class="en">Secure payment through Polar, your country's taxes calculated at checkout. The file downloads right away. <a href="../conditions/?lang=en">Terms of sale and refunds</a>.</span></p>
+        </div>
+        <div class="galerie">
+          <figure>
+            <img src="../img/skins/terminal-jeu-fr.webp" data-src-fr="../img/skins/terminal-jeu-fr.webp" data-src-en="../img/skins/terminal-jeu-en.webp"
+                 data-alt-fr="L'overlay de jeu en HUD, habillé de Terminal, sur le sol quadrillé du paysage en fil de fer de son aperçu"
+                 data-alt-en="The HUD game overlay wearing Terminal, on the grid floor of the wireframe landscape of its preview"
+                 alt="L'overlay de jeu en HUD, habillé de Terminal, sur le sol quadrillé du paysage en fil de fer de son aperçu" width="1500" height="844" loading="lazy">
+            <figcaption><span class="fr">L'overlay de jeu, en HUD&nbsp;: FPS, ce qui les limite, carte graphique et processeur.</span><span class="en">The game overlay, as a HUD: FPS, what limits them, graphics card and processor.</span></figcaption>
+          </figure>
+          <figure>
+            <img src="../img/skins/terminal-reglages-fr.webp" data-src-fr="../img/skins/terminal-reglages-fr.webp" data-src-en="../img/skins/terminal-reglages-en.webp"
+                 data-alt-fr="Réglages, panneau Affichage : la ligne Skins, Terminal porté"
+                 data-alt-en="Settings, Language &amp; theme panel: the Skins row, Terminal worn"
+                 alt="Réglages, panneau Affichage : la ligne Skins, Terminal porté" width="1500" height="319" loading="lazy">
+            <figcaption><span class="fr">Dans les Réglages, sous les thèmes&nbsp;: un clic pour porter Terminal, un autre pour revenir à ton thème.</span><span class="en">In Settings, under the themes: one click to wear Terminal, another to go back to your theme.</span></figcaption>
           </figure>
         </div>
       </article>
@@ -699,7 +937,7 @@
         <div><h3><span class="fr">Pourquoi des skins payants&nbsp;?</span><span class="en">Why paid skins?</span></h3>
           <p><span class="fr">Aurora n'a ni publicité ni compte, et ne vend aucune donnée. Les skins sont sa seule source de revenus.</span><span class="en">Aurora has no ads and no account, and sells no data. Skins are its only source of income.</span></p></div>
         <div><h3><span class="fr">D'autres skins s'en viennent&nbsp;?</span><span class="en">Are more skins coming?</span></h3>
-          <p><span class="fr">Oui. Chacun dans l'ambiance d'un genre de jeu, avec des noms et des dessins à nous.</span><span class="en">Yes. Each one in the mood of a kind of game, with names and drawings of our own.</span></p></div>
+          <p><span class="fr">Oui. Chacun avec son ambiance, des noms et des dessins à nous. Depuis Aurora&nbsp;1.0.10, les nouveaux s'installent sans mettre Aurora à jour.</span><span class="en">Yes. Each one with its own mood, names and drawings of our own. Since Aurora&nbsp;1.0.10, new ones install without updating Aurora.</span></p></div>
       </div>
     </div>
   </section>
