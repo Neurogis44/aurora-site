@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://auroraapp.ca/sitemap.xml

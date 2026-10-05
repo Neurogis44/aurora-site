@@ -1,9 +1,10 @@
 <!doctype html>
+<!-- Page écrite dans les deux langues : sa version anglaise (/en/…) et son référencement se refont avec _outils/langues.py. -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aurora Moniteur Matériel</title>
+<title>Aurora — Moniteur de PC gratuit pour Windows, en mots simples</title>
 <meta name="description" content="Aurora surveille ton PC en direct et jour après jour, et te dit en mots simples s'il va bien et quoi faire : températures, ventilateurs, disques, FPS en jeu, mises à jour de Windows. Gratuite, sans compte, pour Windows 10 et 11.">
 <meta name="theme-color" content="#09090b">
 <meta property="og:type" content="website">
@@ -11,6 +12,18 @@
 <meta property="og:description" content="Ton PC suivi en direct et jour après jour, expliqué en mots simples : sa santé, ce qui a changé, tes jeux, les mises à jour de Windows. Gratuite, sans compte, sans publicité.">
 <meta property="og:image" content="https://auroraapp.ca/img/v1/partage.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<!-- référencement : début (fabriqué par _outils/langues.py, ne pas modifier ici) -->
+<link rel="canonical" href="https://auroraapp.ca/">
+<link rel="alternate" hreflang="fr" href="https://auroraapp.ca/">
+<link rel="alternate" hreflang="en" href="https://auroraapp.ca/en/">
+<link rel="alternate" hreflang="x-default" href="https://auroraapp.ca/">
+<meta property="og:url" content="https://auroraapp.ca/">
+<meta property="og:site_name" content="Aurora">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:locale:alternate" content="en_US">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Aurora","alternateName":"Aurora Moniteur Matériel","description":"Aurora surveille ton PC en direct et jour après jour, et te dit en mots simples s'il va bien et quoi faire : températures, ventilateurs, disques, FPS en jeu, mises à jour de Windows. Gratuite, sans compte, pour Windows 10 et 11.","url":"https://auroraapp.ca/","inLanguage":"fr","applicationCategory":"UtilitiesApplication","operatingSystem":"Windows 10, Windows 11","softwareVersion":"1.0.11","fileSize":"10.3 MB","downloadUrl":"https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.11/Aurora-Setup-1.0.11.exe","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"},"author":{"@type":"Person","name":"Denis"},"image":"https://auroraapp.ca/img/v1/partage.jpg","screenshot":"https://auroraapp.ca/img/v1/vue-fr.webp"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Aurora","alternateName":"Aurora Moniteur Matériel","url":"https://auroraapp.ca/","inLanguage":"fr"}</script>
+<!-- référencement : fin -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1782,7 +1795,7 @@
 
   /* ——— Langue : textes, et images et vidéos de la bonne langue ——— */
   var boutons = { fr: document.getElementById('btn-fr'), en: document.getElementById('btn-en') };
-  var titres = { fr: 'Aurora Moniteur Matériel', en: 'Aurora Hardware Monitor' };
+  var titres = { fr: "Aurora — Moniteur de PC gratuit pour Windows, en mots simples", en: "Aurora — Free PC Monitor for Windows, in Plain Words" };
 
   function medias() {
     document.querySelectorAll('[data-src-' + langue + ']').forEach(function (el) {
@@ -1807,17 +1820,44 @@
     document.title = titres[choix];
     boutons.fr.setAttribute('aria-pressed', String(choix === 'fr'));
     boutons.en.setAttribute('aria-pressed', String(choix === 'en'));
-    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
     medias();
   }
-  var choisie = null;
-  try { choisie = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
-  if (choisie !== 'fr' && choisie !== 'en') {
-    choisie = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+  // Chaque langue a sa propre adresse : le français à la racine, l'anglais sous /en/ (son lien « alternate »). La page
+  // reste dans sa langue, jamais d'après celle du navigateur : les robots des moteurs de recherche lisent en anglais, et
+  // prenaient les pages françaises pour des pages anglaises. Un lien « ?lang=en » (courriels, Readme anglais) ou un choix
+  // déjà fait (FR, EN) mènent à l'autre adresse.
+  var ici = racine.getAttribute('data-langue-page') === 'en' ? 'en' : 'fr';
+  var lienAutre = document.querySelector('link[rel="alternate"][hreflang="' + (ici === 'en' ? 'fr' : 'en') + '"]');
+  var autre = lienAutre ? new URL(lienAutre.getAttribute('href'), location.href).pathname : null;
+  function retenir(choix) {
+    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
   }
-  appliquer(choisie);
-  boutons.fr.addEventListener('click', function () { appliquer('fr'); });
-  boutons.en.addEventListener('click', function () { appliquer('en'); });
+  function aller(choix) {
+    retenir(choix);
+    if (choix !== ici && autre) { location.href = autre + location.hash; }
+  }
+  var demandee = new URLSearchParams(location.search).get('lang');
+  var retenue = null;
+  try { retenue = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
+  var voulue = demandee === 'fr' || demandee === 'en' ? demandee : retenue;
+  if (voulue && voulue !== ici && autre) { location.replace(autre + location.hash); }
+  appliquer(ici);
+  boutons.fr.addEventListener('click', function () { aller('fr'); });
+  boutons.en.addEventListener('click', function () { aller('en'); });
+  // Un navigateur dans l'autre langue, sans choix fait : une pastille propose l'autre version.
+  var langueNavigateur = (navigator.language || 'fr').toLowerCase();
+  var autreLangue = ici === 'fr' ? langueNavigateur.indexOf('fr') !== 0 : langueNavigateur.indexOf('fr') === 0;
+  if (!voulue && autre && autreLangue) {
+    var pastille = document.createElement('a');
+    pastille.href = autre + location.hash;
+    pastille.lang = ici === 'fr' ? 'en' : 'fr';
+    pastille.textContent = ici === 'fr' ? 'English version →' : 'Version française →';
+    pastille.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:1000;padding:10px 18px;border-radius:999px;' +
+      'background:var(--accent,#ff2340);color:#fff;font:600 15px/1.2 Rajdhani,system-ui,sans-serif;text-decoration:none;' +
+      'box-shadow:0 8px 24px rgba(0,0,0,.4)';
+    pastille.addEventListener('click', function () { retenir(ici === 'fr' ? 'en' : 'fr'); });
+    document.body.appendChild(pastille);
+  }
 
   /* ——— Barre du haut : un trait dès qu'on descend ——— */
   var barre = document.getElementById('barre');

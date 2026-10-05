@@ -1,9 +1,10 @@
 <!doctype html>
+<!-- Page écrite dans les deux langues : sa version anglaise (/en/…) et son référencement se refont avec _outils/langues.py. -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aurora — Trousse de presse</title>
+<title>Trousse de presse — Aurora, moniteur de PC gratuit</title>
 <meta name="description" content="Trousse de presse d'Aurora, moniteur matériel gratuit pour Windows : textes à copier, captures en haute résolution, logo et vidéos.">
 <meta name="theme-color" content="#09090b">
 <meta property="og:type" content="website">
@@ -11,6 +12,16 @@
 <meta property="og:description" content="Textes, captures, logo et vidéos pour parler d'Aurora, moniteur matériel gratuit pour Windows.">
 <meta property="og:image" content="https://auroraapp.ca/img/v1/partage.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<!-- référencement : début (fabriqué par _outils/langues.py, ne pas modifier ici) -->
+<link rel="canonical" href="https://auroraapp.ca/presse/">
+<link rel="alternate" hreflang="fr" href="https://auroraapp.ca/presse/">
+<link rel="alternate" hreflang="en" href="https://auroraapp.ca/en/presse/">
+<link rel="alternate" hreflang="x-default" href="https://auroraapp.ca/presse/">
+<meta property="og:url" content="https://auroraapp.ca/presse/">
+<meta property="og:site_name" content="Aurora">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:locale:alternate" content="en_US">
+<!-- référencement : fin -->
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -385,7 +396,7 @@
 (function () {
   var racine = document.documentElement;
   var boutons = { fr: document.getElementById('btn-fr'), en: document.getElementById('btn-en') };
-  var titres = { fr: 'Aurora — Trousse de presse', en: 'Aurora — Press kit' };
+  var titres = { fr: "Trousse de presse — Aurora, moniteur de PC gratuit", en: "Press kit — Aurora, the free PC monitor" };
 
   function appliquer(choix) {
     racine.setAttribute('data-lang', choix);
@@ -400,21 +411,44 @@
     document.querySelectorAll('[data-href-' + choix + ']').forEach(function (el) {
       el.setAttribute('href', el.getAttribute('data-href-' + choix));
     });
-    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
   }
 
-  // La langue du lien (« ?lang=en » dans un courriel à un youtubeur anglophone), sinon celle choisie sur le site,
-  // sinon celle du navigateur.
-  var demandee = new URLSearchParams(location.search).get('lang');
-  var choisie = null;
-  try { choisie = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
-  if (demandee === 'fr' || demandee === 'en') { choisie = demandee; }
-  if (choisie !== 'fr' && choisie !== 'en') {
-    choisie = (navigator.language || 'fr').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en';
+  // Chaque langue a sa propre adresse : le français à la racine, l'anglais sous /en/ (son lien « alternate »). La page
+  // reste dans sa langue, jamais d'après celle du navigateur : les robots des moteurs de recherche lisent en anglais, et
+  // prenaient les pages françaises pour des pages anglaises. Un lien « ?lang=en » (courriels, Readme anglais) ou un choix
+  // déjà fait (FR, EN) mènent à l'autre adresse.
+  var ici = racine.getAttribute('data-langue-page') === 'en' ? 'en' : 'fr';
+  var lienAutre = document.querySelector('link[rel="alternate"][hreflang="' + (ici === 'en' ? 'fr' : 'en') + '"]');
+  var autre = lienAutre ? new URL(lienAutre.getAttribute('href'), location.href).pathname : null;
+  function retenir(choix) {
+    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
   }
-  appliquer(choisie);
-  boutons.fr.addEventListener('click', function () { appliquer('fr'); });
-  boutons.en.addEventListener('click', function () { appliquer('en'); });
+  function aller(choix) {
+    retenir(choix);
+    if (choix !== ici && autre) { location.href = autre + location.hash; }
+  }
+  var demandee = new URLSearchParams(location.search).get('lang');
+  var retenue = null;
+  try { retenue = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
+  var voulue = demandee === 'fr' || demandee === 'en' ? demandee : retenue;
+  if (voulue && voulue !== ici && autre) { location.replace(autre + location.hash); }
+  appliquer(ici);
+  boutons.fr.addEventListener('click', function () { aller('fr'); });
+  boutons.en.addEventListener('click', function () { aller('en'); });
+  // Un navigateur dans l'autre langue, sans choix fait : une pastille propose l'autre version.
+  var langueNavigateur = (navigator.language || 'fr').toLowerCase();
+  var autreLangue = ici === 'fr' ? langueNavigateur.indexOf('fr') !== 0 : langueNavigateur.indexOf('fr') === 0;
+  if (!voulue && autre && autreLangue) {
+    var pastille = document.createElement('a');
+    pastille.href = autre + location.hash;
+    pastille.lang = ici === 'fr' ? 'en' : 'fr';
+    pastille.textContent = ici === 'fr' ? 'English version →' : 'Version française →';
+    pastille.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:1000;padding:10px 18px;border-radius:999px;' +
+      'background:var(--accent,#ff2340);color:#fff;font:600 15px/1.2 Rajdhani,system-ui,sans-serif;text-decoration:none;' +
+      'box-shadow:0 8px 24px rgba(0,0,0,.4)';
+    pastille.addEventListener('click', function () { retenir(ici === 'fr' ? 'en' : 'fr'); });
+    document.body.appendChild(pastille);
+  }
 
   // Copier : le texte de la langue affichée.
   document.querySelectorAll('.copier').forEach(function (bouton) {
