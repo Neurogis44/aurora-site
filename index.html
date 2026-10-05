@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aurora Moniteur Matériel</title>
-<meta name="description" content="Aurora surveille ton PC en direct et te dit en mots simples s'il va bien : températures, ventilateurs, disques, réseau, FPS en jeu, bilan de santé et machine à remonter le temps. Gratuite, sans compte, pour Windows 10 et 11.">
+<meta name="description" content="Aurora surveille ton PC en direct et jour après jour, et te dit en mots simples s'il va bien et quoi faire : températures, ventilateurs, disques, FPS en jeu, mises à jour de Windows. Gratuite, sans compte, pour Windows 10 et 11.">
 <meta name="theme-color" content="#09090b">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Aurora 1.0 — moniteur matériel pour Windows">
-<meta property="og:description" content="Températures, ventilateurs, disques, FPS en jeu, bilan de santé et machine à remonter le temps, en direct. Gratuite, sans compte, sans publicité.">
+<meta property="og:title" content="Aurora — ton PC, en clair">
+<meta property="og:description" content="Ton PC suivi en direct et jour après jour, expliqué en mots simples : sa santé, ce qui a changé, tes jeux, les mises à jour de Windows. Gratuite, sans compte, sans publicité.">
 <meta property="og:image" content="https://auroraapp.ca/img/v1/partage.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -472,15 +472,15 @@
         <a class="nouveau revele" href="#nouveautes"><i class="point"></i><span class="fr">NOUVEAU · VERSION 1.0.11</span><span class="en">NEW · VERSION 1.0.11</span></a>
         <h1 class="revele d1"><span class="fr">Ton PC, <span class="rouge">en clair.</span></span><span class="en">Your PC, <span class="rouge">in&nbsp;plain&nbsp;sight.</span></span></h1>
         <p class="lead revele d2">
-          <span class="fr">Aurora surveille ton ordinateur en direct — températures, ventilateurs, disques, réseau, FPS en jeu — et te dit <b>en mots simples s'il va bien</b>. Gratuite, sans compte, et elle n'envoie rien sans que tu le demandes.</span>
-          <span class="en">Aurora watches your computer live — temperatures, fans, drives, network, in-game FPS — and tells you <b>in plain words whether it is doing well</b>. Free, no account, and it sends nothing unless you ask.</span>
+          <span class="fr">Aurora surveille ton PC en direct et jour après jour, et te dit <b>en mots simples s'il va bien, quoi faire et ce qui a changé</b> — jusqu'aux mises à jour de Windows. Gratuite, sans compte, et elle n'envoie rien sans que tu le demandes.</span>
+          <span class="en">Aurora watches your PC live and day after day, and tells you <b>in plain words whether it's doing well, what to do and what changed</b> — right down to Windows updates. Free, no account, and it sends nothing unless you ask.</span>
         </p>
         <div class="actions revele d3">
           <a class="bouton" id="telecharger-haut" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.11/Aurora-Setup-1.0.11.exe">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
             <span class="fr">Télécharger pour Windows</span><span class="en">Download for Windows</span>
           </a>
-          <a class="bouton discret" href="#visite"><span class="fr">Voir ce qu'elle fait</span><span class="en">See what it does</span></a>
+          <a class="bouton discret" href="#essentiel"><span class="fr">Voir ce qu'elle fait</span><span class="en">See what it does</span></a>
         </div>
         <p class="meta revele d3">
           <span class="fr">Version <b>1.0.11</b> · 10,3&nbsp;Mo · signée · Windows 10&nbsp;et 11, 64&nbsp;bits</span>
@@ -491,7 +491,7 @@
           <span class="fr">Aucun compte</span><span class="en">No account</span>
           <span class="fr">Aucune mesure envoyée</span><span class="en">No data sent</span>
           <span class="fr">Français et anglais</span><span class="en">French and English</span>
-          <span class="fr">Écrite en Rust</span><span class="en">Written in Rust</span>
+          <span class="fr">Pour tout le monde</span><span class="en">For everyone</span>
         </div>
       </div>
 
@@ -611,6 +611,511 @@
             <li><span><span class="fr">«&nbsp;Copier en texte&nbsp;» et la liste des mises à jour s'affichent bien avec tous les skins.</span><span class="en">“Copy as text” and the list of updates display properly with every skin.</span></span></li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Ce qu'elle fait : Santé, Changements, Jeux et mises à jour de Windows (juste après les nouveautés) ——— -->
+  <section id="essentiel">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">CE QU'ELLE FAIT</span><span class="en">WHAT IT DOES</span></div>
+        <h2><span class="fr">Elle ne fait plus que mesurer&nbsp;: elle comprend.</span><span class="en">It no longer just measures: it understands.</span></h2>
+        <p>
+          <span class="fr">Ses onglets transforment les chiffres en réponses&nbsp;: est-ce que mon PC va bien, qu'est-ce qui a changé, pourquoi mon jeu rame — et quelle mise à jour de Windows installer.</span>
+          <span class="en">Its tabs turn numbers into answers: is my PC doing well, what changed, why is my game struggling — and which Windows update to install.</span>
+        </p>
+      </div>
+
+      <div class="rangee">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/sante-fr.webp" data-src-fr="img/v1/sante-fr.webp" data-src-en="img/v1/sante-en.webp"
+               data-alt-fr="L'onglet Santé : « Rien d'inquiétant », puis cinq remarques du plus grave au moins grave."
+               data-alt-en="The Health tab: “Nothing to worry about”, then five notes, most serious first."
+               alt="L'onglet Santé : « Rien d'inquiétant », puis cinq remarques du plus grave au moins grave.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">SANTÉ</span><span class="en">HEALTH</span></div>
+          <h3><span class="fr">Ton PC va bien&nbsp;? Aurora te le dit.</span><span class="en">Is your PC OK? Aurora tells you.</span></h3>
+          <p>
+            <span class="fr">Un bilan refait chaque seconde, qui ne parle que de ce qui cloche, du plus grave au moins grave — et qui te dit aussi quand tout va bien.</span>
+            <span class="en">A check-up redone every second that only talks about what is wrong, most serious first — and also tells you when all is well.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Ton montage&nbsp;: l'écran branché sur la carte mère ou réglé trop bas, une carte graphique dans le mauvais port.</span><span class="en">Your build: a display plugged into the motherboard or set too low, a graphics card in the wrong slot.</span></span></li>
+            <li><span><span class="fr">Disques&nbsp;: usure SMART, place qui manque, chaleur.</span><span class="en">Drives: SMART wear, running out of space, heat.</span></span></li>
+            <li><span><span class="fr">Un ventilateur ou la pompe qui lâche, la pile du BIOS qui faiblit.</span><span class="en">A fan or the pump giving up, a BIOS battery getting weak.</span></span></li>
+            <li><span><span class="fr">Le bloc d'alimentation qui fléchit&nbsp;: son 12&nbsp;V suivi sous la charge, si ta carte mère le mesure.</span><span class="en">A power supply starting to sag: its 12&nbsp;V tracked under load, if your motherboard measures it.</span></span></li>
+            <li><span><span class="fr">Ce que Windows note sans rien dire&nbsp;: erreurs matérielles, écrans bleus, arrêts brutaux.</span><span class="en">What Windows logs without a word: hardware errors, blue screens, sudden shutdowns.</span></span></li>
+            <li><span><span class="fr">La chaleur qui monte au fil des mois&nbsp;: la poussière se voit avant de coûter cher.</span><span class="en">Heat creeping up over the months: dust shows before it costs you.</span></span></li>
+            <li><span><span class="fr">Un rapport complet pour qui t'aide à distance, prêt à envoyer.</span><span class="en">A full report for whoever helps you remotely, ready to send.</span></span></li>
+            <li><span><span class="fr">Une notification — et une alarme si tu veux — quand c'est urgent.</span><span class="en">A notification — and an alarm if you want — when it is urgent.</span></span></li>
+          </ul>
+          <p class="temoin">
+            <span class="fr">«&nbsp;Elle m'a appris que ma carte graphique tire 50&nbsp;W à ne rien faire&nbsp;: mes trois écrans l'empêchent de ralentir.&nbsp;»</span>
+            <span class="en">“It taught me that my graphics card draws 50&nbsp;W while doing nothing: my three displays keep it from slowing down.”</span>
+            <cite>— Denis</cite>
+          </p>
+        </div>
+      </div>
+
+      <div class="rangee inverse">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/changements-fr.webp" data-src-fr="img/v1/changements-fr.webp" data-src-en="img/v1/changements-en.webp"
+               data-alt-fr="L'onglet Changements : le démarrage de Windows chronométré, puis ce qui a changé sur le PC, jour après jour."
+               data-alt-en="The Changes tab: Windows startup timed, then what changed on the PC, day after day."
+               alt="L'onglet Changements : le démarrage de Windows chronométré, puis ce qui a changé sur le PC, jour après jour.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">CHANGEMENTS</span><span class="en">CHANGES</span></div>
+          <h3><span class="fr">La machine à remonter le temps</span><span class="en">The time machine</span></h3>
+          <p>
+            <span class="fr">Ton PC est lent depuis mardi&nbsp;? Aurora le photographie toutes les dix minutes et note ce qui change&nbsp;: logiciels, pilotes, services, programmes au démarrage, mises à jour de Windows, BIOS.</span>
+            <span class="en">Your PC has been slow since Tuesday? Aurora takes a snapshot of it every ten minutes and notes what changes: software, drivers, services, startup programs, Windows updates, BIOS.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Dans l'onglet Santé, un problème vient avec ce qui a changé juste avant.</span><span class="en">In the Health tab, a problem comes with what changed just before it.</span></span></li>
+            <li><span><span class="fr">L'effet de chaque changement, mesuré avant et après&nbsp;: tes jeux, tes températures, ton démarrage.</span><span class="en">The effect of every change, measured before and after: your games, your temperatures, your startup.</span></span></li>
+            <li><span><span class="fr">Le démarrage de Windows chronométré — jusqu'au bureau, prêt, arrêt — et qui le ralentit.</span><span class="en">Windows startup timed — to the desktop, ready, shutdown — and who slows it down.</span></span></li>
+            <li><span><span class="fr">Le bruit filtré&nbsp;: les pilotes qui vont et viennent, les mises à jour de Defender.</span><span class="en">The noise filtered out: drivers that come and go, Defender updates.</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rangee">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
+               src="img/v1/jeux-fr.webp" data-src-fr="img/v1/jeux-fr.webp" data-src-en="img/v1/jeux-en.webp"
+               data-alt-fr="L'onglet Jeux : la partie en cours avec ses FPS, puis tous les jeux avec leur tendance et leurs plantages."
+               data-alt-en="The Games tab: the session in progress with its FPS, then every game with its trend and crashes."
+               alt="L'onglet Jeux : la partie en cours avec ses FPS, puis tous les jeux avec leur tendance et leurs plantages.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">JEUX</span><span class="en">GAMES</span></div>
+          <h3><span class="fr">Tes jeux, au fil du temps</span><span class="en">Your games, over time</span></h3>
+          <p>
+            <span class="fr">Chaque partie est gardée&nbsp;: FPS moyens, 1&nbsp;% bas, durée. Aurora voit quand un jeu tourne moins vite qu'à ses débuts.</span>
+            <span class="en">Every session is kept: average FPS, 1&nbsp;% low, duration. Aurora notices when a game runs slower than it used to.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Un jeu qui gèle ou plante&nbsp;: l'état du PC juste avant — chaleur, mémoire vidéo, pilote graphique.</span><span class="en">A game that freezes or crashes: the state of the PC just before — heat, video memory, graphics driver.</span></span></li>
+            <li><span><span class="fr">Ce qui limite tes FPS, en direct dans l'overlay&nbsp;: la carte graphique, le processeur qui la freine, ou un bridage — et ce qu'il faudrait changer en premier.</span><span class="en">What limits your FPS, live in the overlay: the graphics card, the processor holding it back, or an FPS cap — and what to upgrade first.</span></span></li>
+            <li><span><span class="fr">Un overlay par-dessus tes parties, dans sa propre petite fenêtre, sans rien toucher au jeu.</span><span class="en">An overlay on top of your games, in its own small window, without touching the game.</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rangee inverse">
+        <div class="visuel revele">
+          <img class="capture" tabindex="0" loading="lazy" width="1500" height="625"
+               src="img/v1/mises-a-jour-fr.webp" data-src-fr="img/v1/mises-a-jour-fr.webp" data-src-en="img/v1/mises-a-jour-en.webp"
+               data-alt-fr="Le panneau « Mises à jour de Windows » de l'onglet Windows, en démonstration : trois mises à jour attendent, la sécurité d'octobre pour Windows et pour .NET Framework (conseillées) et un pilote AMD plus vieux que celui installé (à laisser) ; puis la version de Windows et ce qui s'est installé."
+               data-alt-en="The “Windows updates” panel of the Windows tab, in demo mode: three updates are waiting, the October security updates for Windows and .NET Framework (recommended) and an AMD driver older than the installed one (leave it); then the Windows version and what got installed."
+               alt="Le panneau « Mises à jour de Windows » de l'onglet Windows, en démonstration : trois mises à jour attendent, la sécurité d'octobre pour Windows et pour .NET Framework (conseillées) et un pilote AMD plus vieux que celui installé (à laisser) ; puis la version de Windows et ce qui s'est installé.">
+        </div>
+        <div class="texte revele d1">
+          <div class="tag"><span class="fr">MISES À JOUR DE WINDOWS</span><span class="en">WINDOWS UPDATES</span></div>
+          <h3><span class="fr">Savoir quoi installer, et quand</span><span class="en">Know what to install, and when</span></h3>
+          <p>
+            <span class="fr">Aurora lit ce que Windows Update sait déjà, sans Internet, et te le dit en clair. Elle n'installe rien&nbsp;: «&nbsp;Ouvrir Windows Update&nbsp;» t'amène au bon endroit.</span>
+            <span class="en">Aurora reads what Windows Update already knows, offline, and tells you plainly. It installs nothing: “Open Windows Update” takes you to the right place.</span>
+          </p>
+          <ul class="puces">
+            <li><span><span class="fr">Chaque mise à jour en mots simples, avec l'avis d'Aurora&nbsp;: conseillée, facultative, à ton rythme, à laisser.</span><span class="en">Each update in plain words, with Aurora's advice: recommended, optional, at your own pace, leave it.</span></span></li>
+            <li><span><span class="fr">La page de Microsoft qui l'explique, dans la langue de ton Windows, et les problèmes connus de ta version.</span><span class="en">Microsoft's page explaining it, in your Windows language, and the known issues of your version.</span></span></li>
+            <li><span><span class="fr">L'onglet Santé t'avertit seulement si c'est sérieux&nbsp;: une mise à jour de sécurité qui échoue à répétition, un redémarrage qui traîne.</span><span class="en">The Health tab only warns you when it matters: a security update that keeps failing, a restart that drags on.</span></span></li>
+          </ul>
+          <p class="temoin">
+            <span class="fr">«&nbsp;Je voulais savoir s'il y a une mise à jour de Windows, et surtout si elle est conseillée.&nbsp;»</span>
+            <span class="en">“I wanted to know whether there's a Windows update, and above all whether it's recommended.”</span>
+            <cite>— Denis</cite>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Visite guidée ——— -->
+  <section id="visite">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">VISITE GUIDÉE</span><span class="en">GUIDED TOUR</span></div>
+        <h2><span class="fr">Huit onglets, un seul programme</span><span class="en">Eight tabs, one program</span></h2>
+        <p><span class="fr">Clique un onglet, comme dans Aurora.</span><span class="en">Click a tab, just like in Aurora.</span></p>
+      </div>
+      <div class="revele">
+        <div class="onglets" role="tablist" id="onglets" aria-label="Onglets d'Aurora">
+          <button role="tab" type="button" aria-selected="true" data-onglet="vue"><span class="fr">Vue d'ensemble</span><span class="en">Overview</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="radiographie"><span class="fr">Radiographie</span><span class="en">X-ray</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="jeux"><span class="fr">Jeux</span><span class="en">Games</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="sante"><span class="fr">Santé</span><span class="en">Health</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="changements"><span class="fr">Changements</span><span class="en">Changes</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="windows"><span class="fr">Windows</span><span class="en">Windows</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="mespc"><span class="fr">Mes PC</span><span class="en">My PCs</span></button>
+          <button role="tab" type="button" aria-selected="false" data-onglet="reglages"><span class="fr">Réglages</span><span class="en">Settings</span></button>
+        </div>
+        <div class="pile" id="pile-visite" role="tabpanel">
+          <img class="actif" data-onglet="vue" loading="lazy" width="1500" height="845" src="img/v1/vue-fr.webp" data-src-fr="img/v1/vue-fr.webp" data-src-en="img/v1/vue-en.webp" alt="" data-alt-fr="La vue d'ensemble d'Aurora." data-alt-en="Aurora's overview.">
+          <img data-onglet="radiographie" loading="lazy" width="1500" height="845" src="img/v1/radiographie-fr.webp" data-src-fr="img/v1/radiographie-fr.webp" data-src-en="img/v1/radiographie-en.webp" alt="" data-alt-fr="L'onglet Radiographie." data-alt-en="The X-ray tab.">
+          <img data-onglet="jeux" loading="lazy" width="1500" height="845" src="img/v1/jeux-fr.webp" data-src-fr="img/v1/jeux-fr.webp" data-src-en="img/v1/jeux-en.webp" alt="" data-alt-fr="L'onglet Jeux." data-alt-en="The Games tab.">
+          <img data-onglet="sante" loading="lazy" width="1500" height="845" src="img/v1/sante-fr.webp" data-src-fr="img/v1/sante-fr.webp" data-src-en="img/v1/sante-en.webp" alt="" data-alt-fr="L'onglet Santé." data-alt-en="The Health tab.">
+          <img data-onglet="changements" loading="lazy" width="1500" height="845" src="img/v1/changements-fr.webp" data-src-fr="img/v1/changements-fr.webp" data-src-en="img/v1/changements-en.webp" alt="" data-alt-fr="L'onglet Changements." data-alt-en="The Changes tab.">
+          <img data-onglet="windows" loading="lazy" width="1500" height="845" src="img/v1/windows-fr.webp" data-src-fr="img/v1/windows-fr.webp" data-src-en="img/v1/windows-en.webp" alt="" data-alt-fr="L'onglet Windows." data-alt-en="The Windows tab.">
+          <img data-onglet="mespc" loading="lazy" width="1500" height="845" src="img/v1/mespc-fr.webp" data-src-fr="img/v1/mespc-fr.webp" data-src-en="img/v1/mespc-en.webp" alt="" data-alt-fr="L'onglet Mes PC." data-alt-en="The My PCs tab.">
+          <img data-onglet="reglages" loading="lazy" width="1500" height="845" src="img/v1/reglages-fr.webp" data-src-fr="img/v1/reglages-fr.webp" data-src-en="img/v1/reglages-en.webp" alt="" data-alt-fr="L'onglet Réglages." data-alt-en="The Settings tab.">
+          <span class="progression" id="progression"></span>
+        </div>
+        <p class="visite-texte" id="visite-texte" aria-live="polite">
+          <span data-onglet="vue"><span class="fr">Tout ton PC sur un écran&nbsp;: processeur, carte graphique, mémoire, ventilateurs, disques, réseau, écrans, musique et jeu en cours.</span><span class="en">Your whole PC on one screen: processor, graphics card, memory, fans, drives, network, displays, music and the game in progress.</span></span>
+          <span data-onglet="radiographie" hidden><span class="fr">Ton ordi dessiné d'après le vrai, tour ou portable&nbsp;: les pièces s'allument selon leur chaleur, l'air circule, les ventilateurs tournent à leur vraie vitesse.</span><span class="en">Your PC drawn from the real one, tower or laptop: parts light up with their heat, the air flows, the fans spin at their real speed.</span></span>
+          <span data-onglet="jeux" hidden><span class="fr">La partie en cours avec ses FPS et ce qui les limite, tous tes jeux avec leur tendance, leurs gels et leurs plantages, et ce qu'il faudrait changer en premier.</span><span class="en">The session in progress with its FPS and what limits them, all your games with their trend, freezes and crashes, and what to upgrade first.</span></span>
+          <span data-onglet="sante" hidden><span class="fr">Le bilan, en mots simples, du plus grave au moins grave&nbsp;: ce qui cloche, quoi faire, et ce qui a changé juste avant.</span><span class="en">The check-up, in plain words, most serious first: what's wrong, what to do, and what changed just before.</span></span>
+          <span data-onglet="changements" hidden><span class="fr">Ce qui a changé sur ton PC, jour après jour, l'effet de chaque changement, et le démarrage de Windows chronométré.</span><span class="en">What changed on your PC, day after day, the effect of every change, and Windows startup timed.</span></span>
+          <span data-onglet="windows" hidden><span class="fr">Windows lu en entier, et réglé seulement si tu le coches&nbsp;: chaque réglage se remet d'un clic, et l'entretien se fait avec les outils de Microsoft.</span><span class="en">Windows read in full, and tuned only if you check it: each setting goes back in one click, and maintenance uses Microsoft's own tools.</span></span>
+          <span data-onglet="mespc" hidden><span class="fr">Les autres PC de la maison en tuiles, un fichier envoyé de l'un à l'autre, et la même vue sur ton téléphone grâce à un code QR.</span><span class="en">The other PCs at home as tiles, a file sent from one to another, and the same view on your phone through a QR code.</span></span>
+          <span data-onglet="reglages" hidden><span class="fr">Langue, thème, démarrage avec Windows, partage et seuils d'alerte, degré par degré.</span><span class="en">Language, theme, start with Windows, sharing and alert limits, degree by degree.</span></span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Radiographie et ventilateurs ——— -->
+  <section id="radiographie">
+    <div class="wrap radio">
+      <div class="film revele">
+        <video id="film-radio" autoplay muted loop playsinline preload="metadata" width="896" height="730"
+               src="img/v1/radio-fr.mp4" poster="img/v1/radio-fr-debut.webp"
+               data-src-fr="img/v1/radio-fr.mp4" data-src-en="img/v1/radio-en.mp4"
+               data-poster-fr="img/v1/radio-fr-debut.webp" data-poster-en="img/v1/radio-en-debut.webp"
+               aria-label="La radiographie animée"
+               data-alt-fr="La radiographie animée : les ventilateurs tournent, l'air traverse la tour et se réchauffe sur les pièces chaudes."
+               data-alt-en="The animated X-ray: fans spin, air crosses the rig and warms up over the hot parts."></video>
+      </div>
+      <div class="texte revele d1">
+        <div class="tag"><span class="fr">RADIOGRAPHIE</span><span class="en">X-RAY</span></div>
+        <h2><span class="fr">Ta tour, vue par la vitre</span><span class="en">Your rig, seen through the window</span></h2>
+        <p>
+          <span class="fr">Dis une fois à Aurora combien de ventilateurs il y a à chaque endroit de ton boîtier. Elle dessine ta tour, et calcule la pression dedans&nbsp;: positive, l'air passe par les filtres et la poussière reste dehors. Un portable, lui, est dessiné ouvert, vu du dessus, avec sa batterie.</span>
+          <span class="en">Tell Aurora once how many fans sit at each spot in your case. It draws your rig, and works out the pressure inside: positive means air comes in through the filters and dust stays out. A laptop is drawn open, seen from above, with its battery.</span>
+        </p>
+        <div class="duo">
+          <div class="carte">
+            <h4><span class="fr">Ventilateurs commandés</span><span class="en">Fans under control</span></h4>
+            <p><span class="fr">Silencieux, Équilibré, Performance, ou Automatique&nbsp;: Performance en jeu, Silencieux pendant la musique. À 100&nbsp;% au-dessus de 85&nbsp;°C, rendus à ta carte mère dès qu'Aurora se ferme.</span><span class="en">Quiet, Balanced, Performance, or Automatic: Performance while gaming, Quiet during music. 100&nbsp;% above 85&nbsp;°C, handed back to your motherboard the moment Aurora closes.</span></p>
+          </div>
+          <div class="carte">
+            <h4><span class="fr">Test de refroidissement</span><span class="en">Cooling test</span></h4>
+            <p><span class="fr">Trois minutes, une note sur 100. Répété au fil des mois, il devient un détecteur de poussière.</span><span class="en">Three minutes, a score out of 100. Repeated over the months, it becomes a dust detector.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Et aussi ——— -->
+  <section>
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">ET AUSSI</span><span class="en">AND ALSO</span></div>
+        <h2><span class="fr">Tout ce qu'un PC a à dire</span><span class="en">Everything a PC has to say</span></h2>
+      </div>
+      <div class="grille">
+        <div class="carte revele">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="3"/><path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="11.5" r="1"/><circle cx="18" cy="13.8" r="1"/></svg></span>
+          <h4><span class="fr">Overlay en jeu</span><span class="en">In-game overlay</span></h4>
+          <p><span class="fr">FPS, températures et charge par-dessus tes parties, en trois dispositions, avec un raccourci même en plein jeu.</span><span class="en">FPS, temperatures and load on top of your games, in three layouts, with a shortcut that works mid-game.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.2"/></svg></span>
+          <h4><span class="fr">Applications</span><span class="en">Applications</span></h4>
+          <p><span class="fr">Les vingt plus gourmandes, en direct, et un bouton pour en arrêter une. Ce qui fait tourner Windows n'en a pas.</span><span class="en">The twenty hungriest, live, and a button to stop one. What keeps Windows running has none.</span></p>
+        </div>
+        <div class="carte revele d2">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><rect x="10" y="13" width="4" height="7" rx="1"/></svg></span>
+          <h4><span class="fr">Mes PC et ton téléphone</span><span class="en">My PCs and your phone</span></h4>
+          <p><span class="fr">Les Aurora de la maison se trouvent toutes seules et s'envoient des fichiers. Un code QR ouvre la même vue sur ton téléphone, sans rien installer.</span><span class="en">The Auroras at home find each other and send each other files. A QR code opens the same view on your phone, with nothing to install.</span></p>
+        </div>
+        <div class="carte revele d3">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v4M12 11l-6 5M12 11l6 5"/></svg></span>
+          <h4><span class="fr">Appareils du réseau</span><span class="en">Network devices</span></h4>
+          <p><span class="fr">Ce qui est branché chez toi, avec le fabricant deviné — sans envoyer quoi que ce soit sur ton réseau.</span><span class="en">What is plugged in at your place, with the maker guessed — without sending anything over your network.</span></p>
+        </div>
+        <div class="carte revele">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+          <h4><span class="fr">Alimentation automatique</span><span class="en">Automatic power</span></h4>
+          <p><span class="fr">Performances en jeu, économie au repos&nbsp;: le mode d'alimentation de Windows change tout seul, et revient à ton habitude en quittant.</span><span class="en">Performance while gaming, savings at rest: the Windows power plan switches by itself, and returns to your usual one when you quit.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4.5-6"/></svg></span>
+          <h4><span class="fr">Test de vitesse</span><span class="en">Speed test</span></h4>
+          <p><span class="fr">Latence, descente et montée sur quatre connexions à la fois, gardées dans un carnet pour voir si ta connexion faiblit.</span><span class="en">Latency, download and upload over four connections at once, kept in a log to see whether your connection is getting weaker.</span></p>
+        </div>
+        <div class="carte revele d2">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+          <h4><span class="fr">Mises à jour vérifiées</span><span class="en">Verified updates</span></h4>
+          <p><span class="fr">Les PC de la maison se passent la nouvelle version, et chacun vérifie sa signature avant de l'installer.</span><span class="en">The PCs at home hand each other the new version, and each one checks its signature before installing it.</span></p>
+        </div>
+        <div class="carte revele d3">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h9M8.5 3v2M6 5c.5 3 2.5 5.5 5 7M11 5c-.8 3.5-3.2 6.5-6 8"/><path d="m13 21 4-9 4 9M14.3 18h5.4"/></svg></span>
+          <h4><span class="fr">Français et anglais</span><span class="en">French and English</span></h4>
+          <p><span class="fr">Toute l'application, jusqu'aux unités et aux notifications. La langue suit Windows, ou se choisit.</span><span class="en">The whole app, right down to units and notifications. The language follows Windows, or you pick it.</span></p>
+        </div>
+        <div class="carte revele">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2.5" width="8" height="5.5" rx="1"/><rect x="6" y="8" width="12" height="13.5" rx="2"/><path d="M10.5 4.8h.01M13.5 4.8h.01"/></svg></span>
+          <h4><span class="fr">Clés USB et cartes SD</span><span class="en">USB drives and SD cards</span></h4>
+          <p><span class="fr">Ta clé apparaît avec sa place libre, ses vitesses et sa liaison USB — Aurora te dit si elle est bridée en USB 2. Un bouton l'éjecte en toute sécurité.</span><span class="en">Your drive shows up with its free space, speeds and USB link — Aurora tells you if it is stuck at USB 2. One button ejects it safely.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.8 14.1c2.9.3 5.2 2.8 5.2 5.9"/></svg></span>
+          <h4><span class="fr">Plusieurs comptes</span><span class="en">Several accounts</span></h4>
+          <p><span class="fr">Chaque compte choisit s'il démarre avec Windows. Deux sessions ouvertes&nbsp;: une seule Aurora commande les ventilateurs, celle de la personne devant l'écran.</span><span class="en">Each account decides whether it starts with Windows. Two sessions open: only one Aurora controls the fans, the one of the person in front of the screen.</span></p>
+        </div>
+        <div class="carte revele d2">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>
+          <h4><span class="fr">Écris-moi</span><span class="en">Write to me</span></h4>
+          <p><span class="fr">Un bogue, une question, une idée&nbsp;: la section Support des Réglages m'envoie ton message, avec la fiche de ton matériel si tu veux.</span><span class="en">A bug, a question, an idea: the Support section in Settings sends me your message, with your hardware sheet if you want.</span></p>
+        </div>
+        <div class="carte revele d3">
+          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span>
+          <h4><span class="fr">Multimédia</span><span class="en">Media</span></h4>
+          <p><span class="fr">Ce qui joue, de Spotify à YouTube&nbsp;: lecture, pause, volume et sortie audio. Et la télécommande sur ton téléphone.</span><span class="en">Whatever is playing, from Spotify to YouTube: play, pause, volume and audio output. And a remote on your phone.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Stream Deck ——— -->
+  <section id="stream-deck">
+    <div class="wrap radio">
+      <div class="deck revele">
+        <div class="pave">
+          <img width="144" height="144" src="img/deck/cpu-temperature-fr.svg" data-src-fr="img/deck/cpu-temperature-fr.svg" data-src-en="img/deck/cpu-temperature-en.svg"
+               data-alt-fr="Touche Processeur : 58 degrés" data-alt-en="Processor key: 58 degrees" alt="Touche Processeur : 58 degrés">
+          <img width="144" height="144" src="img/deck/gpu-temperature-fr.svg" data-src-fr="img/deck/gpu-temperature-fr.svg" data-src-en="img/deck/gpu-temperature-en.svg"
+               data-alt-fr="Touche Carte graphique : 61 degrés" data-alt-en="Graphics card key: 61 degrees" alt="Touche Carte graphique : 61 degrés">
+          <img width="144" height="144" src="img/deck/hotspot-fr.svg" data-src-fr="img/deck/hotspot-fr.svg" data-src-en="img/deck/hotspot-en.svg"
+               data-alt-fr="Touche Point chaud : 79 degrés" data-alt-en="Hotspot key: 79 degrees" alt="Touche Point chaud : 79 degrés">
+          <img width="144" height="144" src="img/deck/fps-fr.svg" data-src-fr="img/deck/fps-fr.svg" data-src-en="img/deck/fps-en.svg"
+               data-alt-fr="Touche FPS : 141 images par seconde dans Metro Exodus" data-alt-en="FPS key: 141 frames per second in Metro Exodus" alt="Touche FPS : 141 images par seconde dans Metro Exodus">
+          <img width="144" height="144" src="img/deck/cpu-load-fr.svg" data-src-fr="img/deck/cpu-load-fr.svg" data-src-en="img/deck/cpu-load-en.svg"
+               data-alt-fr="Touche Charge du processeur : 23 %" data-alt-en="CPU load key: 23%" alt="Touche Charge du processeur : 23 %">
+          <img width="144" height="144" src="img/deck/gpu-load-fr.svg" data-src-fr="img/deck/gpu-load-fr.svg" data-src-en="img/deck/gpu-load-en.svg"
+               data-alt-fr="Touche Charge de la carte graphique : 88 %" data-alt-en="GPU load key: 88%" alt="Touche Charge de la carte graphique : 88 %">
+          <img width="144" height="144" src="img/deck/memory-fr.svg" data-src-fr="img/deck/memory-fr.svg" data-src-en="img/deck/memory-en.svg"
+               data-alt-fr="Touche Mémoire : 41 %" data-alt-en="Memory key: 41%" alt="Touche Mémoire : 41 %">
+          <span class="libre" aria-hidden="true"></span>
+        </div>
+        <p class="legende">
+          <span class="fr">Les touches telles que le module les dessine, avec les mesures de la démonstration d'Aurora.</span>
+          <span class="en">The keys exactly as the plugin draws them, with Aurora's demo readings.</span>
+        </p>
+      </div>
+      <div class="texte revele d1">
+        <div class="tag"><span class="fr">STREAM DECK</span><span class="en">STREAM DECK</span></div>
+        <h2><span class="fr">Tes mesures sous les doigts</span><span class="en">Your readings at your fingertips</span></h2>
+        <p>
+          <span class="fr">Tu as un Stream Deck d'Elgato&nbsp;? Le module Aurora met ses mesures sur tes touches&nbsp;: températures, point chaud, charges, mémoire vive, et les FPS du jeu en cours avec son nom. Relues toutes les deux secondes, aux couleurs des alertes d'Aurora&nbsp;; une touche enfoncée ouvre Aurora.</span>
+          <span class="en">Got an Elgato Stream Deck? The Aurora plugin puts its readings on your keys: temperatures, hotspot, loads, memory, and the FPS of the game you are playing, with its name. Refreshed every two seconds, in Aurora's alert colours; press a key and Aurora opens.</span>
+        </p>
+        <div class="duo">
+          <div class="carte">
+            <h4><span class="fr">Ce qu'il faut</span><span class="en">What you need</span></h4>
+            <p><span class="fr">Aurora 1.0.4&nbsp;ou plus, ouverte, et le logiciel Stream Deck 6.5&nbsp;ou plus&nbsp;: rien à cocher. Le module lit Aurora sur ton PC, sans Internet ni réseau.</span><span class="en">Aurora 1.0.4&nbsp;or later, running, and the Stream Deck software 6.5&nbsp;or later: nothing to check. The plugin reads Aurora on your PC, no Internet or network needed.</span></p>
+          </div>
+          <div class="carte">
+            <h4><span class="fr">Installer</span><span class="en">Install</span></h4>
+            <p><span class="fr">Double-clique sur le fichier&nbsp;: le logiciel Stream Deck l'ajoute, ou met à jour l'ancien. Glisse ensuite les touches voulues depuis la catégorie «&nbsp;Aurora&nbsp;».</span><span class="en">Double-click the file: the Stream Deck software adds it, or updates the old one. Then drag the keys you want from the “Aurora” category.</span></p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/streamdeck-v1.0.1/Aurora.streamDeckPlugin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+            <span class="fr">Télécharger le module</span><span class="en">Download the plugin</span>
+          </a>
+          <span class="meta"><span class="fr">Version <b>1.0.1</b> · 88&nbsp;Ko · gratuit, comme Aurora</span><span class="en">Version <b>1.0.1</b> · 88&nbsp;KB · free, like Aurora</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Thèmes ——— -->
+  <section id="themes">
+    <div class="wrap themes">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">CINQ THÈMES</span><span class="en">FIVE THEMES</span></div>
+        <h2><span class="fr">Le même tableau de bord, cinq habillages</span><span class="en">The same dashboard, five skins</span></h2>
+      </div>
+      <div class="pastilles revele" id="pastilles" role="group" aria-label="Thèmes">
+        <button type="button" aria-pressed="true" data-theme="carbone" data-couleur="#ff2340"><i style="background: linear-gradient(135deg, #0a0a0b 50%, #ff2340 50%)"></i><span class="fr">Carbone</span><span class="en">Carbon</span></button>
+        <button type="button" aria-pressed="false" data-theme="neon" data-couleur="#22d3ee"><i style="background: linear-gradient(135deg, #04070d 50%, #22d3ee 50%)"></i><span class="fr">Néon</span><span class="en">Neon</span></button>
+        <button type="button" aria-pressed="false" data-theme="glace" data-couleur="#6fd3ff"><i style="background: linear-gradient(135deg, #050b14 50%, #6fd3ff 50%)"></i><span class="fr">Glace</span><span class="en">Ice</span></button>
+        <button type="button" aria-pressed="false" data-theme="clair" data-couleur="#0f6fd1"><i style="background: linear-gradient(135deg, #ffffff 50%, #0f6fd1 50%)"></i><span class="fr">Clair</span><span class="en">Light</span></button>
+        <button type="button" aria-pressed="false" data-theme="forge" data-couleur="#ff6a1f"><i style="background: linear-gradient(135deg, #16120f 50%, #ff6a1f 50%)"></i>Forge</button>
+      </div>
+      <div class="pile revele" id="pile-themes">
+        <img class="actif" data-theme="carbone" loading="lazy" width="1500" height="845" src="img/v1/vue-fr.webp" data-src-fr="img/v1/vue-fr.webp" data-src-en="img/v1/vue-en.webp" alt="" data-alt-fr="Le thème Carbone." data-alt-en="The Carbon theme.">
+        <img data-theme="neon" loading="lazy" width="1200" height="676" src="img/v1/theme-neon-fr.webp" data-src-fr="img/v1/theme-neon-fr.webp" data-src-en="img/v1/theme-neon-en.webp" alt="" data-alt-fr="Le thème Néon." data-alt-en="The Neon theme.">
+        <img data-theme="glace" loading="lazy" width="1200" height="676" src="img/v1/theme-glace-fr.webp" data-src-fr="img/v1/theme-glace-fr.webp" data-src-en="img/v1/theme-glace-en.webp" alt="" data-alt-fr="Le thème Glace." data-alt-en="The Ice theme.">
+        <img data-theme="clair" loading="lazy" width="1200" height="676" src="img/v1/theme-clair-fr.webp" data-src-fr="img/v1/theme-clair-fr.webp" data-src-en="img/v1/theme-clair-en.webp" alt="" data-alt-fr="Le thème Clair." data-alt-en="The Light theme.">
+        <img data-theme="forge" loading="lazy" width="1200" height="676" src="img/v1/theme-forge-fr.webp" data-src-fr="img/v1/theme-forge-fr.webp" data-src-en="img/v1/theme-forge-en.webp" alt="" data-alt-fr="Le thème Forge." data-alt-en="The Forge theme.">
+      </div>
+      <p class="theme-texte" id="theme-texte">
+        <span data-theme="carbone"><span class="fr">Carbone, celui d'origine&nbsp;: fibre de carbone et rouge vif.</span><span class="en">Carbon, the original: carbon fibre and vivid red.</span></span>
+        <span data-theme="neon" hidden><span class="fr">Néon&nbsp;: science-fiction bleu et orange.</span><span class="en">Neon: blue-and-orange science fiction.</span></span>
+        <span data-theme="glace" hidden><span class="fr">Glace&nbsp;: nuit polaire et verre givré.</span><span class="en">Ice: polar night and frosted glass.</span></span>
+        <span data-theme="clair" hidden><span class="fr">Clair&nbsp;: le seul sur fond blanc, pour une pièce ensoleillée.</span><span class="en">Light: the only one on white, for a sunlit room.</span></span>
+        <span data-theme="forge" hidden><span class="fr">Forge&nbsp;: acier brossé, rivets et braise sous les panneaux.</span><span class="en">Forge: brushed steel, rivets and embers under the panels.</span></span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— Le mot de Denis ——— -->
+  <section id="pourquoi">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">POURQUOI AURORA</span><span class="en">WHY AURORA</span></div>
+        <h2><span class="fr">Le mot de Denis</span><span class="en">A word from Denis</span></h2>
+      </div>
+      <div class="mot revele">
+        <p>
+          <span class="fr">J'ai longtemps monté mes propres PC, et j'ai toujours voulu savoir ce qui se passe dedans — pas avec des colonnes de chiffres, mais en mots simples. Aurora, c'est l'outil que je voulais pour moi.</span>
+          <span class="en">I built my own PCs for years, and I always wanted to know what goes on inside — not with columns of numbers, but in plain words. Aurora is the tool I wanted for myself.</span>
+        </p>
+        <p>
+          <span class="fr">Elle m'a déjà surpris plus d'une fois&nbsp;: un écran Samsung connecté à mon réseau depuis des mois sans que je le sache, et ma carte graphique qui tire 50&nbsp;W à ne rien faire. Quand Wolfenstein a gelé deux fois dans la même soirée, j'ai voulu savoir pourquoi&nbsp;: c'est devenu l'onglet Jeux.</span>
+          <span class="en">It has surprised me more than once: a Samsung monitor connected to my network for months without my knowing, and my graphics card drawing 50&nbsp;W while doing nothing. When Wolfenstein froze twice in one evening, I wanted to know why: that became the Games tab.</span>
+        </p>
+        <p>
+          <span class="fr">Aurora est gratuite, et elle le restera. Je la veux pour tout le monde, pas seulement pour ceux qui connaissent leur PC par cœur. Si elle t'apprend quelque chose sur ton PC, écris-moi&nbsp;: ça me fait toujours plaisir.</span>
+          <span class="en">Aurora is free, and it will stay that way. I want it to be for everyone, not just people who know their PC inside out. If it teaches you something about your PC, write to me: I always enjoy hearing it.</span>
+        </p>
+        <div class="signature">
+          <span class="initiale">D</span>
+          <div><b>Denis</b><span class="fr">Créateur d'Aurora</span><span class="en">Aurora's creator</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Confiance ——— -->
+  <section>
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">SANS SURPRISE</span><span class="en">NO SURPRISES</span></div>
+        <h2><span class="fr">Ce qu'Aurora ne fait pas</span><span class="en">What Aurora does not do</span></h2>
+      </div>
+      <div class="trois">
+        <div class="carte revele">
+          <h4><span class="fr">Vie privée</span><span class="en">Privacy</span></h4>
+          <p><span class="fr">Pas de compte, pas de publicité, aucune mesure envoyée, personne suivi. Elle demande trois choses à Internet, et seulement trois&nbsp;: une fois par jour, le numéro de la dernière version&nbsp;; le test de vitesse, quand tu cliques dessus&nbsp;; et ton message, quand tu écris au support depuis les Réglages — avec la fiche de ton matériel seulement si tu coches la case (modèles, versions, capteurs&nbsp;; jamais ton nom, ton adresse, tes jeux ni tes logiciels). La première se coupe dans les Réglages&nbsp;; les deux autres ne partent jamais toutes seules.</span><span class="en">No account, no ads, no readings sent, nobody tracked. It asks the Internet three things, and only three: once a day, the latest version number; the speed test, when you click it; and your message, when you write to support from Settings — with your hardware sheet only if you tick the box (models, versions, sensors; never your name, address, games or software). The first can be turned off in Settings; the other two never go out on their own.</span></p>
+        </div>
+        <div class="carte revele d1">
+          <h4><span class="fr">Signée, écrite en Rust</span><span class="en">Signed, written in Rust</span></h4>
+          <p><span class="fr">Aurora et son installeur sont signés électroniquement au nom de <strong>Denis Desbiens</strong>&nbsp;: Windows sait d'où vient le fichier, et t'avertirait si quelqu'un le modifiait en chemin. Et Aurora est écrite en Rust, un langage moderne conçu pour la sécurité&nbsp;: il empêche les erreurs de mémoire, la cause de la plupart des failles. Ça compte pour un logiciel qui tourne en administrateur.</span><span class="en">Aurora and its installer are digitally signed in the name of <strong>Denis Desbiens</strong>: Windows knows where the file comes from, and would warn you if anyone altered it along the way. And Aurora is written in Rust, a modern language built for safety: it prevents memory errors, the cause of most security holes. That matters for a program that runs as administrator.</span></p>
+        </div>
+        <div class="carte revele d2">
+          <h4><span class="fr">Ce qu'il faut</span><span class="en">What you need</span></h4>
+          <p><span class="fr">Windows 10&nbsp;(1809&nbsp;ou plus récent) ou 11, en 64&nbsp;bits. Les droits administrateur, demandés au démarrage&nbsp;: c'est la seule façon de lire les capteurs de température. L'installeur ajoute au besoin .NET 10&nbsp;et le pilote PawnIO.</span><span class="en">Windows 10&nbsp;(1809&nbsp;or newer) or 11, 64-bit. Administrator rights, asked for at startup: that is the only way to read temperature sensors. The installer adds .NET 10&nbsp;and the PawnIO driver if needed.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Installer ——— -->
+  <section id="installer">
+    <div class="wrap installer">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">INSTALLATION</span><span class="en">INSTALLATION</span></div>
+        <h2><span class="fr">Pas à pas, sans surprise</span><span class="en">Step by step, no surprises</span></h2>
+        <p>
+          <span class="fr">Une nouvelle version n'a pas encore de réputation auprès de Microsoft&nbsp;: les premiers jours, Edge peut s'en méfier, même signée. Voici quoi faire, avec les vraies fenêtres.</span>
+          <span class="en">A new version has no reputation with Microsoft yet: for the first few days, Edge may be wary of it, even though it's signed. Here's what to do, with the real windows.</span>
+        </p>
+      </div>
+      <ol class="etapes guide">
+        <li class="revele">
+          <h4><span class="fr">Télécharge le fichier</span><span class="en">Download the file</span></h4>
+          <p><span class="fr">Si Edge dit qu'il «&nbsp;n'est pas fréquemment téléchargé&nbsp;», c'est seulement qu'il est encore récent.</span><span class="en">If Edge says it “isn't commonly downloaded”, that just means it's still new.</span></p>
+          <img loading="lazy" width="362" height="204" src="img/v1/installation-1.webp"
+               data-alt-fr="Le panneau des téléchargements d'Edge : « Aurora-Setup-1.0.9 (1).exe n'est pas fréquemment téléchargé. Assurez-vous que vous faites confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir. »"
+               data-alt-en="Edge's downloads panel, in French: the file isn't commonly downloaded; make sure you trust it before opening it."
+               alt="Le panneau des téléchargements d'Edge : « Aurora-Setup-1.0.9 (1).exe n'est pas fréquemment téléchargé. Assurez-vous que vous faites confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir. »">
+        </li>
+        <li class="revele d1">
+          <h4><span class="fr">Garde-le</span><span class="en">Keep it</span></h4>
+          <p><span class="fr">Passe la souris sur le fichier, clique les trois points «&nbsp;…&nbsp;», puis «&nbsp;Conserver&nbsp;».</span><span class="en">Hover over the file, click the three dots “…”, then “Keep”.</span></p>
+          <img loading="lazy" width="258" height="214" src="img/v1/installation-2.webp"
+               data-alt-fr="Le menu « … » du téléchargement : Supprimer, Conserver, Signaler ce fichier comme fiable, En savoir plus, Copier le lien de téléchargement."
+               data-alt-en="The download's “…” menu, in French: Delete, Keep, Report this file as safe, Learn more, Copy download link."
+               alt="Le menu « … » du téléchargement : Supprimer, Conserver, Signaler ce fichier comme fiable, En savoir plus, Copier le lien de téléchargement.">
+        </li>
+        <li class="revele d2">
+          <h4><span class="fr">Vérifie l'éditeur</span><span class="en">Check the publisher</span></h4>
+          <p><span class="fr">Edge te demande de confirmer. L'éditeur doit être <b>Denis Desbiens</b>&nbsp;: clique la flèche à côté de «&nbsp;Supprimer&nbsp;», puis «&nbsp;Conserver quand même&nbsp;».</span><span class="en">Edge asks you to confirm. The publisher should be <b>Denis Desbiens</b>: click the arrow next to “Delete”, then “Keep anyway”.</span></p>
+          <img loading="lazy" width="367" height="552" src="img/v1/installation-3.webp"
+               data-alt-fr="Edge demande de vérifier qu'on fait confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir : l'éditeur est Denis Desbiens ; sous la flèche de « Supprimer », « Conserver quand même »."
+               data-alt-en="Edge asks you to make sure you trust the file before opening it, in French: the publisher is Denis Desbiens; under the “Delete” arrow, “Keep anyway”."
+               alt="Edge demande de vérifier qu'on fait confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir : l'éditeur est Denis Desbiens ; sous la flèche de « Supprimer », « Conserver quand même ».">
+        </li>
+        <li class="revele">
+          <h4><span class="fr">Ouvre-le</span><span class="en">Open it</span></h4>
+          <p><span class="fr">Windows demande les droits administrateur. La fenêtre affiche «&nbsp;Éditeur vérifié&nbsp;: Denis Desbiens&nbsp;»&nbsp;: clique «&nbsp;Oui&nbsp;».</span><span class="en">Windows asks for administrator rights. The window shows “Verified publisher: Denis Desbiens”: click “Yes”.</span></p>
+        </li>
+        <li class="revele d1">
+          <h4><span class="fr">Laisse-le travailler</span><span class="en">Let it work</span></h4>
+          <p><span class="fr">L'installation ajoute .NET 10&nbsp;et PawnIO s'ils manquent&nbsp;: ça peut prendre quelques minutes, barre figée. C'est normal. Aurora s'ouvre quand tu cliques «&nbsp;Terminer&nbsp;».</span><span class="en">The installation adds .NET 10&nbsp;and PawnIO if they are missing: that can take a few minutes, bar frozen. This is normal. Aurora opens when you click “Finish”.</span></p>
+        </li>
+      </ol>
+      <p class="guide-note revele"><span class="fr">Un autre navigateur peut afficher un avertissement semblable&nbsp;: choisis de garder le fichier.</span><span class="en">Screenshots of Edge in French. Another browser may show a similar warning: choose to keep the file.</span></p>
+      <div class="avertissement revele">
+        <h4><span class="fr">Si Windows t'avertit en l'ouvrant</span><span class="en">If Windows warns you when you open it</span></h4>
+        <p><span class="fr">«&nbsp;Windows a protégé votre ordinateur&nbsp;»&nbsp;: c'est la même réputation qui se bâtit. Clique «&nbsp;Informations complémentaires&nbsp;»&nbsp;: si l'éditeur est Denis Desbiens, «&nbsp;Exécuter quand même&nbsp;» installe Aurora.</span><span class="en">“Windows protected your PC”: it's the same reputation still building up. Click “More info”: if the publisher is Denis Desbiens, “Run anyway” installs Aurora.</span></p>
+      </div>
+      <div class="empreinte revele">
+        <p><span class="fr">Pour vérifier le fichier toi-même&nbsp;: clic droit → Propriétés → «&nbsp;Signatures numériques&nbsp;». Ou compare son empreinte, dans PowerShell&nbsp;: <code>Get-FileHash .\Aurora-Setup-1.0.11.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.11.exe -Algorithm SHA256</code></span></p>
+        <div class="ligne">
+          <code id="empreinte">0F7C449CDA75ED70FA17D6DB736A284D05145FAEE03DBEB86F903C6BCA4A0891</code>
+          <button class="copier" type="button" id="copier"><span class="fr">Copier</span><span class="en">Copy</span></button>
+        </div>
+      </div>
+      <div class="actions revele">
+        <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.11/Aurora-Setup-1.0.11.exe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+          <span class="fr">Télécharger Aurora 1.0.11</span><span class="en">Download Aurora 1.0.11</span>
+        </a>
+        <a class="bouton discret" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases"><span class="fr">Toutes les versions</span><span class="en">All versions</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Don ——— -->
+  <section>
+    <div class="wrap">
+      <div class="don revele">
+        <div class="tag"><span class="fr">UN COUP DE MAIN</span><span class="en">A HAND</span></div>
+        <h2><span class="fr">Aurora est gratuite, et le restera</span><span class="en">Aurora is free, and will stay free</span></h2>
+        <p><span class="fr">Pas de version payante, pas de publicité, rien à débloquer. Si elle t'est utile et que tu veux encourager la suite, il y a un pot. Un don ne donne droit à rien de plus&nbsp;: c'est un merci, pas un achat.</span><span class="en">No paid version, no ads, nothing to unlock. If it is useful to you and you would like to help what comes next, there is a tip jar. A donation buys nothing extra: it is a thank you, not a purchase.</span></p>
+        <a class="bouton" href="https://ko-fi.com/auroraapp" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9A5.4 5.4 0 0 1 12 6.3 5.4 5.4 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9z"/></svg>
+          <span class="fr">Offrir un café</span><span class="en">Buy a coffee</span>
+        </a>
+        <span class="meta"><span class="fr">Sur Ko-fi · paiement unique, pas d'abonnement</span><span class="en">On Ko-fi · one-off, no subscription</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Les versions précédentes, de la 1.0.10 à la 1.0.3 (en bas de la page : l'historique) ——— -->
+  <section id="versions-precedentes">
+    <div class="wrap">
+      <div class="entete revele">
+        <div class="tag"><span class="fr">HISTORIQUE</span><span class="en">HISTORY</span></div>
+        <h2><span class="fr">Les versions précédentes</span><span class="en">Previous versions</span></h2>
+        <p>
+          <span class="fr">Ce que chaque version a ajouté à Aurora, de la plus récente à la plus ancienne.</span>
+          <span class="en">What each version added to Aurora, from the newest to the oldest.</span>
+        </p>
       </div>
     </div>
   </section>
@@ -1247,468 +1752,6 @@
           <h4><span class="fr">Aurora sur ton Stream Deck</span><span class="en">Aurora on your Stream Deck</span></h4>
           <p><span class="fr">Sept touches pour le Stream Deck d'Elgato&nbsp;: températures, point chaud, charges, mémoire vive et FPS. À télécharger à part. <span class="suite">Voir le module →</span></span><span class="en">Seven keys for the Elgato Stream Deck: temperatures, hotspot, loads, memory and FPS. A separate download. <span class="suite">See the plugin →</span></span></p>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Ce qu'elle fait : Santé, Changements, Jeux (les nouveautés de la 1.0) ——— -->
-  <section id="essentiel">
-    <div class="wrap">
-      <div class="entete revele">
-        <div class="tag"><span class="fr">CE QU'ELLE FAIT</span><span class="en">WHAT IT DOES</span></div>
-        <h2><span class="fr">Elle ne fait plus que mesurer&nbsp;: elle comprend.</span><span class="en">It no longer just measures: it understands.</span></h2>
-        <p>
-          <span class="fr">Trois onglets transforment les chiffres en réponses&nbsp;: est-ce que mon PC va bien, qu'est-ce qui a changé, et pourquoi mon jeu rame.</span>
-          <span class="en">Three tabs turn numbers into answers: is my PC doing well, what changed, and why is my game struggling.</span>
-        </p>
-      </div>
-
-      <div class="rangee">
-        <div class="visuel revele">
-          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
-               src="img/v1/sante-fr.webp" data-src-fr="img/v1/sante-fr.webp" data-src-en="img/v1/sante-en.webp"
-               data-alt-fr="L'onglet Santé : « Rien d'inquiétant », puis cinq remarques du plus grave au moins grave."
-               data-alt-en="The Health tab: “Nothing to worry about”, then five notes, most serious first."
-               alt="L'onglet Santé : « Rien d'inquiétant », puis cinq remarques du plus grave au moins grave.">
-        </div>
-        <div class="texte revele d1">
-          <div class="tag"><span class="fr">SANTÉ</span><span class="en">HEALTH</span></div>
-          <h3><span class="fr">Ton PC va bien&nbsp;? Aurora te le dit.</span><span class="en">Is your PC OK? Aurora tells you.</span></h3>
-          <p>
-            <span class="fr">Un bilan refait chaque seconde, qui ne parle que de ce qui cloche, du plus grave au moins grave — et qui te dit aussi quand tout va bien.</span>
-            <span class="en">A check-up redone every second that only talks about what is wrong, most serious first — and also tells you when all is well.</span>
-          </p>
-          <ul class="puces">
-            <li><span><span class="fr">Ton montage&nbsp;: l'écran branché sur la carte mère ou réglé trop bas, une carte graphique dans le mauvais port.</span><span class="en">Your build: a display plugged into the motherboard or set too low, a graphics card in the wrong slot.</span></span></li>
-            <li><span><span class="fr">Disques&nbsp;: usure SMART, place qui manque, chaleur.</span><span class="en">Drives: SMART wear, running out of space, heat.</span></span></li>
-            <li><span><span class="fr">Un ventilateur ou la pompe qui lâche, la pile du BIOS qui faiblit.</span><span class="en">A fan or the pump giving up, a BIOS battery getting weak.</span></span></li>
-            <li><span><span class="fr">Le bloc d'alimentation qui fléchit&nbsp;: son 12&nbsp;V suivi sous la charge, si ta carte mère le mesure.</span><span class="en">A power supply starting to sag: its 12&nbsp;V tracked under load, if your motherboard measures it.</span></span></li>
-            <li><span><span class="fr">Ce que Windows note sans rien dire&nbsp;: erreurs matérielles, écrans bleus, arrêts brutaux.</span><span class="en">What Windows logs without a word: hardware errors, blue screens, sudden shutdowns.</span></span></li>
-            <li><span><span class="fr">La chaleur qui monte au fil des mois&nbsp;: la poussière se voit avant de coûter cher.</span><span class="en">Heat creeping up over the months: dust shows before it costs you.</span></span></li>
-            <li><span><span class="fr">Une notification — et une alarme si tu veux — quand c'est urgent.</span><span class="en">A notification — and an alarm if you want — when it is urgent.</span></span></li>
-          </ul>
-          <p class="temoin">
-            <span class="fr">«&nbsp;Elle m'a appris que ma carte graphique tire 50&nbsp;W à ne rien faire&nbsp;: mes trois écrans l'empêchent de ralentir.&nbsp;»</span>
-            <span class="en">“It taught me that my graphics card draws 50&nbsp;W while doing nothing: my three displays keep it from slowing down.”</span>
-            <cite>— Denis</cite>
-          </p>
-        </div>
-      </div>
-
-      <div class="rangee inverse">
-        <div class="visuel revele">
-          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
-               src="img/v1/changements-fr.webp" data-src-fr="img/v1/changements-fr.webp" data-src-en="img/v1/changements-en.webp"
-               data-alt-fr="L'onglet Changements : le démarrage de Windows chronométré, puis ce qui a changé sur le PC, jour après jour."
-               data-alt-en="The Changes tab: Windows startup timed, then what changed on the PC, day after day."
-               alt="L'onglet Changements : le démarrage de Windows chronométré, puis ce qui a changé sur le PC, jour après jour.">
-        </div>
-        <div class="texte revele d1">
-          <div class="tag"><span class="fr">CHANGEMENTS</span><span class="en">CHANGES</span></div>
-          <h3><span class="fr">La machine à remonter le temps</span><span class="en">The time machine</span></h3>
-          <p>
-            <span class="fr">Ton PC est lent depuis mardi&nbsp;? Aurora le photographie toutes les dix minutes et note ce qui change&nbsp;: logiciels, pilotes, services, programmes au démarrage, mises à jour de Windows, BIOS.</span>
-            <span class="en">Your PC has been slow since Tuesday? Aurora takes a snapshot of it every ten minutes and notes what changes: software, drivers, services, startup programs, Windows updates, BIOS.</span>
-          </p>
-          <ul class="puces">
-            <li><span><span class="fr">Dans l'onglet Santé, un problème vient avec ce qui a changé juste avant.</span><span class="en">In the Health tab, a problem comes with what changed just before it.</span></span></li>
-            <li><span><span class="fr">L'effet de chaque changement, mesuré avant et après&nbsp;: tes jeux, tes températures, ton démarrage.</span><span class="en">The effect of every change, measured before and after: your games, your temperatures, your startup.</span></span></li>
-            <li><span><span class="fr">Le démarrage de Windows chronométré — jusqu'au bureau, prêt, arrêt — et qui le ralentit.</span><span class="en">Windows startup timed — to the desktop, ready, shutdown — and who slows it down.</span></span></li>
-            <li><span><span class="fr">Le bruit filtré&nbsp;: les pilotes qui vont et viennent, les mises à jour de Defender.</span><span class="en">The noise filtered out: drivers that come and go, Defender updates.</span></span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="rangee">
-        <div class="visuel revele">
-          <img class="capture" tabindex="0" loading="lazy" width="1500" height="845"
-               src="img/v1/jeux-fr.webp" data-src-fr="img/v1/jeux-fr.webp" data-src-en="img/v1/jeux-en.webp"
-               data-alt-fr="L'onglet Jeux : la partie en cours avec ses FPS, puis tous les jeux avec leur tendance et leurs plantages."
-               data-alt-en="The Games tab: the session in progress with its FPS, then every game with its trend and crashes."
-               alt="L'onglet Jeux : la partie en cours avec ses FPS, puis tous les jeux avec leur tendance et leurs plantages.">
-        </div>
-        <div class="texte revele d1">
-          <div class="tag"><span class="fr">JEUX</span><span class="en">GAMES</span></div>
-          <h3><span class="fr">Tes jeux, au fil du temps</span><span class="en">Your games, over time</span></h3>
-          <p>
-            <span class="fr">Chaque partie est gardée&nbsp;: FPS moyens, 1&nbsp;% bas, durée. Aurora voit quand un jeu tourne moins vite qu'à ses débuts.</span>
-            <span class="en">Every session is kept: average FPS, 1&nbsp;% low, duration. Aurora notices when a game runs slower than it used to.</span>
-          </p>
-          <ul class="puces">
-            <li><span><span class="fr">Un jeu qui gèle ou plante&nbsp;: l'état du PC juste avant — chaleur, mémoire vidéo, pilote graphique.</span><span class="en">A game that freezes or crashes: the state of the PC just before — heat, video memory, graphics driver.</span></span></li>
-            <li><span><span class="fr">Ce qui limite tes FPS, en direct dans l'overlay&nbsp;: la carte graphique, le processeur qui la freine, ou un bridage — et ce qu'il faudrait changer en premier.</span><span class="en">What limits your FPS, live in the overlay: the graphics card, the processor holding it back, or an FPS cap — and what to upgrade first.</span></span></li>
-            <li><span><span class="fr">Un overlay par-dessus tes parties, dans sa propre petite fenêtre, sans rien toucher au jeu.</span><span class="en">An overlay on top of your games, in its own small window, without touching the game.</span></span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Visite guidée ——— -->
-  <section id="visite">
-    <div class="wrap">
-      <div class="entete revele">
-        <div class="tag"><span class="fr">VISITE GUIDÉE</span><span class="en">GUIDED TOUR</span></div>
-        <h2><span class="fr">Huit onglets, un seul programme</span><span class="en">Eight tabs, one program</span></h2>
-        <p><span class="fr">Clique un onglet, comme dans Aurora.</span><span class="en">Click a tab, just like in Aurora.</span></p>
-      </div>
-      <div class="revele">
-        <div class="onglets" role="tablist" id="onglets" aria-label="Onglets d'Aurora">
-          <button role="tab" type="button" aria-selected="true" data-onglet="vue"><span class="fr">Vue d'ensemble</span><span class="en">Overview</span></button>
-          <button role="tab" type="button" aria-selected="false" data-onglet="radiographie"><span class="fr">Radiographie</span><span class="en">X-ray</span></button>
-          <button role="tab" type="button" aria-selected="false" data-onglet="jeux"><span class="fr">Jeux</span><span class="en">Games</span></button>
-          <button role="tab" type="button" aria-selected="false" data-onglet="sante"><span class="fr">Santé</span><span class="en">Health</span></button>
-          <button role="tab" type="button" aria-selected="false" data-onglet="changements"><span class="fr">Changements</span><span class="en">Changes</span></button>
-          <button role="tab" type="button" aria-selected="false" data-onglet="windows"><span class="fr">Windows</span><span class="en">Windows</span></button>
-          <button role="tab" type="button" aria-selected="false" data-onglet="mespc"><span class="fr">Mes PC</span><span class="en">My PCs</span></button>
-          <button role="tab" type="button" aria-selected="false" data-onglet="reglages"><span class="fr">Réglages</span><span class="en">Settings</span></button>
-        </div>
-        <div class="pile" id="pile-visite" role="tabpanel">
-          <img class="actif" data-onglet="vue" loading="lazy" width="1500" height="845" src="img/v1/vue-fr.webp" data-src-fr="img/v1/vue-fr.webp" data-src-en="img/v1/vue-en.webp" alt="" data-alt-fr="La vue d'ensemble d'Aurora." data-alt-en="Aurora's overview.">
-          <img data-onglet="radiographie" loading="lazy" width="1500" height="845" src="img/v1/radiographie-fr.webp" data-src-fr="img/v1/radiographie-fr.webp" data-src-en="img/v1/radiographie-en.webp" alt="" data-alt-fr="L'onglet Radiographie." data-alt-en="The X-ray tab.">
-          <img data-onglet="jeux" loading="lazy" width="1500" height="845" src="img/v1/jeux-fr.webp" data-src-fr="img/v1/jeux-fr.webp" data-src-en="img/v1/jeux-en.webp" alt="" data-alt-fr="L'onglet Jeux." data-alt-en="The Games tab.">
-          <img data-onglet="sante" loading="lazy" width="1500" height="845" src="img/v1/sante-fr.webp" data-src-fr="img/v1/sante-fr.webp" data-src-en="img/v1/sante-en.webp" alt="" data-alt-fr="L'onglet Santé." data-alt-en="The Health tab.">
-          <img data-onglet="changements" loading="lazy" width="1500" height="845" src="img/v1/changements-fr.webp" data-src-fr="img/v1/changements-fr.webp" data-src-en="img/v1/changements-en.webp" alt="" data-alt-fr="L'onglet Changements." data-alt-en="The Changes tab.">
-          <img data-onglet="windows" loading="lazy" width="1500" height="845" src="img/v1/windows-fr.webp" data-src-fr="img/v1/windows-fr.webp" data-src-en="img/v1/windows-en.webp" alt="" data-alt-fr="L'onglet Windows." data-alt-en="The Windows tab.">
-          <img data-onglet="mespc" loading="lazy" width="1500" height="845" src="img/v1/mespc-fr.webp" data-src-fr="img/v1/mespc-fr.webp" data-src-en="img/v1/mespc-en.webp" alt="" data-alt-fr="L'onglet Mes PC." data-alt-en="The My PCs tab.">
-          <img data-onglet="reglages" loading="lazy" width="1500" height="845" src="img/v1/reglages-fr.webp" data-src-fr="img/v1/reglages-fr.webp" data-src-en="img/v1/reglages-en.webp" alt="" data-alt-fr="L'onglet Réglages." data-alt-en="The Settings tab.">
-          <span class="progression" id="progression"></span>
-        </div>
-        <p class="visite-texte" id="visite-texte" aria-live="polite">
-          <span data-onglet="vue"><span class="fr">Tout ton PC sur un écran&nbsp;: processeur, carte graphique, mémoire, ventilateurs, disques, réseau, écrans, musique et jeu en cours.</span><span class="en">Your whole PC on one screen: processor, graphics card, memory, fans, drives, network, displays, music and the game in progress.</span></span>
-          <span data-onglet="radiographie" hidden><span class="fr">Ton ordi dessiné d'après le vrai, tour ou portable&nbsp;: les pièces s'allument selon leur chaleur, l'air circule, les ventilateurs tournent à leur vraie vitesse.</span><span class="en">Your PC drawn from the real one, tower or laptop: parts light up with their heat, the air flows, the fans spin at their real speed.</span></span>
-          <span data-onglet="jeux" hidden><span class="fr">La partie en cours avec ses FPS et ce qui les limite, tous tes jeux avec leur tendance, leurs gels et leurs plantages, et ce qu'il faudrait changer en premier.</span><span class="en">The session in progress with its FPS and what limits them, all your games with their trend, freezes and crashes, and what to upgrade first.</span></span>
-          <span data-onglet="sante" hidden><span class="fr">Le bilan, en mots simples, du plus grave au moins grave&nbsp;: ce qui cloche, quoi faire, et ce qui a changé juste avant.</span><span class="en">The check-up, in plain words, most serious first: what's wrong, what to do, and what changed just before.</span></span>
-          <span data-onglet="changements" hidden><span class="fr">Ce qui a changé sur ton PC, jour après jour, l'effet de chaque changement, et le démarrage de Windows chronométré.</span><span class="en">What changed on your PC, day after day, the effect of every change, and Windows startup timed.</span></span>
-          <span data-onglet="windows" hidden><span class="fr">Windows lu en entier, et réglé seulement si tu le coches&nbsp;: chaque réglage se remet d'un clic, et l'entretien se fait avec les outils de Microsoft.</span><span class="en">Windows read in full, and tuned only if you check it: each setting goes back in one click, and maintenance uses Microsoft's own tools.</span></span>
-          <span data-onglet="mespc" hidden><span class="fr">Les autres PC de la maison en tuiles, un fichier envoyé de l'un à l'autre, et la même vue sur ton téléphone grâce à un code QR.</span><span class="en">The other PCs at home as tiles, a file sent from one to another, and the same view on your phone through a QR code.</span></span>
-          <span data-onglet="reglages" hidden><span class="fr">Langue, thème, démarrage avec Windows, partage et seuils d'alerte, degré par degré.</span><span class="en">Language, theme, start with Windows, sharing and alert limits, degree by degree.</span></span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Radiographie et ventilateurs ——— -->
-  <section id="radiographie">
-    <div class="wrap radio">
-      <div class="film revele">
-        <video id="film-radio" autoplay muted loop playsinline preload="metadata" width="896" height="730"
-               src="img/v1/radio-fr.mp4" poster="img/v1/radio-fr-debut.webp"
-               data-src-fr="img/v1/radio-fr.mp4" data-src-en="img/v1/radio-en.mp4"
-               data-poster-fr="img/v1/radio-fr-debut.webp" data-poster-en="img/v1/radio-en-debut.webp"
-               aria-label="La radiographie animée"
-               data-alt-fr="La radiographie animée : les ventilateurs tournent, l'air traverse la tour et se réchauffe sur les pièces chaudes."
-               data-alt-en="The animated X-ray: fans spin, air crosses the rig and warms up over the hot parts."></video>
-      </div>
-      <div class="texte revele d1">
-        <div class="tag"><span class="fr">RADIOGRAPHIE</span><span class="en">X-RAY</span></div>
-        <h2><span class="fr">Ta tour, vue par la vitre</span><span class="en">Your rig, seen through the window</span></h2>
-        <p>
-          <span class="fr">Dis une fois à Aurora combien de ventilateurs il y a à chaque endroit de ton boîtier. Elle dessine ta tour, et calcule la pression dedans&nbsp;: positive, l'air passe par les filtres et la poussière reste dehors. Un portable, lui, est dessiné ouvert, vu du dessus, avec sa batterie.</span>
-          <span class="en">Tell Aurora once how many fans sit at each spot in your case. It draws your rig, and works out the pressure inside: positive means air comes in through the filters and dust stays out. A laptop is drawn open, seen from above, with its battery.</span>
-        </p>
-        <div class="duo">
-          <div class="carte">
-            <h4><span class="fr">Ventilateurs commandés</span><span class="en">Fans under control</span></h4>
-            <p><span class="fr">Silencieux, Équilibré, Performance, ou Automatique&nbsp;: Performance en jeu, Silencieux pendant la musique. À 100&nbsp;% au-dessus de 85&nbsp;°C, rendus à ta carte mère dès qu'Aurora se ferme.</span><span class="en">Quiet, Balanced, Performance, or Automatic: Performance while gaming, Quiet during music. 100&nbsp;% above 85&nbsp;°C, handed back to your motherboard the moment Aurora closes.</span></p>
-          </div>
-          <div class="carte">
-            <h4><span class="fr">Test de refroidissement</span><span class="en">Cooling test</span></h4>
-            <p><span class="fr">Trois minutes, une note sur 100. Répété au fil des mois, il devient un détecteur de poussière.</span><span class="en">Three minutes, a score out of 100. Repeated over the months, it becomes a dust detector.</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Et aussi ——— -->
-  <section>
-    <div class="wrap">
-      <div class="entete revele">
-        <div class="tag"><span class="fr">ET AUSSI</span><span class="en">AND ALSO</span></div>
-        <h2><span class="fr">Tout ce qu'un PC a à dire</span><span class="en">Everything a PC has to say</span></h2>
-      </div>
-      <div class="grille">
-        <div class="carte revele">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="3"/><path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="11.5" r="1"/><circle cx="18" cy="13.8" r="1"/></svg></span>
-          <h4><span class="fr">Overlay en jeu</span><span class="en">In-game overlay</span></h4>
-          <p><span class="fr">FPS, températures et charge par-dessus tes parties, en trois dispositions, avec un raccourci même en plein jeu.</span><span class="en">FPS, temperatures and load on top of your games, in three layouts, with a shortcut that works mid-game.</span></p>
-        </div>
-        <div class="carte revele d1">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.2"/></svg></span>
-          <h4><span class="fr">Applications</span><span class="en">Applications</span></h4>
-          <p><span class="fr">Les vingt plus gourmandes, en direct, et un bouton pour en arrêter une. Ce qui fait tourner Windows n'en a pas.</span><span class="en">The twenty hungriest, live, and a button to stop one. What keeps Windows running has none.</span></p>
-        </div>
-        <div class="carte revele d2">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><rect x="10" y="13" width="4" height="7" rx="1"/></svg></span>
-          <h4><span class="fr">Mes PC et ton téléphone</span><span class="en">My PCs and your phone</span></h4>
-          <p><span class="fr">Les Aurora de la maison se trouvent toutes seules et s'envoient des fichiers. Un code QR ouvre la même vue sur ton téléphone, sans rien installer.</span><span class="en">The Auroras at home find each other and send each other files. A QR code opens the same view on your phone, with nothing to install.</span></p>
-        </div>
-        <div class="carte revele d3">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v4M12 11l-6 5M12 11l6 5"/></svg></span>
-          <h4><span class="fr">Appareils du réseau</span><span class="en">Network devices</span></h4>
-          <p><span class="fr">Ce qui est branché chez toi, avec le fabricant deviné — sans envoyer quoi que ce soit sur ton réseau.</span><span class="en">What is plugged in at your place, with the maker guessed — without sending anything over your network.</span></p>
-        </div>
-        <div class="carte revele">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
-          <h4><span class="fr">Alimentation automatique</span><span class="en">Automatic power</span></h4>
-          <p><span class="fr">Performances en jeu, économie au repos&nbsp;: le mode d'alimentation de Windows change tout seul, et revient à ton habitude en quittant.</span><span class="en">Performance while gaming, savings at rest: the Windows power plan switches by itself, and returns to your usual one when you quit.</span></p>
-        </div>
-        <div class="carte revele d1">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4.5-6"/></svg></span>
-          <h4><span class="fr">Test de vitesse</span><span class="en">Speed test</span></h4>
-          <p><span class="fr">Latence, descente et montée sur quatre connexions à la fois, gardées dans un carnet pour voir si ta connexion faiblit.</span><span class="en">Latency, download and upload over four connections at once, kept in a log to see whether your connection is getting weaker.</span></p>
-        </div>
-        <div class="carte revele d2">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
-          <h4><span class="fr">Mises à jour vérifiées</span><span class="en">Verified updates</span></h4>
-          <p><span class="fr">Les PC de la maison se passent la nouvelle version, et chacun vérifie sa signature avant de l'installer.</span><span class="en">The PCs at home hand each other the new version, and each one checks its signature before installing it.</span></p>
-        </div>
-        <div class="carte revele d3">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h9M8.5 3v2M6 5c.5 3 2.5 5.5 5 7M11 5c-.8 3.5-3.2 6.5-6 8"/><path d="m13 21 4-9 4 9M14.3 18h5.4"/></svg></span>
-          <h4><span class="fr">Français et anglais</span><span class="en">French and English</span></h4>
-          <p><span class="fr">Toute l'application, jusqu'aux unités et aux notifications. La langue suit Windows, ou se choisit.</span><span class="en">The whole app, right down to units and notifications. The language follows Windows, or you pick it.</span></p>
-        </div>
-        <div class="carte revele">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2.5" width="8" height="5.5" rx="1"/><rect x="6" y="8" width="12" height="13.5" rx="2"/><path d="M10.5 4.8h.01M13.5 4.8h.01"/></svg></span>
-          <h4><span class="fr">Clés USB et cartes SD</span><span class="en">USB drives and SD cards</span></h4>
-          <p><span class="fr">Ta clé apparaît avec sa place libre, ses vitesses et sa liaison USB — Aurora te dit si elle est bridée en USB 2. Un bouton l'éjecte en toute sécurité.</span><span class="en">Your drive shows up with its free space, speeds and USB link — Aurora tells you if it is stuck at USB 2. One button ejects it safely.</span></p>
-        </div>
-        <div class="carte revele d1">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.8 14.1c2.9.3 5.2 2.8 5.2 5.9"/></svg></span>
-          <h4><span class="fr">Plusieurs comptes</span><span class="en">Several accounts</span></h4>
-          <p><span class="fr">Chaque compte choisit s'il démarre avec Windows. Deux sessions ouvertes&nbsp;: une seule Aurora commande les ventilateurs, celle de la personne devant l'écran.</span><span class="en">Each account decides whether it starts with Windows. Two sessions open: only one Aurora controls the fans, the one of the person in front of the screen.</span></p>
-        </div>
-        <div class="carte revele d2">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>
-          <h4><span class="fr">Écris-moi</span><span class="en">Write to me</span></h4>
-          <p><span class="fr">Un bogue, une question, une idée&nbsp;: la section Support des Réglages m'envoie ton message, avec la fiche de ton matériel si tu veux.</span><span class="en">A bug, a question, an idea: the Support section in Settings sends me your message, with your hardware sheet if you want.</span></p>
-        </div>
-        <div class="carte revele d3">
-          <span class="icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span>
-          <h4><span class="fr">Multimédia</span><span class="en">Media</span></h4>
-          <p><span class="fr">Ce qui joue, de Spotify à YouTube&nbsp;: lecture, pause, volume et sortie audio. Et la télécommande sur ton téléphone.</span><span class="en">Whatever is playing, from Spotify to YouTube: play, pause, volume and audio output. And a remote on your phone.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Stream Deck ——— -->
-  <section id="stream-deck">
-    <div class="wrap radio">
-      <div class="deck revele">
-        <div class="pave">
-          <img width="144" height="144" src="img/deck/cpu-temperature-fr.svg" data-src-fr="img/deck/cpu-temperature-fr.svg" data-src-en="img/deck/cpu-temperature-en.svg"
-               data-alt-fr="Touche Processeur : 58 degrés" data-alt-en="Processor key: 58 degrees" alt="Touche Processeur : 58 degrés">
-          <img width="144" height="144" src="img/deck/gpu-temperature-fr.svg" data-src-fr="img/deck/gpu-temperature-fr.svg" data-src-en="img/deck/gpu-temperature-en.svg"
-               data-alt-fr="Touche Carte graphique : 61 degrés" data-alt-en="Graphics card key: 61 degrees" alt="Touche Carte graphique : 61 degrés">
-          <img width="144" height="144" src="img/deck/hotspot-fr.svg" data-src-fr="img/deck/hotspot-fr.svg" data-src-en="img/deck/hotspot-en.svg"
-               data-alt-fr="Touche Point chaud : 79 degrés" data-alt-en="Hotspot key: 79 degrees" alt="Touche Point chaud : 79 degrés">
-          <img width="144" height="144" src="img/deck/fps-fr.svg" data-src-fr="img/deck/fps-fr.svg" data-src-en="img/deck/fps-en.svg"
-               data-alt-fr="Touche FPS : 141 images par seconde dans Metro Exodus" data-alt-en="FPS key: 141 frames per second in Metro Exodus" alt="Touche FPS : 141 images par seconde dans Metro Exodus">
-          <img width="144" height="144" src="img/deck/cpu-load-fr.svg" data-src-fr="img/deck/cpu-load-fr.svg" data-src-en="img/deck/cpu-load-en.svg"
-               data-alt-fr="Touche Charge du processeur : 23 %" data-alt-en="CPU load key: 23%" alt="Touche Charge du processeur : 23 %">
-          <img width="144" height="144" src="img/deck/gpu-load-fr.svg" data-src-fr="img/deck/gpu-load-fr.svg" data-src-en="img/deck/gpu-load-en.svg"
-               data-alt-fr="Touche Charge de la carte graphique : 88 %" data-alt-en="GPU load key: 88%" alt="Touche Charge de la carte graphique : 88 %">
-          <img width="144" height="144" src="img/deck/memory-fr.svg" data-src-fr="img/deck/memory-fr.svg" data-src-en="img/deck/memory-en.svg"
-               data-alt-fr="Touche Mémoire : 41 %" data-alt-en="Memory key: 41%" alt="Touche Mémoire : 41 %">
-          <span class="libre" aria-hidden="true"></span>
-        </div>
-        <p class="legende">
-          <span class="fr">Les touches telles que le module les dessine, avec les mesures de la démonstration d'Aurora.</span>
-          <span class="en">The keys exactly as the plugin draws them, with Aurora's demo readings.</span>
-        </p>
-      </div>
-      <div class="texte revele d1">
-        <div class="tag"><span class="fr">STREAM DECK</span><span class="en">STREAM DECK</span></div>
-        <h2><span class="fr">Tes mesures sous les doigts</span><span class="en">Your readings at your fingertips</span></h2>
-        <p>
-          <span class="fr">Tu as un Stream Deck d'Elgato&nbsp;? Le module Aurora met ses mesures sur tes touches&nbsp;: températures, point chaud, charges, mémoire vive, et les FPS du jeu en cours avec son nom. Relues toutes les deux secondes, aux couleurs des alertes d'Aurora&nbsp;; une touche enfoncée ouvre Aurora.</span>
-          <span class="en">Got an Elgato Stream Deck? The Aurora plugin puts its readings on your keys: temperatures, hotspot, loads, memory, and the FPS of the game you are playing, with its name. Refreshed every two seconds, in Aurora's alert colours; press a key and Aurora opens.</span>
-        </p>
-        <div class="duo">
-          <div class="carte">
-            <h4><span class="fr">Ce qu'il faut</span><span class="en">What you need</span></h4>
-            <p><span class="fr">Aurora 1.0.4&nbsp;ou plus, ouverte, et le logiciel Stream Deck 6.5&nbsp;ou plus&nbsp;: rien à cocher. Le module lit Aurora sur ton PC, sans Internet ni réseau.</span><span class="en">Aurora 1.0.4&nbsp;or later, running, and the Stream Deck software 6.5&nbsp;or later: nothing to check. The plugin reads Aurora on your PC, no Internet or network needed.</span></p>
-          </div>
-          <div class="carte">
-            <h4><span class="fr">Installer</span><span class="en">Install</span></h4>
-            <p><span class="fr">Double-clique sur le fichier&nbsp;: le logiciel Stream Deck l'ajoute, ou met à jour l'ancien. Glisse ensuite les touches voulues depuis la catégorie «&nbsp;Aurora&nbsp;».</span><span class="en">Double-click the file: the Stream Deck software adds it, or updates the old one. Then drag the keys you want from the “Aurora” category.</span></p>
-          </div>
-        </div>
-        <div class="actions">
-          <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/streamdeck-v1.0.1/Aurora.streamDeckPlugin">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
-            <span class="fr">Télécharger le module</span><span class="en">Download the plugin</span>
-          </a>
-          <span class="meta"><span class="fr">Version <b>1.0.1</b> · 88&nbsp;Ko · gratuit, comme Aurora</span><span class="en">Version <b>1.0.1</b> · 88&nbsp;KB · free, like Aurora</span></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Thèmes ——— -->
-  <section id="themes">
-    <div class="wrap themes">
-      <div class="entete revele">
-        <div class="tag"><span class="fr">CINQ THÈMES</span><span class="en">FIVE THEMES</span></div>
-        <h2><span class="fr">Le même tableau de bord, cinq habillages</span><span class="en">The same dashboard, five skins</span></h2>
-      </div>
-      <div class="pastilles revele" id="pastilles" role="group" aria-label="Thèmes">
-        <button type="button" aria-pressed="true" data-theme="carbone" data-couleur="#ff2340"><i style="background: linear-gradient(135deg, #0a0a0b 50%, #ff2340 50%)"></i><span class="fr">Carbone</span><span class="en">Carbon</span></button>
-        <button type="button" aria-pressed="false" data-theme="neon" data-couleur="#22d3ee"><i style="background: linear-gradient(135deg, #04070d 50%, #22d3ee 50%)"></i><span class="fr">Néon</span><span class="en">Neon</span></button>
-        <button type="button" aria-pressed="false" data-theme="glace" data-couleur="#6fd3ff"><i style="background: linear-gradient(135deg, #050b14 50%, #6fd3ff 50%)"></i><span class="fr">Glace</span><span class="en">Ice</span></button>
-        <button type="button" aria-pressed="false" data-theme="clair" data-couleur="#0f6fd1"><i style="background: linear-gradient(135deg, #ffffff 50%, #0f6fd1 50%)"></i><span class="fr">Clair</span><span class="en">Light</span></button>
-        <button type="button" aria-pressed="false" data-theme="forge" data-couleur="#ff6a1f"><i style="background: linear-gradient(135deg, #16120f 50%, #ff6a1f 50%)"></i>Forge</button>
-      </div>
-      <div class="pile revele" id="pile-themes">
-        <img class="actif" data-theme="carbone" loading="lazy" width="1500" height="845" src="img/v1/vue-fr.webp" data-src-fr="img/v1/vue-fr.webp" data-src-en="img/v1/vue-en.webp" alt="" data-alt-fr="Le thème Carbone." data-alt-en="The Carbon theme.">
-        <img data-theme="neon" loading="lazy" width="1200" height="676" src="img/v1/theme-neon-fr.webp" data-src-fr="img/v1/theme-neon-fr.webp" data-src-en="img/v1/theme-neon-en.webp" alt="" data-alt-fr="Le thème Néon." data-alt-en="The Neon theme.">
-        <img data-theme="glace" loading="lazy" width="1200" height="676" src="img/v1/theme-glace-fr.webp" data-src-fr="img/v1/theme-glace-fr.webp" data-src-en="img/v1/theme-glace-en.webp" alt="" data-alt-fr="Le thème Glace." data-alt-en="The Ice theme.">
-        <img data-theme="clair" loading="lazy" width="1200" height="676" src="img/v1/theme-clair-fr.webp" data-src-fr="img/v1/theme-clair-fr.webp" data-src-en="img/v1/theme-clair-en.webp" alt="" data-alt-fr="Le thème Clair." data-alt-en="The Light theme.">
-        <img data-theme="forge" loading="lazy" width="1200" height="676" src="img/v1/theme-forge-fr.webp" data-src-fr="img/v1/theme-forge-fr.webp" data-src-en="img/v1/theme-forge-en.webp" alt="" data-alt-fr="Le thème Forge." data-alt-en="The Forge theme.">
-      </div>
-      <p class="theme-texte" id="theme-texte">
-        <span data-theme="carbone"><span class="fr">Carbone, celui d'origine&nbsp;: fibre de carbone et rouge vif.</span><span class="en">Carbon, the original: carbon fibre and vivid red.</span></span>
-        <span data-theme="neon" hidden><span class="fr">Néon&nbsp;: science-fiction bleu et orange.</span><span class="en">Neon: blue-and-orange science fiction.</span></span>
-        <span data-theme="glace" hidden><span class="fr">Glace&nbsp;: nuit polaire et verre givré.</span><span class="en">Ice: polar night and frosted glass.</span></span>
-        <span data-theme="clair" hidden><span class="fr">Clair&nbsp;: le seul sur fond blanc, pour une pièce ensoleillée.</span><span class="en">Light: the only one on white, for a sunlit room.</span></span>
-        <span data-theme="forge" hidden><span class="fr">Forge&nbsp;: acier brossé, rivets et braise sous les panneaux.</span><span class="en">Forge: brushed steel, rivets and embers under the panels.</span></span>
-      </p>
-    </div>
-  </section>
-
-  <!-- ——— Le mot de Denis ——— -->
-  <section id="pourquoi">
-    <div class="wrap">
-      <div class="entete revele">
-        <div class="tag"><span class="fr">POURQUOI AURORA</span><span class="en">WHY AURORA</span></div>
-        <h2><span class="fr">Le mot de Denis</span><span class="en">A word from Denis</span></h2>
-      </div>
-      <div class="mot revele">
-        <p>
-          <span class="fr">J'ai longtemps monté mes propres PC, et j'ai toujours voulu savoir ce qui se passe dedans — pas avec des colonnes de chiffres, mais en mots simples. Aurora, c'est l'outil que je voulais pour moi.</span>
-          <span class="en">I built my own PCs for years, and I always wanted to know what goes on inside — not with columns of numbers, but in plain words. Aurora is the tool I wanted for myself.</span>
-        </p>
-        <p>
-          <span class="fr">Elle m'a déjà surpris plus d'une fois&nbsp;: un écran Samsung connecté à mon réseau depuis des mois sans que je le sache, et ma carte graphique qui tire 50&nbsp;W à ne rien faire. Quand Wolfenstein a gelé deux fois dans la même soirée, j'ai voulu savoir pourquoi&nbsp;: c'est devenu l'onglet Jeux.</span>
-          <span class="en">It has surprised me more than once: a Samsung monitor connected to my network for months without my knowing, and my graphics card drawing 50&nbsp;W while doing nothing. When Wolfenstein froze twice in one evening, I wanted to know why: that became the Games tab.</span>
-        </p>
-        <p>
-          <span class="fr">Aurora est gratuite, et elle le restera. Je la veux pour tout le monde, pas seulement pour ceux qui connaissent leur PC par cœur. Si elle t'apprend quelque chose sur ton PC, écris-moi&nbsp;: ça me fait toujours plaisir.</span>
-          <span class="en">Aurora is free, and it will stay that way. I want it to be for everyone, not just people who know their PC inside out. If it teaches you something about your PC, write to me: I always enjoy hearing it.</span>
-        </p>
-        <div class="signature">
-          <span class="initiale">D</span>
-          <div><b>Denis</b><span class="fr">Créateur d'Aurora</span><span class="en">Aurora's creator</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Confiance ——— -->
-  <section>
-    <div class="wrap">
-      <div class="entete revele">
-        <div class="tag"><span class="fr">SANS SURPRISE</span><span class="en">NO SURPRISES</span></div>
-        <h2><span class="fr">Ce qu'Aurora ne fait pas</span><span class="en">What Aurora does not do</span></h2>
-      </div>
-      <div class="trois">
-        <div class="carte revele">
-          <h4><span class="fr">Vie privée</span><span class="en">Privacy</span></h4>
-          <p><span class="fr">Pas de compte, pas de publicité, aucune mesure envoyée, personne suivi. Elle demande trois choses à Internet, et seulement trois&nbsp;: une fois par jour, le numéro de la dernière version&nbsp;; le test de vitesse, quand tu cliques dessus&nbsp;; et ton message, quand tu écris au support depuis les Réglages — avec la fiche de ton matériel seulement si tu coches la case (modèles, versions, capteurs&nbsp;; jamais ton nom, ton adresse, tes jeux ni tes logiciels). La première se coupe dans les Réglages&nbsp;; les deux autres ne partent jamais toutes seules.</span><span class="en">No account, no ads, no readings sent, nobody tracked. It asks the Internet three things, and only three: once a day, the latest version number; the speed test, when you click it; and your message, when you write to support from Settings — with your hardware sheet only if you tick the box (models, versions, sensors; never your name, address, games or software). The first can be turned off in Settings; the other two never go out on their own.</span></p>
-        </div>
-        <div class="carte revele d1">
-          <h4><span class="fr">Signée, écrite en Rust</span><span class="en">Signed, written in Rust</span></h4>
-          <p><span class="fr">Aurora et son installeur sont signés électroniquement au nom de <strong>Denis Desbiens</strong>&nbsp;: Windows sait d'où vient le fichier, et t'avertirait si quelqu'un le modifiait en chemin. Et Aurora est écrite en Rust, un langage moderne conçu pour la sécurité&nbsp;: il empêche les erreurs de mémoire, la cause de la plupart des failles. Ça compte pour un logiciel qui tourne en administrateur.</span><span class="en">Aurora and its installer are digitally signed in the name of <strong>Denis Desbiens</strong>: Windows knows where the file comes from, and would warn you if anyone altered it along the way. And Aurora is written in Rust, a modern language built for safety: it prevents memory errors, the cause of most security holes. That matters for a program that runs as administrator.</span></p>
-        </div>
-        <div class="carte revele d2">
-          <h4><span class="fr">Ce qu'il faut</span><span class="en">What you need</span></h4>
-          <p><span class="fr">Windows 10&nbsp;(1809&nbsp;ou plus récent) ou 11, en 64&nbsp;bits. Les droits administrateur, demandés au démarrage&nbsp;: c'est la seule façon de lire les capteurs de température. L'installeur ajoute au besoin .NET 10&nbsp;et le pilote PawnIO.</span><span class="en">Windows 10&nbsp;(1809&nbsp;or newer) or 11, 64-bit. Administrator rights, asked for at startup: that is the only way to read temperature sensors. The installer adds .NET 10&nbsp;and the PawnIO driver if needed.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Installer ——— -->
-  <section id="installer">
-    <div class="wrap installer">
-      <div class="entete revele">
-        <div class="tag"><span class="fr">INSTALLATION</span><span class="en">INSTALLATION</span></div>
-        <h2><span class="fr">Pas à pas, sans surprise</span><span class="en">Step by step, no surprises</span></h2>
-        <p>
-          <span class="fr">Une nouvelle version n'a pas encore de réputation auprès de Microsoft&nbsp;: les premiers jours, Edge peut s'en méfier, même signée. Voici quoi faire, avec les vraies fenêtres.</span>
-          <span class="en">A new version has no reputation with Microsoft yet: for the first few days, Edge may be wary of it, even though it's signed. Here's what to do, with the real windows.</span>
-        </p>
-      </div>
-      <ol class="etapes guide">
-        <li class="revele">
-          <h4><span class="fr">Télécharge le fichier</span><span class="en">Download the file</span></h4>
-          <p><span class="fr">Si Edge dit qu'il «&nbsp;n'est pas fréquemment téléchargé&nbsp;», c'est seulement qu'il est encore récent.</span><span class="en">If Edge says it “isn't commonly downloaded”, that just means it's still new.</span></p>
-          <img loading="lazy" width="362" height="204" src="img/v1/installation-1.webp"
-               data-alt-fr="Le panneau des téléchargements d'Edge : « Aurora-Setup-1.0.9 (1).exe n'est pas fréquemment téléchargé. Assurez-vous que vous faites confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir. »"
-               data-alt-en="Edge's downloads panel, in French: the file isn't commonly downloaded; make sure you trust it before opening it."
-               alt="Le panneau des téléchargements d'Edge : « Aurora-Setup-1.0.9 (1).exe n'est pas fréquemment téléchargé. Assurez-vous que vous faites confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir. »">
-        </li>
-        <li class="revele d1">
-          <h4><span class="fr">Garde-le</span><span class="en">Keep it</span></h4>
-          <p><span class="fr">Passe la souris sur le fichier, clique les trois points «&nbsp;…&nbsp;», puis «&nbsp;Conserver&nbsp;».</span><span class="en">Hover over the file, click the three dots “…”, then “Keep”.</span></p>
-          <img loading="lazy" width="258" height="214" src="img/v1/installation-2.webp"
-               data-alt-fr="Le menu « … » du téléchargement : Supprimer, Conserver, Signaler ce fichier comme fiable, En savoir plus, Copier le lien de téléchargement."
-               data-alt-en="The download's “…” menu, in French: Delete, Keep, Report this file as safe, Learn more, Copy download link."
-               alt="Le menu « … » du téléchargement : Supprimer, Conserver, Signaler ce fichier comme fiable, En savoir plus, Copier le lien de téléchargement.">
-        </li>
-        <li class="revele d2">
-          <h4><span class="fr">Vérifie l'éditeur</span><span class="en">Check the publisher</span></h4>
-          <p><span class="fr">Edge te demande de confirmer. L'éditeur doit être <b>Denis Desbiens</b>&nbsp;: clique la flèche à côté de «&nbsp;Supprimer&nbsp;», puis «&nbsp;Conserver quand même&nbsp;».</span><span class="en">Edge asks you to confirm. The publisher should be <b>Denis Desbiens</b>: click the arrow next to “Delete”, then “Keep anyway”.</span></p>
-          <img loading="lazy" width="367" height="552" src="img/v1/installation-3.webp"
-               data-alt-fr="Edge demande de vérifier qu'on fait confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir : l'éditeur est Denis Desbiens ; sous la flèche de « Supprimer », « Conserver quand même »."
-               data-alt-en="Edge asks you to make sure you trust the file before opening it, in French: the publisher is Denis Desbiens; under the “Delete” arrow, “Keep anyway”."
-               alt="Edge demande de vérifier qu'on fait confiance à Aurora-Setup-1.0.9 (1).exe avant de l'ouvrir : l'éditeur est Denis Desbiens ; sous la flèche de « Supprimer », « Conserver quand même ».">
-        </li>
-        <li class="revele">
-          <h4><span class="fr">Ouvre-le</span><span class="en">Open it</span></h4>
-          <p><span class="fr">Windows demande les droits administrateur. La fenêtre affiche «&nbsp;Éditeur vérifié&nbsp;: Denis Desbiens&nbsp;»&nbsp;: clique «&nbsp;Oui&nbsp;».</span><span class="en">Windows asks for administrator rights. The window shows “Verified publisher: Denis Desbiens”: click “Yes”.</span></p>
-        </li>
-        <li class="revele d1">
-          <h4><span class="fr">Laisse-le travailler</span><span class="en">Let it work</span></h4>
-          <p><span class="fr">L'installation ajoute .NET 10&nbsp;et PawnIO s'ils manquent&nbsp;: ça peut prendre quelques minutes, barre figée. C'est normal. Aurora s'ouvre quand tu cliques «&nbsp;Terminer&nbsp;».</span><span class="en">The installation adds .NET 10&nbsp;and PawnIO if they are missing: that can take a few minutes, bar frozen. This is normal. Aurora opens when you click “Finish”.</span></p>
-        </li>
-      </ol>
-      <p class="guide-note revele"><span class="fr">Un autre navigateur peut afficher un avertissement semblable&nbsp;: choisis de garder le fichier.</span><span class="en">Screenshots of Edge in French. Another browser may show a similar warning: choose to keep the file.</span></p>
-      <div class="avertissement revele">
-        <h4><span class="fr">Si Windows t'avertit en l'ouvrant</span><span class="en">If Windows warns you when you open it</span></h4>
-        <p><span class="fr">«&nbsp;Windows a protégé votre ordinateur&nbsp;»&nbsp;: c'est la même réputation qui se bâtit. Clique «&nbsp;Informations complémentaires&nbsp;»&nbsp;: si l'éditeur est Denis Desbiens, «&nbsp;Exécuter quand même&nbsp;» installe Aurora.</span><span class="en">“Windows protected your PC”: it's the same reputation still building up. Click “More info”: if the publisher is Denis Desbiens, “Run anyway” installs Aurora.</span></p>
-      </div>
-      <div class="empreinte revele">
-        <p><span class="fr">Pour vérifier le fichier toi-même&nbsp;: clic droit → Propriétés → «&nbsp;Signatures numériques&nbsp;». Ou compare son empreinte, dans PowerShell&nbsp;: <code>Get-FileHash .\Aurora-Setup-1.0.11.exe -Algorithm SHA256</code></span><span class="en">To check the file yourself: right-click → Properties → “Digital Signatures”. Or compare its fingerprint, in PowerShell: <code>Get-FileHash .\Aurora-Setup-1.0.11.exe -Algorithm SHA256</code></span></p>
-        <div class="ligne">
-          <code id="empreinte">0F7C449CDA75ED70FA17D6DB736A284D05145FAEE03DBEB86F903C6BCA4A0891</code>
-          <button class="copier" type="button" id="copier"><span class="fr">Copier</span><span class="en">Copy</span></button>
-        </div>
-      </div>
-      <div class="actions revele">
-        <a class="bouton" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases/download/v1.0.11/Aurora-Setup-1.0.11.exe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
-          <span class="fr">Télécharger Aurora 1.0.11</span><span class="en">Download Aurora 1.0.11</span>
-        </a>
-        <a class="bouton discret" href="https://github.com/Neurogis44/aurora-mises-a-jour/releases"><span class="fr">Toutes les versions</span><span class="en">All versions</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Don ——— -->
-  <section>
-    <div class="wrap">
-      <div class="don revele">
-        <div class="tag"><span class="fr">UN COUP DE MAIN</span><span class="en">A HAND</span></div>
-        <h2><span class="fr">Aurora est gratuite, et le restera</span><span class="en">Aurora is free, and will stay free</span></h2>
-        <p><span class="fr">Pas de version payante, pas de publicité, rien à débloquer. Si elle t'est utile et que tu veux encourager la suite, il y a un pot. Un don ne donne droit à rien de plus&nbsp;: c'est un merci, pas un achat.</span><span class="en">No paid version, no ads, nothing to unlock. If it is useful to you and you would like to help what comes next, there is a tip jar. A donation buys nothing extra: it is a thank you, not a purchase.</span></p>
-        <a class="bouton" href="https://ko-fi.com/auroraapp" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9A5.4 5.4 0 0 1 12 6.3 5.4 5.4 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9z"/></svg>
-          <span class="fr">Offrir un café</span><span class="en">Buy a coffee</span>
-        </a>
-        <span class="meta"><span class="fr">Sur Ko-fi · paiement unique, pas d'abonnement</span><span class="en">On Ko-fi · one-off, no subscription</span></span>
       </div>
     </div>
   </section>
