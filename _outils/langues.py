@@ -8,21 +8,36 @@ racine, en français. Ce script, à relancer après chaque modification d'une pa
      (hreflang) et sa fiche pour les moteurs de recherche (données structurées : le logiciel, les questions de la FAQ) ;
   2. fabrique sa page anglaise sous /en/ : sans le texte français, en anglais d'emblée (images, vidéos et textes de
      remplacement anglais), ses liens vers les autres pages anglaises, ses images et fichiers pris à la racine ;
-  3. écrit sitemap.xml (les deux langues de chaque page) et robots.txt.
+  3. écrit sitemap.xml (les deux langues de chaque page), robots.txt et la clé IndexNow.
+
+Après chaque publication (le site en ligne, GitHub Pages fini) : python _outils/langues.py --annoncer
+  annonce par IndexNow (Bing, Yandex, Seznam, Naver… ; pas Google, qui a sa Search Console) les pages qui ont changé
+  depuis la dernière annonce — seulement celles déjà en ligne telles qu'elles sont dans le dépôt —, et retient leur
+  empreinte dans _outils/indexnow-annonces.json pour ne jamais annoncer deux fois la même chose.
 
 Les pages anglaises ne se modifient jamais à la main : elles sont refaites à chaque passage. Le dossier _outils n'est
 pas publié (GitHub Pages passe le site par Jekyll, qui laisse de côté les dossiers qui commencent par « _ »).
 """
 import datetime
+import hashlib
 import html
 import json
 import pathlib
 import re
+import subprocess
 import sys
+import time
+import urllib.error
 import urllib.parse
+import urllib.request
 
 SITE = "https://auroraapp.ca"
 RACINE = pathlib.Path(__file__).resolve().parent.parent
+# La clé IndexNow : publique par nature, elle est servie à la racine du site (`<clé>.txt`) pour prouver aux moteurs que
+# les annonces viennent du site lui-même.
+INDEXNOW_CLE = "743404afabe1bffc6ef75c519cc83979"
+INDEXNOW_API = "https://api.indexnow.org/indexnow"
+INDEXNOW_ETAT = RACINE / "_outils" / "indexnow-annonces.json"
 DEBUT = "<!-- référencement : début (fabriqué par _outils/langues.py, ne pas modifier ici) -->"
 FIN = "<!-- référencement : fin -->"
 NOTE_FR = ("<!-- Page écrite dans les deux langues : sa version anglaise (/en/…) et son référencement se refont avec "
@@ -428,12 +443,81 @@ def main() -> None:
             ]
     lignes.append("</urlset>")
     for nom, contenu in (("sitemap.xml", "\r\n".join(lignes) + "\r\n"),
-                         ("robots.txt", f"User-agent: *\r\nAllow: /\r\n\r\nSitemap: {SITE}/sitemap.xml\r\n")):
+                         ("robots.txt", f"User-agent: *\r\nAllow: /\r\n\r\nSitemap: {SITE}/sitemap.xml\r\n"),
+                         (f"{INDEXNOW_CLE}.txt", INDEXNOW_CLE)):
         print(f"{nom} : {'écrit' if ecrire_si_change(RACINE / nom, contenu) else 'inchangé'}")
+
+
+# Ce que veulent dire les refus d'IndexNow (sa documentation, indexnow.org).
+REFUS_INDEXNOW = {
+    400: "requête mal formée",
+    403: "clé refusée : son fichier est-il en ligne ?",
+    422: "adresses hors du site, ou clé qui ne correspond pas",
+    429: "trop d'annonces d'un coup : réessayer plus tard",
+}
+
+
+def lire_en_ligne(url: str) -> bytes:
+    """Le fichier tel que le site le sert en ce moment (un paramètre en plus pour passer à travers les caches)."""
+    try:
+        with urllib.request.urlopen(f"{url}?v={int(time.time())}", timeout=30) as reponse:
+            return reponse.read()
+    except urllib.error.URLError as erreur:
+        raise ValueError(f"{url} : illisible en ligne ({erreur})")
+
+
+def annoncer() -> None:
+    """Après une publication : les pages qui ont changé depuis la dernière annonce, annoncées par IndexNow. Seulement
+    celles déjà en ligne telles qu'elles sont dans le dépôt (sinon le moteur lirait l'ancienne)."""
+    try:
+        cle_en_ligne = lire_en_ligne(f"{SITE}/{INDEXNOW_CLE}.txt").decode("utf-8").strip()
+    except ValueError:
+        cle_en_ligne = None
+    if cle_en_ligne != INDEXNOW_CLE:
+        raise ValueError("la clé IndexNow n'est pas encore en ligne : publier d'abord, puis annoncer")
+    etat = json.loads(INDEXNOW_ETAT.read_text(encoding="utf-8")) if INDEXNOW_ETAT.exists() else {}
+    nouvelles: dict[str, str] = {}
+    for page in PAGES:
+        for langue in ("fr", "en"):
+            url = adresse(page["chemin"], langue)
+            fichier = ("en/" if langue == "en" else "") + page["source"]
+            depot = subprocess.run(["git", "show", f"HEAD:{fichier}"], cwd=RACINE, capture_output=True, check=True).stdout
+            if lire_en_ligne(url) != depot:
+                print(f"{url} : pas encore en ligne telle qu'au dépôt, pas annoncée")
+                continue
+            empreinte = hashlib.sha256(depot).hexdigest()
+            if etat.get(url) != empreinte:
+                nouvelles[url] = empreinte
+    if not nouvelles:
+        print("IndexNow : rien de nouveau à annoncer")
+        return
+    corps = {
+        "host": urllib.parse.urlsplit(SITE).hostname,
+        "key": INDEXNOW_CLE,
+        "keyLocation": f"{SITE}/{INDEXNOW_CLE}.txt",
+        "urlList": list(nouvelles),
+    }
+    requete = urllib.request.Request(
+        INDEXNOW_API,
+        data=json.dumps(corps).encode("utf-8"),
+        method="POST",
+        headers={"Content-Type": "application/json; charset=utf-8", "User-Agent": "auroraapp.ca (contact@auroraapp.ca)"},
+    )
+    try:
+        with urllib.request.urlopen(requete, timeout=30) as reponse:
+            statut = reponse.status
+    except urllib.error.HTTPError as erreur:
+        raise ValueError(f"IndexNow a refusé l'annonce : {erreur.code}, {REFUS_INDEXNOW.get(erreur.code, erreur.reason)}")
+    # 200 : reçue ; 202 : reçue, la clé sera vérifiée (la première fois).
+    etat.update(nouvelles)
+    INDEXNOW_ETAT.write_text(json.dumps(etat, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(f"IndexNow : {len(nouvelles)} page(s) annoncée(s), réponse {statut} :")
+    for url in nouvelles:
+        print(f"  {url}")
 
 
 if __name__ == "__main__":
     try:
-        main()
+        annoncer() if "--annoncer" in sys.argv else main()
     except ValueError as erreur:
         sys.exit(f"rien n'est fini : {erreur}")

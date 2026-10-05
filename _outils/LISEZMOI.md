@@ -20,6 +20,17 @@ Il refait :
 - sa page anglaise sous `en/` (sans le texte français, en anglais d'emblée, liens vers les pages anglaises) ;
 - `sitemap.xml` et `robots.txt`.
 
+**Après chaque publication** (le site en ligne, GitHub Pages fini), annoncer les pages qui ont changé par IndexNow
+(Bing, Yandex, Seznam, Naver… ; Google a sa Search Console) :
+
+```
+python _outils/langues.py --annoncer
+```
+
+Seulement les pages déjà en ligne telles qu'elles sont dans le dépôt, et seulement celles qui ont changé depuis la
+dernière annonce (leurs empreintes sont gardées dans `_outils/indexnow-annonces.json`, à enregistrer dans le dépôt). La
+clé IndexNow est le fichier `743404afabe1bffc6ef75c519cc83979.txt` à la racine : publique par nature, ne pas l'effacer.
+
 **Ne jamais modifier une page de `en/` à la main** : elle est refaite à chaque passage. Les titres et descriptions des
 deux langues sont dans `PAGES`, en haut du script. Une nouvelle page du site s'y ajoute aussi.
 
