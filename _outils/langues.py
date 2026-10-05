@@ -37,11 +37,10 @@ PAGES = [
         "titre": ("Aurora — Moniteur de PC gratuit pour Windows, en mots simples",
                   "Aurora — Free PC Monitor for Windows, in Plain Words"),
         "description": (
-            "Aurora surveille ton PC en direct et jour après jour, et te dit en mots simples s'il va bien et quoi faire : "
-            "températures, ventilateurs, disques, FPS en jeu, mises à jour de Windows. Gratuite, sans compte, pour "
-            "Windows 10 et 11.",
-            "Aurora watches your PC live and day after day, and tells you in plain words whether it's doing well and what "
-            "to do: temperatures, fans, drives, in-game FPS, Windows updates. Free, no account, for Windows 10 and 11.",
+            "Aurora surveille ton PC et te dit en mots simples s'il va bien : températures, ventilateurs, disques, FPS, "
+            "mises à jour de Windows. Gratuite, sans compte.",
+            "Aurora watches your PC and tells you in plain words whether it's doing well: temperatures, fans, drives, FPS, "
+            "Windows updates. Free, no account.",
         ),
         "partage": ("Aurora — ton PC, en clair", "Aurora — your PC, in plain sight"),
         "partage_description": (
@@ -56,11 +55,10 @@ PAGES = [
         "chemin": "/faq/",
         "titre": ("Questions fréquentes — Aurora, moniteur de PC gratuit", "FAQ — Aurora, the free PC monitor for Windows"),
         "description": (
-            "Les questions qu'on pose le plus sur Aurora, le moniteur matériel gratuit pour Windows : installation, "
-            "antivirus, droits administrateur, capteurs, jeux et overlay, vie privée, onglet Windows, mises à jour, skins, "
-            "limites connues.",
-            "The questions people ask most about Aurora, the free hardware monitor for Windows: installation, antivirus, "
-            "administrator rights, sensors, games and overlay, privacy, the Windows tab, updates, skins, known limits.",
+            "Les réponses sur Aurora, moniteur de PC gratuit : installation, antivirus, capteurs, jeux, vie privée, mises "
+            "à jour, skins, limites connues.",
+            "Answers about Aurora, the free PC monitor: installation, antivirus, sensors, games, privacy, updates, skins, "
+            "known limits.",
         ),
         "partage": ("Aurora — questions fréquentes", "Aurora — FAQ"),
         "partage_description": (
@@ -73,10 +71,10 @@ PAGES = [
         "chemin": "/skins/",
         "titre": ("Skins pour Aurora — habille ton moniteur de PC", "Skins for Aurora — dress up your PC monitor"),
         "description": (
-            "Des skins pour Aurora, le moniteur matériel gratuit pour Windows : de nouvelles couleurs, polices et dessins "
-            "pour tout Aurora, overlay de jeu compris. Neuf skins, chacun avec son ambiance, 3 $ chacun.",
-            "Skins for Aurora, the free hardware monitor for Windows: new colours, fonts and drawings for all of Aurora, "
-            "game overlay included. Nine skins, each with its own mood, CA$3 each.",
+            "Des skins pour Aurora, le moniteur de PC gratuit : de nouvelles couleurs, polices et dessins, overlay de jeu "
+            "compris. Neuf ambiances, 3 $ chacun.",
+            "Skins for Aurora, the free PC monitor: new colours, fonts and drawings, game overlay included. Nine moods, "
+            "CA$3 each.",
         ),
         "partage": ("Aurora — les skins", "Aurora — the skins"),
         "partage_description": (
@@ -344,6 +342,16 @@ def en_anglais_d_emblee(balise: str) -> str:
     return balise
 
 
+def alt_en_francais(balise: str) -> str:
+    """Une image dont le texte de remplacement change selon la langue : le français écrit d'emblée dans la page. Le code
+    de la page ne le pose qu'à l'affichage, et les robots des moteurs de recherche ne voyaient qu'un texte vide (Bing en
+    comptait 13 sur l'accueil)."""
+    alt_fr = re.search(r'\sdata-alt-fr="([^"]*)"', balise)
+    if not balise.startswith("<img") or alt_fr is None:
+        return balise
+    return re.sub(r'(\salt=)""', lambda m: f'{m.group(1)}"{alt_fr.group(1)}"', balise, count=1)
+
+
 def hors_du_code(texte: str, fonction) -> str:
     """Applique `fonction` au texte de la page, sauf au code et aux styles."""
     morceaux, debut = [], 0
@@ -384,6 +392,11 @@ def ecrire_si_change(chemin: pathlib.Path, texte: str) -> bool:
 
 
 def main() -> None:
+    # Bing veut une description de 25 à 160 caractères (ses outils pour les webmestres le reprochaient à trois pages).
+    for page in PAGES:
+        for description in page["description"]:
+            if not 25 <= len(description) <= 160:
+                raise ValueError(f"{page['chemin']} : description de {len(description)} caractères (de 25 à 160)")
     plan = []
     for page in PAGES:
         source = RACINE / page["source"]
@@ -391,6 +404,7 @@ def main() -> None:
         fin = "\r\n" if "\r\n" in texte else "\n"
         if NOTE_FR not in texte:
             texte = remplacer_un(texte, r"<!doctype html>", "<!doctype html>" + fin + NOTE_FR, "doctype")
+        texte = hors_du_code(texte, lambda morceau: BALISE_MEDIA.sub(lambda m: alt_en_francais(m.group(0)), morceau))
         francaise = entete(texte, page, texte, "fr", fin)
         anglaise = page_anglaise(francaise, page, fin)
         cible = RACINE / "en" / page["source"]
