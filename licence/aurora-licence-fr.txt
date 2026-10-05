@@ -1,6 +1,6 @@
 ﻿LICENCE D'AURORA
 
-Version 3 du 2 octobre 2026. La version française fait foi.
+Version 4 du 4 octobre 2026. La version française fait foi.
 
 Aurora © 2026 Denis Desbiens. Tous droits réservés, sauf ce que cette licence te permet.
 
@@ -35,7 +35,7 @@ SANS GARANTIE
 
 Aurora est offerte telle quelle, sans garantie d'aucune sorte, dans toute la mesure permise par la loi. Elle a été mise au point sur quelques PC seulement : sur ton matériel, une mesure peut manquer ou être fausse.
 
-Quand tu le lui demandes, Aurora agit sur ton PC : vitesse des ventilateurs, mode d'alimentation, test de refroidissement, arrêt d'une application, éjection d'un disque, réglages de Windows (onglet Windows : ceux de ton compte, les réglages de jeu, le démarrage rapide, les programmes au démarrage, la fréquence des écrans) et son entretien (vérifier Windows et les disques avec les outils de Microsoft, envoyer les vieux fichiers temporaires à la corbeille, vider la corbeille : ce qui en est vidé ne se récupère plus). Ces commandes sont à tes risques. Aurora ne remplace pas les protections de ton matériel.
+Quand tu le lui demandes, Aurora agit sur ton PC : vitesse des ventilateurs, mode d'alimentation, test de refroidissement, arrêt d'une application, éjection d'un disque, réglages de Windows (onglet Windows : ceux de ton compte, les réglages de jeu, le démarrage rapide, les programmes au démarrage, la fréquence des écrans) et son entretien (vérifier Windows et les disques avec les outils de Microsoft, envoyer à la corbeille les vieux fichiers temporaires et les fichiers en double que tu as cochés, vider la corbeille : ce qui en est vidé ne se récupère plus). Ces commandes sont à tes risques. Aurora ne remplace pas les protections de ton matériel.
 
 Avant de changer un réglage de Windows, Aurora retient sa valeur d'origine ; elle la remet d'un clic (« Remettre », « Tout remettre comme avant ») et à sa désinstallation. La fréquence d'un écran fait exception : c'est un choix direct, comme dans les Paramètres de Windows, essayé quinze secondes avant d'être gardé. Aurora ne touche jamais à la sécurité de Windows (antivirus, pare-feu, mises à jour, contrôle de compte) ni à ce que Windows protège contre les programmes.
 
@@ -49,7 +49,7 @@ Rien dans cette licence ne t'enlève les droits que la loi te garantit et auxque
 
 VIE PRIVÉE
 
-Aurora ne crée aucun compte et n'envoie rien sur Internet sans que tu le demandes, sauf une question : existe-t-il une nouvelle version ? Ça se coupe dans les Réglages. Le test de vitesse et les messages au support, avec la fiche de ton matériel si tu coches la case, ne partent que si tu cliques.
+Aurora ne crée aucun compte et n'envoie rien sur Internet sans que tu le demandes, sauf une question : existe-t-il une nouvelle version ? Ça se coupe dans les Réglages. Le test de vitesse et les messages au support, avec la fiche de ton matériel si tu coches la case, ne partent que si tu cliques. Pour trouver les fichiers en double, Aurora lit tes fichiers sur ton PC seulement : leurs noms ne vont nulle part, et la liste s'oublie à sa fermeture.
 
 
 COMPOSANTS D'AUTRES AUTEURS

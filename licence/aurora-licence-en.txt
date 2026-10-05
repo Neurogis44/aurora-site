@@ -1,6 +1,6 @@
 ﻿AURORA LICENCE
 
-Version 3, October 2, 2026. The French version governs.
+Version 4, October 4, 2026. The French version governs.
 
 Aurora © 2026 Denis Desbiens. All rights reserved, except what this licence allows you.
 
@@ -35,7 +35,7 @@ NO WARRANTY
 
 Aurora is provided as is, without warranty of any kind, to the fullest extent permitted by law. It was developed on only a handful of PCs: on your hardware, a reading may be missing or wrong.
 
-When you ask it to, Aurora acts on your PC: fan speeds, power mode, cooling test, closing an app, ejecting a drive, Windows settings (Windows tab: your account's settings, game settings, fast startup, startup programs, display refresh rates) and its maintenance (checking Windows and the drives with Microsoft's tools, sending old temporary files to the Recycle Bin, emptying the Recycle Bin: what's emptied can't be recovered). You use these controls at your own risk. Aurora doesn't replace your hardware's own protections.
+When you ask it to, Aurora acts on your PC: fan speeds, power mode, cooling test, closing an app, ejecting a drive, Windows settings (Windows tab: your account's settings, game settings, fast startup, startup programs, display refresh rates) and its maintenance (checking Windows and the drives with Microsoft's tools, sending old temporary files and the duplicate files you checked to the Recycle Bin, emptying the Recycle Bin: what's emptied can't be recovered). You use these controls at your own risk. Aurora doesn't replace your hardware's own protections.
 
 Before changing a Windows setting, Aurora keeps its original value; it puts it back in one click ("Restore", "Restore everything") and when it's uninstalled. A display's refresh rate is the exception: it's a direct choice, as in Windows Settings, tried for fifteen seconds before being kept. It never touches Windows security (antivirus, firewall, updates, account control) nor what Windows protects from programs.
 
@@ -49,7 +49,7 @@ Nothing in this licence takes away the rights the law guarantees you and that ca
 
 PRIVACY
 
-Aurora creates no account and sends nothing over the Internet unless you ask, except one question: is there a new version? You can turn this off in Settings. The speed test and messages to support, with your hardware summary if you check the box, only go out when you click.
+Aurora creates no account and sends nothing over the Internet unless you ask, except one question: is there a new version? You can turn this off in Settings. The speed test and messages to support, with your hardware summary if you check the box, only go out when you click. To find duplicate files, Aurora reads your files on your PC only: their names go nowhere, and the list is forgotten when it closes.
 
 
 OTHER AUTHORS' COMPONENTS
