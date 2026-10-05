@@ -1,14 +1,16 @@
 {
-  "https://auroraapp.ca/": "a7f76a52f2decb968f0ad1497c83caa3298967a9816beb16bc0a763a95a542f0",
-  "https://auroraapp.ca/conditions/": "538e0160ca99f20d16026885cd08fe41fbde2902e457f8b660ad8c3830d8af1b",
-  "https://auroraapp.ca/en/": "9a9b7d58131d56db05efefcc1220fd23cfab949d29175f5c88ba3ca2c31569d6",
-  "https://auroraapp.ca/en/conditions/": "da56160c558d7934a4fdecb31c85a67c658a77322379f053fe9fda1d021057e7",
-  "https://auroraapp.ca/en/faq/": "c5884f469c57e36723fc1d864263b29f5d2dc24d400196e4de55d498c9978753",
-  "https://auroraapp.ca/en/licence/": "e24a61f93ef8700db2a189f0013d91c8e8c68cdb079a67d5b7006116d89f511e",
-  "https://auroraapp.ca/en/presse/": "aecd555496efbbf627a8629cecc9d02482044868ea3dffbb01fe1f419f1f2346",
-  "https://auroraapp.ca/en/skins/": "bfb661543655f44ff2434679ad79b0ce202cdb97bbe93f69f1e97d83160612ed",
-  "https://auroraapp.ca/faq/": "e14a46b446366a111343f62cdf7544dc5d25ddc3fd3109147e3080468b2a4bac",
-  "https://auroraapp.ca/licence/": "12f4dfdb8fb628f048ad13a7ed3aeefa5ffca39ae952780bc228fba2bc732de6",
-  "https://auroraapp.ca/presse/": "f454c5d04bc337e429f459ada9a0a6eae16ea0ce0e85087ffc37498ef8559e52",
-  "https://auroraapp.ca/skins/": "7a668523e2cf5a7ebcc1152ec047b036ef2397cc799c8b2c03a82cc76ae08fd9"
+  "https://auroraapp.ca/": "f331824f86760e5928af88d2ae0f2d7010f32cfa925d599e019402cc16e3505e",
+  "https://auroraapp.ca/conditions/": "84b92657bf8b2aaf3a4f7438999d3d7c3b592bf4298633117ba3a28df8449340",
+  "https://auroraapp.ca/confidentialite/": "1db718ebfcd0220361e97e9ae105220b0169a0755530d3ea82f38074f3fc7cad",
+  "https://auroraapp.ca/en/": "1fed37cba6fa1feaaa8dce47ae0af0348ec1620ae220cd348d03edfdc567b571",
+  "https://auroraapp.ca/en/conditions/": "0e0d06f0581be1612830f22b7c6f46dc8b981cb3620b8723f2e4bae5148b4463",
+  "https://auroraapp.ca/en/confidentialite/": "fa6430b7f8c0ac910cc71054bf5177fb6e2abd31eee82e09a717f0dea435e928",
+  "https://auroraapp.ca/en/faq/": "922aab852c94eea959c3a4028b9e311ade8a458f9794e80baf3811d2ff707044",
+  "https://auroraapp.ca/en/licence/": "481a7e09322f783e2e7b276eff814d9a555fe81fabfe7556587fa0610644d46e",
+  "https://auroraapp.ca/en/presse/": "72c776fe15afca897b7440e824372d1ef99c81b7d0d2ced3d4dd4b7d0d25a6ed",
+  "https://auroraapp.ca/en/skins/": "d2b35418cc30519d4afd376a1ad72127bd3745f76cbad4a537116a4f85c998e7",
+  "https://auroraapp.ca/faq/": "1e5646d6eabc71051fd125a1712d41e121dd7fd2cfb25985515eabfb8b0902fd",
+  "https://auroraapp.ca/licence/": "ddec42b8f6a7a1e36bfb7340c88bf7615e357dfbbaa42cf47cf69ac92113e867",
+  "https://auroraapp.ca/presse/": "150f66d6bdaff85dfdc55e1d965ad14649f1c21c3e5f4870437c4839ce268c0e",
+  "https://auroraapp.ca/skins/": "1484b46faaafaa27cf811b0a6bbc3095bb525df2830deb550babd322c834c403"
 }
