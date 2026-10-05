@@ -84,4 +84,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://auroraapp.ca/en/conditions/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://auroraapp.ca/conditions/"/>
   </url>
+  <url>
+    <loc>https://auroraapp.ca/confidentialite/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://auroraapp.ca/confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auroraapp.ca/en/confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auroraapp.ca/confidentialite/"/>
+  </url>
+  <url>
+    <loc>https://auroraapp.ca/en/confidentialite/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://auroraapp.ca/confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://auroraapp.ca/en/confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auroraapp.ca/confidentialite/"/>
+  </url>
 </urlset>

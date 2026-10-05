@@ -1,0 +1,291 @@
+<!doctype html>
+<!-- Page anglaise fabriquée par _outils/langues.py à partir de /confidentialite/ (la page française, écrite dans les deux langues) : la modifier là, puis relancer le script. -->
+<html lang="en" data-lang="en" data-langue-page="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy — Aurora, the free PC monitor</title>
+<meta name="description" content="What Aurora sends to the Internet (three things only), what it keeps on your PC, and what the website does: in plain words.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aurora — privacy">
+<meta property="og:description" content="No account, no ads, no telemetry: everything Aurora sends and keeps, in plain words.">
+<meta property="og:image" content="https://auroraapp.ca/img/v1/partage.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- référencement : début (fabriqué par _outils/langues.py, ne pas modifier ici) -->
+<link rel="canonical" href="https://auroraapp.ca/en/confidentialite/">
+<link rel="alternate" hreflang="fr" href="https://auroraapp.ca/confidentialite/">
+<link rel="alternate" hreflang="en" href="https://auroraapp.ca/en/confidentialite/">
+<link rel="alternate" hreflang="x-default" href="https://auroraapp.ca/confidentialite/">
+<meta property="og:url" content="https://auroraapp.ca/en/confidentialite/">
+<meta property="og:site_name" content="Aurora">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_CA">
+<!-- référencement : fin -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@500;600;700&display=swap">
+<style>
+  /* Les couleurs du site (thème Carbone d'Aurora). */
+  :root {
+    --ground: #09090b;
+    --panel: #141619;
+    --panel-2: #1a1d22;
+    --edge: #272a31;
+    --edge-2: #383d46;
+    --accent: #ff2340;
+    --accent-hi: #ff5468;
+    --ink: #f2f4f7;
+    --text: #c3c8d0;
+    --dim: #868d97;
+    color-scheme: dark;
+  }
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root[data-lang="en"] .fr { display: none !important; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(1200px 560px at 50% -260px, rgba(255, 35, 64, .2), transparent 70%),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, .021) 0 3px, transparent 3px 6px),
+      repeating-linear-gradient(-45deg, rgba(0, 0, 0, .32) 0 3px, transparent 3px 6px),
+      var(--ground);
+    color: var(--text);
+    font: 500 18px/1.6 Rajdhani, "Segoe UI", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  a { color: var(--accent-hi); }
+  strong, b { color: var(--ink); font-weight: 600; }
+  h1, h2, h3 { font-family: "Chakra Petch", "Segoe UI", sans-serif; color: var(--ink); margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.04; }
+  h2 { font-size: clamp(22px, 3vw, 28px); line-height: 1.15; margin-bottom: 8px; }
+  h3 { font-size: 20px; line-height: 1.2; margin: 20px 0 6px; }
+  p { margin: 0; }
+  p + p { margin-top: 10px; }
+  ul { margin: 10px 0 0; padding-left: 22px; }
+  li + li { margin-top: 8px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+  .barre { position: sticky; top: 0; z-index: 5; background: rgba(9, 9, 11, .88); backdrop-filter: blur(8px);
+           border-bottom: 1px solid var(--edge); }
+  .barre .wrap { max-width: 1120px; display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+  .marque { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none;
+            font: 700 20px "Chakra Petch", sans-serif; letter-spacing: 1px; }
+  .marque img { width: 30px; height: 30px; }
+  .langues { display: flex; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--edge-2); overflow: hidden; }
+  .langues button { background: none; border: 0; color: var(--text); font: 700 14px Rajdhani, sans-serif;
+                    padding: 7px 14px; cursor: pointer; }
+  .langues button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .langues button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .tete { padding: 56px 0 26px; }
+  .tag { display: inline-block; font: 700 13px "Chakra Petch", sans-serif; letter-spacing: 2px; color: #fff;
+         background: var(--accent); padding: 4px 12px; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+         margin-bottom: 16px; }
+  .lead { margin-top: 16px; font-size: 20px; }
+  .version { margin-top: 14px; color: var(--dim); font-size: 16px; }
+  section { padding: 26px 0; border-top: 1px solid var(--edge); }
+  .encadre { background: var(--panel); box-shadow: inset 0 0 0 1px var(--edge); border-left: 3px solid var(--accent); padding: 16px 20px; }
+  .encadre ul { margin-top: 0; }
+  code { font: 600 16px Consolas, "Cascadia Mono", monospace; color: var(--ink); background: var(--panel-2); padding: 1px 6px;
+         overflow-wrap: anywhere; }
+  .pied { padding: 30px 0 46px; color: var(--dim); font-size: 16px; border-top: 1px solid var(--edge); }
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .tete { padding-top: 36px; }
+    .lead { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<header class="barre">
+  <div class="wrap">
+    <a class="marque" href="/en/"><img src="/favicon.svg" alt="" width="30" height="30">AURORA</a>
+    <div class="langues" role="group" aria-label="Langue / Language">
+      <button id="btn-fr" type="button" aria-pressed="true">FR</button>
+      <button id="btn-en" type="button" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="tete">
+    <div class="wrap">
+      <div class="tag"><span class="en">PRIVACY</span></div>
+      <h1><span class="en">What Aurora sends, and what it keeps</span></h1>
+      <p class="lead"><span class="en">Aurora watches your PC on your PC. No account, no ads, no telemetry: none of your readings go to the Internet. Here, in plain words, is everything that does leave, and why.</span></p>
+      <p class="version"><span class="en">Version of October 5, 2026, for Aurora&nbsp;1.0.11 and the auroraapp.ca website. The French version governs.</span></p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="en">In short</span></h2>
+      <div class="encadre">
+        <ul>
+          <li><span class="en">Aurora talks to the Internet for three things only: checking once a day whether there's a new version (you can turn it off), the speed test when you click it, and your message to support when you send it.</span></li>
+          <li><span class="en">Never sent: your readings and history, your games, your files and their names, your music, your PC name, your user name, serial numbers. No identifier, no crash report.</span></li>
+          <li><span class="en">Everything else stays on your PC, or on your home network if you turn that on.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="en">What Aurora sends to the Internet</span></h2>
+
+      <h3><span class="en">The update check</span></h3>
+      <p><span class="en">Once a day (the first time 90&nbsp;seconds after startup), Aurora reads a small public file on GitHub, <code>raw.githubusercontent.com</code>, that holds the latest version number. Its request contains nothing but Aurora's name and version: as for any web page, GitHub only sees your connection's IP address. If there's something new, a banner tells you; nothing downloads or installs on its own.</span></p>
+      <p><span class="en">You can turn it off in Settings, startup and updates panel: Aurora then contacts no website on its own.</span></p>
+
+      <h3><span class="en">The speed test</span></h3>
+      <p><span class="en">Only when you click it. Aurora downloads and uploads empty data (zeros) to Cloudflare's test servers, <code>speed.cloudflare.com</code>, which see your IP address. The result isn't sent anywhere: it stays on your PC (the last 24&nbsp;tests).</span></p>
+
+      <h3><span class="en">Your message to support</span></h3>
+      <p><span class="en">Only when you click “Send” (Settings → Support → Write to support). Along with your message go: Aurora's version and language; your email address, only if you type it to get an answer; and your hardware sheet, only if you check its box, which starts unchecked. You see the exact text of the sheet before sending it.</span></p>
+      <p><span class="en">The sheet holds the models and versions of your hardware, Windows and drivers, your displays, what your sensors read right now, Aurora's theme and skin, whether it has administrator rights, the state of its driver (PawnIO) and of its sensor helper, and whether the FACEIT anti-cheat is installed, since it can block temperature readings. Never your PC name, your user name, your IP address, serial numbers, your other software, your games or your music.</span></p>
+      <p><span class="en">Your message goes through a Cloudflare relay (<code>support.auroraapp.ca</code>), which emails it to me. Like any connection, it sees your IP address: it only uses it to block bursts of messages, and it isn't in the email I receive.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="en">What opens in your browser</span></h2>
+      <p><span class="en">A few buttons open a page in your browser, only when you click: the new version's page and the skins page (auroraapp.ca), Aurora's Facebook page (after a thumbs up), and Microsoft's pages about a Windows update, whose address holds the Windows language, the update number and your Windows version. A Steam game opens in the Steam app. These sites have their own rules.</span></p>
+      <p><span class="en">In the Windows tab, “Check and repair Windows” runs Windows' own tools (DISM, SFC), which may fetch repair files from Windows Update.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="en">On your home network</span></h2>
+      <p><span class="en">None of the following goes through the Internet.</span></p>
+      <ul>
+        <li><span class="en"><b>Sharing is off at first.</b> When you check “Share this PC on the home network”, your PC answers the devices on your network: its name, its processor and graphics card models, its readings, the game in progress, the PCs it follows, and what's playing (title, artist, album art) while the Media panel is on screen or a device follows your readings. It also offers its installer to the other Auroras, and accepts music commands (a box to uncheck in the My PCs tab). There's no password: don't turn sharing on in a network you share with strangers (residence, café, hotel).</span></li>
+        <li><span class="en"><b>The My PCs tab</b>, while on screen, looks for the other Auroras at home with a short message that says nothing about your PC, and reads the readings of the PCs you follow. Every 10&nbsp;minutes, Aurora also asks those PCs whether they have a new version to give it.</span></li>
+        <li><span class="en"><b>Your phone</b>: the QR code leads to a page served by your PC itself, on your network; it loads nothing from the Internet.</span></li>
+        <li><span class="en"><b>Sending files</b> is off at first. Two PCs pair once, with a 6-digit code; after that, file names and contents travel encrypted. Only the sending PC's name goes in the clear, at the start of the connection. Received files land in Downloads\Aurora.</span></li>
+        <li><span class="en"><b>Network devices</b>: Aurora reads the list Windows already knows, without sending anything to find them. For their names, Windows asks your usual name server (DNS); the makers come from a list built into Aurora.</span></li>
+        <li><span class="en"><b>The Stream Deck</b>: its plugin reads Aurora on your PC itself, without any network.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="en">What Aurora keeps on your PC</span></h2>
+      <p><span class="en">All of this stays on your PC: it's what lets Aurora compare, and tell you what changed.</span></p>
+      <ul>
+        <li><span class="en"><b>Your settings</b>, in <code>%APPDATA%\Aurora</code>: your choices, the names you give your fans, the PCs you follow or paired (with their pairing key), the installed skins.</span></li>
+        <li><span class="en"><b>The timeline of changes</b>, over two years: installed software and their versions, drivers, services, startup programs, the BIOS, and what Aurora changed for you.</span></li>
+        <li><span class="en"><b>Its memory</b>, in <code>C:\Program Files\Aurora\donnees</code>, over 400&nbsp;days: a daily summary of temperatures and power, your game sessions (game, length, FPS), the incidents Windows logged, and startup times.</span></li>
+        <li><span class="en">The latest speed and cooling tests, your last game session, and a crash log (<code>crash.log</code>) if Aurora crashes: it's never sent; you attach it to a message yourself if you want.</span></li>
+        <li><span class="en">Only if you ask: your recordings and reports (in Documents\Aurora), and received files (in Downloads\Aurora).</span></li>
+        <li><span class="en">Never kept: the list of duplicate files (forgotten when Aurora closes), network devices, music.</span></li>
+      </ul>
+      <p style="margin-top:12px"><span class="en">Uninstalling keeps your settings and Aurora's memory, in case you reinstall it: you can delete those two folders if you're not coming back.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="en">Skins</span></h2>
+      <p><span class="en">They're bought on the website, through Polar, which takes the payment: I never see your card. Polar passes your name and email address on to me for the sale. Aurora itself checks the file's signature without the Internet: it doesn't know who bought what. See also the <a href="/en/conditions/">terms of sale</a>.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="en">The auroraapp.ca website</span></h2>
+      <ul>
+        <li><span class="en">It's hosted by GitHub Pages: like any host, GitHub receives your IP address and the usual details from your browser.</span></li>
+        <li><span class="en">It counts its visits with Cloudflare Web Analytics, with no cookies and nothing that identifies anyone: I only see totals (page views, countries, device types, sites visitors come from).</span></li>
+        <li><span class="en">Its fonts come from Google Fonts: Google therefore sees your IP address when a page is displayed.</span></li>
+        <li><span class="en">No cookies. Your language choice (FR or EN) is remembered in your browser, and only if you click it.</span></li>
+        <li><span class="en">Links to Polar, Ko-fi, GitHub, Facebook, YouTube, TikTok and VirusTotal lead to sites with their own rules.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="en">What I receive, and what I do with it</span></h2>
+      <p><span class="en">I only receive what you choose to send me: your support messages and your emails to <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a> (with your address if you give it, and your hardware sheet if you attached it), and, for a skin, the name and email address Polar passes on to me. They arrive in an email inbox at Proton.</span></p>
+      <p><span class="en">I only use them to answer you, fix Aurora or refund you; never for advertising. I don't sell them or give them to anyone. I keep them as long as they're useful (an answer, a bug to follow, a sale), then I delete them.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span class="en">Your rights</span></h2>
+      <p><span class="en">You can ask me at any time what I have about you, have it corrected or deleted: write to <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>, I answer myself within 30&nbsp;days. The person in charge of protecting personal information is me: Denis, Aurora's creator, at the same address. If my answer doesn't satisfy you, you can turn to Quebec's <a href="https://www.cai.gouv.qc.ca/">Commission d'accès à l'information</a>.</span></p>
+      <p><span class="en">If Aurora ever starts sending something new, this page will change first, and so will its date at the top.</span></p>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    
+    <span class="en">Aurora — Hardware Monitor · <a href="/en/">auroraapp.ca</a> · <a href="/en/faq/">FAQ</a> · <a href="/en/licence/">Licence</a> · <a href="/en/conditions/">Terms of sale</a> · Like the rest of the site, this page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var racine = document.documentElement;
+  var boutons = { fr: document.getElementById('btn-fr'), en: document.getElementById('btn-en') };
+  var titres = { fr: "Confidentialité — Aurora, moniteur de PC gratuit", en: "Privacy — Aurora, the free PC monitor" };
+
+  function appliquer(choix) {
+    racine.setAttribute('data-lang', choix);
+    racine.lang = choix;
+    document.title = titres[choix];
+    boutons.fr.setAttribute('aria-pressed', String(choix === 'fr'));
+    boutons.en.setAttribute('aria-pressed', String(choix === 'en'));
+  }
+
+  // Chaque langue a sa propre adresse : le français à la racine, l'anglais sous /en/ (son lien « alternate »). La page
+  // reste dans sa langue, jamais d'après celle du navigateur : les robots des moteurs de recherche lisent en anglais, et
+  // prenaient les pages françaises pour des pages anglaises. Un lien « ?lang=en » (courriels, Readme anglais) ou un choix
+  // déjà fait (FR, EN) mènent à l'autre adresse.
+  var ici = racine.getAttribute('data-langue-page') === 'en' ? 'en' : 'fr';
+  var lienAutre = document.querySelector('link[rel="alternate"][hreflang="' + (ici === 'en' ? 'fr' : 'en') + '"]');
+  var autre = lienAutre ? new URL(lienAutre.getAttribute('href'), location.href).pathname : null;
+  function retenir(choix) {
+    try { localStorage.setItem('aurora-langue', choix); } catch (e) { /* navigation privée */ }
+  }
+  function aller(choix) {
+    retenir(choix);
+    if (choix !== ici && autre) { location.href = autre + location.hash; }
+  }
+  var demandee = new URLSearchParams(location.search).get('lang');
+  var retenue = null;
+  try { retenue = localStorage.getItem('aurora-langue'); } catch (e) { /* idem */ }
+  var voulue = demandee === 'fr' || demandee === 'en' ? demandee : retenue;
+  if (voulue && voulue !== ici && autre) { location.replace(autre + location.hash); }
+  appliquer(ici);
+  boutons.fr.addEventListener('click', function () { aller('fr'); });
+  boutons.en.addEventListener('click', function () { aller('en'); });
+  // Un navigateur dans l'autre langue, sans choix fait : une pastille propose l'autre version.
+  var langueNavigateur = (navigator.language || 'fr').toLowerCase();
+  var autreLangue = ici === 'fr' ? langueNavigateur.indexOf('fr') !== 0 : langueNavigateur.indexOf('fr') === 0;
+  if (!voulue && autre && autreLangue) {
+    var pastille = document.createElement('a');
+    pastille.href = autre + location.hash;
+    pastille.lang = ici === 'fr' ? 'en' : 'fr';
+    pastille.textContent = ici === 'fr' ? 'English version →' : 'Version française →';
+    pastille.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:1000;padding:10px 18px;border-radius:999px;' +
+      'background:var(--accent,#ff2340);color:#fff;font:600 15px/1.2 Rajdhani,system-ui,sans-serif;text-decoration:none;' +
+      'box-shadow:0 8px 24px rgba(0,0,0,.4)';
+    pastille.addEventListener('click', function () { retenir(ici === 'fr' ? 'en' : 'fr'); });
+    document.body.appendChild(pastille);
+  }
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "2b2e9afa214040b4842912487d06564f"}'></script>
+</body>
+</html>

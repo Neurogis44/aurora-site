@@ -146,6 +146,22 @@ PAGES = [
             "What you buy, payment, delivery and refunds for Aurora skins, in plain words.",
         ),
     },
+    {
+        "source": "confidentialite/index.html",
+        "chemin": "/confidentialite/",
+        "titre": ("Confidentialité — Aurora, moniteur de PC gratuit", "Privacy — Aurora, the free PC monitor"),
+        "description": (
+            "Ce qu'Aurora envoie sur Internet (trois choses seulement), ce qu'elle garde sur ton PC, et ce que fait le "
+            "site : en mots simples.",
+            "What Aurora sends to the Internet (three things only), what it keeps on your PC, and what the website "
+            "does: in plain words.",
+        ),
+        "partage": ("Aurora — confidentialité", "Aurora — privacy"),
+        "partage_description": (
+            "Pas de compte, pas de publicité, pas de télémétrie : tout ce qu'Aurora envoie et garde, en mots simples.",
+            "No account, no ads, no telemetry: everything Aurora sends and keeps, in plain words.",
+        ),
+    },
 ]
 
 # Les étiquettes pour les lecteurs d'écran qui ne sont qu'en français ; les autres ont déjà leur anglais
