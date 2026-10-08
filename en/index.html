@@ -421,6 +421,9 @@
   footer { margin-top: clamp(70px, 10vw, 110px); border-top: 1px solid var(--edge); padding-block: 34px 60px; color: var(--dim); font-size: 15.5px; }
   footer .wrap { display: grid; gap: 10px; }
   footer p { max-width: 900px; }
+  /* Le badge d'AlternativeTo : leur image, gardée ici (aucune requête vers eux avant un clic). */
+  footer .alternativeto { justify-self: start; margin-top: 2px; }
+  footer .alternativeto img { width: 183px; height: auto; }
 
   /* Apparition au défilement (seulement si le script tourne : sans lui, tout reste visible). */
   .js .revele { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1); }
@@ -1859,6 +1862,8 @@
     <p><span class="en">Version 1.0.12&nbsp;· <a href="https://github.com/Neurogis44/aurora-mises-a-jour/releases">Downloads and release notes</a>&nbsp;· <a href="/en/faq/">FAQ</a>&nbsp;· <a href="/en/presse/">Press kit</a>&nbsp;· <a href="/en/licence/">Licence</a>&nbsp;· <a href="/en/confidentialite/">Privacy</a></span></p>
     <p><span class="en">A question? The answer may be in the <a href="/en/faq/">FAQ</a>. A bug, a motherboard Aurora reads badly, an idea? Write to me from Aurora (Settings → Support) or at <a href="mailto:contact@auroraapp.ca">contact@auroraapp.ca</a>. Say what you see and on what hardware; if there was a crash, the file <code>%APPDATA%\Aurora\crash.log</code> helps a lot.</span></p>
     <p><span class="en">Aurora also has a <a href="https://www.facebook.com/AuroraMoniteur" rel="noopener">Facebook page</a>, a <a href="https://www.youtube.com/@Auroraapp-info" rel="noopener">YouTube channel</a> and a <a href="https://www.tiktok.com/@auroraapp.ca" rel="noopener">TikTok account</a>: news, screenshots, videos, and one more place to ask a question.</span></p>
+    <p><span class="en">You can also find it on AlternativeTo, the directory of apps and their alternatives.</span></p>
+    <a class="alternativeto" href="https://alternativeto.net/software/aurora-hardware-monitor/about/?utm_source=badge&amp;utm_medium=referral" rel="noopener"><img src="/img/alternativeto.svg" alt="Aurora Hardware Monitor | AlternativeTo" width="244" height="83" loading="lazy"></a>
     <p><span class="en">This page counts its visitors with Cloudflare, with no cookies and nothing that identifies anyone; the app itself knows nothing about any of it.</span></p>
     <p><span class="en">Open-source libraries used: LibreHardwareMonitor, HidSharp, PresentMon, and the Orbitron, Rajdhani, Teko, Chakra Petch and Exo 2&nbsp;fonts. Their licences ship with the installation.</span></p>
   </div>
